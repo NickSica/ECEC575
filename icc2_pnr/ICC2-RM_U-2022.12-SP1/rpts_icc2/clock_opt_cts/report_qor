@@ -1,0 +1,142 @@
+****************************************
+Report : qor
+Design : FIFO
+Version: U-2022.12-SP1
+Date   : Mon Feb 13 16:55:35 2023
+****************************************
+Information: The stitching and editing of coupling caps is turned OFF for design 'FIFO.dlib:FIFO/clock_opt_cts.design'. (TIM-125)
+Information: Design FIFO has 921 nets, 0 global routed, 6 detail routed. (NEX-024)
+Information: The RC mode used is CTO for design 'FIFO'. (NEX-022)
+Information: Design Average RC for design FIFO  (NEX-011)
+Information: r = 0.836726 ohm/um, via_r = 0.408200 ohm/cut, c = 0.115789 ff/um, cc = 0.000000 ff/um (X dir) (NEX-017)
+Information: r = 0.801448 ohm/um, via_r = 0.377771 ohm/cut, c = 0.114685 ff/um, cc = 0.000000 ff/um (Y dir) (NEX-017)
+Information: Update timing completed net estimation for all the timing graph nets (TIM-111)
+Information: Net estimation statistics: timing graph nets = 919, routed nets = 6, across physical hierarchy nets = 0, parasitics cached nets = 919, delay annotated nets = 0, parasitics annotated nets = 0, multi-voltage nets = 74. (TIM-112)
+Information: Timer using 'CRPR'. (TIM-050)
+
+
+Scenario           'default.ss_m40c'
+Timing Path Group  '**in2reg_default**'
+----------------------------------------
+Levels of Logic:                      6
+Critical Path Length:             0.708
+Critical Path Slack:             14.290
+Critical Path Clk Period:        15.200
+Total Negative Slack:             0.000
+No. of Violating Paths:               0
+Worst Hold Violation:             0.000
+Total Hold Violation:             0.000
+No. of Hold Violations:               0
+----------------------------------------
+
+Scenario           'default.ss_m40c'
+Timing Path Group  '**reg2out_default**'
+----------------------------------------
+Levels of Logic:                      5
+Critical Path Length:             0.690
+Critical Path Slack:             14.405
+Critical Path Clk Period:        15.200
+Total Negative Slack:             0.000
+No. of Violating Paths:               0
+Worst Hold Violation:             0.000
+Total Hold Violation:             0.000
+No. of Hold Violations:               0
+----------------------------------------
+
+Scenario           'default.ss_m40c'
+Timing Path Group  'ideal_clock1'
+----------------------------------------
+Levels of Logic:                     32
+Critical Path Length:             2.048
+Critical Path Slack:             13.043
+Critical Path Clk Period:        15.200
+Total Negative Slack:             0.000
+No. of Violating Paths:               0
+Worst Hold Violation:             0.000
+Total Hold Violation:             0.000
+No. of Hold Violations:               0
+----------------------------------------
+
+
+Cell Count
+----------------------------------------
+Hierarchical Cell Count:              5
+Hierarchical Port Count:            400
+Leaf Cell Count:                    793
+Buf/Inv Cell Count:                  65
+Buf Cell Count:                      18
+Inv Cell Count:                      47
+CT Buf/Inv Cell Count:                0
+Combinational Cell Count:           564
+   Single-bit Isolation Cell Count:                        0
+   Multi-bit Isolation Cell Count:                         0
+   Isolation Cell Banking Ratio:                           0.00%
+   Single-bit Level Shifter Cell Count:                    0
+   Multi-bit Level Shifter Cell Count:                     0
+   Level Shifter Cell Banking Ratio:                       0.00%
+   Single-bit ELS Cell Count:                              0
+   Multi-bit ELS Cell Count:                               0
+   ELS Cell Banking Ratio:                                 0.00%
+Sequential Cell Count:              229
+   Integrated Clock-Gating Cell Count:                     0
+   Sequential Macro Cell Count:                            0
+   Single-bit Sequential Cell Count:                       229
+   Multi-bit Sequential Cell Count:                        0
+   Sequential Cell Banking Ratio:                          0.00%
+   BitsPerflop:                                            1.00
+Macro Count:                          0
+----------------------------------------
+
+
+Area
+----------------------------------------
+Combinational Area:            1918.080
+Noncombinational Area:         1693.800
+Buf/Inv Area:                   100.080
+Total Buffer Area:               49.320
+Total Inverter Area:             50.760
+Macro/Black Box Area:             0.000
+Net Area:                             0
+Net XLength:                   6237.320
+Net YLength:                   6709.833
+----------------------------------------
+Cell Area (netlist):                          3611.880
+Cell Area (netlist and physical only):        3611.880
+Net Length:                   12947.153
+
+
+Design Rules
+----------------------------------------
+Total Number of Nets:               921
+Nets with Violations:                 0
+Max Trans Violations:                 0
+Max Cap Violations:                   0
+----------------------------------------
+
+1
+****************************************
+Report : qor
+        -summary
+Design : FIFO
+Version: U-2022.12-SP1
+Date   : Mon Feb 13 16:55:35 2023
+****************************************
+Information: Timer using 'CRPR'. (TIM-050)
+
+Timing
+---------------------------------------------------------------------------
+Context                                 WNS            TNS            NVE
+---------------------------------------------------------------------------
+default.ss_m40c    (Setup)           13.043          0.000              0
+Design             (Setup)           13.043          0.000              0
+
+default.ss_m40c    (Hold)             0.002          0.000              0
+Design             (Hold)             0.002          0.000              0
+---------------------------------------------------------------------------
+
+Miscellaneous
+---------------------------------------------------------------------------
+Cell Area (netlist):                          3611.880
+Cell Area (netlist and physical only):        3611.880
+Nets with DRC Violations:        0
+1

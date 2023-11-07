@@ -1,0 +1,41 @@
+ Info: Initializing timer in CLOCK_SYN_REPORT_MODE
+Information: The value of option cts.compile.enable_cell_relocation has been overridden to "leaf_only" to support latency-driven placement. (CTS-973)
+Information: Activity for scenario default.ss_m40c was cached, no propagation required. (POW-005)
+Warning: time.si_enable_analysis is on, it could increase the runtime and memory usage. 
+Information: Activity for scenario default.ss_m40c was cached, no propagation required. (POW-005)
+****************************************
+Report : clock qor
+        -type summary
+        -nosplit
+Design : FIFO
+Version: U-2022.12-SP1
+Date   : Mon Feb 13 16:57:48 2023
+****************************************
+
+Attributes
+===========
+M Master Clock
+G Generated Clock
+& Internal Generated Clock
+U User Defined Skew Group
+D Default Skew Group
+* Generated Clock Balanced Separately
+
+Information: Activity for scenario default.ss_m40c was cached, no propagation required. (POW-005)
+==============================================
+==== Summary Reporting for Corner ss_m40c ====
+==============================================
+
+=========================================================== Summary Table for Corner ss_m40c ===========================================================
+Clock /                               Attrs     Sinks Levels    Clock     Clock     Clock       Max    Global  Trans DRC  Cap DRC      Wire
+Skew Group                                                   Repeater  Repeater   Stdcell   Latency      Skew     Count     Count    Length
+                                                                Count      Area      Area
+--------------------------------------------------------------------------------------------------------------------------------------------------------
+### Mode: default, Scenario: default.ss_m40c
+ideal_clock1                            M,D       229      2        5    25.560    25.560     0.058     0.020         0         0  1119.005
+--------------------------------------------------------------------------------------------------------------------------------------------------------
+All Clocks                                        229      2        5    25.560    25.560     0.058     0.020         0         0  1119.005
+
+
+Warning: Please use -largest / -smallest / -all switches with -show_verbose_paths / -show_paths to report the clock paths. (CTS-956)
+1

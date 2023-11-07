@@ -1,0 +1,144 @@
+{
+  "WNS": {
+    "group": "Setup",
+    "tooltip": "Worst negative slack (all setup scenarios)",
+    "absThreshold": "0.01",
+    "improves": "larger"
+  },
+  "TNS": {
+    "group": "Setup",
+    "tooltip": "Total negative slack (all setup scenarios)",
+    "absThreshold": "5.0",
+    "improves": "larger"
+  },
+  "NVE": {
+    "group": "Setup",
+    "tooltip": "Number of violating endpoints (all setup scenarios)",
+    "absThreshold": "30.0"
+  },
+  "r2rWNS": {
+    "group": "Setup",
+    "tooltip": "reg-to-reg worst negative slack (all setup scenarios)",
+    "absThreshold": "0.01",
+    "improves": "larger"
+  },
+  "r2rTNS": {
+    "group": "Setup",
+    "tooltip": "reg-to-reg total negative slack (all setup scenarios)",
+    "absThreshold": "5.0",
+    "improves": "larger"
+  },
+  "r2rNVE": {
+    "group": "Setup",
+    "tooltip": "reg-to-reg number of violating endpoints (all setup scenarios)",
+    "absThreshold": "30.0"
+  },
+  "HWNS": {
+    "group": "Hold",
+    "tooltip": "Hold worst negative slack (all hold scenarios)",
+    "absThreshold": "0.01",
+    "improves": "larger"
+  },
+  "HTNS": {
+    "group": "Hold",
+    "tooltip": "Hold total negative slack (all hold scenarios)",
+    "absThreshold": "5.0",
+    "improves": "larger"
+  },
+  "HNVE": {
+    "group": "Hold",
+    "tooltip": "Hold number of violating endpoints (all hold scenarios)",
+    "absThreshold": "30.0"
+  },
+  "TranDRCs": {
+    "group": "Logical DRCs",
+    "tooltip": "Transition DRC violating net count",
+    "absThreshold": "100.0"
+  },
+  "CapDRCs": {
+    "group": "Logical DRCs",
+    "tooltip": "Capacitance DRC violating net count",
+    "absThreshold": "10.0"
+  },
+  "StdCellArea": {
+    "group": "Netlist",
+    "tooltip": "Sum of the 'Combinational area' and 'Noncombinational area' from report_qor",
+    "lightPct": "0.003",
+    "medPct": "0.01",
+    "darkPct": "0.04"
+  },
+  "StdCells": {
+    "group": "Netlist",
+    "tooltip": "Standard cell count (excluding physical-only cells)"
+  },
+  "HBufs": {
+    "group": "Netlist",
+    "tooltip": "Hold Buffer Count",
+    "absThreshold": "100.0"
+  },
+  "Util": {
+    "group": "Netlist",
+    "tooltip": "Overall utilization (all site defs)",
+    "lightPct": "0.003",
+    "medPct": "0.01",
+    "darkPct": "0.04"
+  },
+  "TotalPwr": {
+    "group": "Power",
+    "tooltip": "Total power (leakage + internal + switching, no glitch power) for the critical power scenarios.  By default this is the active leakage or dynamic scenario with the highest total power.  It is printed in the logfile RPT-009 message."
+  },
+  "LeakPwr": {
+    "group": "Power",
+    "tooltip": "Leakage power for the critical leakage power scenario.  It is printed in the logfile RPT-009 message."
+  },
+  "Gated%": {
+    "group": "Power",
+    "tooltip": "Percentage of total registers that are gated",
+    "improves": "larger"
+  },
+  "Bits/Flop": {
+    "group": "Power",
+    "tooltip": "Average number of bits per flop from banking",
+    "improves": "larger"
+  },
+  "RoutedWireLen": {
+    "group": "Routability",
+    "tooltip": "'Total Routed Wire Length' from check_routes"
+  },
+  "Overflow%": {
+    "group": "Routability",
+    "tooltip": "Percentage of GRCs that contain any amount of global routing overflows"
+  },
+  "TotDRC": {
+    "group": "Routability",
+    "tooltip": "Routing DRCs",
+    "absThreshold": "50.0"
+  },
+  "ShortDRC": {
+    "group": "Routability",
+    "tooltip": "Short DRCs",
+    "absThreshold": "30.0"
+  },
+  "CritLtncy": {
+    "group": "Clock Trees",
+    "tooltip": "Critical clock max latency.  This clock can be specified by 'set_qor_data_options -clock_name -clock_scenario'.  By default, critical clock is determined by finding all clocks within 90% of maximum sink count, filtering for the smallest clock period, then filtering for largest latency.  The 'Clock' summary table shows the name of this clock at each stage.",
+    "absThreshold": "0.01"
+  },
+  "CritSkew": {
+    "group": "Clock Trees",
+    "tooltip": "Critical clock max skew.  This clock can be specified by 'set_qor_data_options -clock_name -clock_scenario'.  By default, critical clock is determined by finding all clocks within 90% of maximum sink count, filtering for the smallest clock period, then filtering for largest latency.  The 'Clock' summary table shows the name of this clock at each stage.",
+    "absThreshold": "0.01"
+  },
+  "ClkArea": {
+    "group": "Clock Trees",
+    "tooltip": "Clock cell area (all clocks)"
+  },
+  "TotalRun": {
+    "group": "Runtime",
+    "tooltip": "Cumulative flow runtime -- the sum of StageRun for this and all previous stages/labels"
+  },
+  "StageRun": {
+    "group": "Runtime",
+    "tooltip": "Total runtime for this stage/label.  StageRun = PreRun + CmdRun + RptRun + PostRun (these components shown in the Performance panel)"
+  }
+}

@@ -1,0 +1,29 @@
+
+Version 2.07
+
+Running report_qor -pba_mode none -nosplit ; report_qor -pba_mode none -nosplit -summary ... Done
+
+NVP    - No. of Violating Paths
+FREQ   - Estimated Frequency, not accurate in some cases, multi/half-cycle, etc
+WNS(H) - Hold WNS
+TNS(H) - Hold TNS
+NVP(H) - Hold NVP
+
+Path Group                                    WNS        TNS     NVP      FREQ      WNS(H)     TNS(H)  NVP(H)
+-------------------------------------------------------------------------------------------------------------
+ideal_clock1(default.ss_m40c)              13.043        0.0       0     464MHz      0.000        0.0       0
+**in2reg_default**(default.ss_m40c)        14.290        0.0       0    1099MHz      0.000        0.0       0
+**reg2out_default**(default.ss_m40c)       14.405        0.0       0    1258MHz      0.000        0.0       0
+-------------------------------------------------------------------------------------------------------------
+Summary                                    13.043        0.0       0     464MHz      0.002        0.0       0
+-------------------------------------------------------------------------------------------------------------
+    CAP  FANOUT    TRAN                      TDRC      CELLA    BUFS     LEAFS       TNETS      CTBUF    REGS
+-------------------------------------------------------------------------------------------------------------
+      0       0       0                         0       3611      ~K        0K          ~K          ~     229
+-------------------------------------------------------------------------------------------------------------
+Written qor.csv
+
+Starting  Histogram (proc_histogram) 1.13
+
+Acquiring GBA Endpoints (Slack < 0.0) - ignores REGOUT ... 
+No Violations or Not enough Violations Found

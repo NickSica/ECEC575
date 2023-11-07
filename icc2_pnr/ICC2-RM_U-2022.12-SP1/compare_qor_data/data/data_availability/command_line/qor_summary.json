@@ -1,0 +1,8 @@
+{
+  "command_line command_line Run1 init_design": true,
+  "command_line command_line Run1 place_opt": true,
+  "command_line command_line Run1 clock_opt_cts": true,
+  "command_line command_line Run1 clock_opt_opto": true,
+  "command_line command_line Run1 route_auto": true,
+  "command_line command_line Run1 route_opt": true
+}

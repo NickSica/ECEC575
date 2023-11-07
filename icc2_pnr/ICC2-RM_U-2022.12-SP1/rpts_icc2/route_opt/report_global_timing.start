@@ -1,0 +1,18 @@
+Information: Timer using 'PrimeTime Delay Calculation, SI, Timing Window Analysis, AWP, CRPR, PBA Mode Path'. (TIM-050)
+****************************************
+Report : global timing
+        -format { narrow }
+        -report_by design
+        -pba_mode path
+Design : FIFO
+Version: U-2022.12-SP1
+Date   : Mon Feb 13 16:57:23 2023
+****************************************
+
+No setup violations found.
+
+
+No hold violations found.
+
+
+1

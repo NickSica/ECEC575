@@ -1,0 +1,64 @@
+{
+  "Freq": {
+    "group": "Setup",
+    "tooltip": "Frequency of the worst negative slack setup path in this path group",
+    "absThreshold": "10",
+    "improves": "larger"
+  },
+  "WNS": {
+    "group": "Setup",
+    "tooltip": "Worst negative slack (all setup scenarios)",
+    "absThreshold": "0.01",
+    "improves": "larger"
+  },
+  "TNS": {
+    "group": "Setup",
+    "tooltip": "Total negative slack (all setup scenarios)",
+    "absThreshold": "5.0",
+    "improves": "larger"
+  },
+  "NVE": {
+    "group": "Setup",
+    "tooltip": "Number of violating endpoints (all setup scenarios)",
+    "absThreshold": "30.0"
+  },
+  "Levels": {
+    "group": "Worst Path",
+    "tooltip": "Levels of Logic in the worst path",
+    "lightPct": "0.2",
+    "medPct": "0.35",
+    "darkPct": "0.50",
+    "absThreshold": "3"
+  },
+  "Length": {
+    "group": "Worst Path",
+    "tooltip": "Path length of the worst path"
+  },
+  "Period": {
+    "group": "Worst Path",
+    "tooltip": "Clock period of the worst path",
+    "color": "different"
+  },
+  "Weight": {
+    "group": "Weight",
+    "tooltip": "Path group weight set by the group_path command",
+    "color": "different"
+  },
+  "HWNS": {
+    "group": "Hold",
+    "tooltip": "Hold worst negative slack (all hold scenarios)",
+    "absThreshold": "0.01",
+    "improves": "larger"
+  },
+  "HTNS": {
+    "group": "Hold",
+    "tooltip": "Hold total negative slack (all hold scenarios)",
+    "absThreshold": "5.0",
+    "improves": "larger"
+  },
+  "HNVE": {
+    "group": "Hold",
+    "tooltip": "Hold number of violating endpoints (all hold scenarios)",
+    "absThreshold": "30.0"
+  }
+}

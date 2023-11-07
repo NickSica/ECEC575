@@ -1,0 +1,93 @@
+ Info: Initializing timer in CLOCK_SYN_REPORT_MODE
+Information: The value of option cts.compile.enable_cell_relocation has been overridden to "leaf_only" to support latency-driven placement. (CTS-973)
+Information: Timer using 1 threads
+****************************************
+Report : clock qor
+        -type drc_violators
+        -all
+        -nosplit
+Design : FIFO
+Version: U-2022.12-SP1
+Date   : Mon Feb 13 16:56:25 2023
+****************************************
+
+Attributes
+===========
+M Master Clock
+G Generated Clock
+& Internal Generated Clock
+U User Defined Skew Group
+D Default Skew Group
+* Generated Clock Balanced Separately
+
+==========================================
+==== DRC Reporting for Corner ss_m40c ====
+==========================================
+
+======================================================================= Summary Table for Corner ss_m40c =======================================================================
+Clock /                               Attrs      Sink  DRC Count Max Slack Tot Slack DRC Count Max Slack Tot Slack DRC Count Max Slack Tot Slack DRC Count Max Slack Tot Slack
+Skew Group                                      Count     Trans     Trans     Trans       Cap       Cap       Cap    Fanout    Fanout    Fanout  Netlength Netlength Netlength
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+### Mode: default, Scenario: default.ss_m40c
+ideal_clock1                              M       229         0        --        --         0        --        --         0        --        --         0        --        --
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+All Clocks                                        229         0        --     0.000         0        --     0.000         0        --     0.000         0        --     0.000
+
+
+Legends for CTS Tags Column
+===========================
+
+clk        =  master clock source point
+gclk       =  generated clock source point
+sink       =  default sinks of clock for CTS, not user defined balance points
+icg        =  input of an ICG
+bal        =  user defined clock balance point
+e_ign      =  user defined explicit ignore point
+i_ign      =  CTS derived implicit ignore point
+trans      =  transition violation
+cap        =  capacitance violation
+dt_lib     =  library specified dont_touch on cell
+dt_cell    =  set_dont_touch on cell
+dt_net     =  set_dont_touch on net
+dt_mv_cell =  MV derived dont_touch on cell
+dt_mv_net  =  MV derived dont_touch on net
+dt_subtree =  dont_touch_subtree derived dont_touch
+hier       =  on hierarchy boundary or inside physical hierarchy
+
+
+Showing all datapoints per clock / skew group
+============================= Transition Violation Details Table for Corner ss_m40c =============================
+Clock /                                Net Name/           Trans DRC    Trans     Trans     Limit      CTS Tags
+Skew Group                             Pin/Port Name          Slack     Value     Limit      Type
+-----------------------------------------------------------------------------------------------------------------
+### Mode: default, Scenario: default.ss_m40c
+
+
+
+Showing all datapoints per clock / skew group
+============================ Capacitance Violation Details Table for Corner ss_m40c =============================
+Clock /                                Net Name/            Cap DRC       Cap       Cap     Limit      CTS Tags
+Skew Group                             Pin/Port Name          Slack     Value     Limit      Type
+-----------------------------------------------------------------------------------------------------------------
+### Mode: default, Scenario: default.ss_m40c
+
+
+
+Showing all datapoints per clock / skew group
+=============================== Fanout Violation Details Table for Corner ss_m40c ===============================
+Clock /                                Net Name/           Fanout DRC   Fanout   Fanout     Limit      CTS Tags
+Skew Group                             Pin/Port Name          Slack     Value     Limit      Type
+-----------------------------------------------------------------------------------------------------------------
+### Mode: default, Scenario: default.ss_m40c
+
+
+
+Showing all datapoints per clock / skew group
+============================= Net Length Violation Details Table for Corner ss_m40c =============================
+Clock /                                Net Name/           Netlength DRC Netlength Netlength    Limit  CTS Tags
+Skew Group                             Pin/Port Name          Slack     Value     Limit      Type
+-----------------------------------------------------------------------------------------------------------------
+### Mode: default, Scenario: default.ss_m40c
+
+
+1

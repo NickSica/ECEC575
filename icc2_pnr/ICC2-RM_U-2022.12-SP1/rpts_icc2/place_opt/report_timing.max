@@ -1,0 +1,69 @@
+SI analysis is not enabled, so delta delays are unavailable.
+****************************************
+Report : timing
+        -path_type full
+        -delay_type max
+        -max_paths 1
+        -report_by group
+        -nosplit
+        -input_pins
+        -nets
+        -transition_time
+        -capacitance
+        -crosstalk_delta
+        -derate
+        -attributes
+        -physical
+Design : FIFO
+Version: U-2022.12-SP1
+Date   : Wed Feb 15 17:00:28 2023
+****************************************
+Information: Timer using 'CRPR'. (TIM-050)
+
+  Startpoint: RstN (input port clocked by ideal_clock1)
+  Endpoint: fcounter_reg[19] (recovery check against rising-edge clock clocked by ideal_clock1)
+  Mode: default
+  Corner: ss_m40c
+  Scenario: default.ss_m40c
+  Path Group: **in2reg_default**
+  Path Type: max
+
+
+Attributes
+    b - black-box (unknown)
+    s - size_only
+    d - dont_touch
+    u - dont_use
+    g - generic
+    h - hierarchical
+    i - ideal
+    n - noncombinational
+    E - extracted timing model
+    Q - Quick timing model
+
+
+  Point                                          Fanout     Cap       Trans     Derate    Delta     Incr       Path           Location       Attributes
+  -----------------------------------------------------------------------------------------------------------------------------------------------------------
+  clock ideal_clock1 (rise edge)                                                                    0.000      0.000
+  clock network delay (ideal)                                                                       0.000      0.000
+  input external delay                                                                              0.100      0.100 r
+  RstN (in)                                                           0.000      1.000              0.000      0.100 r    (75.19,0.14)
+  RstN (net)                                       11     19.589
+  fcounter_reg[19]/RSTB (DFFARX1_RVT)                                 0.003      1.000              0.002      0.102 r    (unplaced)        s, n
+  data arrival time                                                                                            0.102
+
+  clock ideal_clock1 (rise edge)                                                                   15.200     15.200
+  clock network delay (ideal)                                                                       0.000     15.200
+  clock reconvergence pessimism                                                                     0.000     15.200
+  fcounter_reg[19]/CLK (DFFARX1_RVT)                                  0.000      1.000              0.000     15.200 r    (unplaced)        s, n
+  clock uncertainty                                                                                -0.100     15.100
+  library setup time                                                             1.000              0.098     15.198
+  data required time                                                                                          15.198
+  -----------------------------------------------------------------------------------------------------------------------------------------------------------
+  data required time                                                                                          15.198
+  data arrival time                                                                                           -0.102
+  -----------------------------------------------------------------------------------------------------------------------------------------------------------
+  slack (MET)                                                                                                 15.097
+
+
+1

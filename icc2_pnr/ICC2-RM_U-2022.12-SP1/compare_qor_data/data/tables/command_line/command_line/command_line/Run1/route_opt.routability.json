@@ -1,0 +1,4 @@
+{
+  "columns": ["TotDRC", "ShortDRC", "SpaceDRC", "ViaConv%", "Wires", "Vias", "PtConns", "RoutedWireLen", "RoutedWires", "RoutedVias"],
+  "values": ["0", ".", ".", "0.59", "6837", "7083", "1414", "12307", "6837", "7083"]
+}

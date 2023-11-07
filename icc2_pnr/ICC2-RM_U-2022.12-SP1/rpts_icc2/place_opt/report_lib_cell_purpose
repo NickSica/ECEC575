@@ -1,0 +1,303 @@
+****************************************
+Report : lib_cell
+Version: U-2022.12-SP1
+Date   : Wed Feb 15 17:00:26 2023
+****************************************
+
+full_name            valid_purposes             
+-------------------- ---------------------------
+saed32rvt_frame_timing_ccs/AND2X1_RVT power hold optimization    
+saed32rvt_frame_timing_ccs/AND2X2_RVT power hold optimization    
+saed32rvt_frame_timing_ccs/AND2X4_RVT power hold optimization    
+saed32rvt_frame_timing_ccs/AND3X1_RVT power hold optimization    
+saed32rvt_frame_timing_ccs/AND3X2_RVT power hold optimization    
+saed32rvt_frame_timing_ccs/AND3X4_RVT power hold optimization    
+saed32rvt_frame_timing_ccs/AND4X1_RVT power hold optimization    
+saed32rvt_frame_timing_ccs/AND4X2_RVT power hold optimization    
+saed32rvt_frame_timing_ccs/AND4X4_RVT power hold optimization    
+saed32rvt_frame_timing_ccs/ANTENNA_RVT                            
+saed32rvt_frame_timing_ccs/AO21X1_RVT power hold optimization    
+saed32rvt_frame_timing_ccs/AO21X2_RVT power hold optimization    
+saed32rvt_frame_timing_ccs/AO221X1_RVT power hold optimization    
+saed32rvt_frame_timing_ccs/AO221X2_RVT power hold optimization    
+saed32rvt_frame_timing_ccs/AO222X1_RVT power hold optimization    
+saed32rvt_frame_timing_ccs/AO222X2_RVT power hold optimization    
+saed32rvt_frame_timing_ccs/AO22X1_RVT power hold optimization    
+saed32rvt_frame_timing_ccs/AO22X2_RVT power hold optimization    
+saed32rvt_frame_timing_ccs/AOBUFX1_RVT cts                        
+saed32rvt_frame_timing_ccs/AOBUFX2_RVT cts                        
+saed32rvt_frame_timing_ccs/AOBUFX4_RVT cts                        
+saed32rvt_frame_timing_ccs/AODFFARX1_RVT                            
+saed32rvt_frame_timing_ccs/AODFFARX2_RVT                            
+saed32rvt_frame_timing_ccs/AODFFNARX1_RVT                            
+saed32rvt_frame_timing_ccs/AODFFNARX2_RVT                            
+saed32rvt_frame_timing_ccs/AOI21X1_RVT power hold optimization    
+saed32rvt_frame_timing_ccs/AOI21X2_RVT power hold optimization    
+saed32rvt_frame_timing_ccs/AOI221X1_RVT power hold optimization    
+saed32rvt_frame_timing_ccs/AOI221X2_RVT power hold optimization    
+saed32rvt_frame_timing_ccs/AOI222X1_RVT power hold optimization    
+saed32rvt_frame_timing_ccs/AOI222X2_RVT power hold optimization    
+saed32rvt_frame_timing_ccs/AOI22X1_RVT power hold optimization    
+saed32rvt_frame_timing_ccs/AOI22X2_RVT power hold optimization    
+saed32rvt_frame_timing_ccs/AOINVX1_RVT cts                        
+saed32rvt_frame_timing_ccs/AOINVX2_RVT cts                        
+saed32rvt_frame_timing_ccs/AOINVX4_RVT cts                        
+saed32rvt_frame_timing_ccs/BSLEX1_RVT power hold optimization    
+saed32rvt_frame_timing_ccs/BSLEX2_RVT power hold optimization    
+saed32rvt_frame_timing_ccs/BSLEX4_RVT power hold optimization    
+saed32rvt_frame_timing_ccs/BUSKP_RVT                            
+saed32rvt_frame_timing_ccs/CGLNPRX2_RVT                            
+saed32rvt_frame_timing_ccs/CGLNPRX8_RVT                            
+saed32rvt_frame_timing_ccs/CGLNPSX16_RVT                            
+saed32rvt_frame_timing_ccs/CGLNPSX2_RVT                            
+saed32rvt_frame_timing_ccs/CGLNPSX4_RVT                            
+saed32rvt_frame_timing_ccs/CGLNPSX8_RVT                            
+saed32rvt_frame_timing_ccs/CGLPPRX2_RVT power hold optimization    
+saed32rvt_frame_timing_ccs/CGLPPRX8_RVT power hold optimization    
+saed32rvt_frame_timing_ccs/CGLPPSX16_RVT                            
+saed32rvt_frame_timing_ccs/CGLPPSX2_RVT                            
+saed32rvt_frame_timing_ccs/CGLPPSX4_RVT                            
+saed32rvt_frame_timing_ccs/CGLPPSX8_RVT                            
+saed32rvt_frame_timing_ccs/CLOAD1_RVT                            
+saed32rvt_frame_timing_ccs/DCAP_RVT                            
+saed32rvt_frame_timing_ccs/DEC24X1_RVT power hold optimization    
+saed32rvt_frame_timing_ccs/DEC24X2_RVT power hold optimization    
+saed32rvt_frame_timing_ccs/DELLN1X2_RVT power hold optimization    
+saed32rvt_frame_timing_ccs/DELLN2X2_RVT power hold optimization    
+saed32rvt_frame_timing_ccs/DELLN3X2_RVT power hold optimization    
+saed32rvt_frame_timing_ccs/DFFARX1_RVT power hold optimization    
+saed32rvt_frame_timing_ccs/DFFARX2_RVT power hold optimization    
+saed32rvt_frame_timing_ccs/DFFASRX1_RVT power hold optimization    
+saed32rvt_frame_timing_ccs/DFFASRX2_RVT power hold optimization    
+saed32rvt_frame_timing_ccs/DFFASX1_RVT power hold optimization    
+saed32rvt_frame_timing_ccs/DFFASX2_RVT power hold optimization    
+saed32rvt_frame_timing_ccs/DFFNARX1_RVT power hold optimization    
+saed32rvt_frame_timing_ccs/DFFNARX2_RVT power hold optimization    
+saed32rvt_frame_timing_ccs/DFFNASRNX1_RVT power hold optimization    
+saed32rvt_frame_timing_ccs/DFFNASRNX2_RVT power hold optimization    
+saed32rvt_frame_timing_ccs/DFFNASRQX1_RVT power hold optimization    
+saed32rvt_frame_timing_ccs/DFFNASRQX2_RVT power hold optimization    
+saed32rvt_frame_timing_ccs/DFFNASRX1_RVT power hold optimization    
+saed32rvt_frame_timing_ccs/DFFNASRX2_RVT power hold optimization    
+saed32rvt_frame_timing_ccs/DFFNASX1_RVT power hold optimization    
+saed32rvt_frame_timing_ccs/DFFNASX2_RVT power hold optimization    
+saed32rvt_frame_timing_ccs/DFFNX1_RVT power hold optimization    
+saed32rvt_frame_timing_ccs/DFFNX2_RVT power hold optimization    
+saed32rvt_frame_timing_ccs/DFFSSRX1_RVT power hold optimization    
+saed32rvt_frame_timing_ccs/DFFSSRX2_RVT power hold optimization    
+saed32rvt_frame_timing_ccs/DFFX1_RVT power hold optimization    
+saed32rvt_frame_timing_ccs/DFFX2_RVT power hold optimization    
+saed32rvt_frame_timing_ccs/DHFILLH2_RVT                            
+saed32rvt_frame_timing_ccs/DHFILLHL2_RVT                            
+saed32rvt_frame_timing_ccs/DHFILLHLHLS11_RVT                            
+saed32rvt_frame_timing_ccs/FADDX1_RVT power hold optimization    
+saed32rvt_frame_timing_ccs/FADDX2_RVT power hold optimization    
+saed32rvt_frame_timing_ccs/HADDX1_RVT power hold optimization    
+saed32rvt_frame_timing_ccs/HADDX2_RVT power hold optimization    
+saed32rvt_frame_timing_ccs/IBUFFX16_RVT power hold optimization    
+saed32rvt_frame_timing_ccs/IBUFFX2_RVT power hold optimization    
+saed32rvt_frame_timing_ccs/IBUFFX32_RVT power hold optimization    
+saed32rvt_frame_timing_ccs/IBUFFX4_RVT power hold optimization    
+saed32rvt_frame_timing_ccs/IBUFFX8_RVT power hold optimization    
+saed32rvt_frame_timing_ccs/INVX0_RVT power hold optimization    
+saed32rvt_frame_timing_ccs/INVX16_RVT power hold optimization    
+saed32rvt_frame_timing_ccs/INVX1_RVT power hold optimization    
+saed32rvt_frame_timing_ccs/INVX2_RVT power hold optimization    
+saed32rvt_frame_timing_ccs/INVX32_RVT power hold optimization    
+saed32rvt_frame_timing_ccs/INVX4_RVT power hold optimization    
+saed32rvt_frame_timing_ccs/INVX8_RVT power hold optimization    
+saed32rvt_frame_timing_ccs/ISOLANDAOX1_RVT                            
+saed32rvt_frame_timing_ccs/ISOLANDAOX2_RVT                            
+saed32rvt_frame_timing_ccs/ISOLANDAOX4_RVT                            
+saed32rvt_frame_timing_ccs/ISOLANDAOX8_RVT                            
+saed32rvt_frame_timing_ccs/ISOLANDX1_RVT                            
+saed32rvt_frame_timing_ccs/ISOLANDX2_RVT                            
+saed32rvt_frame_timing_ccs/ISOLANDX4_RVT                            
+saed32rvt_frame_timing_ccs/ISOLANDX8_RVT                            
+saed32rvt_frame_timing_ccs/ISOLORAOX1_RVT                            
+saed32rvt_frame_timing_ccs/ISOLORAOX2_RVT                            
+saed32rvt_frame_timing_ccs/ISOLORAOX4_RVT                            
+saed32rvt_frame_timing_ccs/ISOLORAOX8_RVT                            
+saed32rvt_frame_timing_ccs/ISOLORX1_RVT                            
+saed32rvt_frame_timing_ccs/ISOLORX2_RVT                            
+saed32rvt_frame_timing_ccs/ISOLORX4_RVT                            
+saed32rvt_frame_timing_ccs/ISOLORX8_RVT                            
+saed32rvt_frame_timing_ccs/LARX1_RVT power hold optimization    
+saed32rvt_frame_timing_ccs/LARX2_RVT power hold optimization    
+saed32rvt_frame_timing_ccs/LASRNX1_RVT power hold optimization    
+saed32rvt_frame_timing_ccs/LASRNX2_RVT power hold optimization    
+saed32rvt_frame_timing_ccs/LASRQX1_RVT power hold optimization    
+saed32rvt_frame_timing_ccs/LASRQX2_RVT power hold optimization    
+saed32rvt_frame_timing_ccs/LASRX1_RVT power hold optimization    
+saed32rvt_frame_timing_ccs/LASRX2_RVT power hold optimization    
+saed32rvt_frame_timing_ccs/LASX1_RVT power hold optimization    
+saed32rvt_frame_timing_ccs/LASX2_RVT power hold optimization    
+saed32rvt_frame_timing_ccs/LATCHX1_RVT power hold optimization    
+saed32rvt_frame_timing_ccs/LATCHX2_RVT power hold optimization    
+saed32rvt_frame_timing_ccs/LNANDX1_RVT power hold optimization    
+saed32rvt_frame_timing_ccs/LNANDX2_RVT power hold optimization    
+saed32rvt_frame_timing_ccs/MUX21X1_RVT power hold optimization    
+saed32rvt_frame_timing_ccs/MUX21X2_RVT power hold optimization    
+saed32rvt_frame_timing_ccs/MUX41X1_RVT power hold optimization    
+saed32rvt_frame_timing_ccs/MUX41X2_RVT power hold optimization    
+saed32rvt_frame_timing_ccs/NAND2X0_RVT power hold optimization    
+saed32rvt_frame_timing_ccs/NAND2X1_RVT power hold optimization    
+saed32rvt_frame_timing_ccs/NAND2X2_RVT power hold optimization    
+saed32rvt_frame_timing_ccs/NAND2X4_RVT power hold optimization    
+saed32rvt_frame_timing_ccs/NAND3X0_RVT power hold optimization    
+saed32rvt_frame_timing_ccs/NAND3X1_RVT power hold optimization    
+saed32rvt_frame_timing_ccs/NAND3X2_RVT power hold optimization    
+saed32rvt_frame_timing_ccs/NAND3X4_RVT power hold optimization    
+saed32rvt_frame_timing_ccs/NAND4X0_RVT power hold optimization    
+saed32rvt_frame_timing_ccs/NAND4X1_RVT power hold optimization    
+saed32rvt_frame_timing_ccs/NBUFFX16_RVT power hold cts optimization
+saed32rvt_frame_timing_ccs/NBUFFX2_RVT power hold cts optimization
+saed32rvt_frame_timing_ccs/NBUFFX32_RVT power hold cts optimization
+saed32rvt_frame_timing_ccs/NBUFFX4_RVT power hold cts optimization
+saed32rvt_frame_timing_ccs/NBUFFX8_RVT power hold cts optimization
+saed32rvt_frame_timing_ccs/NMT1_RVT power hold optimization    
+saed32rvt_frame_timing_ccs/NMT2_RVT power hold optimization    
+saed32rvt_frame_timing_ccs/NMT3_RVT power hold optimization    
+saed32rvt_frame_timing_ccs/NOR2X0_RVT power hold optimization    
+saed32rvt_frame_timing_ccs/NOR2X1_RVT power hold optimization    
+saed32rvt_frame_timing_ccs/NOR2X2_RVT power hold optimization    
+saed32rvt_frame_timing_ccs/NOR2X4_RVT power hold optimization    
+saed32rvt_frame_timing_ccs/NOR3X0_RVT power hold optimization    
+saed32rvt_frame_timing_ccs/NOR3X1_RVT power hold optimization    
+saed32rvt_frame_timing_ccs/NOR3X2_RVT power hold optimization    
+saed32rvt_frame_timing_ccs/NOR3X4_RVT power hold optimization    
+saed32rvt_frame_timing_ccs/NOR4X0_RVT power hold optimization    
+saed32rvt_frame_timing_ccs/NOR4X1_RVT power hold optimization    
+saed32rvt_frame_timing_ccs/OA21X1_RVT power hold optimization    
+saed32rvt_frame_timing_ccs/OA21X2_RVT power hold optimization    
+saed32rvt_frame_timing_ccs/OA221X1_RVT power hold optimization    
+saed32rvt_frame_timing_ccs/OA221X2_RVT power hold optimization    
+saed32rvt_frame_timing_ccs/OA222X1_RVT power hold optimization    
+saed32rvt_frame_timing_ccs/OA222X2_RVT power hold optimization    
+saed32rvt_frame_timing_ccs/OA22X1_RVT power hold optimization    
+saed32rvt_frame_timing_ccs/OA22X2_RVT power hold optimization    
+saed32rvt_frame_timing_ccs/OAI21X1_RVT power hold optimization    
+saed32rvt_frame_timing_ccs/OAI21X2_RVT power hold optimization    
+saed32rvt_frame_timing_ccs/OAI221X1_RVT power hold optimization    
+saed32rvt_frame_timing_ccs/OAI221X2_RVT power hold optimization    
+saed32rvt_frame_timing_ccs/OAI222X1_RVT power hold optimization    
+saed32rvt_frame_timing_ccs/OAI222X2_RVT power hold optimization    
+saed32rvt_frame_timing_ccs/OAI22X1_RVT power hold optimization    
+saed32rvt_frame_timing_ccs/OAI22X2_RVT power hold optimization    
+saed32rvt_frame_timing_ccs/OR2X1_RVT power hold optimization    
+saed32rvt_frame_timing_ccs/OR2X2_RVT power hold optimization    
+saed32rvt_frame_timing_ccs/OR2X4_RVT power hold optimization    
+saed32rvt_frame_timing_ccs/OR3X1_RVT power hold optimization    
+saed32rvt_frame_timing_ccs/OR3X2_RVT power hold optimization    
+saed32rvt_frame_timing_ccs/OR3X4_RVT power hold optimization    
+saed32rvt_frame_timing_ccs/OR4X1_RVT power hold optimization    
+saed32rvt_frame_timing_ccs/OR4X2_RVT power hold optimization    
+saed32rvt_frame_timing_ccs/OR4X4_RVT power hold optimization    
+saed32rvt_frame_timing_ccs/PGX1_RVT power hold optimization    
+saed32rvt_frame_timing_ccs/PGX2_RVT power hold optimization    
+saed32rvt_frame_timing_ccs/PGX4_RVT power hold optimization    
+saed32rvt_frame_timing_ccs/PMT1_RVT power hold optimization    
+saed32rvt_frame_timing_ccs/PMT2_RVT power hold optimization    
+saed32rvt_frame_timing_ccs/PMT3_RVT power hold optimization    
+saed32rvt_frame_timing_ccs/RDFFARX1_RVT power hold optimization    
+saed32rvt_frame_timing_ccs/RDFFARX2_RVT power hold optimization    
+saed32rvt_frame_timing_ccs/RDFFNARX1_RVT power hold optimization    
+saed32rvt_frame_timing_ccs/RDFFNARX2_RVT power hold optimization    
+saed32rvt_frame_timing_ccs/RDFFNSRARX1_RVT power hold optimization    
+saed32rvt_frame_timing_ccs/RDFFNSRARX2_RVT power hold optimization    
+saed32rvt_frame_timing_ccs/RDFFNSRASRNX1_RVT power hold optimization    
+saed32rvt_frame_timing_ccs/RDFFNSRASRNX2_RVT power hold optimization    
+saed32rvt_frame_timing_ccs/RDFFNSRASRQX1_RVT power hold optimization    
+saed32rvt_frame_timing_ccs/RDFFNSRASRQX2_RVT power hold optimization    
+saed32rvt_frame_timing_ccs/RDFFNSRASRX1_RVT power hold optimization    
+saed32rvt_frame_timing_ccs/RDFFNSRASRX2_RVT power hold optimization    
+saed32rvt_frame_timing_ccs/RDFFNSRASX1_RVT power hold optimization    
+saed32rvt_frame_timing_ccs/RDFFNSRASX2_RVT power hold optimization    
+saed32rvt_frame_timing_ccs/RDFFNSRX1_RVT power hold optimization    
+saed32rvt_frame_timing_ccs/RDFFNSRX2_RVT power hold optimization    
+saed32rvt_frame_timing_ccs/RDFFNX1_RVT power hold optimization    
+saed32rvt_frame_timing_ccs/RDFFNX2_RVT power hold optimization    
+saed32rvt_frame_timing_ccs/RDFFSRARX1_RVT power hold optimization    
+saed32rvt_frame_timing_ccs/RDFFSRARX2_RVT power hold optimization    
+saed32rvt_frame_timing_ccs/RDFFSRASRX1_RVT power hold optimization    
+saed32rvt_frame_timing_ccs/RDFFSRASRX2_RVT power hold optimization    
+saed32rvt_frame_timing_ccs/RDFFSRASX1_RVT power hold optimization    
+saed32rvt_frame_timing_ccs/RDFFSRASX2_RVT power hold optimization    
+saed32rvt_frame_timing_ccs/RDFFSRSSRX1_RVT power hold optimization    
+saed32rvt_frame_timing_ccs/RDFFSRSSRX2_RVT                            
+saed32rvt_frame_timing_ccs/RDFFSRX1_RVT power hold optimization    
+saed32rvt_frame_timing_ccs/RDFFSRX2_RVT power hold optimization    
+saed32rvt_frame_timing_ccs/RDFFX1_RVT power hold optimization    
+saed32rvt_frame_timing_ccs/RDFFX2_RVT power hold optimization    
+saed32rvt_frame_timing_ccs/RSDFFARX1_RVT power hold optimization    
+saed32rvt_frame_timing_ccs/RSDFFARX2_RVT power hold optimization    
+saed32rvt_frame_timing_ccs/RSDFFNARX1_RVT power hold optimization    
+saed32rvt_frame_timing_ccs/RSDFFNARX2_RVT power hold optimization    
+saed32rvt_frame_timing_ccs/RSDFFNSRARX1_RVT power hold optimization    
+saed32rvt_frame_timing_ccs/RSDFFNSRARX2_RVT power hold optimization    
+saed32rvt_frame_timing_ccs/RSDFFNSRASRNX1_RVT power hold optimization    
+saed32rvt_frame_timing_ccs/RSDFFNSRASRNX2_RVT power hold optimization    
+saed32rvt_frame_timing_ccs/RSDFFNSRASRQX1_RVT power hold optimization    
+saed32rvt_frame_timing_ccs/RSDFFNSRASRQX2_RVT power hold optimization    
+saed32rvt_frame_timing_ccs/RSDFFNSRASRX1_RVT power hold optimization    
+saed32rvt_frame_timing_ccs/RSDFFNSRASRX2_RVT power hold optimization    
+saed32rvt_frame_timing_ccs/RSDFFNSRASX1_RVT power hold optimization    
+saed32rvt_frame_timing_ccs/RSDFFNSRASX2_RVT power hold optimization    
+saed32rvt_frame_timing_ccs/RSDFFNSRX1_RVT power hold optimization    
+saed32rvt_frame_timing_ccs/RSDFFNSRX2_RVT power hold optimization    
+saed32rvt_frame_timing_ccs/RSDFFNX1_RVT power hold optimization    
+saed32rvt_frame_timing_ccs/RSDFFNX2_RVT power hold optimization    
+saed32rvt_frame_timing_ccs/RSDFFSRARX1_RVT power hold optimization    
+saed32rvt_frame_timing_ccs/RSDFFSRARX2_RVT power hold optimization    
+saed32rvt_frame_timing_ccs/RSDFFSRASRX1_RVT power hold optimization    
+saed32rvt_frame_timing_ccs/RSDFFSRASRX2_RVT power hold optimization    
+saed32rvt_frame_timing_ccs/RSDFFSRASX1_RVT power hold optimization    
+saed32rvt_frame_timing_ccs/RSDFFSRASX2_RVT power hold optimization    
+saed32rvt_frame_timing_ccs/RSDFFSRSSRX1_RVT power hold optimization    
+saed32rvt_frame_timing_ccs/RSDFFSRSSRX2_RVT power hold optimization    
+saed32rvt_frame_timing_ccs/RSDFFSRX1_RVT power hold optimization    
+saed32rvt_frame_timing_ccs/RSDFFSRX2_RVT power hold optimization    
+saed32rvt_frame_timing_ccs/RSDFFX1_RVT power hold optimization    
+saed32rvt_frame_timing_ccs/RSDFFX2_RVT power hold optimization    
+saed32rvt_frame_timing_ccs/SDFFARX1_RVT power hold cts optimization
+saed32rvt_frame_timing_ccs/SDFFARX2_RVT power hold cts optimization
+saed32rvt_frame_timing_ccs/SDFFASRSX1_RVT power hold cts optimization
+saed32rvt_frame_timing_ccs/SDFFASRSX2_RVT power hold cts optimization
+saed32rvt_frame_timing_ccs/SDFFASRX1_RVT power hold cts optimization
+saed32rvt_frame_timing_ccs/SDFFASRX2_RVT power hold cts optimization
+saed32rvt_frame_timing_ccs/SDFFASX1_RVT power hold cts optimization
+saed32rvt_frame_timing_ccs/SDFFASX2_RVT power hold cts optimization
+saed32rvt_frame_timing_ccs/SDFFNARX1_RVT power hold cts optimization
+saed32rvt_frame_timing_ccs/SDFFNARX2_RVT power hold cts optimization
+saed32rvt_frame_timing_ccs/SDFFNASRX1_RVT power hold cts optimization
+saed32rvt_frame_timing_ccs/SDFFNASRX2_RVT power hold cts optimization
+saed32rvt_frame_timing_ccs/SDFFNASX1_RVT power hold cts optimization
+saed32rvt_frame_timing_ccs/SDFFNASX2_RVT power hold cts optimization
+saed32rvt_frame_timing_ccs/SDFFNX1_RVT power hold cts optimization
+saed32rvt_frame_timing_ccs/SDFFNX2_RVT power hold cts optimization
+saed32rvt_frame_timing_ccs/SDFFSSRX1_RVT power hold cts optimization
+saed32rvt_frame_timing_ccs/SDFFSSRX2_RVT power hold cts optimization
+saed32rvt_frame_timing_ccs/SDFFX1_RVT power hold cts optimization
+saed32rvt_frame_timing_ccs/SDFFX2_RVT power hold cts optimization
+saed32rvt_frame_timing_ccs/SHFILL128_RVT                            
+saed32rvt_frame_timing_ccs/SHFILL1_RVT                            
+saed32rvt_frame_timing_ccs/SHFILL2_RVT                            
+saed32rvt_frame_timing_ccs/SHFILL3_RVT                            
+saed32rvt_frame_timing_ccs/SHFILL64_RVT                            
+saed32rvt_frame_timing_ccs/TIEH_RVT optimization               
+saed32rvt_frame_timing_ccs/TIEL_RVT optimization               
+saed32rvt_frame_timing_ccs/TNBUFFX16_RVT power hold optimization    
+saed32rvt_frame_timing_ccs/TNBUFFX1_RVT power hold optimization    
+saed32rvt_frame_timing_ccs/TNBUFFX2_RVT power hold optimization    
+saed32rvt_frame_timing_ccs/TNBUFFX32_RVT power hold optimization    
+saed32rvt_frame_timing_ccs/TNBUFFX4_RVT power hold optimization    
+saed32rvt_frame_timing_ccs/TNBUFFX8_RVT power hold optimization    
+saed32rvt_frame_timing_ccs/XNOR2X1_RVT power hold optimization    
+saed32rvt_frame_timing_ccs/XNOR2X2_RVT power hold optimization    
+saed32rvt_frame_timing_ccs/XNOR3X1_RVT power hold optimization    
+saed32rvt_frame_timing_ccs/XNOR3X2_RVT power hold optimization    
+saed32rvt_frame_timing_ccs/XOR2X1_RVT power hold optimization    
+saed32rvt_frame_timing_ccs/XOR2X2_RVT power hold optimization    
+saed32rvt_frame_timing_ccs/XOR3X1_RVT power hold optimization    
+saed32rvt_frame_timing_ccs/XOR3X2_RVT power hold optimization    
+1

@@ -1,0 +1,23 @@
+{
+  "Total": {
+    "group": "Power",
+    "tooltip": "Total power for this power group in this scenario"
+  },
+  "Leakage": {
+    "group": "Power",
+    "tooltip": "Leakage power for this power group in this scenario"
+  },
+  "Internal": {
+    "group": "Power",
+    "tooltip": "Internal power for this power group in this scenario.  If glitch power column is shown, this column includes all internal power except glitch."
+  },
+  "Switching": {
+    "group": "Power",
+    "tooltip": "Switching power for this power group in this scenario.  If glitch power column is shown, this column includes all switching power except glitch."
+  },
+  "%PwrGroup": {
+    "group": "% Power",
+    "tooltip": "For this scenario, the percentage of total power contributed by this power group",
+    "color": "none"
+  }
+}

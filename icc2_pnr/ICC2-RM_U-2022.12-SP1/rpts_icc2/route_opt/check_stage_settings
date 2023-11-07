@@ -1,0 +1,33 @@
+Warning: Attribute 'technology_node' does not exist on block FIFO.dlib:FIFO/route_opt.design (ATTR-3)
+
+
+ ########## Compare SET_TECHNOLOGY SETTINGS NOT printed as there is NO technology node#########
+
+
+ ########## Compare SQS SETTINGS #########
+Information: Evaluating single metric strategy for timing metric_target
+Information: technology_node is undefined for the current block.
+Information: Auto-detected closest technology node established.
+Information: Diffing set_qor_strategy settings for technology node established.
+
+Metric : timing
++----------------------------------------------------+---------------+-----------------+-----------------+
+|           Option Name                              |  Metric Group |   Current       |  Recommended    |
+|                                                    |               |   Setting       |    Setting      |
++----------------------------------------------------+---------------+-----------------+-----------------+
+| route_opt.flow.enable_power                        | Timing        | true            | false           |
++----------------------------------------------------+---------------+-----------------+-----------------+
+
+
+ ########## Compare SET_STAGE post_route SETTINGS #########
+
+Information: No difference found between current and recommended set_stage settings.
+
+
+ ########## Compare RECOMMENDED SETTINGS for select app options#########
+
++------------------------------------------------------------------------+----------------------+-------------------------+
+| Option Name                                                            | Current Setting      | Recommended Setting     |
++------------------------------------------------------------------------+----------------------+-------------------------+
+| opt.port.eliminate_verilog_assign                                      | true                 | false                   |
++------------------------------------------------------------------------+----------------------+-------------------------+

@@ -1,0 +1,61 @@
+\documentclass[journal, onecolumn]{IEEEtran}
+
+\title{Design Compiler Synthesis Assignment}
+\author{Nicholas Sica}
+\date{March 8, 2023}
+
+\begin{document}
+\maketitle
+\begin{table}
+  \centering
+  \caption{100MHz DC logic synthesis results.}
+  \begin{tabular}{ |c|c|c|c|c|c|c| }
+    \hline
+    Design & Area & Power & WNS & TNS & Cell Count & Num of violating paths \\
+    \hline
+    s386.v & 185.22 & 5.6739 & 0.42 & 0.00 & 64 & 0 \\
+    \hline
+    s1238.v & 1007.51 & 29.4925 & -0.03 & -0.06 & 368 & 3 \\
+    \hline
+    s9234.v & 1994.45 & 45.0913 & 0.09 & 0.00 & 495 & 0 \\
+    \hline
+    s15850.v & 6878.56 & 157.3402 & -0.06 & -1.26 & 1652 & 20 \\
+    \hline
+    s35932.v & 24807.70 & 537.0980 & -0.04 & -0.39 & 5002 & 41 \\
+    \hline
+  \end{tabular}
+\end{table}
+\begin{table}
+  \centering
+  \caption{500MHz DC logic synthesis results.}
+  \begin{tabular}{ |c|c|c|c|c|c|c| }
+    \hline
+    Design & Area & Power & WNS & TNS & Cell Count & Num of violating paths \\
+    \hline
+    s386.v & 302.85 & 11.8507 & -2.59 & -20.63 & 121 & 13 \\
+    \hline
+    s1238.v & 1579.44 & 62.3031 & -3.37 & -56.73 & 655 & 32 \\
+    \hline
+    s9234.v & 4201.83 & 117.5054 & -2.53 & -256.46 & 1230 & 187 \\
+    \hline
+    s15850.v & 9627.03 & 257.2878 & -4.05 & -1138.71 & 2559 & 607 \\
+    \hline
+    s35932.v & 27369.22 & 790.5770 & -2.81 & -3166.87 & 5730 & 2048 \\
+    \hline
+  \end{tabular}
+\end{table}
+There was not much done in terms of optimizing or constraining the area and power. The only additional constraint for area was setting the max area to zero to get
+a minimum area design. The overall trend for the individual tables is for the numbers to increase in magnitude as the designs get more complex.
+This does not hold as true for the 100MHz designs as the worst negative slack and total negative slack values depend on if it can correctly
+optimize the few nets that are violating. While there are violations for some of the 100MHz designs, this would be fine to continue forward
+with the physical design to see if the worst negative slack and total negative slack can be optimized for in those stages. The 500MHz clock
+failed quite a bit which shows how unrealistic a clock of that speed would be. Slowing the 100MHz clock down a little bit more might be a bit more
+foolproof, but the results show that is the correct clock speed to go with for these designs. The 500MHz might be able to be used for some of the smaller
+designs if it is slowed down a bit, but if we had to choose one clock speed for all of the designs, it would be the 100MHz clock. All the numbers increase a lot
+from the 100MHz design to the 500MHz design as expected. The faster clock speed means there will be more power consumption and a larger area due to an increased
+number of buffers and flip flops to try and make timing. Even with all that there will still be timing violations, because you can only insert so many
+buffers and flip flops to try and meet timing before it becomes unrealistic.
+
+To run the scripts, the bash files provided in the respective directories will run each design. If you run it manually it will only run the design specified
+in the set\_env.tcl file. The output directories are under the designs folder with a folder for each design.
+\end{document}

@@ -1,0 +1,29 @@
+****************************************
+Report : report_tracks
+Design : FIFO
+Version: U-2022.12-SP1
+Date   : Wed Feb 15 17:00:18 2023
+****************************************
+Layer          Direction     Start         Tracks    Pitch       Attr
+---------------------------------------------------------------------------
+M1             X             0.060         633       0.130       default
+M1             Y             0.060         631       0.130       default
+M2             X             0.080         502       0.164       default
+M2             Y             0.080         500       0.164       default
+M3             X             0.080         502       0.164       default
+M3             Y             0.080         500       0.164       default
+M4             X             0.080         502       0.164       default
+M4             Y             0.080         500       0.164       default
+M5             X             0.080         502       0.164       default
+M5             Y             0.080         500       0.164       default
+M6             X             0.080         502       0.164       default
+M6             Y             0.080         500       0.164       default
+M7             X             0.080         502       0.164       default
+M7             Y             0.080         500       0.164       default
+M8             X             0.080         502       0.164       default
+M8             Y             0.080         500       0.164       default
+M9             X             1.520         47        1.740       default
+M9             Y             1.520         47        1.740       default
+MRDL           X             0.500         19        4.500       default
+MRDL           Y             0.500         19        4.500       default
+1

@@ -1,0 +1,47 @@
+RV32E                    : 0
+RV32M                    : "ibex_pkg::RV32MSingleCycle"
+RV32B                    : "ibex_pkg::RV32BFull"
+RegFile                  : "ibex_pkg::RegFileFF"
+BranchTargetALU          : 1
+WritebackStage           : 1
+ICache                   : 1
+ICacheECC                : 1
+ICacheScramble           : 0
+BranchPredictor          : 0
+DbgTriggerEn             : 0
+SecureIbex               : 0
+PMPEnable                : 1
+PMPGranularity           : 0
+PMPNumRegions            : 16
+MHPMCounterNum           : 0
+MHPMCounterWidth         : 40
+
+ADDR_W        = 32
+IC_SIZE_BYTES = 4096
+IC_NUM_WAYS   = 2
+IC_LINE_SIZE  = 64
+IC_LINE_BYTES = 8
+BUS_SIZE      = 32
+
+BUS_BYTES = BUS_SIZE / 8 = 4
+IC_LINE_BEATS = IC_LINE_BYTES / BUS_BYTES = 8 / 4 = 2 
+IC_LINE_W = clog2(IC_LINE_BYTES) = 3
+
+IC_NUM_LINES = IC_SIZE_BYTES / IC_NUM_WAYS / IC_LINE_BYTES = 4096 / 2 / 8 = 256
+
+IC_INDEX_W = clog2(IC_NUM_LINES) = 8 
+
+IC_INDEX_HI = IC_INDEX_W + IC_LINE_W - 1
+
+IC_TAG_SIZE = ADDR_W - IC_INDEX_W - IC_LINE_W + 1 = 32 - 8 - 3 + 1 = 22 
+
+icache tag size  = IC_TAG_SIZE  = 22
+icache line size = IC_LINE_SIZE = 64
+icache bus size  = BUS_SIZE     = 32
+
+BusSizeECC   = BUS_SIZE + 7 = 39
+LineSizeECC  = BusSizeECC * IC_LINE_BEATS = 39 * 2 = 78
+
+ic data ram width              = LinSizeECC   = 78 
+ic data ram depth              = IC_NUM_LINES = 256
+ic data ram data bits per mask = LineSizeECC  = 78

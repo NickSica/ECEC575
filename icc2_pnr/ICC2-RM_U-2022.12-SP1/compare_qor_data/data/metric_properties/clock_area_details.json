@@ -1,0 +1,51 @@
+{
+  "Attrs": {
+    "group": "Properties",
+    "tooltip": "Clock attributes: (M) Master clock, (G) Generated clock, (&) Internal generated clock, (U) User defined skew group, (D) Default skew group, (*) Generated clock balanced separately.  Also shows 'Mode' for the parent row of all clocks of that mode.",
+    "color": "different"
+  },
+  "BalancedSinks": {
+    "group": "Cell Count",
+    "tooltip": "Number of logical sinks for this clock (that are balanced by CTS)",
+    "color": "none"
+  },
+  "ClockCells": {
+    "group": "Cell Count",
+    "tooltip": "Number of cells in the clock network (including buffers but excluding sinks)"
+  },
+  "BufCount": {
+    "group": "Cell Count",
+    "tooltip": "Number of repeaters (buffers and inverters) in the clock network"
+  },
+  "PhysicalSinks": {
+    "group": "Cell Count",
+    "tooltip": "Number of physical sinks for this clock (leafs of the clock tree)",
+    "color": "none"
+  },
+  "ClockArea": {
+    "group": "Cell Area",
+    "tooltip": "Area of the cells in the clock network (including buffers but excluding sinks)",
+    "lightPct": "0.003",
+    "medPct": "0.01",
+    "darkPct": "0.04"
+  },
+  "BufArea": {
+    "group": "Cell Area",
+    "tooltip": "Area of the repeaters (buffers and inverters) in the clock network",
+    "lightPct": "0.003",
+    "medPct": "0.01",
+    "darkPct": "0.04"
+  },
+  "PhysSinkArea": {
+    "group": "Cell Area",
+    "tooltip": "Area of the physical sinks for this clock (leafs of the clock tree)",
+    "lightPct": "0.003",
+    "medPct": "0.01",
+    "darkPct": "0.04"
+  },
+  "MacroArea": {
+    "group": "Cell Area",
+    "tooltip": "Area of the macros in the clock network",
+    "color": "different"
+  }
+}

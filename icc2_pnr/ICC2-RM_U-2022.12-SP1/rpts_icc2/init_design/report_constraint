@@ -1,0 +1,24 @@
+****************************************
+Report : constraint
+        -all_violators
+        -max_transition
+        -max_capacitance
+Design : FIFO
+Version: U-2022.12-SP1
+Date   : Wed Feb 15 17:00:11 2023
+****************************************
+
+
+
+   Mode: default Corner: ss_m40c
+   Scenario: default.ss_m40c
+  ---------------------------------------------------------------------------
+   Number of max_transition violation(s): 0
+
+   Mode: default Corner: ss_m40c
+   Scenario: default.ss_m40c
+  ---------------------------------------------------------------------------
+   Number of max_capacitance violation(s): 0
+
+   Total number of violation(s): 0
+1

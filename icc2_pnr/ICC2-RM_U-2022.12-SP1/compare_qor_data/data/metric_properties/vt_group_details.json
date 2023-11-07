@@ -1,0 +1,31 @@
+{
+  "All": {
+    "group": "Cell Type",
+    "tooltip": "All standard cells (data and clock)"
+  },
+  "Repeaters": {
+    "group": "Cell Type",
+    "tooltip": "Buffer and inverter data logic"
+  },
+  "Combinational": {
+    "group": "Cell Type",
+    "tooltip": "Combinational data logic"
+  },
+  "Registers": {
+    "group": "Cell Type",
+    "tooltip": "Register logic"
+  },
+  "Sequential": {
+    "group": "Cell Type",
+    "tooltip": "Non-register sequential data logic (latches, ...)"
+  },
+  "Clock": {
+    "group": "Cell Type",
+    "tooltip": "Clock network logic"
+  },
+  "VtGroupType": {
+    "group": "Vt Group Type",
+    "tooltip": "Vt group type for this vt group set by the set_threshold_voltage_group_type command",
+    "color": "different"
+  }
+}

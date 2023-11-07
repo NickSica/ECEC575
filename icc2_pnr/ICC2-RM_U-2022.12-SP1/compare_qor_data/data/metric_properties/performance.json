@@ -1,0 +1,85 @@
+{
+  "TotalRun": {
+    "group": "Runtime",
+    "tooltip": "Cumulative flow runtime -- the sum of StageRun for this and all previous stages/labels"
+  },
+  "StageRun": {
+    "group": "Runtime",
+    "tooltip": "Total runtime for this stage/label.  StageRun = PreRun + CmdRun + RptRun + PostRun"
+  },
+  "PreRun": {
+    "group": "Runtime",
+    "tooltip": "Runtime to the start of the write_qor_data call for this label/stage.  Counted from the start of the tool session for the first label, or from the end of the previous label's write_qor_data call for all other labels.  If write_qor_data -mark_start_time was used for this label, then PreRun only counts up until that command was called."
+  },
+  "RptRun": {
+    "group": "Runtime",
+    "tooltip": "Runtime of the write_qor_data reporting capture for this label/stage"
+  },
+  "PostRun": {
+    "group": "Runtime",
+    "tooltip": "Runtime from the end of the last label/stage captured by write_qor_data until the tool session ends.  This is only populated for the very last label/stage in a tool session."
+  },
+  "Hostname": {
+    "group": "Session",
+    "tooltip": "Name of the job's host machine",
+    "color": "none"
+  },
+  "PeakMem": {
+    "group": "Session",
+    "tooltip": "Peak memory usage of parent process in GB"
+  },
+  "PeakMemAll": {
+    "group": "Session",
+    "tooltip": "Peak memory usage of parent and child processes in GB"
+  },
+  "MaxCores": {
+    "group": "Session",
+    "tooltip": "set_host_options -max_cores setting for this checkpoint",
+    "color": "different"
+  },
+  "TotalMem": {
+    "group": "Memory",
+    "tooltip": "Total memory of host machine",
+    "color": "none"
+  },
+  "FreeMem": {
+    "group": "Memory",
+    "tooltip": "Free memory of host machine",
+    "color": "none"
+  },
+  "TotalSwap": {
+    "group": "Memory",
+    "tooltip": "Total swap space of host machine",
+    "color": "none"
+  },
+  "FreeSwap": {
+    "group": "Memory",
+    "tooltip": "Free swap space of host machine",
+    "color": "none"
+  },
+  "CpuInfo": {
+    "group": "Processors",
+    "tooltip": "Processor model information",
+    "color": "none"
+  },
+  "CPUs": {
+    "group": "Processors",
+    "tooltip": "Total effective CPU threads available (CPUs = Sockets * Cores * Threads)",
+    "color": "none"
+  },
+  "Sockets": {
+    "group": "Processors",
+    "tooltip": "Number of physical processor sockets",
+    "color": "none"
+  },
+  "Cores": {
+    "group": "Processors",
+    "tooltip": "Number of cores per socket",
+    "color": "none"
+  },
+  "Threads": {
+    "group": "Processors",
+    "tooltip": "Number of threads per core.  Typically 1, or 2 if hyperthreading enabled",
+    "color": "none"
+  }
+}

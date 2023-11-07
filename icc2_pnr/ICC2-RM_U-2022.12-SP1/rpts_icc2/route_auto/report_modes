@@ -1,0 +1,22 @@
+****************************************
+Report : mode
+Design : FIFO
+Version: U-2022.12-SP1
+Date   : Mon Feb 13 16:57:10 2023
+****************************************
+
+------------------------------------------------------------------------------------------
+Mode default
+--------------------------------------------------------------------------------
+
+Current: true  Default: true  Empty: false
+
+Scenarios associated with this mode:
+
+                                                         Leakage   Dynamic
+Scenario            Corner          Active  Setup  Hold  Power     Power     Max_tran  Max_cap  Min_cap  Cell_em  Signal_em
+-------------------------------------------------------------------------------------------------------------------------
+default.ss_m40c     ss_m40c         true    true   true  true      true      true      true     true     false    false
+
+
+1

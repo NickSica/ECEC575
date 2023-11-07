@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "./static/css/main.css",
+    "main.js": "./static/js/main.js",
+    "runtime~main.js": "./static/js/runtime~main.js",
+    "static/css/2.css": "./static/css/2.css",
+    "static/js/2.js": "./static/js/2.js",
+    "index.html": "./index.html",
+    "static/media/Roboto-Bold.ttf": "./static/media/Roboto-Bold.ttf",
+    "static/media/Roboto-BoldItalic.ttf": "./static/media/Roboto-BoldItalic.ttf",
+    "static/media/Roboto-Regular.ttf": "./static/media/Roboto-Regular.ttf",
+    "static/media/Roboto-RegularItalic.ttf": "./static/media/Roboto-RegularItalic.ttf",
+    "static/media/blueprint-icons.css": "./static/media/icons-20.woff"
+  }
+}

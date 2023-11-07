@@ -1,0 +1,33 @@
+****************************************
+Report : pvt
+Design : FIFO
+Version: U-2022.12-SP1
+Date   : Mon Feb 13 16:55:48 2023
+****************************************
+
+--------------------------------------------------------------------------------
+Warning: Corner ss_m40c:  1 process number, 0 process label, 1 voltage, and 1 temperature mismatches. (PVT-030)
+Warning: 793 cells affected for early, 793 for late. (PVT-031)
+Warning: 0 port driving_cells affected for early, 0 for late. (PVT-034)
+--------------------------------------------------------------------------------
+
+Warning: Mismatched process number in corner ss_m40c. (PVT-022)
+Warning: Mismatched voltage in corner ss_m40c. (PVT-020)
+Warning: Mismatched temperature in corner ss_m40c. (PVT-021)
+Library has 3 panes
+Entry 69:
+  Lib: tsmc65nm
+  Pane: 0
+  Process Label:  specified: (none)        effective: (none)      
+* Process Number: specified: 0.99          effective: 1           
+  Rail 0 (default) Voltage: specified: --            dynamic: --            effective: 1.000         static: 1.000       
+* Rail 1 (COREVDD1) Voltage: specified: 0.950         dynamic: --            effective: 1.000         static: 1.000       
+  Rail 2 (COREGND1) Voltage: specified: 0.000         dynamic: --            effective: 0.000         static: 0.000       
+* Temperature:    specified: -40.000       effective: 25.000      
+  Primary rail: 1  Secondary rail: --  N-bias rail: --  P-bias rail: --
+  early cell refs: 793      port refs: 0     driving_cell refs: 0     lib refs: 0   
+  late  cell refs: 793      port refs: 0     driving_cell refs: 0     lib refs: 0   
+
+
+
+1

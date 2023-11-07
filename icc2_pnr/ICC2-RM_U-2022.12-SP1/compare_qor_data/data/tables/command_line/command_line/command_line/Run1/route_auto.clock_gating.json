@@ -1,0 +1,4 @@
+{
+  "columns": ["GateCount", "ToolGates", "RTLGates", "ToolGates%", "RTLGates%", "Registers", "CGLevels", "MultiLevelCGs", "Gated", "ToolGated", "RTLGated", "Ungated", "Gated%", "ToolGated%", "RTLGated%", "Ungated%"],
+  "values": ["0", "0", "0", "0.0", "0.0", "229", "0", ".", "0", "0", "0", "229", "0.0", "0.0", "0.0", "100.0"]
+}

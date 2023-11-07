@@ -1,0 +1,293 @@
+SI analysis is not enabled, so delta delays are unavailable.
+****************************************
+Report : timing
+        -path_type full
+        -delay_type max
+        -max_paths 1
+        -report_by group
+        -nosplit
+        -input_pins
+        -nets
+        -transition_time
+        -capacitance
+        -crosstalk_delta
+        -derate
+        -attributes
+        -physical
+Design : FIFO
+Version: U-2022.12-SP1
+Date   : Mon Feb 13 16:56:21 2023
+****************************************
+Information: Timer using 'CRPR'. (TIM-050)
+
+  Startpoint: FInN (input port clocked by ideal_clock1)
+  Endpoint: memblk/FIFO_reg[3][2] (rising edge-triggered flip-flop clocked by ideal_clock1)
+  Mode: default
+  Corner: ss_m40c
+  Scenario: default.ss_m40c
+  Path Group: **in2reg_default**
+  Path Type: max
+
+
+Attributes
+    b - black-box (unknown)
+    s - size_only
+    d - dont_touch
+    u - dont_use
+    g - generic
+    h - hierarchical
+    i - ideal
+    n - noncombinational
+    E - extracted timing model
+    Q - Quick timing model
+
+
+  Point                                          Fanout     Cap       Trans     Derate    Delta     Incr       Path           Location       Attributes
+  -----------------------------------------------------------------------------------------------------------------------------------------------------------
+  clock ideal_clock1 (rise edge)                                                                    0.000      0.000
+  clock network delay (propagated)                                                                  0.136      0.136
+  input external delay                                                                              0.100      0.236 f
+  FInN (in)                                                           0.000      1.000              0.000      0.236 f    (80.94,6.60)
+  FInN (net)                                        6      0.015
+  memblk/U190/A1 (NR4D0)                                              0.001      1.000              0.000      0.236 f    (42.50,11.30)
+  memblk/U190/ZN (NR4D0)                                              0.069      1.000              0.038      0.274 r ~  (42.76,11.20)
+  memblk/n47_CDR1 (net)                             1      0.001
+  memblk/U135/A4 (AN4XD1)                                             0.069      1.000              0.000      0.274 r    (40.47,11.28)
+  memblk/U135/Z (AN4XD1)                                              0.031      1.000              0.065      0.340 r ~  (40.89,11.28)
+  memblk/n43_CDR1 (net)                             1      0.002
+  memblk/U134/A4 (AN4XD1)                                             0.031      1.000              0.000      0.340 r    (41.07,20.32)
+  memblk/U134/Z (AN4XD1)                                              0.082      1.000              0.095      0.434 r ~  (41.49,20.32)
+  memblk/n37 (net)                                  4      0.012
+  memblk/U183/A2 (ND3D2)                                              0.082      1.000              0.000      0.435 r    (49.10,31.30)
+  memblk/U183/ZN (ND3D2)                                              0.257      1.000              0.168      0.603 f ~  (49.22,31.20)
+  memblk/n35 (net)                                 33      0.055
+  memblk/place_opt_HFSBUF_297_9/I (BUFFD1)                            0.256      1.000              0.002      0.605 f    (47.09,65.30)
+  memblk/place_opt_HFSBUF_297_9/Z (BUFFD1)                            0.197      1.000              0.175      0.781 f ~  (46.52,65.30)
+  memblk/place_opt_HFSNET_4 (net)                  32      0.053
+  memblk/U114/B2 (MOAI22D1)                                           0.198      1.000              0.001      0.782 f    (40.90,31.20)
+  memblk/U114/ZN (MOAI22D1)                                           0.077      1.000              0.069      0.851 f ~  (40.20,31.00)
+  memblk/n51 (net)                                  1      0.002
+  memblk/FIFO_reg[3][2]/D (DFQD1)                                     0.077      1.000              0.000      0.851 f    (39.55,34.69)     s, n
+  data arrival time                                                                                            0.851
+
+  clock ideal_clock1 (rise edge)                                                                   15.200     15.200
+  clock network delay (propagated)                                                                  0.040     15.240
+  clock reconvergence pessimism                                                                     0.000     15.240
+  memblk/FIFO_reg[3][2]/CP (DFQD1)                                    0.043      1.000              0.000     15.240 r    (38.52,34.71)     s, n
+  clock uncertainty                                                                                -0.100     15.140
+  library setup time                                                             1.000             -0.005     15.134
+  data required time                                                                                          15.134
+  -----------------------------------------------------------------------------------------------------------------------------------------------------------
+  data required time                                                                                          15.134
+  data arrival time                                                                                           -0.851
+  -----------------------------------------------------------------------------------------------------------------------------------------------------------
+  slack (MET)                                                                                                 14.284
+
+
+
+  Startpoint: rd_ptr_reg[0] (rising edge-triggered flip-flop clocked by ideal_clock1)
+  Endpoint: F_Data[9] (output port clocked by ideal_clock1)
+  Mode: default
+  Corner: ss_m40c
+  Scenario: default.ss_m40c
+  Path Group: **reg2out_default**
+  Path Type: max
+
+
+Attributes
+    b - black-box (unknown)
+    s - size_only
+    d - dont_touch
+    u - dont_use
+    g - generic
+    h - hierarchical
+    i - ideal
+    n - noncombinational
+    E - extracted timing model
+    Q - Quick timing model
+
+
+  Point                                          Fanout     Cap       Trans     Derate    Delta     Incr       Path           Location       Attributes
+  -----------------------------------------------------------------------------------------------------------------------------------------------------------
+  clock ideal_clock1 (rise edge)                                                                    0.000      0.000
+  clock network delay (propagated)                                                                  0.040      0.040
+
+  rd_ptr_reg[0]/CP (DFCNQD1)                                          0.045      1.000              0.000      0.040 r    (58.52,36.50)     s, n
+  rd_ptr_reg[0]/Q (DFCNQD1)                                           0.089      1.000              0.136      0.175 r ~  (62.69,36.49)     s, n
+  rd_ptr[0] (net)                                   6      0.014
+  memblk/U181/I (INVD1)                                               0.089      1.000              0.000      0.175 r    (64.28,41.90)
+  memblk/U181/ZN (INVD1)                                              0.051      1.000              0.044      0.219 f ~  (63.92,41.92)
+  memblk/n196 (net)                                 2      0.009
+  memblk/U133/A1 (NR2D3)                                              0.051      1.000              0.000      0.219 f    (59.30,39.97)
+  memblk/U133/ZN (NR2D3)                                              0.282      1.000              0.167      0.387 r ~  (59.22,40.06)
+  memblk/n4 (net)                                  32      0.071
+  memblk/U237/A2 (AO22D0)                                             0.281      1.000              0.002      0.389 r    (67.25,59.92)
+  memblk/U237/Z (AO22D0)                                              0.038      1.000              0.069      0.457 r ~  (66.56,59.90)
+  memblk/n30 (net)                                  1      0.002
+  memblk/U140/C (AO221D0)                                             0.038      1.000              0.000      0.457 r    (70.91,58.11)
+  memblk/U140/Z (AO221D0)                                             0.061      1.000              0.064      0.522 r ~  (70.52,57.99)
+  memblk/data_out[9] (net)                          1      0.004
+  place_opt_HFSBUF_12_0/I (CKBD4)                                     0.061      1.000              0.000      0.522 r    (53.60,59.98)
+  place_opt_HFSBUF_12_0/Z (CKBD4)                                     0.300      1.000              0.183      0.705 r ~  (52.65,59.90)
+  F_Data[9] (net)                                   1      0.206
+  F_Data[9] (out)                                                     0.285      1.000              0.010      0.715 r    (0.26,63.00)
+  data arrival time                                                                                            0.715
+
+  clock ideal_clock1 (rise edge)                                                                   15.200     15.200
+  clock network delay (propagated)                                                                  0.135     15.335
+  clock reconvergence pessimism                                                                     0.000     15.335
+  clock uncertainty                                                                                -0.100     15.235
+  output external delay                                                                            -0.100     15.135
+  data required time                                                                                          15.135
+  -----------------------------------------------------------------------------------------------------------------------------------------------------------
+  data required time                                                                                          15.135
+  data arrival time                                                                                           -0.715
+  -----------------------------------------------------------------------------------------------------------------------------------------------------------
+  slack (MET)                                                                                                 14.420
+
+
+
+  Startpoint: fcounter_reg[0] (rising edge-triggered flip-flop clocked by ideal_clock1)
+  Endpoint: fcounter_reg[31] (rising edge-triggered flip-flop clocked by ideal_clock1)
+  Mode: default
+  Corner: ss_m40c
+  Scenario: default.ss_m40c
+  Path Group: ideal_clock1
+  Path Type: max
+
+
+Attributes
+    b - black-box (unknown)
+    s - size_only
+    d - dont_touch
+    u - dont_use
+    g - generic
+    h - hierarchical
+    i - ideal
+    n - noncombinational
+    E - extracted timing model
+    Q - Quick timing model
+
+
+  Point                                          Fanout     Cap       Trans     Derate    Delta     Incr       Path           Location       Attributes
+  -----------------------------------------------------------------------------------------------------------------------------------------------------------
+  clock ideal_clock1 (rise edge)                                                                    0.000      0.000
+  clock network delay (propagated)                                                                  0.045      0.045
+
+  fcounter_reg[0]/CP (DFCNQD1)                                        0.053      1.000              0.000      0.045 r    (5.12,13.10)      s, n
+  fcounter_reg[0]/Q (DFCNQD1)                                         0.074      1.000              0.129      0.174 r ~  (9.29,13.11)      s, n
+  fcounter[0] (net)                                 7      0.012
+  add_91/U1_1_1/B (HA1D0)                                             0.074      1.000              0.000      0.174 r    (6.59,20.08)
+  add_91/U1_1_1/CO (HA1D0)                                            0.067      1.000              0.074      0.248 r ~  (5.11,20.32)
+  add_91/carry[2] (net)                             1      0.005
+  add_91/U1_1_2/B (HA1D0)                                             0.067      1.000              0.000      0.248 r    (6.59,36.72)
+  add_91/U1_1_2/CO (HA1D0)                                            0.052      1.000              0.065      0.313 r ~  (5.11,36.48)
+  add_91/carry[3] (net)                             1      0.004
+  add_91/U1_1_3/B (HA1D0)                                             0.052      1.000              0.000      0.313 r    (6.61,41.68)
+  add_91/U1_1_3/CO (HA1D0)                                            0.046      1.000              0.060      0.373 r ~  (8.09,41.92)
+  add_91/carry[4] (net)                             1      0.003
+  add_91/U1_1_4/B (HA1D0)                                             0.046      1.000              0.000      0.373 r    (11.41,41.68)
+  add_91/U1_1_4/CO (HA1D0)                                            0.045      1.000              0.058      0.431 r ~  (12.89,41.92)
+  add_91/carry[5] (net)                             1      0.003
+  add_91/U1_1_5/B (HA1D0)                                             0.045      1.000              0.000      0.431 r    (14.59,41.68)
+  add_91/U1_1_5/CO (HA1D0)                                            0.048      1.000              0.060      0.490 r ~  (13.11,41.92)
+  add_91/carry[6] (net)                             1      0.004
+  add_91/U1_1_6/B (HA1D0)                                             0.048      1.000              0.000      0.490 r    (13.19,43.92)
+  add_91/U1_1_6/CO (HA1D0)                                            0.057      1.000              0.065      0.556 r ~  (11.71,43.68)
+  add_91/carry[7] (net)                             1      0.004
+  add_91/U1_1_7/B (HA1D0)                                             0.057      1.000              0.000      0.556 r    (16.39,48.88)
+  add_91/U1_1_7/CO (HA1D0)                                            0.047      1.000              0.061      0.616 r ~  (14.91,49.12)
+  add_91/carry[8] (net)                             1      0.003
+  add_91/U1_1_8/B (HA1D0)                                             0.047      1.000              0.000      0.616 r    (14.79,51.12)
+  add_91/U1_1_8/CO (HA1D0)                                            0.052      1.000              0.062      0.679 r ~  (13.31,50.88)
+  add_91/carry[9] (net)                             1      0.004
+  add_91/U1_1_9/B (HA1D0)                                             0.052      1.000              0.000      0.679 r    (13.59,56.08)
+  add_91/U1_1_9/CO (HA1D0)                                            0.051      1.000              0.062      0.741 r ~  (12.11,56.32)
+  add_91/carry[10] (net)                            1      0.004
+  add_91/U1_1_10/B (HA1D0)                                            0.051      1.000              0.000      0.741 r    (14.59,59.68)
+  add_91/U1_1_10/CO (HA1D0)                                           0.053      1.000              0.063      0.804 r ~  (13.11,59.92)
+  add_91/carry[11] (net)                            1      0.004
+  add_91/U1_1_11/B (HA1D0)                                            0.053      1.000              0.000      0.804 r    (14.99,65.52)
+  add_91/U1_1_11/CO (HA1D0)                                           0.055      1.000              0.064      0.869 r ~  (13.51,65.28)
+  add_91/carry[12] (net)                            1      0.004
+  add_91/U1_1_12/B (HA1D0)                                            0.055      1.000              0.000      0.869 r    (15.59,72.72)
+  add_91/U1_1_12/CO (HA1D0)                                           0.049      1.000              0.062      0.931 r ~  (14.11,72.48)
+  add_91/carry[13] (net)                            1      0.004
+  add_91/U1_1_13/B (HA1D0)                                            0.049      1.000              0.000      0.931 r    (7.81,72.72)
+  add_91/U1_1_13/CO (HA1D0)                                           0.049      1.000              0.061      0.991 r ~  (9.29,72.48)
+  add_91/carry[14] (net)                            1      0.004
+  add_91/U1_1_14/B (HA1D0)                                            0.049      1.000              0.000      0.991 r    (6.99,69.12)
+  add_91/U1_1_14/CO (HA1D0)                                           0.052      1.000              0.062      1.054 r ~  (5.51,68.88)
+  add_91/carry[15] (net)                            1      0.004
+  add_91/U1_1_15/B (HA1D0)                                            0.052      1.000              0.000      1.054 r    (6.59,61.92)
+  add_91/U1_1_15/CO (HA1D0)                                           0.047      1.000              0.060      1.114 r ~  (5.11,61.68)
+  add_91/carry[16] (net)                            1      0.003
+  add_91/U1_1_16/B (HA1D0)                                            0.047      1.000              0.000      1.114 r    (6.59,58.32)
+  add_91/U1_1_16/CO (HA1D0)                                           0.046      1.000              0.059      1.173 r ~  (5.11,58.08)
+  add_91/carry[17] (net)                            1      0.003
+  add_91/U1_1_17/B (HA1D0)                                            0.046      1.000              0.000      1.173 r    (6.59,56.08)
+  add_91/U1_1_17/CO (HA1D0)                                           0.046      1.000              0.058      1.231 r ~  (5.11,56.32)
+  add_91/carry[18] (net)                            1      0.003
+  add_91/U1_1_18/B (HA1D0)                                            0.046      1.000              0.000      1.231 r    (6.59,54.72)
+  add_91/U1_1_18/CO (HA1D0)                                           0.050      1.000              0.061      1.293 r ~  (5.11,54.48)
+  add_91/carry[19] (net)                            1      0.004
+  add_91/U1_1_19/B (HA1D0)                                            0.050      1.000              0.000      1.293 r    (6.59,48.88)
+  add_91/U1_1_19/CO (HA1D0)                                           0.050      1.000              0.062      1.354 r ~  (5.11,49.12)
+  add_91/carry[20] (net)                            1      0.004
+  add_91/U1_1_20/B (HA1D0)                                            0.050      1.000              0.000      1.354 r    (6.59,43.92)
+  add_91/U1_1_20/CO (HA1D0)                                           0.061      1.000              0.068      1.422 r ~  (5.11,43.68)
+  add_91/carry[21] (net)                            1      0.005
+  add_91/U1_1_21/B (HA1D0)                                            0.061      1.000              0.000      1.422 r    (6.59,30.88)
+  add_91/U1_1_21/CO (HA1D0)                                           0.049      1.000              0.062      1.485 r ~  (5.11,31.12)
+  add_91/carry[22] (net)                            1      0.004
+  add_91/U1_1_22/B (HA1D0)                                            0.049      1.000              0.000      1.485 r    (6.59,27.28)
+  add_91/U1_1_22/CO (HA1D0)                                           0.049      1.000              0.061      1.545 r ~  (5.11,27.52)
+  add_91/carry[23] (net)                            1      0.004
+  add_91/U1_1_23/B (HA1D0)                                            0.049      1.000              0.000      1.545 r    (6.59,23.68)
+  add_91/U1_1_23/CO (HA1D0)                                           0.045      1.000              0.059      1.604 r ~  (5.11,23.92)
+  add_91/carry[24] (net)                            1      0.003
+  add_91/U1_1_24/B (HA1D0)                                            0.045      1.000              0.000      1.604 r    (6.81,22.32)
+  add_91/U1_1_24/CO (HA1D0)                                           0.056      1.000              0.064      1.668 r ~  (8.29,22.08)
+  add_91/carry[25] (net)                            1      0.004
+  add_91/U1_1_25/B (HA1D0)                                            0.056      1.000              0.000      1.668 r    (17.39,23.68)
+  add_91/U1_1_25/CO (HA1D0)                                           0.047      1.000              0.060      1.728 r ~  (15.91,23.92)
+  add_91/carry[26] (net)                            1      0.003
+  add_91/U1_1_26/B (HA1D0)                                            0.047      1.000              0.000      1.728 r    (17.19,25.92)
+  add_91/U1_1_26/CO (HA1D0)                                           0.047      1.000              0.059      1.787 r ~  (15.71,25.68)
+  add_91/carry[27] (net)                            1      0.003
+  add_91/U1_1_27/B (HA1D0)                                            0.047      1.000              0.000      1.787 r    (17.19,27.28)
+  add_91/U1_1_27/CO (HA1D0)                                           0.050      1.000              0.061      1.848 r ~  (15.71,27.52)
+  add_91/carry[28] (net)                            1      0.004
+  add_91/U1_1_28/B (HA1D0)                                            0.050      1.000              0.000      1.848 r    (17.39,30.88)
+  add_91/U1_1_28/CO (HA1D0)                                           0.060      1.000              0.067      1.915 r ~  (15.91,31.12)
+  add_91/carry[29] (net)                            3      0.005
+  add_91/place_opt_ctmTdsLR_2_196/A1 (ND2D1)                          0.060      1.000              0.000      1.915 r    (18.50,34.89)
+  add_91/place_opt_ctmTdsLR_2_196/ZN (ND2D1)                          0.040      1.000              0.035      1.950 f ~  (18.55,34.69)
+  add_91/tmp_net12 (net)                            3      0.004
+  add_91/place_opt_ctmTdsLR_1_200/B1 (INR2D1)                         0.040      1.000              0.000      1.950 f    (20.10,36.50)
+  add_91/place_opt_ctmTdsLR_1_200/ZN (INR2D1)                         0.050      1.000              0.039      1.989 r ~  (20.08,36.48)
+  add_91/carry[31] (net)                            2      0.003
+  add_91/place_opt_ctmTdsLR_2_201/B1 (MAOI22D1)                       0.050      1.000              0.000      1.989 r    (18.52,38.30)
+  add_91/place_opt_ctmTdsLR_2_201/ZN (MAOI22D1)                       0.041      1.000              0.048      2.038 r ~  (19.60,38.41)
+  add_91/SUM[31] (net)                              1      0.001
+  U56/A1 (AO222D1)                                                    0.041      1.000              0.000      2.038 r    (18.70,40.10)
+  U56/Z (AO222D1)                                                     0.029      1.000              0.043      2.080 r ~  (20.48,40.08)
+  n74 (net)                                         1      0.001
+  fcounter_reg[31]/D (DFCNQD1)                                        0.029      1.000              0.000      2.080 r    (21.95,40.23)     s, n
+  data arrival time                                                                                            2.080
+
+  clock ideal_clock1 (rise edge)                                                                   15.200     15.200
+  clock network delay (propagated)                                                                  0.044     15.244
+  clock reconvergence pessimism                                                                     0.001     15.245
+  fcounter_reg[31]/CP (DFCNQD1)                                       0.051      1.000              0.000     15.245 r    (20.92,40.10)     s, n
+  clock uncertainty                                                                                -0.100     15.145
+  library setup time                                                             1.000             -0.009     15.135
+  data required time                                                                                          15.135
+  -----------------------------------------------------------------------------------------------------------------------------------------------------------
+  data required time                                                                                          15.135
+  data arrival time                                                                                           -2.080
+  -----------------------------------------------------------------------------------------------------------------------------------------------------------
+  slack (MET)                                                                                                 13.055
+
+
+1

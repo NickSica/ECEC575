@@ -1,0 +1,9 @@
+[
+  ["Name", "Value", "UserValue", "UserDefault", "SystemDefault", "Datatype", "Scope", "Status", "SourceFile"],
+  ["shell.common.report_default_significant_digits", "3", "3", "3", "2", "integer", "global", "normal", "/home/sica/asic_design_scripts/icc2_pnr/ICC2-RM_U-2022.12-SP1/rm_setup/header_icc2_pnr.tcl:21"], 
+  ["time.port_slew_derate_from_library", "0.5", "", "0.5", "1", "float", "block", "normal", "."], 
+  ["time.port_slew_lower_threshold_fall", "30", "", "30", "20", "float", "block", "normal", "."], 
+  ["time.port_slew_lower_threshold_rise", "30", "", "30", "20", "float", "block", "normal", "."], 
+  ["time.port_slew_upper_threshold_fall", "70", "", "70", "80", "float", "block", "normal", "."], 
+  ["time.port_slew_upper_threshold_rise", "70", "", "70", "80", "float", "block", "normal", "."]
+]

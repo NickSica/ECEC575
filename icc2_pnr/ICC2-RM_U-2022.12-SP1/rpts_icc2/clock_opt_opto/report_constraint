@@ -1,0 +1,30 @@
+****************************************
+Report : constraint
+        -all_violators
+        -max_transition
+        -max_capacitance
+Design : FIFO
+Version: U-2022.12-SP1
+Date   : Mon Feb 13 16:56:21 2023
+****************************************
+
+
+
+   Mode: default Corner: ss_m40c
+   Scenario: default.ss_m40c
+   max_transition                                                              
+                             Required        Actual                            
+   Net                      Transition     Transition        Slack  Violation  
+  ---------------------------------------------------------------------------
+   memblk/place_opt_HFSNET_6    0.385         0.352          0.033  (MET)      
+
+  ---------------------------------------------------------------------------
+   Number of max_transition violation(s): 0
+
+   Mode: default Corner: ss_m40c
+   Scenario: default.ss_m40c
+  ---------------------------------------------------------------------------
+   Number of max_capacitance violation(s): 0
+
+   Total number of violation(s): 0
+1

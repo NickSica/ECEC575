@@ -1,0 +1,4 @@
+[
+  ["Name", "Value", "UserValue", "UserDefault", "SystemDefault", "Datatype", "Scope", "Status", "SourceFile"],
+  ["shell.common.report_default_significant_digits", "3", "3", "3", "2", "integer", "global", "normal", "/home/sica/asic_design_scripts/icc2_pnr/ICC2-RM_U-2022.12-SP1/rm_setup/header_icc2_pnr.tcl:21"]
+]

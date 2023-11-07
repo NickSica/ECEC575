@@ -1,0 +1,11 @@
+****************************************
+Report : report_dont_touch
+Design : FIFO
+Version: U-2022.12-SP1
+Date   : Wed Feb 15 17:00:35 2023
+****************************************
+
+Report : dont_touch
+0 of 833 instances are dont_touch
+0 of 1357 nets are dont_touch
+1

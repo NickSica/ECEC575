@@ -1,0 +1,153 @@
+{
+  "tables": {
+    "qor_summary": {
+      "file": "tables/qor_summary.json",
+      "keys": [
+      ]
+    },
+    "performance": {
+      "file": "tables/performance.json",
+      "keys": [
+      ]
+    },
+    "app_option_details": {
+      "file": "tables/app_option_details.json",
+      "keys": [
+        "Name"
+      ]
+    },
+    "congestion": {
+      "file": "tables/congestion.json",
+      "keys": [
+      ]
+    },
+    "congestion_details": {
+      "file": "tables/congestion_details.json",
+      "keys": [
+        "Phase",
+        "Layer"
+      ]
+    },
+    "gr_density_details": {
+      "file": "tables/gr_density_details.json",
+      "keys": [
+        "Phase",
+        "Layer"
+      ]
+    },
+    "clock": {
+      "file": "tables/clock.json",
+      "keys": [
+      ]
+    },
+    "routability": {
+      "file": "tables/routability.json",
+      "keys": [
+      ]
+    },
+    "clock_details": {
+      "file": "tables/clock_details.json",
+      "keys": [
+        "Clock"
+      ]
+    },
+    "clock_latency_details": {
+      "file": "tables/clock_latency_details.json",
+      "keys": [
+        "Clock"
+      ]
+    },
+    "clock_ldrc_details": {
+      "file": "tables/clock_ldrc_details.json",
+      "keys": [
+        "Clock"
+      ]
+    },
+    "clock_power_details": {
+      "file": "tables/clock_power_details.json",
+      "keys": [
+        "Clock"
+      ]
+    },
+    "clock_area_details": {
+      "file": "tables/clock_area_details.json",
+      "keys": [
+        "Clock"
+      ]
+    },
+    "clock_lib_cell_details": {
+      "file": "tables/clock_lib_cell_details.json",
+      "keys": [
+        "LibCell",
+        "Usage"
+      ]
+    },
+    "power": {
+      "file": "tables/power.json",
+      "keys": [
+      ]
+    },
+    "power_details": {
+      "file": "tables/power_details.json",
+      "keys": [
+        "Scenario",
+        "PowerGroup"
+      ]
+    },
+    "clock_gating": {
+      "file": "tables/clock_gating.json",
+      "keys": [
+      ]
+    },
+    "logical_drc": {
+      "file": "tables/logical_drc.json",
+      "keys": [
+      ]
+    },
+    "timing": {
+      "file": "tables/timing.json",
+      "keys": [
+      ]
+    },
+    "timing_scenario_details_flat": {
+      "file": "tables/timing_scenario_details_flat.json",
+      "keys": [
+        "SetupOrHold",
+        "TimingCategory",
+        "Scenario"
+      ]
+    },
+    "path_group_details": {
+      "file": "tables/path_group_details.json",
+      "keys": [
+        "Scenario",
+        "PathGroup"
+      ]
+    },
+    "netlist": {
+      "file": "tables/netlist.json",
+      "keys": [
+      ]
+    },
+    "vt_group_details": {
+      "file": "tables/vt_group_details.json",
+      "keys": [
+        "VtGroup",
+        "Category"
+      ]
+    },
+    "multibit": {
+      "file": "tables/multibit.json",
+      "keys": [
+      ]
+    },
+    "lib_cell_details": {
+      "file": "tables/lib_cell_details.json",
+      "keys": [
+        "LibCell"
+      ]
+    }
+  },
+  "imageFiles": {
+  }
+}

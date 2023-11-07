@@ -1,0 +1,19 @@
+****************************************
+Report : clock
+Design : FIFO
+Mode   : default
+Version: U-2022.12-SP1
+Date   : Mon Feb 13 16:55:50 2023
+****************************************
+
+
+Attributes:
+    p - Propagated clock
+    G - Generated  clock
+    U - Unexpanded generated clock
+
+Clock          Period   Waveform            Attrs     Sources
+--------------------------------------------------------------------------------
+ideal_clock1   15.200   {0 7.6}             p         {Clk}
+
+1

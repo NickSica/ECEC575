@@ -1,0 +1,102 @@
+
+Running global router for congestion map ...
+Info: Set app option 'route.global.deterministic' to on
+
+Generating Timing information  
+Design  Scenario default.ss_m40c (Mode default Corner ss_m40c)
+Generating Timing information  ... Done
+[End of Generating Timing Information] Elapsed real time: 0:00:00 
+[End of Generating Timing Information] Elapsed cpu  time: sys=0:00:00 usr=0:00:00 total=0:00:00
+Start Global Route ... 
+[Init] Elapsed real time: 0:00:00 
+[Init] Elapsed cpu  time: sys=0:00:00 usr=0:00:00 total=0:00:00
+[Init] Stage (MB): Used    0  Alloctr    0  Proc    0 
+[Init] Total (MB): Used    7  Alloctr    7  Proc 9765 
+Info: route.global.delay_based_route_rejection is 20.
+Info: getTransBasedRtReject = 1, getTransRejectThreshold = 2.000000 getTransRejectMargin = 1.200000
+Printing options for 'route.common.*'
+
+Printing options for 'route.global.*'
+global.deterministic                                    :	 on                  
+global.timing_driven                                    :	 true                
+
+Begin global routing.
+Warning: Ignore fat rule on layer M1. (ZRT-007)
+Warning: Ignore fat rule on layer M2. (ZRT-007)
+Warning: Ignore fat rule on layer M3. (ZRT-007)
+Warning: Ignore fat rule on layer M4. (ZRT-007)
+Warning: Ignore fat rule on layer M5. (ZRT-007)
+Warning: Ignore fat rule on layer M6. (ZRT-007)
+Warning: Ignore fat rule on layer M7. (ZRT-007)
+Warning: Ignore fat rule on layer M8. (ZRT-007)
+Warning: Ignore fat rule on layer M9. (ZRT-007)
+Severe Error: Command raised a C++ exception:
+             
+             Segmentation fault encountered. (Bad read from 0x0)
+             
+             Stack trace for crashing thread
+             -------------------------------
+             SNPSee_37cfffd7b50855fe277d27c5f70b6011ac96d1879fae842208d23a57217d75f4235273023d15d9762862acf90f684cfee15a9af25a7b49eee634d68b36cc1c0949a3ab1d7c585f2b+0x8c
+             SNPSee_ad5e36fef3511a2ea13c7b1af1d1b2c3ce5c5aa4515ccb14e474bcf72ab83e06fce224ebe9155f2944d7e8917017df91ef3ce97466a19962ca9bca6c02a1b30932b483daa78ab8fb34fde44ae5a8ab0b0b3b742e0ff6648ef58edd07859ff4cf+0x71
+             SNPSee_9ea8dbbd5e74784484d3cce2fced02c05a3783bc3b9f8fad49ba3bacacc1ac73ecf347a38534d06f+0x8e7
+             SNPSee_3da1e8e388eef22c4cad96049bb507e323902e731626b6f85a1de23e01dcfb84+0x11e
+             funlockfile+0x50
+             SNPSee_3019d15d689ed51b63660f9d6772af01446681f25285badd565226704c8299ed13d7cc533b34659d6b4edbc14f3498742f7febfc6068fb98133a24a24cef30298f236dcb30c26a61+0x59b
+             SNPSee_3019d15d689ed51b63660f9d6772af0108a89a2ba92b061f6e2222b0702f6bbd55399a8ed00149a0+0x1ae7
+             SNPSee_3019d15d689ed51b63660f9d6772af013624359a78d3aef6be67a7f9d1bfa2bc+0xa4
+             SNPSee_efc2829fa201a7c1b12a6c2337a8514287946715a8b92291a362069a6d60106788835065257d558218f01908779f3fa0103d6c478400aa7f+0x7e9
+             SNPSee_7b2bf591df91ccb64bb8dd8db31a3ac2f0e58edc2ad0663faf1ed878388822cc0e06234f873e1822cd0716f474ed89dcf311e009f348bbb72cc9b8136e52da37+0x16a
+             SNPSee_96686abbfc3abcc7402288ad446d7dd2+0x4b
+             SNPSee_afc0d16d6e9bf1db18a574f21ae525639aa73c89bb5c165b+0x3f
+             SNPSee_afc0d16d6e9bf1db523b9a328a8a28a91f4464cb9d67939b+0xc2d
+             SNPSee_afc0d16d6e9bf1db5f7584df4b54eba1f121a25a5b8eac5c+0x76
+             SNPSee_b77dbd255e34f936+0x90
+             SNPSee_aa9b81cf9b4af5246ba6c4929a42e7fed5dd59a2bb2e4770598fecde75941acc+0x60c
+             SNPSee_e448f0de5df13c9b6401206c0eb3ad8662abb966f8c51c9cf7ef03a41e7716e11242fc293ae1bfc1+0x50c
+             SNPSee_e448f0de5df13c9b6401206c0eb3ad8671e9a8471cb5a839a327ddc37217cbd98ef5826415b59bbb+0x70
+             SNPSee_e448f0de5df13c9b6401206c0eb3ad86dd1bdf544481623d06aee5098af7bc73+0x12
+             SNPSee_e7456a34b2db65866bef817a1eb04aa28203e0cbe5f4cea3afaa0d8802a16cbe861532cb1928968d115fe05a111120085ac4f6d26632bbad+0x1060
+             SNPSee_b33c09d91ce56faf32f307b3d0d7bfe6a81ece2db4e646fc7bfea8b89aa8d21c72b1b5fed030f4a7deda4e3278b32b4526a3d89237fa738f85fb51d28c1446d9b729f7d279808157+0x32a
+             SNPSee_18ae1188a5a6482452f3b67abbc891010269f13ce0e30d67+0xb23
+             TclInvokeStringCommand+0x7c
+             TclNRRunCallbacks+0x75
+             SNPSee_5324dab52ede0287208d53ed625dcd815aa0ae17f5926990928869bca4ccf25dc25212939d0f711d0c2a61b2cd7bbe11+0x2f
+             SNPSee_b33c09d91ce56fafa8a31323e8f963fef5c4323de15205d97edc11798026779f799526fc085faa3d8958fe41624e6a4a+0x25
+             SNPSee_bf1c8284ee4c480d326ed14f7722cb4c5d0ca0bccb32b02186627f52c0620189a7d5eb9bf4ba422d0ecb4c2fce24124586a224032cf469f8fe1b243ab5a5608d+0x1fa
+             SNPSee_b33c09d91ce56faf32f307b3d0d7bfe6a81ece2db4e646fc7bfea8b89aa8d21c72b1b5fed030f4a7deda4e3278b32b4526a3d89237fa738f85fb51d28c1446d9b729f7d279808157+0x32a
+             SNPSee_18ae1188a5a6482452f3b67abbc891010269f13ce0e30d67+0xb23
+             SNPSee_b33c09d91ce56faf9d8d6a5bd648b84a4bcc803ae7745b1ed7530fcf8322def4305a3dec2a72ad4ae810db3409b641a0b71a3bc03ba35302+0x6b
+             TclNRRunCallbacks+0x75
+             SNPSee_eb883b8643ac3618e46fbd7d90d84cd1d9cf41f1ea1de2433ad64196cf3fcc2ce0cf4135a98ecf06+0x270
+             SNPSee_f62f668e245f79efe54b5f2d03f931ad7ecaf9af860d20f7fc9433e6683c3d2550553c364392ee8bf9937794559c9a886d0ea8372cd75f1132a336b671e9947a5f0dbce46d0e1ca0+0x1a3
+             SNPSee_b33c09d91ce56faf32f307b3d0d7bfe6a81ece2db4e646fc7bfea8b89aa8d21c72b1b5fed030f4a7deda4e3278b32b4526a3d89237fa738f85fb51d28c1446d9b729f7d279808157+0x32a
+             SNPSee_18ae1188a5a6482452f3b67abbc891010269f13ce0e30d67+0xb23
+             TclInvokeStringCommand+0x7c
+             TclNRRunCallbacks+0x75
+             SNPSee_5b9e0c983f97901fa4e0af164abe7efeb24c5f4c6136879c869b2b88ca4e26329cbb10d1a609855d+0xb6
+             SNPSee_59511b0144537c36c6614840eb25b067+0x51c
+             SNPSee_dfcfd18c870f576645dec230cc55940481eea9a4962927b3b2419a5f9f3803d6e6d6151e8a6657b75c63db485ae230e97b8a0dd27c2cdfedd6e7ab8b3504080f+0x45f
+             SNPSee_18ae1188a5a6482452f3b67abbc891010269f13ce0e30d67+0xb23
+             TclInvokeStringCommand+0x7c
+             TclNRRunCallbacks+0x75
+             SNPSee_5b9e0c983f97901fa4e0af164abe7efeb24c5f4c6136879c869b2b88ca4e26329cbb10d1a609855d+0xb6
+             SNPSee_59511b0144537c36c6614840eb25b067+0x51c
+             SNPSee_dfcfd18c870f576645dec230cc55940481eea9a4962927b3b2419a5f9f3803d6e6d6151e8a6657b75c63db485ae230e97b8a0dd27c2cdfedd6e7ab8b3504080f+0x45f
+             SNPSee_18ae1188a5a6482452f3b67abbc891010269f13ce0e30d67+0xb23
+             TclInvokeStringCommand+0x7c
+             TclNRRunCallbacks+0x75
+             SNPSee_eb883b8643ac3618e46fbd7d90d84cd1d9cf41f1ea1de2433ad64196cf3fcc2ce0cf4135a98ecf06+0x270
+             SNPSee_c9aef8ff45700e7498f09e7fe7ec58c036cd580d7ddf92c3+0xa8
+             SNPSee_b3a63ca9beb66366a2beecdfa325f5f8c719d82372ce6e492c882226fc02de178a5dbe8c39c15154310ed0500f64f55b24abe2287dca37ea+0xb2
+             SNPSee_b3a63ca9beb66366a2beecdfa325f5f850e37c16b964335ba934f8a7afefeaf1+0x3b8
+             SNPSee_6188b3f9a7e769c7eb2dc22ab181ff5c0260e7bf3c6e6c5b6dd310362dd3e58b19a33122e2a80c1014bca5a076370ba0686492d474ef148ca36ababef5945158a888f7e536545dec88d039942c447aad829ec3c9a13ccf1352c7f068f1dc0d713b949058f841385ce96831542394be36f2ec7e463409336ff9646fa385cc5a553529ff78d8277054cb68eca1e74b2650bc52a0a187546145fe12efa21abc06a8+0x497d
+             main+0xcda
+             __libc_start_main+0xe5
+             SNPSee_d06eed713327be76+0x29 (CMD-114)
+Error: A Severe error has occurred. 
+      	To ensure that the script does not continue, the value of sh_continue_on_error
+      	has been overridden to be false. Your script is being interrupted.
+      	To see the Tcl call stack for the part of your script which generated
+      	the Severe error use the error_info command. (CMD-103)
+Error: Severe error encountered
+      	Use error_info for more info. (CMD-013)

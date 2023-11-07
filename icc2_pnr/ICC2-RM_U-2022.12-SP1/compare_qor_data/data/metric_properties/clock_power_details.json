@@ -1,0 +1,31 @@
+{
+  "Attrs": {
+    "group": "Properties",
+    "tooltip": "Clock attributes: (M) Master clock, (G) Generated clock, (&) Internal generated clock, (U) User defined skew group, (D) Default skew group, (*) Generated clock balanced separately.  Also shows 'Corner' for the parent row of all clocks of that corner, and 'Mode' for the parent row of all clocks of that mode for its parent corner.",
+    "color": "different"
+  },
+  "Leakage": {
+    "group": "Power",
+    "tooltip": "Leakage power in this clock's network"
+  },
+  "ClkInternal": {
+    "group": "Power",
+    "tooltip": "Internal power in this clock's network"
+  },
+  "SinkInternal": {
+    "group": "Power",
+    "tooltip": "Internal power for the sinks of this clock"
+  },
+  "Switching": {
+    "group": "Power",
+    "tooltip": "Switching power in this clock's network"
+  },
+  "Dynamic": {
+    "group": "Power",
+    "tooltip": "Total dynamic power for this clock including network and sinks"
+  },
+  "Total": {
+    "group": "Power",
+    "tooltip": "Total power for this clock including clock network power and sink internal power"
+  }
+}

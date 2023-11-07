@@ -1,0 +1,7 @@
+{
+  "Count": {
+    "group": "Count",
+    "tooltip": "The count of this category of routing DRC violation",
+    "absThreshold": "5"
+  }
+}

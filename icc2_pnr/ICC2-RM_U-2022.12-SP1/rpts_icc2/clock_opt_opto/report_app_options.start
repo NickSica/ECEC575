@@ -1,0 +1,44 @@
+****************************************
+Report : app_option
+           -non_default
+Design : FIFO
+Version: U-2022.12-SP1
+Date   : Mon Feb 13 16:56:03 2023
+****************************************
+Name                                           Type       Value               User-value          User-default System-default Scope      Status     Source
+---------------------------------------------- ---------- ------------------- ------------------- ------------ -------------- ---------- ---------- ----------------------------------------------------------------------------------------------------
+ccd.fmax_optimization_effort                   enum       high                high                --           low            block      normal     /home/sica/asic_design_scripts/icc2_pnr/ICC2-RM_U-2022.12-SP1/rm_icc2_pnr_scripts/clock_opt_opto.tcl:78
+ccd.post_route_buffer_removal                  bool       true                true                --           false          block      normal     --
+ccd.timing_effort                              enum       high                high                --           medium         block      normal     /home/sica/asic_design_scripts/icc2_pnr/ICC2-RM_U-2022.12-SP1/rm_icc2_pnr_scripts/clock_opt_opto.tcl:78
+clock_opt.flow.enable_clock_power_recovery     string     none                none                --           auto           block      normal     --
+clock_opt.flow.enable_power                    bool       false               false               --           true           block      normal     --
+clock_opt.place.effort                         enum       high                high                --           medium         block      normal     --
+cts.common.user_instance_name_prefix           string     clock_opt_opto_cts_ clock_opt_opto_cts_ --           --             block      normal     /home/sica/asic_design_scripts/icc2_pnr/ICC2-RM_U-2022.12-SP1/rm_icc2_pnr_scripts/clock_opt_opto.tcl:87
+opt.area.effort                                enum       high                high                --           low            block      normal     --
+opt.common.advanced_logic_restructuring_mode   enum       area_timing         area_timing         --           none           block      normal     --
+opt.common.user_instance_name_prefix           string     clock_opt_opto_     clock_opt_opto_     --           --             block      normal     /home/sica/asic_design_scripts/icc2_pnr/ICC2-RM_U-2022.12-SP1/rm_icc2_pnr_scripts/clock_opt_opto.tcl:86
+opt.port.eliminate_verilog_assign              bool       true                true                --           false          block      normal     --
+place.coarse.continue_on_missing_scandef       bool       true                true                --           false          block      normal     --
+place.coarse.enhanced_low_power_effort         enum       none                none                --           low            block      normal     --
+place.common.use_placement_model               bool       true                true                --           false          block      normal     --
+place_opt.final_place.effort                   enum       high                high                --           medium         block      normal     --
+place_opt.flow.enable_power                    bool       false               false               --           true           block      normal     --
+place_opt.place.congestion_effort              enum       high                high                --           medium         block      normal     --
+route.detail.eco_max_number_of_iterations      integer    10                  10                  --           -1             block      normal     --
+route.detail.timing_driven                     bool       true                true                --           false          block      normal     --
+route.global.timing_driven                     bool       true                true                --           false          block      normal     --
+route.track.crosstalk_driven                   bool       true                true                --           false          block      normal     --
+route.track.timing_driven                      bool       true                true                --           false          block      normal     --
+route_opt.flow.enable_power                    bool       false               false               --           true           block      normal     --
+shell.common.report_default_significant_digits integer    3                   3                   3            2              global     normal     /home/sica/asic_design_scripts/icc2_pnr/ICC2-RM_U-2022.12-SP1/rm_setup/header_icc2_pnr.tcl:21
+time.enable_clock_to_data_analysis             bool       true                true                --           false          block      normal     --
+time.port_slew_derate_from_library             float      0.5                 --                  0.5          1              block      normal     --
+time.port_slew_lower_threshold_fall            float      30                  --                  30           20             block      normal     --
+time.port_slew_lower_threshold_rise            float      30                  --                  30           20             block      normal     --
+time.port_slew_upper_threshold_fall            float      70                  --                  70           80             block      normal     --
+time.port_slew_upper_threshold_rise            float      70                  --                  70           80             block      normal     --
+time.remove_clock_reconvergence_pessimism      bool       true                true                --           false          block      normal     /home/sica/asic_design_scripts/icc2_pnr/ICC2-RM_U-2022.12-SP1/rm_icc2_pnr_scripts/clock_opt_opto.tcl:78
+---------------------------------------------- ---------- ------------------- ------------------- ------------ -------------- ---------- ---------- ----------------------------------------------------------------------------------------------------
+
+There are additional internal differences with no available TBC source.
+1

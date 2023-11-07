@@ -1,0 +1,4 @@
+{
+  "columns": ["Bits/Flop", "Util", "WNS", "TNS", "NVE", "HWNS", "HTNS", "HNVE", "TranDRCs", "CapDRCs", "StdCellArea", "StdCells", "HBufs", "r2rWNS", "r2rTNS", "r2rNVE", "Gated%", "TotalPwr", "LeakPwr", "Overflow%", "RoutedWireLen", "TotDRC", "ShortDRC"],
+  "values": ["1.00", "72.0", "12.930", "0.0", "0", "0.004", "0.0", "0", "0", "0", "3602", "799", "0", "0.000", "0.000", "0", "0.0", "242200", "17020", "0.272", "12307", "0", "."]
+}

@@ -1,0 +1,68 @@
+{
+  "Attrs": {
+    "group": "Properties",
+    "tooltip": "Clock attributes: (M) Master clock, (G) Generated clock, (&) Internal generated clock, (U) User defined skew group, (D) Default skew group, (*) Generated clock balanced separately.  Also shows 'Corner' for the parent row of all clocks of that corner, and 'Mode' for the parent row of all clocks of that mode for its parent corner.",
+    "color": "different"
+  },
+  "Sinks": {
+    "group": "Properties",
+    "tooltip": "Number of sinks for this clock",
+    "color": "none"
+  },
+  "TranDRCs": {
+    "group": "Transition DRCs",
+    "tooltip": "Number of transition DRC violations in this clock tree",
+    "absThreshold": "10.0"
+  },
+  "TranWNS": {
+    "group": "Transition DRCs",
+    "tooltip": "Worst slack transition DRC violation in this clock tree",
+    "absThreshold": "0.01"
+  },
+  "TranCost": {
+    "group": "Transition DRCs",
+    "tooltip": "Total slack of transition DRC violations in this clock tree",
+    "absThreshold": "0.1"
+  },
+  "CapDRCs": {
+    "group": "Capacitance DRCs",
+    "tooltip": "Number of capacitance DRC violations in this clock tree",
+    "absThreshold": "5.0"
+  },
+  "CapWNS": {
+    "group": "Capacitance DRCs",
+    "tooltip": "Worst slack capacitance DRC violation in this clock tree",
+    "absThreshold": "0.005"
+  },
+  "CapCost": {
+    "group": "Capacitance DRCs",
+    "tooltip": "Total slack of capacitance DRC violations in this clock tree",
+    "absThreshold": "0.025"
+  },
+  "FanoutDRCs": {
+    "group": "Fanout DRCs",
+    "tooltip": "Number of fanout DRC violations in this clock tree",
+    "absThreshold": "5.0"
+  },
+  "FanoutWNS": {
+    "group": "Fanout DRCs",
+    "tooltip": "Worst slack fanout DRC violation in this clock tree"
+  },
+  "FanoutCost": {
+    "group": "Fanout DRCs",
+    "tooltip": "Total slack of fanout DRC violations in this clock tree"
+  },
+  "LengthDRCs": {
+    "group": "Length DRCs",
+    "tooltip": "Number of length DRC violations in this clock tree",
+    "absThreshold": "5.0"
+  },
+  "LengthWNS": {
+    "group": "Length DRCs",
+    "tooltip": "Worst slack length DRC violation in this clock tree"
+  },
+  "LengthCost": {
+    "group": "Length DRCs",
+    "tooltip": "Total slack of length DRC violations in this clock tree"
+  }
+}

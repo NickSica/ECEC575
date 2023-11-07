@@ -1,0 +1,42 @@
+
+##########################################################################################
+# Script: init_design.tcl.established.floorplanning
+# Version: U-2022.12
+# Copyright (C) 2014-2022 Synopsys, Inc. All rights reserved.
+##########################################################################################
+
+####################################
+## Initialize Floorplan
+####################################
+set initialize_floorplan_cmd "initialize_floorplan"
+if {$SITE_DEFAULT != ""} {set initialize_floorplan_cmd "$initialize_floorplan_cmd -site_def $SITE_DEFAULT"}
+if {$INITIALIZE_FLOORPLAN_CUSTOM_OPTIONS != ""} {
+	puts "RM-info : Setting custom options for initialize_floorplan (INITIALIZE_FLOORPLAN_CUSTOM_OPTIONS==\"$INITIALIZE_FLOORPLAN_CUSTOM_OPTIONS\")"
+	set initialize_floorplan_cmd "$initialize_floorplan_cmd $INITIALIZE_FLOORPLAN_CUSTOM_OPTIONS"
+} else {
+	if {$INITIALIZE_FLOORPLAN_UTIL != ""} {
+		set initialize_floorplan_cmd "$initialize_floorplan_cmd -core_utilization $INITIALIZE_FLOORPLAN_UTIL"
+	} elseif {($INITIALIZE_FLOORPLAN_WIDTH != "") && ($INITIALIZE_FLOORPLAN_HEIGHT != "") } {
+		set initialize_floorplan_cmd "$initialize_floorplan_cmd -side_length [list [list $INITIALIZE_FLOORPLAN_WIDTH $INITIALIZE_FLOORPLAN_HEIGHT]]"
+	} elseif {$INITIALIZE_FLOORPLAN_BOUNDARY != ""} {
+		set initialize_floorplan_cmd "$initialize_floorplan_cmd -boundary [list $INITIALIZE_FLOORPLAN_BOUNDARY] -control_type die"
+	} elseif {$INITIALIZE_FLOORPLAN_AREA != ""} {
+		## Configure initialize_floorplan with -core_utilization which is derived from area
+		catch {redirect -var y {report_design }}
+		foreach line [split $y "\n"] {
+	 		if {[regexp "TOTAL LEAF CELLS" $line]} {
+	    			set DA [lindex $line 4]
+	  		}
+		}
+		set util [expr $DA/$INITIALIZE_FLOORPLAN_AREA] ; set util [format "%.3f" $util]
+		puts "RM-info :: target Util $util"
+		set initialize_floorplan_cmd "$initialize_floorplan_cmd -core_utilization $util"
+	} else {
+		puts "RM-error : Need to specify either INITIALIZE_FLOORPLAN_UTIL, INITIALIZE_FLOORPLAN_WIDTH/INITIALIZE_FLOORPLAN_HEIGHT, INITIALIZE_FLOORPLAN_BOUNDARY, or INITIALIZE_FLOORPLAN_AREA."
+	}	
+	if {$INITIALIZE_FLOORPLAN_CORE_OFFSET != ""} {
+		set initialize_floorplan_cmd "$initialize_floorplan_cmd -core_offset [list $INITIALIZE_FLOORPLAN_CORE_OFFSET]"
+	}
+}
+puts "RM-info : Running: $initialize_floorplan_cmd"
+eval ${initialize_floorplan_cmd} 

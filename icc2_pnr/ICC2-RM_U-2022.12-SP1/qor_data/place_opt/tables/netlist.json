@@ -1,0 +1,4 @@
+{
+  "columns": ["Util", "TotArea", "StdCellArea", "CombArea", "SeqArea", "PhysOnlyArea", "MacroBBArea", "BufInvArea", "BufArea", "InvArea", "StdCells", "CombCells", "SeqCells", "Macros", "BufInvs", "Bufs", "Invs", "CTBufInvs", "HBufs", "HierCells", "HierPorts"],
+  "values": ["71.8", "3586", "3587", "1893", "1694", "0", "0", "75", "24", "51", "788", "559", "229", "0", "60", "13", "47", "0", "0", "5", "396"]
+}

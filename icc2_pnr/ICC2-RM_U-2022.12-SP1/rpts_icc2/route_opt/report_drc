@@ -1,0 +1,14 @@
+****************************************
+Report : Report drc errors
+Design : FIFO
+Data   : zroute.err
+Type   : error_type
+Version: U-2022.12-SP1
+Date   : Mon Feb 13 16:57:59 2023
+****************************************
+
+ErrorSet                                    Total   Visible     Fixed   Ignored
+--------------------------------------------------------------------------------
+Design : FIFO                               0       0           0       0
+      Data : zroute.err                     0       0           0       0
+1

@@ -1,0 +1,154 @@
+##########################################################################################
+# Tool: IC Compiler II
+# Script: Makefile_dp_flat
+# Version: U-2022.12
+# Copyright (C) 2014-2022 Synopsys, Inc. All rights reserved.
+##########################################################################################
+
+ICC2_EXEC = icc2_shell
+OPTIONS = 
+
+## LOGS_DIR value comes from rm_setup/design_setup.tcl; default is logs_icc2
+LOGS_DIR := $(subst $\",,$(shell expand rm_setup/design_setup.tcl | grep "^set LOGS_DIR" | awk '{print $$3}'))
+
+##Optional: Specify design library if you want backup step and clean step to use it
+##CAUTION: if added, the clean step will delete it
+DESIGN_LIB =
+
+console:
+	$(ICC2_EXEC)
+
+setup:
+	test -d $(LOGS_DIR)	|| mkdir $(LOGS_DIR)
+	touch setup
+
+create_fusion_reference_library: setup
+	$(ICC2_EXEC) $(OPTIONS) -f ./rm_icc2_pnr_scripts/create_fusion_reference_library.tcl | tee -i $(LOGS_DIR)/create_fusion_reference_library.log
+
+init_design_dp: setup
+	$(ICC2_EXEC) $(OPTIONS) -f ./rm_icc2_dp_flat_scripts/init_design_dp.tcl | tee -i $(LOGS_DIR)/init_design_dp.log
+
+create_floorplan: setup init_design_dp
+	$(ICC2_EXEC) $(OPTIONS) -f ./rm_icc2_dp_flat_scripts/create_floorplan.tcl | tee -i $(LOGS_DIR)/create_floorplan.log
+
+create_power: setup create_floorplan
+	$(ICC2_EXEC) $(OPTIONS) -f ./rm_icc2_dp_flat_scripts/create_power.tcl | tee -i $(LOGS_DIR)/create_power.log
+
+place_pins: setup create_power
+	$(ICC2_EXEC) $(OPTIONS) -f ./rm_icc2_dp_flat_scripts/place_pins.tcl | tee -i $(LOGS_DIR)/place_pins.log
+	test -f ./place_pins || { echo "RM-error : place_pins touch file was not found. Pls check place_pins.log for RM-error message. Exiting ..."; exit 1; }
+
+write_data_dp: setup place_pins 
+	rm -f write_data_dp.varfile
+	echo > write_data_dp.varfile
+	echo 'set rm_dp_flow true' >> write_data_dp.varfile
+	echo 'set PREVIOUS_STEP $${PLACE_PINS_FLAT_BLOCK_NAME}' >> write_data_dp.varfile
+	export RM_VARFILE=write_data_dp.varfile; $(ICC2_EXEC) $(OPTIONS) -f ./rm_icc2_pnr_scripts/write_data.tcl | tee -i $(LOGS_DIR)/write_data_dp.log
+
+all_dp: setup write_data_dp
+	date > all_dp
+
+################################################################################################################
+# Refine flow
+# - User provides NDM and design label as input to create_floorplan_refine.
+# - Make sure that DESIGN_LIBRARY and CREATE_FLOORPLAN_FLAT_BLOCK_NAME are setup appropriately.
+# - Modify the variables CREATE_FLOORPLAN_OPERATIONS, CREATE_POWER_OPERATIONS, and PLACE_PINS_OPERATIONS to
+# - perform the needed DP operations.
+################################################################################################################
+
+create_floorplan_refine: setup
+	$(ICC2_EXEC) $(OPTIONS) -f ./rm_icc2_dp_flat_scripts/create_floorplan.tcl | tee -i $(LOGS_DIR)/create_floorplan_refine.log
+
+create_power_refine: setup create_floorplan_refine
+	$(ICC2_EXEC) $(OPTIONS) -f ./rm_icc2_dp_flat_scripts/create_power.tcl | tee -i $(LOGS_DIR)/create_power_refine.log
+
+place_pins_refine: setup create_power_refine
+	$(ICC2_EXEC) $(OPTIONS) -f ./rm_icc2_dp_flat_scripts/place_pins.tcl | tee -i $(LOGS_DIR)/place_pins_refine.log
+
+write_data_dp_refine: setup place_pins_refine
+	rm -f write_data_dp_refine.varfile
+	echo > write_data_dp_refine.varfile
+	echo 'set rm_dp_flow true' >> write_data_dp_refine.varfile
+	echo 'set PREVIOUS_STEP $${PLACE_PINS_FLAT_BLOCK_NAME}' >> write_data_dp_refine.varfile
+	export RM_VARFILE=write_data_dp_refine.varfile; $(ICC2_EXEC) $(OPTIONS) -f ./rm_icc2_pnr_scripts/write_data.tcl | tee -i $(LOGS_DIR)/write_data_dp_refine.log
+
+all_dp_refine: setup write_data_dp_refine
+	date > all_dp_refine
+
+################################################################################################################
+# Utilities Section
+################################################################################################################
+##Backup
+BACKUP  = BACKUP.`date "+%m_%d_%H_%M"`
+backup:
+	rm -rf $(BACKUP)
+	mkdir -p $(BACKUP)
+	cp -rf $(DESIGN_LIB) $(LOGS_DIR) $(BACKUP)
+
+## Clean up
+REPORTS_DIR := $(subst $\",,$(shell expand rm_setup/design_setup.tcl | grep "^set REPORTS_DIR" | awk '{print $$3}'))
+OUTPUTS_DIR := $(subst $\",,$(shell expand rm_setup/design_setup.tcl | grep "^set OUTPUTS_DIR" | awk '{print $$3}'))
+
+## Clean up steps
+clean_write_data:
+	rm -rf write_data_dp ${LOGS_DIR}/write_data_dp.log $(REPORTS_DIR)/write_data_dp*
+
+clean_place_pins: clean_write_data
+	rm -rf place_pins ${LOGS_DIR}/place_pins.log $(REPORTS_DIR)/place_pins*
+
+clean_create_power: clean_place_pins
+	rm -rf create_power ${LOGS_DIR}/create_power.log $(REPORTS_DIR)/create_power*
+
+clean_create_floorplan: clean_create_power
+	rm -rf create_floorplan ${LOGS_DIR}/create_floorplan.log $(REPORTS_DIR)/create_floorplan*
+
+clean_init_design: clean_create_floorplan
+	rm -rf init_design_dp ${LOGS_DIR}/init_design_dp.log $(REPORTS_DIR)/init_design_dp*
+
+## Refine flow steps
+clean_write_data_refine:
+	rm -rf write_data_dp_refine ${LOGS_DIR}/write_data_dp_refine.log $(REPORTS_DIR)/write_data_dp*
+
+clean_place_pins_refine: clean_write_data_refine
+	rm -rf place_pins_refine ${LOGS_DIR}/place_pins_refine.log $(REPORTS_DIR)/place_pins*
+
+clean_create_power_refine: clean_place_pins_refine
+	rm -rf create_power_refine ${LOGS_DIR}/create_power_refine.log $(REPORTS_DIR)/create_power*
+
+clean_create_floorplan_refine: clean_create_power_refine
+	rm -rf create_floorplan_refine ${LOGS_DIR}/create_floorplan_refine.log $(REPORTS_DIR)/create_floorplan*
+
+
+## Clean up all steps
+clean_all: clean_init_design
+	rm -rf setup all_dp header_from_dprm.tcl $(LOGS_DIR) $(REPORTS_DIR) $(OUTPUTS_DIR)
+	rm -rf *.err *.log fc_output.txt check_design*.ems default*.svf ./block_pg ./pgroute_output ./work ./work_dir compare_qor_data qor_data create_fusion_reference_library
+
+## View a saved block in an interactive session
+## view target start
+## Required input : VIEW_BLOCK_NAME
+## 1. Specify VIEW_BLOCK_NAME with a block name, either in the <design name>/<label> format, such as "RISC_CORE/init_design", or without using a label, such as "test1"
+##    Note that RM's saved block format is always $DESIGN_NAME/<stage name>. So if the DESIGN_NAME is RISC_CORE and the stage is init_design, and you want to open the final saved block from this task,
+##    you should specify RISC_CORE/init_design as the VIEW_BLOCK_NAME 
+## 2. It's recommended to specify the value of VIEW_BLOCK_NAME when running make so there's no edit needed in the makefile. Here is the usage example: 
+##    make -f rm_setup/Makefile view VIEW_BLOCK_NAME=RISC_CORE/init_design
+##    where view is the makefile target, RISC_CORE/init_design is the name of the saved block which you want to open, 
+##    and VIEW_BLOCK_NAME=RISC_CORE/init_design is the syntax to specify a value for VIEW_BLOCK_NAME when running make
+## view target end
+VIEW_BLOCK_NAME =
+VIEW_TIMESTAMP = $(shell date +%m_%d_%H_%M_%S)
+
+ifneq ($(VIEW_BLOCK_NAME),)
+view: 
+	rm -f view.varfile; echo > view.varfile
+	echo 'set DP_MAKEFILE true' >> view.varfile
+	echo 'set VIEW_BLOCK_NAME "${VIEW_BLOCK_NAME}"' >> view.varfile
+	echo 'set VIEW_TIMESTAMP "${VIEW_TIMESTAMP}"' >> view.varfile
+	export RM_VARFILE=view.varfile; $(ICC2_EXEC) $(OPTIONS) -f ./rm_icc2_pnr_scripts/view.tcl | tee -i $(LOGS_DIR)/view_${VIEW_TIMESTAMP}.log
+else
+view:
+	@echo 'RM-error : VIEW_BLOCK_NAME is null. To use view, please specify a valid value for VIEW_BLOCK_NAME.'
+	@echo 'RM-error : For example, make -f rm_setup/Makefile view VIEW_BLOCK_NAME=RISC_CORE/route_opt ,where view is the makefile target, RISC_CORE/route_opt is the name of the saved block which you want to open, and VIEW_BLOCK_NAME=RISC_CORE/route_opt is the syntax to specify a value for a makefile variable when running make'
+endif
+## view target end
+

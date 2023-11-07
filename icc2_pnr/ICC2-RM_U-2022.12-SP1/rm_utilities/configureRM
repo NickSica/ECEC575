@@ -1,0 +1,2068 @@
+#!/bin/env wish
+##############################################################################
+# (c) 2022 Synopsys, Inc.  All rights reserved.
+#
+# This script is proprietary and confidential information of
+# Synopsys, Inc. and may be used and disclosed only as authorized per
+# your agreement with Synopsys, Inc. controlling such use and disclosure.
+##############################################################################
+### Description 
+##############################################################################
+## Reference Methodology GUI Form
+## Any Issues - pls contact
+##    Jay Yanamandala     - yana@synopsys.com
+##    September 26, 2022
+##############################################################################
+
+## Load Package
+# package require Tcl 8.5
+# package require Tk
+
+###############################################
+## HOW TO USE THIS TCL 
+##    configureRM --h
+###############################################
+
+## Create File to capture output of PERL script
+set PID [pid]
+set PWD [pwd]
+# puts "PID: $PID"
+# puts "PWD: $PWD"
+
+## Window Title Name
+set wmTitle "configureRM"
+
+set filePath [file normalize [info script]]
+set scriptDir [file dirname $filePath];       # Get dir name of 'configureRM' (this script) - Default: location of design_setup and (fc_setup.tcl -OR- icc2_pnr_setup.tcl)
+
+## SUPPORT only one location where rm_setup Tcl files reside
+## This script configureRM resides only in rm_utilities directory
+## If design_setup.tcl does not exist in rm_utilities, then it is checked in ../rm_setup directory
+## if rm_setup contains design_setup and (fc_setup.tcl -OR- icc2_pnr_setup.tcl), then set rmDir to $scriptDir/rm_setup dir
+## If neither rm_utilities -NOR- rm_setup directories do not contain design_setup.tcl, default to directory containing configureRM
+set rmSetDir [file join [file dirname $scriptDir] "rm_setup"];
+
+## Check where 'design_setup.tcl' file exists
+if { [file exists $scriptDir/design_setup.tcl] } {
+    ## $scriptDir is where configureRM exists - which is rm_utilities directory
+    ## design_setup.tcl is the file sent with release - new template which should be used
+    ## Variables values in this template file are updated with values from original file and shown in GUI
+    set rmDir $scriptDir;   # set rmDir to $scriptDir
+} elseif { [file exists $rmSetDir/design_setup.tcl] } {
+    ## If file does not exist in $scripDir but in $scriptDir/../rm_setup directory
+    set rmDir $rmSetDir;   # set rmDir to $rmSetDir
+} else {
+    ## If 'design_setup.tcl' does not exist in $scriptDir then set $rmDir to $scriptDir
+    set rmDir $scriptDir;   # DEFAULT: set rmDir to $scriptDir - directory where 'configureRM' exists
+}
+
+## print PATHs
+# puts "filePath:$filePath-"
+# puts "scriptDir:$scriptDir-"
+# puts "rmDir:$rmDir-"
+# puts "rmSetDir:$rmSetDir-"
+
+## Get length of cmd-line args (all - including options)
+set arglen [llength $argv]
+
+##############################################################################
+## Help PROC
+proc invokeHelp {} {
+
+   global PID
+   global rmDir
+   puts "\nPlease use syntax"
+   puts " --in | --input <input rm_setup Tcl file> "
+   puts " --op | --output <output Tcl file"
+   puts " --sf | --supported_files - List rm_setup files supported by this script"
+   puts " --h  | --help - this help"
+
+   puts ""
+   puts " Default is to write rm_setup/design_setup.tcl and "
+   puts "   $rmDir/fc_setup.tcl if it exists -else-"
+   puts "   $rmDir/icc2_pnr_setup.tcl"
+   puts " -to- "
+   puts "   ./design_setup.tcl.<processId> and "
+   puts "   ./fc_setup.tcl.<processId> -or- ./icc2_pnr_setup.tcl.<processId>"
+   puts ""
+   puts "If \'User\' provided input file is _not_ one of rm_setup Tcl file supported by configureRM"
+   puts "   then Tcl file to write output to \'must\' be provided using --op option"
+   puts ""
+}
+##############################################################################
+
+## Default File to show in configureRM is $rmDir/design_setup.tcl
+## Default is changed based on the Script name of input-file
+set design_RMFile [file join $rmDir "design_setup.tcl"]
+set fc_RMFile [file join $rmDir "fc_setup.tcl"]
+set fc_dp_RMFile [file join $rmDir "fc_dp_setup.tcl"]
+set fm_RMFile [file join $rmDir "fm_setup.tcl"]
+set incremental_design_setup_RMFile [file join $rmDir "incremental_design_setup.tcl"]
+set sidefile_RMFile [file join $rmDir "sidefile_setup.tcl"]
+set icc2_dp_RMFile [file join $rmDir "icc2_dp_setup.tcl"]
+set icc2_pnr_RMFile [file join $rmDir "icc2_pnr_setup.tcl"]
+
+## Create an Array of Default files to use if Script: matches from input-file
+array set defaultFileNames {};
+set defaultFileNames('design_setup.tcl') $design_RMFile
+set defaultFileNames('fc_setup.tcl') $fc_RMFile
+set defaultFileNames('fc_dp_setup.tcl') $fc_dp_RMFile
+set defaultFileNames('fm_setup.tcl') $fm_RMFile
+set defaultFileNames('incremental_design_setup.tcl') $incremental_design_setup_RMFile
+set defaultFileNames('sidefile_setup.tcl') $sidefile_RMFile
+set defaultFileNames('icc2_dp_setup.tcl') $icc2_dp_RMFile
+set defaultFileNames('icc2_pnr_setup.tcl') $icc2_pnr_RMFile
+
+## Input Files Checks - Variable Declarations
+set inFileFCfile  ""
+set inFileICCfile ""
+set defaultInputFilePath 0
+
+## Proc to show supported files - configureRM --sf
+proc showRM_SupportedFiles {} {
+  global defaultFileNames
+
+  if { [llength [array names defaultFileNames] ] } {
+    puts ""
+    puts [format "%-5s" "Supported RM Files:"]
+    foreach rmFile [array names defaultFileNames] {
+      puts [format "%-5s %s" " " $rmFile]
+    }
+    puts ""
+  }
+}
+
+##############################################################################
+#### START CHECKS
+## Check if any of the Arguments is un-supported and EXIT
+##############################################################################
+## if { $arglen != 4}
+## puts "arglen:$arglen"
+## List of supported ARGs
+set listOfArgs [list "--in" "--input" "--op" "--output" "--sf" "--supported_files" "--h" "--help"]
+
+if { ! $arglen} {
+  puts "\nFor Usage invoke \'[file tail $filePath]\' with --h | --help"
+} else {
+  ## Check if $argv is not in the list
+  set index 0
+  while {$index < $arglen} {
+    set arg [lindex $argv $index]
+    # puts "Arg:$arg"
+    if { ![regexp $arg $listOfArgs] } {
+      puts "Argument $arg not part of supported arguments"
+      exit
+    }
+    incr index; # Increment Index
+    incr index; # Increment Index
+  }
+}
+###############################################
+## Check and parse inputs
+###############################################
+set index 0
+set showHelp 0
+set showSupportedFiles 0
+
+while {$index < $arglen} {
+    set arg [lindex $argv $index]
+    # puts "ARG:$arg"
+    switch -nocase -exact $arg {
+        --in -
+        --input {
+            set inFile [lindex $argv [incr index]]
+        }
+        --op -
+        --output {
+            set outFile [lindex $argv [incr index]]
+        }
+        --sf -
+        --supported_files {
+            set showSupportedFiles 1
+        }
+        --h -
+        --help {
+            set showHelp 1
+        }
+    }
+    incr index
+}
+
+## Check if --h | --help option is used in command-line
+if { $showHelp } {
+    invokeHelp
+    exit
+}
+
+## Check if --sf | --supported_files option is used in command-line
+if { $showSupportedFiles } {
+    showRM_SupportedFiles
+    exit
+}
+
+## Initalize defaultInputFile -to- 1, assuming User does not provide input file
+set defaultInputFile 1
+
+##############################################################################
+## Check $inFile is defined and if can be opened for read
+## Check for ^# Script:" in input-file to get what file it is
+puts "";# Add a blank on STDOUT after start of script
+if {[info exists inFile]} {
+   if {! [file exists $inFile] } {
+      puts "ERROR: Input RM File: '$inFile' does not exist - please check"
+      unset inFile
+      exit
+   } else {
+      if [catch {open $inFile} in] {       
+        puts stderr "Cannot open Input RM file: $inFile"       
+        close $in
+        unset inFile
+        exit
+      } else {
+        # Since input-file is provided check if it is a supported file that should be parsed by RM
+        ## Get Full path of $inFile
+        set inFile [file normalize $inFile]
+        # puts "Input RM File: $inFile"
+        set inFileFCfile  [file normalize [file join [file dirname $inFile] "fc_setup.tcl"]];
+        set inFileICCfile [file normalize [file join [file dirname $inFile] "icc2_pnr_setup.tcl"]];
+        # puts "FC Input File     : $inFileFCfile"
+        # puts "ICC PNR Input File: $inFileICCfile"
+
+        set scriptName [catch {exec grep {^#*\s*Script:} $inFile} results]
+        # puts "Results:$results"
+        # puts "scriptName:$scriptName"
+        # If Tcl file does not contain line Script: means it is a private Tcl file - not a RM file
+        if { $scriptName } {
+            set defaultInputFile 0; # First check _NO_ # Script: line 
+        } else {
+            # regexp {(## Script:)(.*?)} $results x1 sname
+            set results [string trimright $results " "]
+            regexp {(^#*\s*Script:\s*)(.*?)} $results x1 x2 sname
+            # puts "script_name:$sname"
+            ## Default input file to use - must be part of supported ARRAY of files $defaultFileNames
+            ## Files listed in line 93
+            if { [info exists defaultFileNames('$sname')] } {
+              set defaultInputFile 1; # First check _NO_ # Script: line 
+              if { [ string match $sname "design_setup.tcl"] == 1 } { 
+                if { [file exists $inFileFCfile] } {
+                  set defaultInputFilePath [list $design_RMFile]
+                  if { [file exists $fc_RMFile] } {
+                    lappend defaultInputFilePath $fc_RMFile 
+                  } else {
+                    puts "WARNING Missing: $fc_RMFile\n"
+                  }
+                } elseif { [file exists $inFileICCfile] } {
+                  set defaultInputFilePath [list $design_RMFile]
+                  if { [file exists $icc2_pnr_RMFile] } {
+                    lappend defaultInputFilePath $icc2_pnr_RMFile 
+                  } else {
+                    puts "WARNING Missing: $icc2_pnr_RMFile\n"
+                  }
+                }
+              } else {
+                set defaultInputFilePath [list $defaultFileNames('$sname')]
+              }
+            } else {
+              set defaultInputFile 0; # First check _NO_ # Script: line 
+            }
+        }
+      }
+   }
+} else {
+
+  ## Use Defaults
+  set defaultInputFile 1
+
+  ## Check if $fc_RMFile exists and then add as default to $defaultInputFilePath files list
+  ##  -ELSE- just add $design_RMFile as the default file
+  ## Build a list of Default Input Files
+  if { [file exists $design_RMFile] } {
+    set defaultInputFilePath [list $design_RMFile]
+  }
+
+  if { [file exists $fc_RMFile] } {
+    ## Add appropriate files to LIST -OR- create variable $defaultInputFilePath
+    if { [info exists design_RMFile] } {
+      lappend defaultInputFilePath $fc_RMFile 
+    } else {
+      set defaultInputFilePath $fc_RMFile
+    }
+  } elseif { [file exists $icc2_pnr_RMFile] } {
+    ## Add appropriate files to LIST -OR- create variable $defaultInputFilePath
+    if { [info exists design_RMFile] } {
+      lappend defaultInputFilePath $icc2_pnr_RMFile 
+    } else {
+      set defaultInputFilePath $icc2_pnr_RMFile
+    }
+  }
+
+}
+
+## Check if USING DEFAULT rm_setup files -else- check if User provided $inFile
+if { ! $defaultInputFile } {
+  ## In this case do we check for <output-file> option or write to system default
+  if {! [info exists inFile]} {
+    puts "ERROR: Please provide input file using options --in <input file> and --op <output file> to configureRM"
+    puts ""
+    exit
+  }
+} else {
+  # puts "defaultInputFilePath:$defaultInputFilePath"
+  ## Check if $defaultInputFilePath count is greater then '1'
+  if { ! [llength $defaultInputFilePath] } {  ;# If configureRM is showing 'DEFAULT' -- check if count is greater than '0'
+    puts "No default rm_setup Tcl files in directory, pleae check location of \'confugreRM\'"
+    if {! [info exists inFile]} {
+      puts "ERROR: Please provide input file using options --in <input file> and --op <output file> to configureRM"
+      puts ""
+      exit
+    }
+  }
+}
+
+## If Using Default $inFile - "$rmDir/design_setup.tcl" 
+##  then no need to error out if --output option is not used
+## Check outFile
+if {[info exists outFile]} {
+  ## Get ROOT DIRECTORY name of $outFile - Get Full path of $outFile
+  set outFile [file normalize $outFile]
+  set outDir [file dirname $outFile]
+
+  if { [file exists $outFile] } {
+    puts "ERROR: Output File: '$outFile' exists - please provide a different name\n"
+    unset outFile
+    exit
+  } else {
+
+    ## Check if File is writable
+    if { ! [file writable $outDir] } {
+      puts "ERROR: Cannot write to: '$outFile'"
+      puts "please check directory ownership\n"
+      unset outDir
+      unset outFile
+      exit
+    }
+  }
+} else {
+
+  set outDir [pwd]
+  ## Check if File is writable
+  if { ! [file writable $outDir] } {
+    puts "ERROR: Cannot write to: '$outFile'"
+    puts "please check directory ownership\n"
+    unset outDir
+    exit
+  }
+}
+
+## If Using defaultInputFile - check appropriate output files to write-out
+if { $defaultInputFile } {
+    ## outFile is system generated - if 'DEFAULT' then two files are written out - ELSE ONLY one
+    ##    two files: design_setup.tcl and fc_setup.tcl -OR- icc2_pnr_setup.tcl
+    if { [llength $defaultInputFilePath] > 1 } {  ;# If configureRM is showing 'DEFAULT' form (combination of design_setup.tcl and fc_setup.tcl)
+        # puts "defaultInputFilePath Length:[llength $defaultInputFilePath]"
+        foreach fileN $defaultInputFilePath {
+          set tailName [file tail $fileN]
+          # puts "defaultInputFilePath - fileN:$fileN - tailName:$tailName"
+          if { [ string match $tailName "design_setup.tcl"] == 1 } { 
+            set outFile [file join $outDir ${tailName}_${PID}]
+          } else {
+            set fcOutFile [file join $outDir ${tailName}_${PID}]
+          }
+        }
+    } else {
+        set outFile [file join $outDir [file tail $defaultInputFilePath]_${PID}]
+    }
+} else {
+    ## Since User did not provide an Output file name - use System Generated
+    ## Get base of $inFile and use this varaible to write to $outDir
+    # puts "ERROR: Please provide Output file name"
+    if { ! [info exists outFile] } {
+    set outFile [file join $outDir [file tail $inFile]_${PID}]
+    }
+}
+
+## Print Input Output files
+puts "#################################################################################"
+if { [info exists inFile] } {
+
+    # puts "defaultInputFilePath:[llength $defaultInputFilePath]-$defaultInputFilePath-"
+    if { $defaultInputFilePath != 0 } {  ;# Check if length is more than '0'
+      puts "Input file: $inFile"
+      if { [lsearch -exact $defaultInputFilePath '^design_setup.tcl$'] >= 0 } {
+        puts "RM Design Setup input file: $design_RMFile"
+        puts "Output file: $outFile\n"
+        if { [file exists $inFileFCfile] } {
+          if { [file exists $fc_RMFile] } {
+            puts "FC Setup input file : $inFileFCfile"
+            puts "FC Setup output file: $fcOutFile"
+          }
+        } elseif { [file exists $inFileICCfile] } {
+          if { [file exists $icc2_pnr_RMFile] } {
+            puts "ICC2 PNR Setup input file : $inFileICCfile"
+            puts "ICC2 PNR Setup output file: $fcOutFile"
+          }
+        }
+      } else {
+        puts "RM file : $defaultInputFilePath"
+        puts "Output file: $outFile\n"
+      }
+    } else {
+      puts "Input file: $inFile"
+      puts "Output file: $outFile\n"
+    }
+
+} else {
+  ## Check and print if DEFAULT files will be used
+  if { [file exists $design_RMFile] } {
+    puts "Showing Default Form:\nset VARs for:"
+    puts "Design Setup input file : $design_RMFile"
+    puts "Design Setup output file: $outFile\n"
+  }
+  if { [llength $defaultInputFilePath] > 1 } {  ;# Check if length is more than '1'
+    # puts "defaultInputFilePath Length:[llength $defaultInputFilePath]"
+    foreach fileN $defaultInputFilePath {
+      set tailName [file tail $fileN]
+      # puts "defaultInputFilePath - fileN:$fileN - tailName:$tailName"
+      if { ! [ string match $tailName "design_setup.tcl"] == 1 } { 
+         if { [file exists $fc_RMFile] } {
+             puts "FC Setup input file : $fc_RMFile"
+             puts "FC Setup output file: $fcOutFile"
+         } elseif { [file exists $icc2_pnr_RMFile] } {
+             puts "ICC2 PNR Setup input file : $icc2_pnr_RMFile"
+             puts "ICC2 PNR Setup output file: $fcOutFile"
+         }
+      }
+    }
+  }
+}
+puts "#################################################################################\n"
+
+##############################################################################
+#### END CHECKS
+##############################################################################
+
+##############################################################################
+#### INITIALIZE VARS
+##############################################################################
+
+## Initialize an ARRAY to hold attribute values
+array set rm_attr {};    # Array to capture RM Variables from 'input RM Tcl file' into HASH
+array set save_attr {};  # Array HASH written to after a save and then checked before Exiting
+array set tabVars {};    # Array HASH to hold TABs - swap oroginal with new
+
+set rm_tabs "" ; # capture TABS to create forms into a list
+set attr_names ""; # capture attribute names from Input Tcl file into a list
+set retn_aNames ""; # capture attribute names with values changed in RM_Form into a list
+set fMaxHeight 2400; # Default 'height' of TAB Frame
+set fMaxWidth 1200; # Default  'width' of TAB Frame
+set tabMaxWidth 22; # Default  'width' of TAB - left side holding TAB names
+
+## Create ARRAY second ELEMENTS
+set var1 var1
+set val1 val1
+set com1 com1
+set tab1 tab1
+set typ1 typ1
+set cust1 cust1
+set multi1 multi1
+set back1 back1
+set squot1 squot1
+set ccurl1 ccurl1
+set csqur1 csqur1
+
+## Escape special chars
+set dquot "\"\""
+set squot "\""
+set backs "\\\\"
+set sback "\\"
+set ocurl "\{"
+set ccurl "\}"
+set osqur "\["
+set csqur "\]"
+set cret "\n"
+set cspc " "
+
+##############################################################################
+#### START PROCS
+##############################################################################
+## PROC to get maxwidth of TAB
+proc getMaxTabWidth {} {
+  global rm_tabs
+  global tabMaxWidth
+
+  foreach tName $rm_tabs {
+    ## puts "TAB:$tName-length:[string length [encoding convertto utf-8 $tName]]-"
+    ## puts "TAB:$tName-length:[string length $tName]-"
+    if { [string length $tName] > $tabMaxWidth } {
+      set tabMaxWidth [string length $tName]
+    }
+  }
+
+  set tabMaxWidth [expr $tabMaxWidth + 10]
+  ## puts "tabMaxWidth:$tabMaxWidth"
+
+}
+
+## PROC to generate Width and Height of Frame to use in FRAME to position xscroll and yscroll
+proc getMaxHeightWidth { checkTabName } {
+  global rm_attr
+  global fMaxWidth
+  global attr_names
+  global fMaxHeight
+  global var1
+  global val1
+  global tab1
+  global com1
+  set tMaxWidth 200
+ 
+  ## Get Max Length of any field to use in TAB FRAME Width .frAlles.nb.TAB
+  set maxCntAttr 0
+  set commentCnt 0
+  foreach aName $attr_names {
+    ## Skip if $aName == "None"
+    if { [ string match $aName "None"] == 1 } { continue }
+
+    if { [ string match $checkTabName $rm_attr($aName,$tab1)] == 1 } {
+
+      if { [info exists rm_attr($aName,$var1)] } {
+            incr maxCntAttr
+      }
+
+      ## Get Count of comments - get length and divide by 800 and add 1
+      if { [info exists rm_attr($aName,$com1)] } {
+          ## Use SPLIT since llength complains on 'list element in quotes followed by ";" instead of space'
+          foreach lcom [split $rm_attr($aName,$com1) ]  {
+            incr commentCnt
+          }
+      }
+
+      ## Check for VALUE and Print
+      if { [info exists rm_attr($aName,$val1)] } {
+        if { [string length $rm_attr($aName,$val1)] > $tMaxWidth } {
+          set tMaxWidth [expr [string length $rm_attr($aName,$val1)] * 10]
+        }
+      }
+    }
+  }
+
+  set commentCnt [expr $commentCnt/13 + 1]; ## Assuming 13 words in a sentence
+  set maxCntAttr [expr $maxCntAttr * 2] ;# Since we add a space before every VAR before posting in FORM
+  set fMaxHeight [expr ($maxCntAttr + $commentCnt + 5) * 20] ; # 20 is Height of line and '5' is extra number of lines
+  if { $tMaxWidth > $fMaxWidth } { set fMaxWidth $tMaxWidth  }
+  set fMaxWidth [expr $fMaxWidth + 100]
+}
+
+##############################################################################
+## Depending on if input-file is used, need to call a different PROC
+##  If using DEFAULT FLOW call twice - once to write out design_setup.tcl and another to write out fc_setup.tcl
+##  If using supported file, and User specified input-file call swap_attrs with both input and output files
+##    This is because input-file might have #### CUSTOM START END BLOCKS
+## The value is available in the global 'command' variable because of the 'textvariable' attribute of the entry
+## Cal PROC cmpArray with inputs 'rm_attr' and 'crm_attr' - returns a list of VARs that have different values
+proc Save { {xit false} } {
+  global crm_attr
+  global save_attr
+  global rm_attr
+  global retn_aNames
+  global attr_names
+  global inFile
+  global outFile
+  global defaultInputFilePath
+  global fcOutFile
+  global defaultInputFile
+  global design_RMFile 
+  global fc_RMFile 
+  global fc_dp_RMFile
+  global fm_RMFile
+  global incremental_design_setup_RMFile
+  global sidefile_RMFile
+  global icc2_dp_RMFile
+  global icc2_pnr_RMFile
+  global inFileFCfile
+  global inFileICCfile
+
+  # printHash; # Print Hash
+  ## Initialize LIST 'retn_aNames'
+  set retn_aNames ""
+
+  ## Cal PROC cmpArray with inputs 'rm_attr' and 'crm_attr' - returns a list of VARs that have different values - $retn_aNames
+  cmpArray rm_attr crm_attr
+
+  ## If there are Attribute Variables that have different values, then call PROC to swap values
+  ##  ELSE just copy file - if ouput file exists DO NOTHING -  if output file DOES NOT EXIST, then copy input
+  if { [llength $retn_aNames] } {
+
+    # Since there are differences COPY crm_attr -TO- save_attr. 'crm_attr' contains vales from NOTEBOOK
+    # This 'save_attr' is used to check if any changes were made and saved before Exiting Program
+    array set save_attr [array get crm_attr]
+
+    ## First check if input-file is part of the default file list
+    ##  If yes, then capture attrs and values and later update with values from input-file if given
+    if { $defaultInputFile } {
+      ## RM Supported file
+      if {[info exists inFile]} {
+          ## Using $defaultInputFilePath - only pick #### CUSTOM START END BLOCK from $inFile
+          ##    write $defaultInputFilePath + ARR VALUES(updated with values from $inFile and User Edits)
+          ##    + $inFile #### CUSTOM START END BLOCK 
+          if { [llength $defaultInputFilePath] > 1 } { ;# (combination of design_setup.tcl and fc_setup.tcl)
+            # puts "defaultInputFilePath Length:[llength $defaultInputFilePath]"
+            foreach fileN $defaultInputFilePath {
+              set tailName [file tail $fileN]
+              # puts "defaultInputFilePath - fileN:$fileN - tailName:$tailName"
+              if { [ string match $tailName "design_setup.tcl"] == 1 } { 
+                swap_attrs $design_RMFile $outFile
+              } else {
+                if { [file exists $inFileFCfile] } {
+                  swap_attrs $fc_RMFile $fcOutFile
+                } elseif { [file exists $inFileICCfile] } {
+                  swap_attrs $icc2_pnr_RMFile $fcOutFile
+                }
+              }
+            }
+          } else {
+              swap_attrs $defaultInputFilePath $outFile
+          }
+      } else {
+          ## This is using defaults - design_setup.tcl and fc_setup.tcl
+          ## SWAP ATTRs for both $design_RMFile and $fc_RMFile  
+          swap_attrs $design_RMFile $outFile
+          if { [file exists $fc_RMFile] } {
+            swap_attrs $fc_RMFile $fcOutFile
+          } elseif { [file exists $icc2_pnr_RMFile] } {
+              swap_attrs $icc2_pnr_RMFile $fcOutFile
+          }
+      }
+
+    } else {
+        ## Not a RM supported file - Update $outFile with contents of $inFile
+        swap_attrs $inFile $outFile
+    }
+
+  } else {
+    ## file copy -force <source> <target>
+    array set save_attr [array get crm_attr]
+
+    if {[info exists inFile]} {
+      set diffx [catch {eval exec diff $defaultInputFilePath $inFile} inDiffs]
+      if { $diffx } {
+        swap_attrs $defaultInputFilePath $outFile
+      } else {
+        file copy -force $defaultInputFilePath $outFile
+      }
+    } else {
+      file copy -force $design_RMFile $outFile
+      if { [file exists $fc_RMFile] } {
+        swap_attrs $fc_RMFile $fcOutFile
+      } elseif { [file exists $icc2_pnr_RMFile] } {
+        swap_attrs $icc2_pnr_RMFile $fcOutFile
+      }
+    }
+  }
+
+  ## If $xit is true call PROC exitProgram
+  if { $xit } {
+    exitProgram
+  }
+}
+
+##############################################################################
+## PROC to destroy WINDOW and EXIT program
+proc exitProgram { {winName .qtop} } {
+  global filePath
+  destroy $winName; # Destroy PopUp
+  puts "Done Executing - $filePath"
+  exit; # Exit Program
+}
+
+##############################################################################
+# Quit the Program and fix up the button
+# Terminates the program by closing the PIPE
+proc Quit {} {
+
+  ## Globals
+  global crm_attr
+  global save_attr
+  global rm_attr
+  global retn_aNames
+
+  ## Initialize LIST 'retn_aNames'
+  set retn_aNames ""
+
+  ## Cal PROC cmpArray with inputs 'save_attr' and 'crm_attr' - returns a list of VARs that have different values
+  ## Check if 'save_attr' has any values -ELSE- check against 'rm_attr'
+  if { [array size save_attr] } {
+      cmpArray crm_attr save_attr
+  } else {
+      cmpArray rm_attr crm_attr
+  }
+
+  ## Check if any changes to form have been made
+  if { [llength $retn_aNames] } {
+    ## Check with User on What they would like to do
+    set labelString "Would you like to Save Changes?"
+
+    # ## tk::PlaceWindow $child_path widget $parent_path
+    set top [toplevel .qtop]
+    set labelPop [label $top.labelPop -font {Helvetica -14 bold} -text $labelString -foreground #831EE1]
+    set buttonSave [button $top.buttonSave -width 10 -text "Yes" -command {Save true} ]
+    set buttonExit [button $top.buttonPop -text "No" -command {exitProgram .qtop} ]
+
+    pack $labelPop -side top -fill x;
+    pack $buttonSave -side left; 
+    pack $buttonExit -side right; 
+
+    # But first, we need the geometry managers to finish setting
+    # up the interior of the dialog, for which we need to run the
+    # event loop with the widget hidden completely...
+    wm withdraw .qtop
+    update
+    set x [expr {([winfo screenwidth .]-[winfo width .qtop])/2}]
+    set y [expr {([winfo screenheight .]-[winfo height .qtop])/2}]
+    wm geometry  .qtop +$x+$y
+    wm transient .qtop .
+    wm title     .qtop ""
+    wm iconname  .qtop ""
+    wm deiconify .qtop
+  } else {
+    ## If no changes have been made - exit program
+    exit
+  }
+
+}
+
+##############################################################################
+## PROC to Print VARIABLES - if $showarr == 1, then execute parray and return
+proc printHash {arrcap {showarr 0} } {
+
+  ## upvar
+  upvar $arrcap parrcap;        # Here arrcap is "rm_attr" - input HASH VAR to PROC
+  global rm_attr
+  global attr_names
+  global rm_tabs
+  global var1
+  global com1
+  global val1
+  global tab1
+  global typ1
+  global cust1
+  global multi1
+  global back1
+  
+  ## Print ARRAY
+  if { $showarr } {
+      parray parrcap;
+      return
+  }
+
+  foreach aName $attr_names {
+
+     set VAL1 {}; set TAB1 {}; set CUST1 {}; set TYP1 {};
+
+     ## Check for VALUE and Print
+     if { [info exists parrcap($aName,$val1)] } {
+        # puts "Value:$parrcap($aName,$val1)-"
+        set VAL1 $parrcap($aName,$val1)
+     }
+
+     ## Check for TAB and Print
+     if { [info exists parrcap($aName,$tab1)] } {
+       # puts "TAB: $parrcap($aName,$tab1)-"
+       set TAB1 $parrcap($aName,$tab1)
+     }
+   
+     ## Print TYP
+     if { [info exists parrcap($aName,$typ1)] } {
+       # puts "TYP1:$parrcap($aName,$typ1)"
+       set TYP1 $parrcap($aName,$typ1)
+     }
+  
+     ## Print CUSTOM_START_END
+     if { [info exists parrcap($aName,$cust1)] } {
+       # puts "CUSTOM:$parrcap($aName,$cust1)"
+       set CUST1 $parrcap($aName,$cust1)
+     }
+  
+     ## Prints on same line as VAR - since using -nonewline
+     if { [info exists parrcap($aName,$cust1)] } {
+       puts -nonewline "Variable Name:$aName-"
+       puts "VAL1:$VAL1-TAB:$TAB1-TYP1:$TYP1-CUSTOM:$CUST1"
+     } else {
+       puts -nonewline "Variable Name:$aName-"
+       puts "VAL1:$VAL1-TAB:$TAB1-TYP1:$TYP1"
+     }
+  }
+}
+
+##############################################################################
+## Triggering Event
+proc Exit { } {
+   puts "Done Executing - $filePath"
+   exit
+}
+
+##############################################################################
+# Parse file and capture attributes, values, spaces and comments for later use
+# ARRAY and LIST are created - since lists sequence is not changed while ARRAY is sorted
+# Capture att_name only for Current/Base Release
+proc swap_attrs { dFile oFile } {
+
+  global crm_attr
+  global rm_attr
+  global retn_aNames
+  
+  global var1
+  global com1
+  global val1
+  global tab1
+  global typ1
+  global cust1
+  global multi1
+  global back1
+  global cret
+  global cspc
+  global dquot
+  global backs
+  global sback
+  global squot1
+  global csqur1
+  global ccurl1
+  global ccurl
+  global squot
+
+  set term false
+  set contVal ""
+  set first false
+  set com ""
+  set skipLine false
+  set var "None"
+
+  ## CUSTOM_START and CUSTOM_END Blocks
+  set customStart 0
+  set customEnd 0
+  set copyRight 0
+  set checkCommentLine 0
+
+  ## Get Number of lines in $dFile
+  set fl [open $dFile]
+  set data [read $fl]
+  close $fl
+  set fileLines [split $data \n]
+
+  set numLines -1
+  set out [open $oFile w+]
+  set in [open $dFile r]
+  while {[gets $in line] >= 0} {
+    
+      ## Trim right most character ESP <SPACE>
+      incr numLines; # Increment variable $numLines
+      
+      ## Check if line is # Copyright and followed by ####+$
+      ## Then check if var="None" and there is a ####CUSTOM_START block and write it out
+      if { [regexp {^#+[\s|\t]+Copyright} $line] } {
+        # puts "line:$line-"
+        set copyRight 1
+        puts $out $line
+        continue
+      }
+
+      if { $copyRight } {
+          set copyRight 0
+          if { [regexp {^######+$} $line] } {
+            set checkCommentLine 1
+            ## puts "Here:checkCommentLine-$line"
+            puts $out $line
+            continue
+          }
+      }
+
+      ## Check if $checkCommentLine is TRUE and if $var == "None" and see if $cust1 exists
+      if { $checkCommentLine } {
+          set checkCommentLine 0
+          # puts "Here:checkCommentLine 0 -$line"
+          set nVar "None"
+          # if {[string compare $var "None"] } {
+            if { [info exists crm_attr($nVar,$cust1) ] } {
+              puts $out $crm_attr($nVar,$cust1)
+            }
+          # }
+      }
+
+      ###############################################
+      ## Skip parsing lines when $term is 'true'
+      if { $term } {
+         set tLine $line
+         if { ([regexp (\}) $tLine] || [regexp (\") $tLine] || [regexp (\]) $tLine] ) } {
+            set term false
+            set skipLine true
+         } else {
+            set term true
+            continue
+         }
+      }
+
+      if [regexp {^set } $line ] {
+         if [regexp {;([\s|\t])*#} $line] { ;# COMMENT line
+            regexp {^set([\s|\t]+)(.*?)([\s|\t]+)(.*)} $line x s1 var s2 valcom
+
+            ## If a CUSTOM_START CUSTOM_END BLOCK EXISTS - write it out
+            if { [info exists crm_attr($var,$cust1) ] } {
+              puts $out $crm_attr($var,$cust1)
+            }
+
+            ## Check if $crm_attr($var,$multi1) is TRUE and execute 'term'
+            if { $crm_attr($var,$multi1) } {
+                set term true
+                set sv 0
+                regsub -all {\s+} $crm_attr($var,$val1) " " crm_attr($var,$val1)
+                set xxx [split $crm_attr($var,$val1) " "]
+                foreach fmul $xxx {
+                   if { ! $sv } {
+                      incr sv; # Increment sv VAR
+                      if { $crm_attr($var,$back1) } {
+                        puts $out "set$s1$var$cspc$fmul$cspc$sback"
+                      } else {
+                        puts $out "set$s1$var$cspc$fmul"
+                      }
+                   } else {
+                      if { ([regexp (\}) $fmul] || [regexp (\") $fmul] || [regexp (\]) $fmul] ) } {
+                          puts $out "$fmul"
+                      } else {
+                           if { $crm_attr($var,$back1) } {
+                               puts $out "$fmul$cspc$sback"
+                           } else {
+                               puts $out "$fmul"
+                           }
+                      }
+                   }
+              }
+           } else {
+              set term false
+              if { [lsearch -exact $retn_aNames $var] >= 0 } {
+                  if { [ string match $crm_attr($var,$typ1) "noquot"] == 1 } {
+                     set crmVal $crm_attr($var,$val1)
+                   } else {
+                     # set crmVal \"$crm_attr($var,$val1)\"
+                     set crmVal $crm_attr($var,$val1)
+                   }
+                   if { [ string match $crm_attr($var,$typ1) "blank"] == 1 } {
+                       if { [regexp {([\s|\t])+;\s*#} $line] } {
+                           # set sub "set\\1\\2\\3\"$crm_attr($var,$val1)\"\\5\\6"
+                           set sub "set\\1\\2\\3$crmVal\\5\\6"
+                           regsub {^set([\s|\t]+)(.*?)([\s|\t]+)(.*?)([\s|\t]+)(.*?)} $line $sub line
+                       } else {
+                           # set sub "set\\1\\2\\3\"$crm_attr($var,$val1)\";#\\6"
+                           set sub "set\\1\\2\\3$crmVal;#\\6"
+                           regsub {^set([\s|\t]+)(.*?)([\s|\t]+)(.*?)([\s|\t]*)(.*?)} $line $sub line
+                       }
+                   } else {
+                       if { [regexp {([\s|\t])+;\s*#} $line] } {
+                           # set sub "set\\1\\2\\3$crm_attr($var,$val1)\\5\\6"
+                           set sub "set\\1\\2\\3$crmVal\\5\\6"
+                           regsub {^set([\s|\t]+)(.*?)([\s|\t]+)(.*?)([\s|\t]+)(.*?)} $line $sub line
+                       } else {
+                           # set sub "set\\1\\2\\3$crm_attr($var,$val1);#\\6"
+                           set sub "set\\1\\2\\3$crmVal;#\\6"
+                           regsub {^set([\s|\t]+)(.*?)([\s|\t]+)(.*?)([\s|\t]*)(.*?)} $line $sub line
+                       }
+                   }
+                   puts $out "$line"
+              } else {
+                  puts $out "$line"
+              }
+            }
+        } else { ; # No Comment
+              regsub -all {\s+} $line " " tLine
+              set tVals [split $tLine " "]
+              set var [lindex $tVals 1]
+
+              ## If a CUSTOM_START CUSTOM_END BLOCK EXISTS - write it out
+              if { [info exists crm_attr($var,$cust1) ] } {
+                puts $out $crm_attr($var,$cust1)
+              }
+
+              if { $crm_attr($var,$multi1) } {
+                 set term true
+                 set sv 0
+                 regsub -all {\s+} $crm_attr($var,$val1) " " crm_attr($var,$val1)
+                 set xxx [split $crm_attr($var,$val1) " "]
+                 foreach fmul $xxx {
+                    if { ! $sv } {
+                       incr sv; # Increment sv VAR
+                       if { $crm_attr($var,$back1) } {
+                          puts $out "set$s1$var$cspc$fmul$cspc$sback"
+                        } else {
+                          puts $out "set$s1$var$cspc$fmul"
+                       }
+                 } else {
+                    if { ([regexp (\}) $fmul] || [regexp (\") $fmul] || [regexp (\]) $fmul] ) } {
+                        puts $out "$fmul"
+                    } else {
+                         if { $crm_attr($var,$back1) } {
+                             puts $out "$fmul$cspc$sback"
+                         } else {
+                             puts $out "$fmul"
+                       }
+                    }
+                 }
+              }
+           } else {
+               set term false
+               if { [lsearch -exact $retn_aNames $var] >= 0 } {
+                    if { [ string match $crm_attr($var,$typ1) "noquot"] == 1 } {
+                      set crmVal $crm_attr($var,$val1)
+                    } else {
+                      # set crmVal \"$crm_attr($var,$val1)\"
+                      set crmVal $crm_attr($var,$val1)
+                    }
+
+                    if { [ string match $crm_attr($var,$typ1) "blank"] == 1 } {
+                       # set sub "set\\1\\2\\3\"$crm_attr($var,$val1)\""
+                          set sub "set\\1\\2\\3$crmVal"
+                    } else {
+                          # set sub "set\\1\\2\\3$crm_attr($var,$val1)"
+                          set sub "set\\1\\2\\3$crmVal"
+                    }
+                    regsub {^set([\s|\t]+)(.*?)([\s|\t]+)(.*?)} $line $sub line
+                    puts $out "$line"
+               } else {
+                    puts $out "$line"
+              }
+           } 
+         }
+      } elseif [regexp {^([\s|\t]+)(;#.*) } $line comspc seccom] {
+          puts $out "$line"
+      } else {
+          if { $skipLine } {
+            set skipLine false
+            continue
+          } else {
+            puts $out "$line"
+         }
+      }
+  }    
+
+  close $in          
+  close $out
+
+} 
+
+##############################################################################
+# Parse file and capture attributes, values, spaces and comments for later use
+# ARRAY and LIST are created - since lists sequence is not changed while ARRAY is sorted
+# Capture att_name only for Current/Base Release
+proc capture_attrs { afile arrcap } {
+
+  ## upvar
+  upvar $arrcap parrcap;        # Here arrcap is "rm_attr" - input HASH VAR to PROC
+  global attr_names
+  global tabVars
+  global rm_tabs
+  global var1
+  global com1
+  global val1
+  global typ1
+  global cust1
+  global multi1
+  global tab1
+  global cret
+  global cspc
+  global back1
+  global dquot
+  global backs
+  global sback
+  global squot1
+  global csqur
+  global csqur1
+  global ccurl1
+  global ccurl
+  global squot
+  global defaultInputFile
+
+  set term false
+  set prevTab "GENERAL"
+  set nextTab "GENERAL"
+  set tabName "GENERAL"
+  set var "None"
+  set contVal ""
+  set first false
+  set com ""
+
+  ## CUSTOM_START and CUSTOM_END Blocks
+  set customStart 0
+  set customEnd 0
+
+  ## Get Number of lines in $afile
+  set fl [open $afile]
+  set data [read $fl]
+  close $fl
+  set fileLines [split $data \n]
+
+  ## Check if $var - which is 'None' is already in $attr_names list - ELSE add to it
+  if { [lsearch $attr_names $var] == -1} {
+    lappend attr_names $var
+  }
+
+  set numLines -1
+  set in [open $afile r]
+  while {[gets $in line] >= 0} {
+    
+      set typ "notyp";
+      ## Trim right most character ESP <SPACE>
+      set line [string trimright $line " "]
+      incr numLines; # Increment variable $numLines
+
+      ## Skip Lines Betwenn CUSTOM_START and CUSTOM_END lines
+      ###############################################
+      if [regexp {^#+CUSTOM_START#+$} $line ] {
+        set customEnd 1; # Check for ####CUSTOM_END#### ELSE loop through
+        continue
+      }
+
+      if { $customEnd } {
+          if [regexp {^#+CUSTOM_END#+$} $line ] {
+              set customEnd 0; # Only set if line is ####CUSTOM_END####
+          }
+          continue
+      }
+      ###############################################
+
+      if { $term } {
+        ## Copy $line to a NEW VARIABLE - so that the $line is not overwritten SINCE the next IF ELSE statements are executed
+        set tLine $line
+        if { ([regexp (\}) $tLine] || [regexp (\") $tLine] || [regexp (\]) $tLine]) } {
+           if [regexp {([\s|\t])*;\s*#} $tLine] { ;# COMMENT line
+              set tValComSplit [split $tLine ";#"]
+              set tLine [lindex $tValComSplit 0]
+              set tCom [lindex $tValComSplit 2]
+              set tLine [string trimright $tLine]
+           }
+           set contVal $contVal$cspc$tLine
+           # set contVal $contVal$tLine
+           set typ "string"
+           set parrcap($var,$typ1) $typ
+           set parrcap($var,$multi1) true
+
+           ## PRINT $contVal
+           regsub -all $backs $contVal "" contVal
+           if { [regexp $squot $contVal] } { set parrcap($var,$squot1) true } else { set parrcap($var,$squot1) false }
+           if { [regexp $ccurl $contVal] } { set parrcap($var,$ccurl1) true } else { set parrcap($var,$ccurl1) false }
+           if { [regexp $csqur $contVal] } { set parrcap($var,$csqur1) true } else { set parrcap($var,$csqur1) false }
+
+           set parrcap($var,$val1) $contVal; # Add here since we are removing '\' from the VALUE - add later based on '$back1'
+           set term false
+        } else {
+           if [regexp {([\s|\t])*;\s*#} $tLine] { ;# COMMENT line
+              set tValComSplit [split $tLine ";#"]
+              set tLine [lindex $tValComSplit 0]
+              set tCom [lindex $tValComSplit 2]
+           }
+           if { [regexp {\\} $tLine] } {
+              set parrcap($var,$back1) true
+              # regsub $backs $tLine "" tLine
+              regsub {([\s|\t])*\\([\s|\t])*} $tLine "" tLine
+           } else {
+              set parrcap($var,$back1) false
+           }
+
+           set term true
+           if { $first } {
+              set first false
+              set contVal [string trim $contVal]
+              set contVal $contVal$cspc$tLine
+           } else {
+              set contVal $contVal$cspc$tLine
+           }
+        }
+      }
+
+      if [regexp {^set } $line ] {
+
+           if { ([regexp {([\s|\t])+;\s*#} $line] || [regexp {([\s|\t])*;\s*#} $line]) } { ;# COMMENT line
+
+              regexp {^set([\s|\t]+)(.*?)([\s|\t]+)(.*) } $line x s1 var s2 valcom
+              # Not able to capture everything into valcom - so usin regsub to set anything before ; to ""
+              regsub {(.*?);} $line {} com;
+
+              set valcomsplit [split $valcom {;}];      # Split string on ';'
+              set val [lindex $valcomsplit 0]
+              # Remove '#' from front of string and REPLACE with <RETURN> - only use VAR since '\n' is posted literally
+              regsub {^#([\s|\t]+)} $com $cret com ;
+
+              set val [string trimright $val " "]; # Remove RIGHT space from $val
+              if [regexp {\"([\s|\t])*\"} $val] { ;# $val is "<SPACE>" -or- plain ""
+                  set typ "blank"; # EMPTY string for 'string is boolean' returns 0
+              } elseif { ([string is boolean $val] || [string is double $val] || [string is digit $val]) } {
+                  set typ "noquot"; # Boolean string '1'/'0'/'true'/'false'
+              } else {
+                  set typ "string"; # Everything ELSE is a string in TCL except for integers digits 
+              }
+
+              set parrcap($var,$var1) $var
+              set parrcap($var,$com1) $com
+              set parrcap($var,$typ1) $typ
+              set parrcap($var,$tab1) $tabName
+              set parrcap($var,$multi1) false
+              
+              ## Checking for TABs - if $prevTab is same as the $nextTab variable
+              if { [string match $prevTab $nextTab] } {
+                  set tabName $prevTab
+              } else {
+                  set tabName $nextTab
+                  set prevTab $nextTab
+              }
+
+              ## Check if $tabName is already in the list - ELSE add to it
+              if { [lsearch $rm_tabs $tabName] == -1} {
+                   lappend rm_tabs $tabName
+                   set parrcap($var,$tab1) $tabName
+              }
+              
+
+              ## Check if $var is already in the $attr_names list - ELSE add to it
+              if { [lsearch $attr_names $var] == -1} {
+                   lappend attr_names $var
+              }
+
+              set term false
+              if { [regexp {(.*?)([\s|\t]+)$} $val] } {
+                set val [string trimright $val]
+              }
+              ## Check if Value is a curly brace - or quote
+              if { ([regexp (\\"(.*?)\\"$) $val] || [regexp (\\"\\"$) $val] || [regexp (\\{\\}$) $val] || [regexp (\\{(.*?)\\}$) $val] || [regexp (\\\[(.*?)\\\]$) $val] || [regexp {([[:alnum:]]$)} $val] ) } {
+                if [regexp {\"([\s|\t])*\"} $val] { ;# $val is "<SPACE>"
+                    set parrcap($var,$val1) ""
+                } else {
+                    set parrcap($var,$val1) $val
+                }
+              } else {
+                  regsub $backs $val "" val
+                  set parrcap($var,$multi1) true
+                  set contVal $val
+                  set first true
+                  set term true
+              }
+
+          } else { ; # No Comment
+              set setvar [regexp -all -inline {\S+} $line]
+              set slength 0
+
+              set parrcap($var,$com1) "";    # Since there is no comment - just add ""
+              foreach xx $setvar {
+                if { [string match $xx "set"] == 0 } {
+                  if { $slength == 1 } {
+                      set var $xx
+                      set parrcap($var,$tab1) $tabName
+                      set parrcap($var,$var1) $var
+                  } elseif { $slength == 2 } {
+                      set val $xx
+                  } elseif { $slength == 3 } {
+                      set val ${val}${cspc}${xx}
+                      # set val ${val}${xx}
+                  }
+                }
+                set slength [expr $slength + 1]
+              }
+
+              ## Checking for TABs - if $prevTab is same as the $nextTab variable
+              if { [string match $prevTab $nextTab] } {
+                  set tabName $prevTab
+              } else {
+                  set tabName $nextTab
+                  set prevTab $nextTab
+              }
+
+              ## Check if $tabName is already in the list - ELSE add to it
+              if { [lsearch $rm_tabs $tabName] == -1} {
+                   lappend rm_tabs $tabName
+                   set parrcap($var,$tab1) $tabName
+              }
+              
+              ## Check if $var is already in the $attr_names list - ELSE add to it
+              if { [lsearch $attr_names $var] == -1} {
+                   lappend attr_names $var
+              }
+
+              set val [string trimright $val " "]; # Remove RIGHT space from $val
+              
+              ## Check if $val is "" -or- boolean -or- string
+              if [regexp {\"([\s|\t])*\"} $val] { ;# $val is "<SPACE>" -or- plain ""
+                  set typ "blank"; # EMPTY string for 'string is boolean' returns 0
+              } elseif { ([string is boolean $val] || [string is double $val] || [string is digit $val]) } {
+                  set typ "noquot"; # Boolean string '1'/'0'/'true'/'false'
+              } else {
+                  set typ "string"; # Everything ELSE is a string in TCL except for integers digits 
+              }
+              set parrcap($var,$typ1) $typ
+              set parrcap($var,$multi1) false
+
+              set term false
+              if { [regexp {(.*?)([\s|\t]+)$} $val] } {
+                 set val [string trimright $val]
+              }
+              ## Check if Value is a curly brace - or quote
+              if { ([regexp (\\"(.*?)\\"$) $val] || [regexp (\\"\\"$) $val] || [regexp (\\{\\}$) $val] || [regexp (\\{(.*?)\\}$) $val] || [regexp (\\\[(.*?)\\\]$) $val] || [regexp {([[:alnum:]]$)} $val] ) } {
+                  if [regexp {\"([\s|\t])*\"} $val] { ;# $val is "<SPACE>"
+                      set parrcap($var,$val1) ""
+                  } else {
+                      set parrcap($var,$val1) $val
+                  }
+              } else {
+                  regsub $backs $val "" val
+                  set parrcap($var,$multi1) true
+                  set contVal $val
+                  set first true
+                  set term true
+              }
+          }
+
+      } elseif [regexp {^([\s|\t]+)(;#.*) } $line comspc seccom] {
+
+          set valcomsplit [split $line ";#"]
+          set comspc [lindex $valcomsplit 0]
+          set seccom [lindex $valcomsplit 2]
+              
+          ## Delete ^<SPACES> from $seccom
+          regsub {^([\s|\t]+)} $seccom {} seccom
+          set com $com$seccom;              # Do NOT need <RETURN> since we changed '#' to <RETURN> earlier
+          set parrcap($var,$com1) $com
+
+      } else {
+
+          set linePrev [lindex $fileLines [expr $numLines -1]]
+          set lineNext [lindex $fileLines [expr $numLines +1]]
+          set linePrev [string trimright $linePrev " "]
+          set lineNext [string trimright $lineNext " "]
+
+          ## Trim linePrev and lineNext of any extra space at end - ELSE issue with PARSER
+          ## Section creating TABs
+          ###############################################
+          if { [regexp {^######+$} $linePrev] && ([regexp {^##[\s|\t]+} $line] || [regexp {^###[\s|\t]+} $line] || [regexp {^###[\s|\t]*\+} $line]) } {
+              if { [regexp {^set} $lineNext] || [regexp {^[\s|\t]*$} $lineNext] || [regexp {^[\s|\t]+$} $lineNext]} {
+                   continue
+              }
+              
+              # if [regexp {^##+([\s|\t]*)(.*?) } $line x1 spct tabname]
+              ## puts "defaultInputFile:$defaultInputFile"
+
+              if { $defaultInputFile } {
+                if [regexp {^###([\s|\t]*)(.*?) } $line x1 spct tabname] {
+                  regsub -all {#} $line "" line
+                  set line [string trimleft $line " "]
+
+                  ## Replace all numbers to <BLANK>
+                  regsub -all {[0-9]+} $line "" line
+
+                  ## Check if Section Header - has a ###+<STRING>  then create a VAR of NONE VALUE
+                  ## Add to $attr_names ARRAY
+                  if { [regexp {^[\s|\t]*\+} $line] } {
+                      regsub {\+} $line "" line
+                      set tabname [string map {". " "" "$" ""} $line]
+                      regsub -all { } $tabname " " vsection
+
+                      ## Check if $tabName is already in the list - ELSE add to it
+                      if { [lsearch $rm_tabs $tabname] == -1} {
+                           lappend rm_tabs $tabname
+                           set parrcap($vsection,$var1) "None"
+                           set parrcap($vsection,$val1) "None"
+                           set parrcap($vsection,$typ1) "blank"
+                           set parrcap($vsection,$tab1) $tabname
+                      }
+
+                      ## Check if $vsection is already in the $attr_names list - ELSE add to it
+                      if { [lsearch $attr_names $vsection] == -1} {
+                          lappend attr_names $vsection
+                     }
+                  } else {
+                      set tabname [string map {". " "" "$" ""} $line]
+                  }
+
+                  set nextTab $tabname
+                  # puts "tabname:$tabname"
+
+                }
+              } else {
+                  # puts "No VAR exists - Line:$line"
+                  regsub -all {[0-9]+} $line "" line;  ## Replace all numbers to <BLANK>
+                  regsub -all {#} $line "" line;  ## Remove all #
+                  set tabname [string map {"," "" "." "" "$" "" "(" "" ")" "" "Lables" "" "lables" "" "names" "" "Variables" "" "for" "" "&" "" "and" "" "related" "" "to" ""} $line]
+                  set tabname [regexp -all -inline {\S+} $tabname]
+                  set tabname [string toupper $tabname];    ## Convert all StringS to STRINGS (upper)
+                  # puts "tabname:$tabname"
+                  set tlength 0
+                  set TABNAME ""
+                  foreach xx $tabname {
+                    if { $tlength < 2 } {
+                      set underl "_"
+                      set TABNAME ${TABNAME}${underl}${xx}
+                      set tlength [expr $tlength + 1]
+                    }
+                  }
+                  set nextTab [string trimleft $TABNAME "_"]
+              }
+                # puts [format "%-15s %-30s %15s %s" "NEXT TAB Name:" $nextTab "PREVIOUS:" $prevTab]
+                # puts [format "%-15s %-30s" "TAB Name:" $nextTab]
+          }
+          ###############################################
+     }
+  }    
+
+  close $in          
+  # parray parrcap; # Print ARRAY parrcap
+
+} 
+
+##############################################################################
+# If inFile exists, then parse and udate VALUES for arrcap 
+# Only VALUES are UPDATED in the ARRAY, rest are captured from default RM FILE
+proc update_attrs { afile arrcap } {
+
+  ## upvar
+  upvar $arrcap parrcap;        # Here arrcap is "rm_attr" - input HASH VAR to PROC
+
+  global var1
+  global val1
+  global typ1
+  global cust1
+  global multi1
+  global cret
+  global cspc
+  global back1
+  global dquot
+  global backs
+  global sback
+  global squot1
+  global csqur
+  global csqur1
+  global ccurl1
+  global ccurl
+  global squot
+
+  # set tabName "General"
+  set term false
+  set prevVar "None"
+  set nextVar "None"
+  set var "None"
+  set pVar "None"
+  set contVal ""
+  set first false
+  set com ""
+
+  ## CUSTOM_START and CUSTOM_END Blocks
+  set customStart 0
+  set customEnd 0
+
+  ## Get Number of lines in $afile
+  set fl [open $afile]
+  set data [read $fl]
+  close $fl
+  set fileLines [split $data \n]
+
+  set numLines -1
+  set in [open $afile r]
+  while {[gets $in line] >= 0} {
+    
+      set typ "notyp";
+      ## Trim right most character ESP <SPACE>
+      set line [string trimright $line " "]
+      incr numLines; # Increment variable $numLines
+
+      ## Skip Lines Betwenn CUSTOM_START and CUSTOM_END lines
+      ###############################################
+      if [regexp {^#+CUSTOM_START#+$} $line ] {
+        # puts "CUSTOM_START:pVar:$pVar-$line"
+        set customEnd 1; # Check for ####CUSTOM_END#### ELSE loop through
+
+        ###############################################
+        ## Add CUSTOM_START lines to ARRAY HASH
+        set linePrev [lindex $fileLines [expr $numLines -1]]
+        set lineNext [lindex $fileLines [expr $numLines +1]]
+        set linePrev [string trimright $linePrev " "]
+        set lineNext [string trimright $lineNext " "]
+
+        if { [regexp {^######+$} $linePrev] } {
+          append parrcap($pVar,$cust1) $linePrev "\n" $line
+        } else {
+          append parrcap($pVar,$cust1) "\n" $line
+        }
+
+        # if { [regexp {^######+$} $lineNext] } {
+        #   append parrcap($pVar,$cust1) "\n" $lineNext
+        # }
+        ###############################################
+        continue
+      }
+
+      if { $customEnd } {
+          if [regexp {^#+CUSTOM_END#+$} $line ] {
+              # puts "CUSTOM_END:pVar:$pVar-$line"
+              set customEnd 0; # Only set if line is ####CUSTOM_END####
+          }
+
+          # puts "In CUSTOM Block:pVar:$pVar-$line"
+          ###############################################
+          set linePrev [lindex $fileLines [expr $numLines -1]]
+          set lineNext [lindex $fileLines [expr $numLines +1]]
+          set linePrev [string trimright $linePrev " "]
+          set lineNext [string trimright $lineNext " "]
+
+          ## Add CUSTOM_END lines to ARRAY HASH
+          # if { [regexp {^######+$} $linePrev] } {
+          #     append parrcap($pVar,$cust1) $linePrev "\n" $line
+          # } else {
+              if [regexp {^#+CUSTOM_END#+$} $line ] {
+                  append parrcap($pVar,$cust1) "\n" $line "\n"
+              } else {
+                  append parrcap($pVar,$cust1) "\n" $line
+              }
+          # }
+              
+          # if { [regexp {^######+$} $lineNext] } {
+          #     append parrcap($pVar,$cust1) "\n" $lineNext
+          # }
+          # puts "var:$var-pVar:$pVar-$parrcap($pVar,$cust1)"
+          ###############################################
+
+          continue
+      }
+      ###############################################
+
+      if { $term } {
+        ## Copy $line to a NEW VARIABLE - so that the $line is not overwritten SINCE the next IF ELSE statements are executed
+        set tLine $line
+        if { ([regexp (\}) $tLine] || [regexp (\") $tLine] || [regexp (\]) $tLine]) } {
+           if [regexp {([\s|\t])*;\s*#} $tLine] { ;# COMMENT line
+              set tValComSplit [split $tLine ";#"]
+              set tLine [lindex $tValComSplit 0]
+              set tCom [lindex $tValComSplit 2]
+              set tLine [string trimright $tLine]
+           }
+           set contVal $contVal$cspc$tLine
+           # set contVal $contVal$tLine
+           set typ "string"
+           set parrcap($var,$typ1) $typ
+           set parrcap($var,$multi1) true
+
+           ## PRINT $contVal
+           regsub -all $backs $contVal "" contVal
+           if { [regexp $squot $contVal] } { set parrcap($var,$squot1) true } else { set parrcap($var,$squot1) false }
+           if { [regexp $ccurl $contVal] } { set parrcap($var,$ccurl1) true } else { set parrcap($var,$ccurl1) false }
+           if { [regexp $csqur $contVal] } { set parrcap($var,$csqur1) true } else { set parrcap($var,$csqur1) false }
+
+           set parrcap($var,$val1) $contVal; # Add here since we are removing '\' from the VALUE - add later based on '$back1'
+           set term false
+        } else {
+           if [regexp {([\s|\t])*;\s*#} $tLine] { ;# COMMENT line
+              set tValComSplit [split $tLine ";#"]
+              set tLine [lindex $tValComSplit 0]
+              set tCom [lindex $tValComSplit 2]
+           }
+           if { [regexp {\\} $tLine] } {
+              set parrcap($var,$back1) true
+              # regsub $backs $tLine "" tLine
+              regsub {([\s|\t])*\\([\s|\t])*} $tLine "" tLine
+           } else {
+              set parrcap($var,$back1) false
+           }
+
+           set term true
+           if { $first } {
+              set first false
+              set contVal [string trim $contVal]
+              set contVal $contVal$cspc$tLine
+           } else {
+              set contVal $contVal$cspc$tLine
+           }
+        }
+      }
+
+      if [regexp {^set } $line ] {
+
+           if { ([regexp {([\s|\t])+;\s*#} $line] || [regexp {([\s|\t])*;\s*#} $line]) } { ;# COMMENT line
+
+              regexp {^set([\s|\t]+)(.*?)([\s|\t]+)(.*) } $line x s1 var s2 valcom
+              # Not able to capture everything into valcom - so usin regsub to set anything before ; to ""
+              regsub {(.*?);} $line {} com;
+
+              set valcomsplit [split $valcom {;}];      # Split string on ';'
+              set val [lindex $valcomsplit 0]
+              # Remove '#' from front of string and REPLACE with <RETURN> - only use VAR since '\n' is posted literally
+              regsub {^#([\s|\t]+)} $com $cret com ;
+
+              set val [string trimright $val " "]; # Remove RIGHT space from $val
+              if [regexp {\"([\s|\t])*\"} $val] { ;# $val is "<SPACE>" -or- plain ""
+                  set typ "blank"; # EMPTY string for 'string is boolean' returns 0
+              } elseif { ([string is boolean $val] || [string is double $val] || [string is digit $val]) } {
+                  set typ "noquot"; # Boolean string '1'/'0'/'true'/'false'
+              } else {
+                  set typ "string"; # Everything ELSE is a string in TCL except for integers digits 
+              }
+
+              ## Checking for VARs - if $prevVar is same as the $var variable
+              if { [string match $var $prevVar] } {
+                  set pVar $prevVar
+              } else {
+                  set pVar $var
+                  set prevVar $var
+              }
+
+              # set parrcap($var,$var1) $var
+              # set parrcap($var,$com1) $com
+              set parrcap($var,$typ1) $typ
+              # set parrcap($var,$tab1) $tabName
+              set parrcap($var,$multi1) false
+              
+              set term false
+              if { [regexp {(.*?)([\s|\t]+)$} $val] } {
+                set val [string trimright $val]
+              }
+              ## Check if Value is a curly brace - or quote
+              if { ([regexp (\\"(.*?)\\"$) $val] || [regexp (\\"\\"$) $val] || [regexp (\\{\\}$) $val] || [regexp (\\{(.*?)\\}$) $val] || [regexp (\\\[(.*?)\\\]$) $val] || [regexp {([[:alnum:]]$)} $val] ) } {
+                if [regexp {\"([\s|\t])*\"} $val] { ;# $val is "<SPACE>"
+                    set parrcap($var,$val1) ""
+                } else {
+                    set parrcap($var,$val1) $val
+                }
+              } else {
+                  regsub $backs $val "" val
+                  set parrcap($var,$multi1) true
+                  set contVal $val
+                  set first true
+                  set term true
+              }
+
+          } else { ; # No Comment
+              set setvar [regexp -all -inline {\S+} $line]
+              set slength 0
+
+              # set parrcap($var,$com1) "";    # Since there is no comment - just add ""
+              foreach xx $setvar {
+                if { [string match $xx "set"] == 0 } {
+                  if { $slength == 1 } {
+                      set var $xx
+                      # set parrcap($var,$tab1) $tabName
+                      set parrcap($var,$var1) $var
+                  } elseif { $slength == 2 } {
+                      set val $xx
+                  } elseif { $slength == 3 } {
+                      set val ${val}${cspc}${xx}
+                      # set val ${val}${xx}
+                  }
+                }
+                set slength [expr $slength + 1]
+              }
+
+              ## Checking for VARs - if $prevVar is same as the $var variable
+              if { [string match $var $prevVar] } {
+                  set pVar $prevVar
+              } else {
+                  set pVar $var
+                  set prevVar $var
+              }
+
+              set val [string trimright $val " "]; # Remove RIGHT space from $val
+              
+              ## Check if $val is "" -or- boolean -or- string
+              if [regexp {\"([\s|\t])*\"} $val] { ;# $val is "<SPACE>" -or- plain ""
+                  set typ "blank"; # EMPTY string for 'string is boolean' returns 0
+              } elseif { ([string is boolean $val] || [string is double $val] || [string is digit $val]) } {
+                  set typ "noquot"; # Boolean string '1'/'0'/'true'/'false'
+              } else {
+                  set typ "string"; # Everything ELSE is a string in TCL except for integers digits 
+              }
+              set parrcap($var,$typ1) $typ
+              set parrcap($var,$multi1) false
+
+              set term false
+              if { [regexp {(.*?)([\s|\t]+)$} $val] } {
+                 set val [string trimright $val]
+              }
+              ## Check if Value is a curly brace - or quote
+              if { ([regexp (\\"(.*?)\\"$) $val] || [regexp (\\"\\"$) $val] || [regexp (\\{\\}$) $val] || [regexp (\\{(.*?)\\}$) $val] || [regexp (\\\[(.*?)\\\]$) $val] || [regexp {([[:alnum:]]$)} $val] ) } {
+                  if [regexp {\"([\s|\t])*\"} $val] { ;# $val is "<SPACE>"
+                      set parrcap($var,$val1) ""
+                  } else {
+                      set parrcap($var,$val1) $val
+                  }
+              } else {
+                  regsub $backs $val "" val
+                  set parrcap($var,$multi1) true
+                  set contVal $val
+                  set first true
+                  set term true
+              }
+          }
+
+      } else {
+        ## Do Nothing
+     }
+  }    
+
+  close $in          
+  # parray parrcap; # Print ARRAY parrcap
+
+} 
+
+##############################################################################
+### Compare 2 ARRAYs
+#   cmpArray { a1 a2 }
+# returns <list of indexes where there are differences>
+proc cmpArray { ary1 ary2 } {
+  upvar $ary1 a1
+  upvar $ary2 a2
+
+  global attr_names
+  global retn_aNames
+  global var1
+  global val1
+
+  foreach aName $attr_names {
+    # puts "\nVariable Name:$aName-"
+
+    if { [info exists a1($aName,$var1)] && [info exists a2($aName,$var1)] } {
+        if { [string match $a1($aName,$var1) $a2($aName,$var1)] == 1 } {
+            if { $a1($aName,$val1) != $a2($aName,$val1) } {
+                # puts "Values differ for Var:$aName-A1:$a1($aName,$val1)-A2:$a2($aName,$val1)"
+                lappend retn_aNames $aName
+            }
+        }
+    }
+  }
+}
+
+##############################################################################
+#### END PROCS
+##############################################################################
+
+##############################################################################
+#### START OF MAIN PROGRAM
+##############################################################################
+## Invoke PROC capture_attrs:
+##  Check if input-file is part of the default file list
+##  if it is design_setup.tcl -OR- any of the default files then first get the default form
+##  if yes, then capture attrs and values and later update with values from input-file if given
+##
+# puts "Num of Default Input Files:[llength $defaultInputFilePath]"
+if { $defaultInputFile } {; # Check if Default RM files are being used
+
+  ## Capture ATTRibutes from each default file 
+  foreach fileN $defaultInputFilePath {
+    # puts "Checking existing and readability - File:$fileN-[file readable $fileN]"
+    if {[file exists $fileN] && [file readable $fileN] } {
+      capture_attrs $fileN rm_attr; # RM Variable Values
+      # Copy rm_attr to crm_attr since crm_attr catpures changes and can be checked against original rm_attr ARRAY
+      array set crm_attr [array get rm_attr]
+
+    }
+  }
+
+  ## Check if ARRAY rm_attr is NOT EMPTY and continue, else EXIT with message - has ^set variables
+  ## If inFile is set then update values ONLY in rm_attr ARRAY
+  if { [array size rm_attr] } {
+      if {[info exists inFile]} {
+        ## Invoke update_attrs with ARRAY crm_attr since this is what is updated in FORM
+        ##  ARRAY crm_attr is diff'd against rm_attr to get differences
+        ##  PROBLEM if no changes are made in FORM + ONLY NEW VALUES ARE PICKED
+        update_attrs $inFile crm_attr; # RM Variable Values
+
+        set tailName [file tail $inFile]; # Get basename of $inFile and check if file is 'design_setup.tcl'
+        if { [ string match $tailName "design_setup.tcl"] == 1 } { 
+          if { [file exists $inFileFCfile] } {
+            # puts "FC Setup input file:$inFileFCfile"
+            update_attrs $inFileFCfile crm_attr; # RM Variable Values for fc_setup.tcl
+          } elseif { [file exists $inFileICCfile] } {
+            # puts "ICC2 PNR Setup input file:$inFileICCfile"
+            update_attrs $inFileICCfile crm_attr; # RM Variable Values for icc2_pnr_setup.tcl
+          }
+      }
+    }
+  } else {
+    puts "ERROR: This message should not be printed - please contact Jay:"
+    puts "yana@synopsys.com -OR- call ext 46969"
+    puts "Thank you for using configureRM\n"
+  }
+
+} else {
+  ## This is executed when $inFile is not one of supported rm_setup Tcl file
+  if {[info exists inFile]} {
+    capture_attrs $inFile rm_attr; # RM Variable Values
+    
+    # Copy rm_attr to crm_attr since crm_attr catpures changes and can be checked against original rm_attr ARRAY
+     array set crm_attr [array get rm_attr]
+
+  } else {
+    ## Don't this this is ever executed - because a $inFile existence check is already done earlier
+    puts "Thank you for using configureRM\n"
+    exit
+  }
+}
+## For Debugging - Change in PROC what you want printed
+# printHash crm_attr 1; # PRINT HASH - rm_attr
+
+## Getting TAB max width
+getMaxTabWidth
+
+##### MOVED THIS UP TO AFTER capture_attrs since update_attrs captures values from $inFile
+##############################################################################
+# Copy rm_attr to crm_attr since crm_attr catpures changes and can be checked against original rm_attr ARRAY
+## array set crm_attr [array get rm_attr]
+##############################################################################
+
+##############################################################################
+#### SETUP FRAME, ATTRIBUTES and STYLE FOR NOTEBOOK
+##############################################################################
+## Create Bottom Frame to hold 'Save' & 'Quit' Buttons
+frame .bot -borderwidth 10
+
+# ### Places at a specific location in Frame
+# place [label .bot.inFile -font {Helvetica -14 italic} -text "Input file:$inFile" -foreground "blue" -justify left] -x 10 -y 0
+# place [label .bot.outFile -font {Helvetica -14 italic} -text "Output file:$outFile" -foreground "blue" -justify left] -x 10 -y 20
+
+set qbut [button .bot.quit -text "Quit" -command Quit];       # Call PROC 'Quit'
+set sbut [button .bot.run  -text "Save" -command Save];       # Call PROC 'Save'
+pack .bot.quit .bot.run -side right;
+pack .bot -side bottom -fill x
+
+### Use a Theme
+##  Available Themes: clam alt default classic
+ttk::style theme use classic
+
+### ttk style attributes - For Notebook
+ttk::style configure TNotebook.Tab \
+-font {Helvetica -14 bold} \
+-foreground #000000 \
+-width $tabMaxWidth \
+-side left
+
+## TTK Notebook Styles
+ttk::style map TNotebook.Tab -foreground  [list selected blue active yellow disabled white]; # TAB FOREGROUND attributes
+ttk::style map  TNotebook.Tab -background [list selected green active red disabled magenta]; # TAB BACKGROUND attributes
+
+## ENNotebook when resized, leads to overlapping and unreadable text (like window is % based) 
+##  while for SWTNotebook, FONT and TAB sizes stay the same
+# ttk::style configure ENNotebook.TNotebook -tabposition wn -tabmargins 5 -padding 20
+ttk::style configure SWTNotebook.TNotebook -tabposition wn -background grey
+
+## Each TAB should be in its OWN FRAME
+set ff 0;
+
+##############################################################################
+## COLORS - 2E2E2E(black)   831EE1(Snps)  424242(light black)  0000FF(blue) 0101DF(blue)  DF0101(Red)
+set tTextColor "#831EE1"
+
+### Create Main Window
+## Title of Window
+wm geometry . 1200x1000+100+100; # This way we can expand window - no need for SCROLLBAR
+# wm title . $wmTitle; # Keep it blank -ELSE- Name of script is printed
+wm title . ""; # Keep it blank -ELSE- Name of script is printed
+wm iconname . $wmTitle; # Window Icon Name
+
+frame .top -borderwidth 0
+## pack [label .top.blank -font {Helvetica -18 bold} -text "" -foreground #000000 -justify left] -fill x;
+pack [label .top.title -font {Helvetica -18 bold} -text "REFERENCE METHODOLOGY CONFIGURATION GUI" -foreground $tTextColor -justify left] -fill x;
+
+### Input and Output Files location
+# pack [label .top.tBlankLine -text "" -justify left] -fill x; # Adding a blank label to insert SPACE
+pack .top -side top -fill x
+
+##############################################################################
+## COLORS - 2E2E2E(black)   831EE1(Snps)  424242(light black)  0000FF(blue) 0101DF(blue)  DF0101(Red)
+set fTextColor "#831EE1"
+## Showing Input and Output files
+frame .sfiles -borderwidth 0
+if { $defaultInputFile } {
+  set sLabel "Showing set VARs for: "
+  pack [label .sfiles.sLabel -font {Helvetica -14 bold} -text "$sLabel" -foreground $fTextColor -width [string length $sLabel]] -padx 0 -anchor w;
+
+  if { [llength $defaultInputFilePath] > 1 } {
+    # puts "Showing VARs for: [file tail [lindex $defaultInputFilePath 0]] and [file tail [lindex $defaultInputFilePath 1]]"
+    set defLabel "[file tail [lindex $defaultInputFilePath 0]] & [file tail [lindex $defaultInputFilePath 1]]"
+  } else {
+    # puts "Showing VARs for: [file tail $defaultInputFilePath]"
+    set defLabel "[file tail $defaultInputFilePath]"
+  }
+
+  pack [label .sfiles.defLabel -font {Helvetica -14} -text "$defLabel" -foreground "#000000" -width [string length $defLabel] -justify left]
+  grid .sfiles.sLabel .sfiles.defLabel -sticky w
+}
+
+if {[info exists inFile]} {
+  set inLabel "Input File: "
+  pack [label .sfiles.inLabel -font {Helvetica -14 bold} -text "$inLabel" -foreground $fTextColor -width [string length $inLabel]] -padx 0 -anchor w;
+
+  pack [label .sfiles.inFile -font {Helvetica -14} -text "$inFile" -foreground "#000000" -width [string length $inFile] -justify left]
+  grid .sfiles.inLabel .sfiles.inFile -sticky w
+}
+
+if {[info exists outFile]} {
+
+  set ouLabel "[file rootname [file tail $outFile]] Output File: "
+  pack [label .sfiles.ouLabel -font {Helvetica -14 bold} -text "$ouLabel" -foreground $fTextColor -width [string length $ouLabel]] -padx 0 -anchor w;
+
+  pack [label .sfiles.oFile -font {Helvetica -14} -text "$outFile" -foreground "#000000" -width [string length $outFile] -justify left]
+  grid .sfiles.ouLabel .sfiles.oFile -sticky w
+}
+
+if {[info exists fcOutFile]} {
+  set fcLabel "[file rootname [file tail $fcOutFile]] Output File: "
+  pack [label .sfiles.fcLabel -font {Helvetica -14 bold} -text "$fcLabel" -foreground $fTextColor -width [string length $fcLabel]] -padx 0 -anchor w;
+
+  pack [label .sfiles.fcOFile -font {Helvetica -14} -text "$fcOutFile" -foreground "#000000" -width [string length $fcOutFile] -justify left]
+  grid .sfiles.fcLabel .sfiles.fcOFile -sticky w
+
+}
+
+pack [label .sfiles.bBlankLine -text "" -justify left] -fill x; # Adding a blank label to insert SPACE
+grid .sfiles.bBlankLine -columnspan 2 -sticky w
+pack .sfiles -side top -fill x
+
+##############################################################################
+#### START OF NOTEBOOK CREATION
+##############################################################################
+frame .frAlles
+# ttk::notebook .frAlles.nb -style ENNotebook.TNotebook;
+ttk::notebook .frAlles.nb -style SWTNotebook.TNotebook;
+
+###############################################
+## create frame with widgets
+foreach tName $rm_tabs {
+  
+  ## Create FRAME for TAB with BORDER
+  set tFrame [string tolower [lindex $rm_tabs $ff]] ; ## Convert tFrame to lowercase - Frame name cannot start with CAPs
+  set tFrame [string map {" " "_"} $tFrame]         ; ## Convert SPACE to '_' - since we are creating a FRAME for each TAB
+  
+###############################################
+
+  ### create canvas with scrollbars for TAB f1
+  frame .frAlles.nb.$tFrame -borderwidth 1 -relief solid
+
+  ## Add TEXT to TAB FRAME
+  .frAlles.nb add .frAlles.nb.$tFrame -text "[lindex $rm_tabs $ff]" -sticky nwse -padding 5
+
+  ## Add Canvas for EACH TAB
+  # canvas .frAlles.nb.$tFrame.c -width 1200 -height 2400 -xscrollcommand ".frAlles.nb.$tFrame.xscroll set" -yscrollcommand ".frAlles.nb.$tFrame.yscroll set"
+  canvas .frAlles.nb.$tFrame.c -xscrollcommand ".frAlles.nb.$tFrame.xscroll set" -yscrollcommand ".frAlles.nb.$tFrame.yscroll set"
+  scrollbar .frAlles.nb.$tFrame.xscroll -orient horizontal -command ".frAlles.nb.$tFrame.c xview"
+  scrollbar .frAlles.nb.$tFrame.yscroll -command ".frAlles.nb.$tFrame.c yview"
+  pack .frAlles.nb.$tFrame.xscroll -side bottom -fill x
+  pack .frAlles.nb.$tFrame.yscroll -side right -fill y
+  pack .frAlles.nb.$tFrame.c -expand yes -fill both -side top
+
+  ## Call PROC to get $fMaxWidth and $fMaxHeight for .frAlles.nb.$tFrame using aName index
+  getMaxHeightWidth $tName
+
+  # create frame with widgets
+  # frame .frAlles.nb.$tFrame.c.fr$tFrame -borderwidth 1 -relief solid -width 1200 -height 2400 
+  frame .frAlles.nb.$tFrame.c.fr$tFrame -width $fMaxWidth -height $fMaxHeight
+  # frame .frAlles.nb.$tFrame.c.fr$tFrame -borderwidth 1 -relief solid -width $fMaxWidth -height $fMaxHeight
+
+  ## Create Attribute and Values for LABEL and ENTRY in FORM
+  foreach aName $attr_names {
+    # puts "\nVariable Name:$aName-"
+
+    ## Skip if $aName == "None" - unless $val1 and $var1 == "None"
+    if { [ string match $aName "None"] == 1 } { 
+      if { ( [info exists crm_attr($tName,$var1)] && [info exists crm_attr($tName,$val1)] ) } {
+        # puts "TAB NAME:$tName-attr_names:$aName"
+        if { ( [string match "None" $crm_attr($tName,$var1)] && [string match "None" $crm_attr($tName,$val1)] ) } {
+           # puts "tName:$tName-attr_names:$aName"
+          .frAlles.nb tab .frAlles.nb.$tFrame -state disabled; # DISABLE this TAB
+       }
+       continue
+      } else {
+        continue 
+      }
+    }
+
+    ## Set Default Selection of TAB to first one that has VARIABLES
+    if { [string match $aName "None"] != 1 } { 
+      if { ( ![info exists crm_attr($tName,$var1)] && ![info exists crm_attr($tName,$val1)] ) } {
+        # puts "attr_names:$aName"
+        if { ![info exists firstTab] } {
+          set firstTab [string tolower [lindex $rm_tabs $ff]]
+          ## regsub -all {\s+} $firstTab "" firstTab; # SHOULD NOT CHANGE NODE NAME 
+          ## firstTab works only if it is 'ONE' word
+          # puts "firstTab:$firstTab - $ff"
+        }
+      }
+    }
+
+    ## The 'label' and 'entry' are positioned to the LEFT side of the '.top' frame.
+    ## The additional packing parameters to the entry allow it to expand its packing space to fill up the extra space
+    ## Check if TAB Name $tName is equal to $rm_attr($aName,$tab1)
+    if { [ string match $tName $rm_attr($aName,$tab1)] == 1 } {
+
+        ## Add message to Form - use 'label' _NOT_ 'message'  - 'message' wraps around - cannot list as a single line
+        if { [info exists rm_attr($aName,$com1)] } {
+            ## 2E2E2E(black)   831EE1(Snps)  424242(light black)  0000FF(blue) 0101DF(blue)  DF0101(Red)
+            pack [label .frAlles.nb.$tFrame.c.fr$tFrame.m$aName -font {Helvetica -14 italic} -text $rm_attr($aName,$com1) -foreground #0101DF -justify left -wraplength 800] -side top -fill x;
+        } else {
+            pack [label .frAlles.nb.$tFrame.c.fr$tFrame.m$aName -font {Helvetica -14 italic} -text "" -justify left];
+        }
+
+        ## Create Grid only for MESSAGE with a columnspan of 2
+        pack [label .frAlles.nb.$tFrame.c.fr$tFrame.a$aName -font {Helvetica -14 bold} -text $aName] -padx 0 -anchor w;
+        grid .frAlles.nb.$tFrame.c.fr$tFrame.m$aName -columnspan 2 -sticky w
+
+        if { [expr [string length $rm_attr($aName,$val1)]] <= 20 } {
+          set width 30
+        } else {
+          set width [expr [string length $rm_attr($aName,$val1)] +30]
+        }
+
+        # puts "Outside: $aName-$crm_attr($aName,$val1)-"
+        if { [string match $crm_attr($aName,$typ1) "blank"] == 1 } {
+            set crm_attr($aName,$val1) {}
+            # puts "Inside: $aName-$crm_attr($aName,$val1)"
+        }
+
+        pack [entry .frAlles.nb.$tFrame.c.fr$tFrame.e$aName -font {Helvetica -14 normal} -foreground "black" -width $width -textvariable crm_attr($aName,$val1) -justify left -relief sunken];
+        grid .frAlles.nb.$tFrame.c.fr$tFrame.a$aName  .frAlles.nb.$tFrame.c.fr$tFrame.e$aName -sticky w
+    }
+  }
+
+  ### place widget and anchor to window
+  .frAlles.nb.$tFrame.c create window 0 0 -anchor nw -window .frAlles.nb.$tFrame.c.fr$tFrame
+
+  ## BINDING SCROLL REGION
+  .frAlles.nb.$tFrame.c configure -scrollregion [.frAlles.nb.$tFrame.c bbox all] -state normal
+
+  ### Pack Scroll bar
+  pack .frAlles.nb.$tFrame.c -fill both -expand true 
+
+  incr ff; # Increment $ff
+
+}
+
+##############################################################################
+
+###############################################
+## Turning off setting $firstTab - only works if first TAB is 'ONE' WORD
+## Any change to TAB will result in ERROR
+##    Invalid slave specification .frAlles.nb.node specific sidefile variables
+##        while executing
+##    ".frAlles.nb select .frAlles.nb.$firstTab"
+## .frAlles.nb.$tFrame.c.fr$tFrame
+# .frAlles.nb select .frAlles.nb.$firstTab; # Focus on TAB 1
+###############################################
+
+## show the Notebook canvas
+pack .frAlles.nb -fill both -expand true
+
+# show the MAIN FRAME canvas
+pack .frAlles -expand yes -fill both -side top -expand true
+
+puts ""
+
+# $defaultFileNames('design_setup.tcl') $design_RMFile
+# $fc_RMFile [file join $rmDir "fc_setup.tcl"]
+# $fc_dp_RMFile [file join $rmDir "fc_dp_setup.tcl"]
+# $fm_RMFile [file join $rmDir "fm_setup.tcl"]
+# $incremental_design_setup_RMFile [file join $rmDir "incremental_design_setup.tcl"]
+# $sidefile_RMFile [file join $rmDir "sidefile_setup.tcl"]
+# $icc2_dp_RMFile [file join $rmDir "icc2_dp_setup.tcl"]
+# $icc2_pnr_RMFile [file join $rmDir "icc2_pnr_setup.tcl"]
+
+
+##############################################################################
+#### END OF PROGRAM
+##############################################################################

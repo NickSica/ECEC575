@@ -1,0 +1,7 @@
+{
+  "Count": {
+    "group": "Count",
+    "tooltip": "The number of instances of this type of via",
+    "absThreshold": "5"
+  }
+}

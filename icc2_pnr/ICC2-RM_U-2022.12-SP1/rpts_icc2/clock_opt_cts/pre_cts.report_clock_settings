@@ -1,0 +1,94 @@
+Information: The value of option cts.compile.enable_cell_relocation has been overridden to "leaf_only" to support latency-driven placement. (CTS-973)
+Information: Timer using 8 threads
+Warning: Corner ss_m40c:  1 process number, 0 process label, 1 voltage, and 1 temperature mismatches. (PVT-030)
+Warning: 788 cells affected for early, 788 for late. (PVT-031)
+Warning: 0 port driving_cells affected for early, 0 for late. (PVT-034)
+INFO: updateGlobalOptions
+INFO: use Native GDC
+****************************************
+ Report : clock settings
+ Design : FIFO
+ Date   : Mon Feb 13 16:55:21 2023
+****************************************
+
+
+======================================
+Configurations 
+======================================
+
+##Global
+  Corner = ss_m40c
+    Max transition: around 0.500 (default)
+    Max capacitance: 0.600 (default)
+    Target skew: 0 (default)
+    Target latency: Not specified
+
+##ideal_clock1
+  Corner = ss_m40c
+    Max transition: around 0.500 (default)
+    Max capacitance: 0.600 (default)
+    Target skew: 0 (default)
+    Target latency: Not specified
+
+
+======================================
+Routing Rules 
+======================================
+
+##Global
+Routing rule for sink nets: Not specified
+Routing rule for internal nets: Not specified
+Routing rule for root nets: Not specified
+Routing rule for all nets: Not specified
+Net-based routing rules (by set_clock_routing_rule): Not specified
+Net-based routing rules (by set_routing_rule): Not specified
+
+##ideal_clock1
+Routing rule for sink nets: Not specified
+Routing rule for internal nets: Not specified
+Routing rule for root nets: Not specified
+Routing rule for all nets: Not specified
+Net-based routing rules (by set_clock_routing_rule): Not specified
+Net-based routing rules (by set_routing_rule): Not specified
+
+
+======================================
+Buffers and Inverters 
+======================================
+
+##Buffers
+Name                                   Area      Max Transition       Max Load
+------------------------------------------------------------------------------
+tsmc65nm/BUFFD0                       1.440               0.385          0.033
+tsmc65nm/BUFFD1                       1.440               0.385          0.065
+tsmc65nm/BUFFD12                      7.920               0.385          0.790
+tsmc65nm/BUFFD16                     10.440               0.385          1.054
+tsmc65nm/BUFFD2                       2.160               0.385          0.132
+tsmc65nm/BUFFD20                     12.240               0.385          1.317
+tsmc65nm/BUFFD24                     14.760               0.385          1.580
+tsmc65nm/BUFFD3                       2.520               0.385          0.198
+tsmc65nm/BUFFD4                       3.240               0.385          0.263
+tsmc65nm/BUFFD6                       4.320               0.385          0.395
+tsmc65nm/BUFFD8                       5.760               0.385          0.527
+
+##Inverters
+Name                                   Area      Max Transition       Max Load
+------------------------------------------------------------------------------
+
+
+======================================
+Spacing Rules 
+======================================
+
+##By design
+No by design spacing rule is specified
+
+##By clock
+No by clock spacing rule is specified
+
+##By libcell
+No by libcell spacing rule is specified
+
+##By clock and libcell
+No by clock and libcell spacing rule is specified
+1

@@ -1,0 +1,79 @@
+****************************************
+Report : reference
+        -hierarchical_info
+Design : FIFO
+Version: U-2022.12-SP1
+Date   : Mon Feb 13 16:57:59 2023
+****************************************
+
+Attributes
+    b - black-box (unknown)
+    h - hierarchical
+    n - noncombinational
+    u - contains unmapped logic
+    E - extracted timing model
+    Q - Quick timing model (QTM)
+    s - synthetic operator
+
+
+Reference          Library       Unit Area   Count    Total Area   Attributes
+--------------------------------------------------------------------------------
+AN4D0              tsmc65nm           2.88       3          8.64   
+AO211D4            tsmc65nm           6.48       2         12.96   
+AO21D0             tsmc65nm           2.52       5         12.60   
+AO21D4             tsmc65nm           5.04      25        126.00   
+AO221D0            tsmc65nm           3.60       4         14.40   
+AO222D0            tsmc65nm           4.32      60        259.20   
+AO22D0             tsmc65nm           2.88      68        195.84   
+BUFFD1             tsmc65nm           1.44       6          8.64   
+BUFFD12            tsmc65nm           7.92       1          7.92   
+BUFFD4             tsmc65nm           3.24       1          3.24   
+BUFFD6             tsmc65nm           4.32       2          8.64   
+BUFFD8             tsmc65nm           5.76       1          5.76   
+CKAN2D0            tsmc65nm           2.16       2          4.32   
+CKBD2              tsmc65nm           2.16       5         10.80   
+CKBD3              tsmc65nm           2.52       1          2.52   
+CKBD4              tsmc65nm           3.24       5         16.20   
+CKND0              tsmc65nm           1.08      46         49.68   
+CKND1              tsmc65nm           1.08       1          1.08   
+CKND2D0            tsmc65nm           1.44      10         14.40   
+DFCND4             tsmc65nm          11.88       1         11.88   n
+DFCNQD1            tsmc65nm           7.92      96        760.32   n
+DFQD1              tsmc65nm           6.84     128        875.52   n
+DFSND4             tsmc65nm          11.52       4         46.08   n
+HA1D0              tsmc65nm           5.76      86        495.36   
+IND2D0             tsmc65nm           2.16       1          2.16   
+INR2D1             tsmc65nm           2.16       1          2.16   
+INR2XD1            tsmc65nm           2.88       2          5.76   
+INR3D0             tsmc65nm           2.52       1          2.52   
+INR4D0             tsmc65nm           2.88       1          2.88   
+IOA21D0            tsmc65nm           2.52      25         63.00   
+IOA22D0            tsmc65nm           3.24      26         84.24   
+MAOI22D0           tsmc65nm           2.88       5         14.40   
+MOAI22D0           tsmc65nm           2.88     105        302.40   
+ND3D2              tsmc65nm           3.24       4         12.96   
+ND4D0              tsmc65nm           2.52       1          2.52   
+NR2D0              tsmc65nm           1.44       3          4.32   
+NR2D3              tsmc65nm           3.24       1          3.24   
+NR2XD0             tsmc65nm           1.44       5          7.20   
+NR2XD1             tsmc65nm           2.52       3          7.56   
+NR2XD2             tsmc65nm           4.32       2          8.64   
+NR2XD3             tsmc65nm           6.12       1          6.12   
+NR3D0              tsmc65nm           2.16       1          2.16   
+NR4D0              tsmc65nm           2.52      14         35.28   
+OA32D0             tsmc65nm           3.60       2          7.20   
+OAI211D0           tsmc65nm           2.52       1          2.52   
+OAI21D0            tsmc65nm           2.16       3          6.48   
+OAI31D0            tsmc65nm           2.52       1          2.52   
+OAI32D0            tsmc65nm           2.88       1          2.88   
+OR2D0              tsmc65nm           2.16      24         51.84   
+OR4D0              tsmc65nm           2.88       1          2.88   
+XNR2D0             tsmc65nm           3.60       1          3.60   
+FIFO_DW01_dec_0                     143.28       1        143.28   h
+FIFO_DW01_inc_0                     174.60       1        174.60   h
+FIFO_DW01_inc_1                     175.68       1        175.68   h
+FIFO_DW01_inc_2                     175.32       1        175.32   h
+FIFO_MEM_BLK                       1650.24       1       1650.24   h
+--------------------------------------------------------------------------------
+Total 56 references                                      5920.56
+1

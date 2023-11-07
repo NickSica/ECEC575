@@ -1,0 +1,158 @@
+Information: Timer using 8 threads
+****************************************
+Report : qor
+Design : FIFO
+Version: U-2022.12-SP1
+Date   : Mon Feb 13 16:56:50 2023
+****************************************
+Warning: Corner ss_m40c:  1 process number, 0 process label, 1 voltage, and 1 temperature mismatches. (PVT-030)
+Warning: 798 cells affected for early, 798 for late. (PVT-031)
+Warning: 0 port driving_cells affected for early, 0 for late. (PVT-034)
+INFO: updateGlobalOptions
+INFO: use Native GDC
+Information: The stitching and editing of coupling caps is turned ON for design 'FIFO.dlib:FIFO/route_auto.design'. (TIM-125)
+Information: Design FIFO has 926 nets, 919 global routed, 5 detail routed. (NEX-024)
+Information: build GR coup map successfully (NEX-012)
+Information: The RC mode used is GR for design 'FIFO'. (NEX-022)
+Information: Delta delay estimation has been turned on. (TIM-214)
+Information: Update timing completed net estimation for all the timing graph nets (TIM-111)
+Information: Net estimation statistics: timing graph nets = 924, routed nets = 924, across physical hierarchy nets = 0, parasitics cached nets = 924, delay annotated nets = 0, parasitics annotated nets = 0, multi-voltage nets = 74. (TIM-112)
+************************************************************
+Timer Settings:
+Delay Calculation Style:                   auto
+Signal Integrity Analysis:                 enabled
+Timing Window Analysis:                    enabled
+Advanced Waveform Propagation:             disabled
+Variation Type:                            fixed_derate
+Clock Reconvergence Pessimism Removal:     enabled
+Advanced Receiver Model:                   disabled
+ML Acceleration:                           off
+************************************************************
+Information: Timer using 'SI, Timing Window Analysis, CRPR'. (TIM-050)
+
+
+Scenario           'default.ss_m40c'
+Timing Path Group  '**in2reg_default**'
+----------------------------------------
+Levels of Logic:                      6
+Critical Path Length:             0.724
+Critical Path Slack:             14.275
+Critical Path Clk Period:        15.200
+Total Negative Slack:             0.000
+No. of Violating Paths:               0
+Worst Hold Violation:             0.000
+Total Hold Violation:             0.000
+No. of Hold Violations:               0
+----------------------------------------
+
+Scenario           'default.ss_m40c'
+Timing Path Group  '**reg2out_default**'
+----------------------------------------
+Levels of Logic:                      5
+Critical Path Length:             0.681
+Critical Path Slack:             14.414
+Critical Path Clk Period:        15.200
+Total Negative Slack:             0.000
+No. of Violating Paths:               0
+Worst Hold Violation:             0.000
+Total Hold Violation:             0.000
+No. of Hold Violations:               0
+----------------------------------------
+
+Scenario           'default.ss_m40c'
+Timing Path Group  'ideal_clock1'
+----------------------------------------
+Levels of Logic:                     32
+Critical Path Length:             2.036
+Critical Path Slack:             13.055
+Critical Path Clk Period:        15.200
+Total Negative Slack:             0.000
+No. of Violating Paths:               0
+Worst Hold Violation:             0.000
+Total Hold Violation:             0.000
+No. of Hold Violations:               0
+----------------------------------------
+
+
+Cell Count
+----------------------------------------
+Hierarchical Cell Count:              5
+Hierarchical Port Count:            400
+Leaf Cell Count:                    798
+Buf/Inv Cell Count:                  68
+Buf Cell Count:                      21
+Inv Cell Count:                      47
+CT Buf/Inv Cell Count:                0
+Combinational Cell Count:           569
+   Single-bit Isolation Cell Count:                        0
+   Multi-bit Isolation Cell Count:                         0
+   Isolation Cell Banking Ratio:                           0.00%
+   Single-bit Level Shifter Cell Count:                    0
+   Multi-bit Level Shifter Cell Count:                     0
+   Level Shifter Cell Banking Ratio:                       0.00%
+   Single-bit ELS Cell Count:                              0
+   Multi-bit ELS Cell Count:                               0
+   ELS Cell Banking Ratio:                                 0.00%
+Sequential Cell Count:              229
+   Integrated Clock-Gating Cell Count:                     0
+   Sequential Macro Cell Count:                            0
+   Single-bit Sequential Cell Count:                       229
+   Multi-bit Sequential Cell Count:                        0
+   Sequential Cell Banking Ratio:                          0.00%
+   BitsPerflop:                                            1.00
+Macro Count:                          0
+----------------------------------------
+
+
+Area
+----------------------------------------
+Combinational Area:            1891.440
+Noncombinational Area:         1693.800
+Buf/Inv Area:                   109.800
+Total Buffer Area:               59.040
+Total Inverter Area:             50.760
+Macro/Black Box Area:             0.000
+Net Area:                             0
+Net XLength:                   8165.937
+Net YLength:                   8711.708
+----------------------------------------
+Cell Area (netlist):                          3585.240
+Cell Area (netlist and physical only):        3585.240
+Net Length:                   16877.645
+
+
+Design Rules
+----------------------------------------
+Total Number of Nets:               926
+Nets with Violations:                 0
+Max Trans Violations:                 0
+Max Cap Violations:                   0
+----------------------------------------
+
+1
+****************************************
+Report : qor
+        -summary
+Design : FIFO
+Version: U-2022.12-SP1
+Date   : Mon Feb 13 16:56:50 2023
+****************************************
+Information: Timer using 'SI, Timing Window Analysis, CRPR'. (TIM-050)
+
+Timing
+---------------------------------------------------------------------------
+Context                                 WNS            TNS            NVE
+---------------------------------------------------------------------------
+default.ss_m40c    (Setup)           13.055          0.000              0
+Design             (Setup)           13.055          0.000              0
+
+default.ss_m40c    (Hold)             0.003          0.000              0
+Design             (Hold)             0.003          0.000              0
+---------------------------------------------------------------------------
+
+Miscellaneous
+---------------------------------------------------------------------------
+Cell Area (netlist):                          3585.240
+Cell Area (netlist and physical only):        3585.240
+Nets with DRC Violations:        0
+1

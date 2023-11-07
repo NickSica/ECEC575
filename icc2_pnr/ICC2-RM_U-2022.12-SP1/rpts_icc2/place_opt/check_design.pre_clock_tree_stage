@@ -1,0 +1,45 @@
+****************************************
+ Report : check_design 
+ Options: { pre_clock_tree_stage }
+ Design : FIFO
+ Version: U-2022.12-SP1
+ Date   : Wed Feb 15 17:00:34 2023
+****************************************
+
+Running mega-check 'pre_clock_tree_stage': 
+    Running atomic-check 'design_mismatch'
+    Running atomic-check 'scan_chain'
+    Running atomic-check 'mv_design'
+    Running atomic-check 'legality'
+    Running atomic-check 'timing'
+    Running atomic-check 'clock_trees'
+    Running atomic-check 'hier_pre_clock_tree'
+
+  *** EMS Message summary ***
+  ----------------------------------------------------------------------------------------------------
+  Rule         Type   Count      Message
+  ----------------------------------------------------------------------------------------------------
+  CTS-904      Warn   3          Clock reference cell %libcell(cell %cell) have no LEQ cell speci...
+  DFT-011      Info   1          The design has no scan chain defined in the scandef.
+  ----------------------------------------------------------------------------------------------------
+  Total 4 EMS messages : 0 errors, 3 warnings, 1 info.
+  ----------------------------------------------------------------------------------------------------
+
+  *** Non-EMS message summary ***
+  ----------------------------------------------------------------------------------------------------
+  Rule         Type   Count      Message
+  ----------------------------------------------------------------------------------------------------
+  CTS-101      Info   1          %s will work on the following scenarios.
+  CTS-107      Info   1          %s will work on all clocks in active scenarios, including %d mas...
+  LGL-003      Warn   828        Standard cell instance %s is not placed.
+  LGL-031      Warn   1          Site master "%s" has neither X-Symmetry nor Y-Symmetry. The "leg...
+  PDC-003      Warn   2          Routing direction of metal layer %s is neither "horizontal" nor ...
+  ----------------------------------------------------------------------------------------------------
+  Total 833 non-EMS messages : 0 errors, 831 warnings, 2 info.
+  ----------------------------------------------------------------------------------------------------
+
+Warning: EMS database "check_design.pre_clock_tree_stage.ems" already exists, over-writing it. (EMS-040)
+
+Information: EMS database is saved to file 'check_design.pre_clock_tree_stage.ems'.
+Information: Non-EMS messages are saved into file 'check_design2023Feb15170034.log'.
+1

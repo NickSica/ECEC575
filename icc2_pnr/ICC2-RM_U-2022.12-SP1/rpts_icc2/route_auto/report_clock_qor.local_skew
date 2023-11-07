@@ -1,0 +1,69 @@
+ Info: Initializing timer in CLOCK_SYN_REPORT_MODE
+Information: The value of option cts.compile.enable_cell_relocation has been overridden to "leaf_only" to support latency-driven placement. (CTS-973)
+Warning: time.si_enable_analysis is on, it could increase the runtime and memory usage. 
+****************************************
+Report : clock qor
+        -type local_skew
+        -nosplit
+Design : FIFO
+Version: U-2022.12-SP1
+Date   : Mon Feb 13 16:57:04 2023
+****************************************
+
+Attributes
+===========
+M Master Clock
+G Generated Clock
+& Internal Generated Clock
+U User Defined Skew Group
+D Default Skew Group
+* Generated Clock Balanced Separately
+
+=================================================
+==== Local Skew Reporting for Corner ss_m40c ====
+=================================================
+
+======================================== Summary Table for Corner ss_m40c ========================================
+Clock /                               Attrs     Sinks    Global       Max    Local Skew   Max Setup    Max Hold
+Skew Group                                                 Skew   Latency    Pair Count  Local Skew  Local Skew
+------------------------------------------------------------------------------------------------------------------
+### Mode: default, Scenario: default.ss_m40c
+ideal_clock1                            M,D       229     0.020     0.058          5978       0.008       0.020
+------------------------------------------------------------------------------------------------------------------
+All Clocks                                        229     0.020     0.058                     0.008       0.020
+
+
+  r = latency reported is for a rising edge triggered event at the sink
+  f = latency reported is for a falling edge triggered event at the sink
+
+
+Showing 5 largest and 5 smallest datapoints per clock / skew group (L=largest, S=smallest)
+=============================================== Details Table for Corner ss_m40c ===============================================
+Clock /                                Launch Sink    Capture Sink      Launch     Capture        Late       Early       Local
+Skew Group                             Name           Name             Latency     Latency      Offset      Offset        Skew
+--------------------------------------------------------------------------------------------------------------------------------
+### Mode: default, Scenario: default.ss_m40c
+ideal_clock1
+                                   L   rd_ptr_reg[3]/CP rd_ptr_reg[23]/CP     0.046 r     0.038 r        --        --     0.008
+                                   L   rd_ptr_reg[2]/CP rd_ptr_reg[23]/CP     0.046 r     0.038 r        --        --     0.008
+                                   L   rd_ptr_reg[4]/CP rd_ptr_reg[23]/CP     0.046 r     0.038 r        --        --     0.008
+                                   L   rd_ptr_reg[5]/CP rd_ptr_reg[23]/CP     0.046 r     0.038 r        --        --     0.008
+                                   L   rd_ptr_reg[7]/CP rd_ptr_reg[23]/CP     0.046 r     0.038 r        --        --     0.008
+                                   S   wr_ptr_reg[5]/CP memblk/FIFO_reg[2][21]/CP     0.038 r     0.058 r        --        --    -0.020
+                                   S   wr_ptr_reg[5]/CP memblk/FIFO_reg[1][13]/CP     0.038 r     0.058 r        --        --    -0.020
+                                   S   wr_ptr_reg[5]/CP memblk/FIFO_reg[0][13]/CP     0.038 r     0.058 r        --        --    -0.020
+                                   S   wr_ptr_reg[5]/CP memblk/FIFO_reg[2][23]/CP     0.038 r     0.058 r        --        --    -0.019
+                                   S   wr_ptr_reg[5]/CP memblk/FIFO_reg[2][13]/CP     0.038 r     0.058 r        --        --    -0.019
+                               (H) L   wr_ptr_reg[5]/CP memblk/FIFO_reg[2][21]/CP     0.038 r     0.058 r        --        --     0.020
+                               (H) L   wr_ptr_reg[5]/CP memblk/FIFO_reg[1][13]/CP     0.038 r     0.058 r        --        --     0.020
+                               (H) L   wr_ptr_reg[5]/CP memblk/FIFO_reg[0][13]/CP     0.038 r     0.058 r        --        --     0.020
+                               (H) L   wr_ptr_reg[4]/CP memblk/FIFO_reg[1][13]/CP     0.038 r     0.058 r        --        --     0.020
+                               (H) L   wr_ptr_reg[4]/CP memblk/FIFO_reg[2][21]/CP     0.038 r     0.058 r        --        --     0.020
+                               (H) S   rd_ptr_reg[3]/CP rd_ptr_reg[23]/CP     0.045 r     0.038 r        --        --    -0.008
+                               (H) S   rd_ptr_reg[2]/CP rd_ptr_reg[23]/CP     0.045 r     0.038 r        --        --    -0.008
+                               (H) S   rd_ptr_reg[7]/CP rd_ptr_reg[23]/CP     0.045 r     0.038 r        --        --    -0.008
+                               (H) S   rd_ptr_reg[5]/CP rd_ptr_reg[23]/CP     0.045 r     0.038 r        --        --    -0.008
+                               (H) S   rd_ptr_reg[4]/CP rd_ptr_reg[23]/CP     0.045 r     0.038 r        --        --    -0.008
+
+
+1

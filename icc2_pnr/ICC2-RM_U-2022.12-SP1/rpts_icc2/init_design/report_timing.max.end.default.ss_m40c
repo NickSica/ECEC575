@@ -1,0 +1,24 @@
+****************************************
+Report : timing
+        -path_type end
+        -delay_type max
+        -max_paths 5000
+        -report_by design
+        -nosplit
+Design : FIFO
+Version: U-2022.12-SP1
+Date   : Wed Feb 15 17:00:11 2023
+****************************************
+Endpoint                         Path Delay     Path Required       CRP    Slack Scenario
+-------------------------------------------------------------------------------------------------
+fcounter_reg[19]/RSTB (DFFARX1_RVT)   0.102 r    15.198          0.000   15.097  default.ss_m40c
+fcounter_reg[20]/RSTB (DFFARX1_RVT)   0.102 r    15.198          0.000   15.097  default.ss_m40c
+fcounter_reg[21]/RSTB (DFFARX1_RVT)   0.102 r    15.198          0.000   15.097  default.ss_m40c
+fcounter_reg[22]/RSTB (DFFARX1_RVT)   0.102 r    15.198          0.000   15.097  default.ss_m40c
+fcounter_reg[23]/RSTB (DFFARX1_RVT)   0.102 r    15.198          0.000   15.097  default.ss_m40c
+fcounter_reg[24]/RSTB (DFFARX1_RVT)   0.102 r    15.198          0.000   15.097  default.ss_m40c
+fcounter_reg[25]/RSTB (DFFARX1_RVT)   0.102 r    15.198          0.000   15.097  default.ss_m40c
+fcounter_reg[26]/RSTB (DFFARX1_RVT)   0.102 r    15.198          0.000   15.097  default.ss_m40c
+fcounter_reg[28]/RSTB (DFFARX1_RVT)   0.102 r    15.198          0.000   15.097  default.ss_m40c
+fcounter_reg[27]/RSTB (DFFARX1_RVT)   0.102 r    15.198          0.000   15.097  default.ss_m40c
+1

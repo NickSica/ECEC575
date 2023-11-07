@@ -1,0 +1,59 @@
+{
+  "Attrs": {
+    "group": "Properties",
+    "tooltip": "Clock attributes: (M) Master clock, (G) Generated clock, (&) Internal generated clock, (U) User defined skew group, (D) Default skew group, (*) Generated clock balanced separately.  Also shows 'Corner' for the parent row of all clocks of that corner, and 'Mode' for the parent row of all clocks of that mode for its parent corner.",
+    "color": "different"
+  },
+  "Sinks": {
+    "group": "Properties",
+    "tooltip": "Number of sinks for this clock",
+    "color": "none"
+  },
+  "MaxLatency": {
+    "group": "Clock",
+    "tooltip": "Maximum latency to any sink in this clock tree"
+  },
+  "GlobalSkew": {
+    "group": "Clock",
+    "tooltip": "Maximum global skew between any two sinks in this clock tree"
+  },
+  "TranDRCs": {
+    "group": "Logical DRCs",
+    "tooltip": "Number of transition DRC violations in this clock tree",
+    "absThreshold": "10.0"
+  },
+  "CapDRCs": {
+    "group": "Logical DRCs",
+    "tooltip": "Number of capacitance DRC violations in this clock tree",
+    "absThreshold": "5.0"
+  },
+  "BufCount": {
+    "group": "Netlist",
+    "tooltip": "Number of repeaters (buffers and inverters) in this clock tree"
+  },
+  "BufArea": {
+    "group": "Netlist",
+    "tooltip": "Area of the repeaters (buffers and inverters) in this clock tree",
+    "lightPct": "0.003",
+    "medPct": "0.01",
+    "darkPct": "0.04"
+  },
+  "StdCellArea": {
+    "group": "Netlist",
+    "tooltip": "Area of all standard cells in the clock tree, including repeaters but excluding sinks",
+    "lightPct": "0.003",
+    "medPct": "0.01",
+    "darkPct": "0.04"
+  },
+  "Levels": {
+    "group": "Netlist",
+    "tooltip": "Longest number of levels to the sinks of this clock",
+    "absThreshold": "2",
+    "lightPct": "0.1",
+    "medPct": "0.2",
+    "darkPct": "0.3"
+  },
+  "WireLength": {
+
+  }
+}

@@ -1,0 +1,13 @@
+<!-- 
+(c) 2017-2021 Synopsys, Inc.  All rights reserved.
+This script is proprietary and confidential information of
+Synopsys, Inc. and may be used and disclosed only as authorized per
+your agreement with Synopsys, Inc. controlling such use and disclosure. 
+-->
+<!-- Four bar meter with one bar filled -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="18" height="18">
+  <rect y="6" width="100" height="15" rx="7" style="fill:#E1E8ED;stroke-width:0"></rect>
+  <rect y="31" width="100" height="15" rx="7" style="fill:#E1E8ED;stroke-width:0"></rect>
+  <rect y="56" width="100" height="15" rx="7" style="fill:#E1E8ED;stroke-width:0"></rect>
+  <rect y="80" width="100" height="15" rx="7" style="fill:#48AFF0;stroke-width:0"></rect>
+</svg>

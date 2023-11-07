@@ -1,0 +1,172 @@
+{
+  "WNS": {
+    "group": "Setup",
+    "tooltip": "Worst negative slack (all setup scenarios)",
+    "absThreshold": "0.01",
+    "improves": "larger"
+  },
+  "TNS": {
+    "group": "Setup",
+    "tooltip": "Total negative slack (all setup scenarios)",
+    "absThreshold": "5.0",
+    "improves": "larger"
+  },
+  "NVE": {
+    "group": "Setup",
+    "tooltip": "Number of violating endpoints (all setup scenarios)",
+    "absThreshold": "30.0"
+  },
+  "r2rWNS": {
+    "group": "Setup",
+    "tooltip": "reg-to-reg worst negative slack (all setup scenarios)",
+    "absThreshold": "0.01",
+    "improves": "larger"
+  },
+  "r2rTNS": {
+    "group": "Setup",
+    "tooltip": "reg-to-reg total negative slack (all setup scenarios)",
+    "absThreshold": "5.0",
+    "improves": "larger"
+  },
+  "r2rNVE": {
+    "group": "Setup",
+    "tooltip": "reg-to-reg number of violating endpoints (all setup scenarios)",
+    "absThreshold": "30.0"
+  },
+  "i2rWNS": {
+    "group": "Setup",
+    "tooltip": "in-to-reg worst negative slack (all setup scenarios)",
+    "absThreshold": "0.01",
+    "improves": "larger"
+  },
+  "i2rTNS": {
+    "group": "Setup",
+    "tooltip": "in-to-reg total negative slack (all setup scenarios)",
+    "absThreshold": "5.0",
+    "improves": "larger"
+  },
+  "i2rNVE": {
+    "group": "Setup",
+    "tooltip": "in-to-reg number of violating endpoints (all setup scenarios)",
+    "absThreshold": "30.0"
+  },
+  "r2oWNS": {
+    "group": "Setup",
+    "tooltip": "reg-to-out worst negative slack (all setup scenarios)",
+    "absThreshold": "0.01",
+    "improves": "larger"
+  },
+  "r2oTNS": {
+    "group": "Setup",
+    "tooltip": "reg-to-out total negative slack (all setup scenarios)",
+    "absThreshold": "5.0",
+    "improves": "larger"
+  },
+  "r2oNVE": {
+    "group": "Setup",
+    "tooltip": "reg-to-out number of violating endpoints (all setup scenarios)",
+    "absThreshold": "30.0"
+  },
+  "i2oWNS": {
+    "group": "Setup",
+    "tooltip": "in-to-out worst negative slack (all setup scenarios)",
+    "absThreshold": "0.01",
+    "improves": "larger"
+  },
+  "i2oTNS": {
+    "group": "Setup",
+    "tooltip": "in-to-out total negative slack (all setup scenarios)",
+    "absThreshold": "5.0",
+    "improves": "larger"
+  },
+  "i2oNVE": {
+    "group": "Setup",
+    "tooltip": "in-to-out number of violating endpoints (all setup scenarios)",
+    "absThreshold": "30.0"
+  },
+  "HWNS": {
+    "group": "Hold",
+    "tooltip": "Hold worst negative slack (all hold scenarios)",
+    "absThreshold": "0.01",
+    "improves": "larger"
+  },
+  "HTNS": {
+    "group": "Hold",
+    "tooltip": "Hold total negative slack (all hold scenarios)",
+    "absThreshold": "5.0",
+    "improves": "larger"
+  },
+  "HNVE": {
+    "group": "Hold",
+    "tooltip": "Hold number of violating endpoints (all hold scenarios)",
+    "absThreshold": "30.0"
+  },
+  "r2rHWNS": {
+    "group": "Hold",
+    "tooltip": "Hold reg-to-reg worst negative slack (all hold scenarios)",
+    "absThreshold": "0.01",
+    "improves": "larger"
+  },
+  "r2rHTNS": {
+    "group": "Hold",
+    "tooltip": "Hold reg-to-reg total negative slack (all hold scenarios)",
+    "absThreshold": "5.0",
+    "improves": "larger"
+  },
+  "r2rHNVE": {
+    "group": "Hold",
+    "tooltip": "Hold reg-to-reg number of violating endpoints (all hold scenarios)",
+    "absThreshold": "30.0"
+  },
+  "i2rHWNS": {
+    "group": "Hold",
+    "tooltip": "Hold in-to-reg worst negative slack (all hold scenarios)",
+    "absThreshold": "0.01",
+    "improves": "larger"
+  },
+  "i2rHTNS": {
+    "group": "Hold",
+    "tooltip": "Hold in-to-reg total negative slack (all hold scenarios)",
+    "absThreshold": "5.0",
+    "improves": "larger"
+  },
+  "i2rHNVE": {
+    "group": "Hold",
+    "tooltip": "Hold in-to-reg number of violating endpoints (all hold scenarios)",
+    "absThreshold": "30.0"
+  },
+  "r2oHWNS": {
+    "group": "Hold",
+    "tooltip": "Hold reg-to-out worst negative slack (all hold scenarios)",
+    "absThreshold": "0.01",
+    "improves": "larger"
+  },
+  "r2oHTNS": {
+    "group": "Hold",
+    "tooltip": "Hold reg-to-out total negative slack (all hold scenarios)",
+    "absThreshold": "5.0",
+    "improves": "larger"
+  },
+  "r2oHNVE": {
+    "group": "Hold",
+    "tooltip": "Hold reg-to-out number of violating endpoints (all hold scenarios)",
+    "absThreshold": "30.0"
+  },
+  "i2oHWNS": {
+    "group": "Hold",
+    "tooltip": "Hold in-to-out worst negative slack (all hold scenarios)",
+    "absThreshold": "0.01",
+    "improves": "larger"
+  },
+  "i2oHTNS": {
+    "group": "Hold",
+    "tooltip": "Hold in-to-out total negative slack (all hold scenarios)",
+    "absThreshold": "5.0",
+    "improves": "larger"
+  },
+  "i2oHNVE": {
+    "group": "Hold",
+    "tooltip": "Hold in-to-out number of violating endpoints (all hold scenarios)",
+    "absThreshold": "30.0"
+  }
+}

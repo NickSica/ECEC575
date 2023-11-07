@@ -1,0 +1,7 @@
+{
+  "Wirelength": {
+    "group": "Wirelength",
+    "tooltip": "Wirelength of this layer",
+    "absThreshold": "1000"
+  }
+}

@@ -1,0 +1,26 @@
+****************************************
+Report : report_utilization
+Design : FIFO
+Version: U-2022.12-SP1
+Date   : Wed Feb 15 17:00:18 2023
+****************************************
+Utilization Ratio:			1.2074
+Utilization options:
+ - Area calculation based on:		site_row of block FIFO
+ - Categories of objects excluded:	hard_macros macro_keepouts soft_macros io_cells hard_blockages 
+Total Area:				5207.0400
+Total Capacity Area:			5207.0400
+Total Area of cells:			6287.1552
+Area of excluded objects:
+ - hard_macros         :		0.0000
+ - macro_keepouts      :		0.0000
+ - soft_macros         :		0.0000
+ - io_cells            :		0.0000
+ - hard_blockages      :		0.0000
+Total Area of excluded objects:		0.0000
+Ratio of excluded objects:		0.0000
+
+Utilization of site-rows with:
+ - Site 'unit':				1.2074
+
+1.2074

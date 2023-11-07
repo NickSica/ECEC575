@@ -1,0 +1,57 @@
+{
+  "application": "icc2_shell",
+  "designs": [
+    "command_line"
+  ],
+  "flowsByDesign": {
+    "command_line": [
+      "command_line command_line Run1"
+    ]
+  },
+  "allStages": [
+    "init_design",
+    "place_opt",
+    "clock_opt_cts",
+    "clock_opt_opto",
+    "route_auto",
+    "route_opt"
+  ],
+  "stagesByDesignAndFlow": {
+    "command_line" : {
+      "command_line command_line Run1" : [
+        "init_design", 
+        "place_opt", 
+        "clock_opt_cts", 
+        "clock_opt_opto", 
+        "route_auto", 
+        "route_opt"
+      ]
+    }
+  },
+  "allLogfileLabels": [
+  ],
+  "logfileLabelsByDesignAndFlow": {
+    "command_line" : {
+      "command_line command_line Run1" : [
+      ]
+    }
+  },
+  "runParametersByDesignAndFlow": {
+    "command_line" : {
+      "command_line command_line Run1" : {
+      }
+    }
+  },
+  "comments": {
+    "command_line": {
+      "experiment": null,
+      "designVariation": {
+      },
+      "flow": {
+        "Run1": [
+          "Data Location: /home/sica/asic_design_scripts/icc2_pnr/ICC2-RM_U-2022.12-SP1/qor_data"
+        ]
+      }
+    }
+  }
+}

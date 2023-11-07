@@ -1,0 +1,119 @@
+Information: Corner ss_m40c: no PVT mismatches. (PVT-032)
+INFO: updateGlobalOptions
+INFO: use Native GDC
+****************************************
+ Report : clock settings
+ Design : FIFO
+ Date   : Wed Feb 15 17:00:11 2023
+****************************************
+
+
+======================================
+Configurations 
+======================================
+
+##Global
+  Corner = ss_m40c
+    Max transition: around 0.500 (default)
+    Max capacitance: 600.000 (default)
+    Target skew: 0 (default)
+    Target latency: Not specified
+
+##ideal_clock1
+  Corner = ss_m40c
+    Max transition: around 0.500 (default)
+    Max capacitance: 600.000 (default)
+    Target skew: 0 (default)
+    Target latency: Not specified
+
+
+======================================
+Routing Rules 
+======================================
+
+##Global
+Routing rule for sink nets: Not specified
+Routing rule for internal nets: Not specified
+Routing rule for root nets: Not specified
+Routing rule for all nets: Not specified
+Net-based routing rules (by set_clock_routing_rule): Not specified
+Net-based routing rules (by set_routing_rule): Not specified
+
+##ideal_clock1
+Routing rule for sink nets: Not specified
+Routing rule for internal nets: Not specified
+Routing rule for root nets: Not specified
+Routing rule for all nets: Not specified
+Net-based routing rules (by set_clock_routing_rule): Not specified
+Net-based routing rules (by set_routing_rule): Not specified
+
+
+======================================
+Buffers and Inverters 
+======================================
+
+##Buffers
+Name                                   Area      Max Transition       Max Load
+------------------------------------------------------------------------------
+saed32rvt_frame_timing_ccs/DELLN1X2_RVT
+                                      5.964                 inf        416.000
+saed32rvt_frame_timing_ccs/DELLN2X2_RVT
+                                      7.628                 inf        416.000
+saed32rvt_frame_timing_ccs/DELLN3X2_RVT
+                                     10.955                 inf        416.000
+saed32rvt_frame_timing_ccs/NBUFFX16_RVT
+                                      7.073                 inf            inf
+saed32rvt_frame_timing_ccs/NBUFFX2_RVT
+                                      2.638                 inf            inf
+saed32rvt_frame_timing_ccs/NBUFFX32_RVT
+                                     12.064                 inf            inf
+saed32rvt_frame_timing_ccs/NBUFFX4_RVT
+                                      3.187                 inf            inf
+saed32rvt_frame_timing_ccs/NBUFFX8_RVT
+                                      4.578                 inf            inf
+
+##Inverters
+Name                                   Area      Max Transition       Max Load
+------------------------------------------------------------------------------
+saed32rvt_frame_timing_ccs/IBUFFX16_RVT
+                                      7.628                 inf            inf
+saed32rvt_frame_timing_ccs/IBUFFX2_RVT
+                                      3.192                 inf            inf
+saed32rvt_frame_timing_ccs/IBUFFX32_RVT
+                                     13.173                 inf            inf
+saed32rvt_frame_timing_ccs/IBUFFX4_RVT
+                                      3.746                 inf            inf
+saed32rvt_frame_timing_ccs/IBUFFX8_RVT
+                                      5.133                 inf            inf
+saed32rvt_frame_timing_ccs/INVX0_RVT
+                                      1.806                 inf        208.000
+saed32rvt_frame_timing_ccs/INVX16_RVT
+                                      5.964                 inf        208.000
+saed32rvt_frame_timing_ccs/INVX1_RVT
+                                      1.806                 inf        208.000
+saed32rvt_frame_timing_ccs/INVX2_RVT
+                                      2.083                 inf        208.000
+saed32rvt_frame_timing_ccs/INVX32_RVT
+                                     10.400                 inf        208.000
+saed32rvt_frame_timing_ccs/INVX4_RVT
+                                      2.638                 inf        208.000
+saed32rvt_frame_timing_ccs/INVX8_RVT
+                                      3.746                 inf        208.000
+
+
+======================================
+Spacing Rules 
+======================================
+
+##By design
+No by design spacing rule is specified
+
+##By clock
+No by clock spacing rule is specified
+
+##By libcell
+No by libcell spacing rule is specified
+
+##By clock and libcell
+No by clock and libcell spacing rule is specified
+1

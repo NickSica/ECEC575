@@ -1,0 +1,4 @@
+{
+  "columns": ["SeqCells", "1BitFlops", "1BitLatch", "MBitFlops", "MBitLatch", "1BitEqSeq", "SeqBank%", "FlopBank%", "Bits/Flop", "Bits/Seq", "IsoCells", "1BitIso", "1BitEqIso", "IsoBank%", "LSCells", "1BitLS", "1BitEqLS", "LSBank%", "ELSCells", "1BitELS", "1BitEqELS", "ELSBank%"],
+  "values": ["229", "229", "0", "0", "0", "229", "0.0", "0.0", "1.00", "1.00", "0", "0", "0", "0.0", "0", "0", "0", "0.0", "0", "0", "0", "0.0"]
+}

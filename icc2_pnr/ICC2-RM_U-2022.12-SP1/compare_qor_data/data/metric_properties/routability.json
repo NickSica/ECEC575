@@ -1,0 +1,44 @@
+{
+  "TotDRC": {
+    "group": "DRCs",
+    "tooltip": "Total routing DRCs",
+    "absThreshold": "50.0"
+  },
+  "ShortDRC": {
+    "group": "DRCs",
+    "tooltip": "Short DRCs",
+    "absThreshold": "30.0"
+  },
+  "SpaceDRC": {
+    "group": "DRCs",
+    "tooltip": "Diff net spacing DRCs"
+  },
+  "Wires": {
+    "group": "Wires (Total)",
+    "tooltip": "Number of wires"
+  },
+  "Vias": {
+    "group": "Wires (Total)",
+    "tooltip": "Number of vias"
+  },
+  "PtConns": {
+    "group": "Wires (Total)",
+    "tooltip": "Number of point connections (wires with one connection on each end)"
+  },
+  "RoutedWireLen": {
+    "group": "Wires (Routed)",
+    "tooltip": "'Total Routed Wire Length' from check_routes"
+  },
+  "RoutedWires": {
+    "group": "Wires (Routed)",
+    "tooltip": "Number of routed wires"
+  },
+  "RoutedVias": {
+    "group": "Wires (Routed)",
+    "tooltip": "Number of routed vias"
+  },
+  "ViaConv%": {
+    "group": "Wires (Routed)",
+    "tooltip": "Redundant via conversion rate (percent of total vias converted)"
+  }
+}

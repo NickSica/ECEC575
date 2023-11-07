@@ -1,0 +1,34 @@
+{
+  "TranWNS": {
+    "group": "Logical DRCs",
+    "tooltip": "Transition DRC WNS",
+    "absThreshold": "0.01",
+    "improves": "larger"
+  },
+  "TranCost": {
+    "group": "Logical DRCs",
+    "tooltip": "Transition DRC Cost",
+    "absThreshold": "1.0"
+  },
+  "TranDRCs": {
+    "group": "Logical DRCs",
+    "tooltip": "Transition DRC violating net count",
+    "absThreshold": "100.0"
+  },
+  "CapWNS": {
+    "group": "Logical DRCs",
+    "tooltip": "Capacitance DRC WNS",
+    "absThreshold": "0.005",
+    "improves": "larger"
+  },
+  "CapCost": {
+    "group": "Logical DRCs",
+    "tooltip": "Capacitance DRC Cost",
+    "absThreshold": "0.050"
+  },
+  "CapDRCs": {
+    "group": "Logical DRCs",
+    "tooltip": "Capacitance DRC violating net count",
+    "absThreshold": "10.0"
+  }
+}

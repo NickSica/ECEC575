@@ -1,0 +1,7 @@
+[
+  ["Clock", "Attrs", "Leakage", "ClkInternal", "SinkInternal", "Switching", "Dynamic", "Total"],
+  ["ss_m40c", "Corner", "323.056", "6844.216", "162738.820", "22244.730", "191827.766", "192150.822"], 
+  ["ss_m40c/default", "Mode", ".", ".", ".", ".", ".", "."], 
+  ["ss_m40c/default/default.ss_m40c", "Scenario", ".", ".", ".", ".", ".", "."], 
+  ["ss_m40c/default/default.ss_m40c/ideal_clock1", "M,D", "323.056", "6844.216", "162738.820", "22244.730", "191827.766", "192150.822"]
+]

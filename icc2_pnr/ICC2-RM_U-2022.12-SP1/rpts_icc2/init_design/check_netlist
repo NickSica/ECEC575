@@ -1,0 +1,19 @@
+****************************************
+Report : check_netlist
+        -cells
+        -nets
+        -ports
+        -summary
+Design : FIFO
+Version: U-2022.12-SP1
+Date   : Wed Feb 15 17:00:18 2023
+****************************************
+             Name                                                          Total
+--------------------------------------------------------------------------------
+Port                                                                          30
+             (DCHK-017) Input port unloaded                                   30
+Net                                                                           30
+             (DCHK-009) Net has no load                                       30
+--------------------------------------------------------------------------------
+Information: Use the related options for more information about warnings. (DCHK-042)
+1

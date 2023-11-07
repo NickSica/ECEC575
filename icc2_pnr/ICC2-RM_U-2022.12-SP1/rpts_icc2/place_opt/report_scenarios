@@ -1,0 +1,13 @@
+****************************************
+Report : scenario
+Design : FIFO
+Version: U-2022.12-SP1
+Date   : Wed Feb 15 17:00:34 2023
+****************************************
+
+                                                                     Leakage  Dynamic                              Cell  Signal
+Name            Mode            Corner          Active  Setup  Hold  Power    Power    Max_tran  Max_cap  Min_cap  EM    EM
+-------------------------------------------------------------------------------------------------------------------------------
+default.ss_m40c * default       ss_m40c         true    true   true  true     false    true      true     true     false false
+
+1

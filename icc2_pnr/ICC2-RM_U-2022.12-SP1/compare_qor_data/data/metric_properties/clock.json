@@ -1,0 +1,61 @@
+{
+  "CritName": {
+    "group": "Critical Clock",
+    "tooltip": "The name of the critical clock or skew group.  This can be specified by 'set_qor_data_options -clock_name'.  By default, critical clock is determined by finding all clocks within 90% of maximum sink count, filtering for the smallest clock period, then filtering for largest latency.",
+    "color": "different"
+  },
+  "CritScenario": {
+    "group": "Critical Clock",
+    "tooltip": "The scenario name of the critical clock or skew group.  This can be specified by 'set_qor_data_options -clock_scenario'.  By default, critical clock is determined by finding all clocks within 90% of maximum sink count, filtering for the smallest clock period, then filtering for largest latency.",
+    "color": "different"
+  },
+  "CritSinks": {
+    "group": "Critical Clock",
+    "tooltip": "Critical clock or skew group sink count.  This clock can be specified by 'set_qor_data_options -clock_name -clock_scenario'.  By default, critical clock is determined by finding all clocks within 90% of maximum sink count, filtering for the smallest clock period, then filtering for largest latency.",
+    "color": "none"
+  },
+  "CritLtncy": {
+    "group": "Critical Clock",
+    "tooltip": "Critical clock max latency.  This clock can be specified by 'set_qor_data_options -clock_name -clock_scenario'.  By default, critical clock is determined by finding all clocks within 90% of maximum sink count, filtering for the smallest clock period, then filtering for largest latency.",
+    "absThreshold": "0.01"
+  },
+  "CritSkew": {
+    "group": "Critical Clock",
+    "tooltip": "Critical clock max skew.  This clock can be specified by 'set_qor_data_options -clock_name -clock_scenario'.  By default, critical clock is determined by finding all clocks within 90% of maximum sink count, filtering for the smallest clock period, then filtering for largest latency.",
+    "absThreshold": "0.01"
+  },
+  "AvgLtncy": {
+    "group": "All Clocks",
+    "tooltip": "Average latency of all clocks in all scenarios"
+  },
+  "AvgSkew": {
+    "group": "All Clocks",
+    "tooltip": "Average skew of all clocks in all scenarios"
+  },
+  "TotalArea": {
+    "group": "Netlist",
+    "tooltip": "Clock cell area (all clocks)"
+  },
+  "CellCount": {
+    "group": "Netlist",
+    "tooltip": "Clock cell count (all clocks)"
+  },
+  "BufArea": {
+    "group": "Netlist",
+    "tooltip": "Clock repeater area (all clocks)"
+  },
+  "BufCount": {
+    "group": "Netlist",
+    "tooltip": "Clock repeater count (all clocks)"
+  },
+  "TranDRCs": {
+    "group": "Logical DRCs",
+    "tooltip": "Number of clock nets with max transition violations (sum of all violations on all clocks in all scenarios)",
+    "absThreshold": "50.0"
+  },
+  "CapDRCs": {
+    "group": "Logical DRCs",
+    "tooltip": "Number of clock nets with max capacitance violations (sum of all violations on all clocks in all scenarios)",
+    "absThreshold": "5.0"
+  }
+}

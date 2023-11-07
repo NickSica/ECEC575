@@ -1,0 +1,46 @@
+{
+  "Attrs": {
+    "group": "Properties",
+    "tooltip": "Clock attributes: (M) Master clock, (G) Generated clock, (&) Internal generated clock, (U) User defined skew group, (D) Default skew group, (*) Generated clock balanced separately.  Also shows 'Corner' for the parent row of all clocks of that corner, and 'Mode' for the parent row of all clocks of that mode for its parent corner.",
+    "color": "different"
+  },
+  "Sinks": {
+    "group": "Properties",
+    "tooltip": "Number of sinks for this clock",
+    "color": "none"
+  },
+  "MaxLatency": {
+    "group": "Latency",
+    "tooltip": "Maximum latency to any sink in this clock tree"
+  },
+  "MinLatency": {
+    "group": "Latency",
+    "tooltip": "Minimum latency to any sink in this clock tree"
+  },
+  "MedianLatency": {
+    "group": "Latency",
+    "tooltip": "Median latency of all sinks in this clock tree"
+  },
+  "LatencyStdDev": {
+    "group": "Latency",
+    "tooltip": "Standard deviation of the latency to all sinks in this clock tree"
+  },
+  "TargetLatency": {
+    "group": "Latency",
+    "tooltip": "User's set_clock_tree_options target latency for this clock tree",
+    "color": "different"
+  },
+  "GlobalSkew": {
+    "group": "Skew",
+    "tooltip": "Maximum global skew between any two sinks in this clock tree"
+  },
+  "BoundarySkew": {
+    "group": "Skew",
+    "tooltip": "Maximum global skew between any two boundary sinks in this clock tree"
+  },
+  "TargetSkew": {
+    "group": "Skew",
+    "tooltip": "User's set_clock_tree_options target skew for this clock tree",
+    "color": "different"
+  }
+}

@@ -1,0 +1,112 @@
+{
+  "SeqBank%": {
+    "group": "Sequential Banking",
+    "tooltip": "Banking ratio for all sequential cells: (MBitFlops + MBitLatch) / SeqCells",
+    "improves": "larger"
+  },
+  "FlopBank%": {
+    "group": "Sequential Banking",
+    "tooltip": "Banking ratio for flops only: MBitFlops / (1BitFlops + MBitFlops)",
+    "improves": "larger"
+  },
+  "Bits/Flop": {
+    "group": "Sequential Banking",
+    "tooltip": "Average number of bits per flop from banking",
+    "improves": "larger"
+  },
+  "Bits/Seq": {
+    "group": "Sequential Banking",
+    "tooltip": "Average number of bits per sequential cell from banking",
+    "improves": "larger"
+  },
+  "SeqCells": {
+    "group": "Sequential Count",
+    "tooltip": "Total number of sequential cells (flops and latches)",
+    "color": "none"
+  },
+  "1BitFlops": {
+    "group": "Sequential Count",
+    "tooltip": "Number of single-bit flops",
+    "color": "none"
+  },
+  "1BitLatch": {
+    "group": "Sequential Count",
+    "tooltip": "Number of single-bit latches",
+    "color": "none"
+  },
+  "MBitFlops": {
+    "group": "Sequential Count",
+    "tooltip": "Number of multibit flops",
+    "color": "none"
+  },
+  "MBitLatch": {
+    "group": "Sequential Count",
+    "tooltip": "Number of multibit latches",
+    "color": "none"
+  },
+  "1BitEqSeq": {
+    "group": "Sequential Count",
+    "tooltip": "Number of single-bit equivelent sequential cells (if single-bit flops/latches are treated as one cell, 2-bit are treated as two cells, 4-bit are treated as four cells, ...)",
+    "color": "none"
+  },
+  "IsoBank%": {
+    "group": "Isolation Cells",
+    "tooltip": "Isolation cell banking ratio: MBitIso / (1BitIso + MBitIso)",
+    "improves": "larger"
+  },
+  "IsoCells": {
+    "group": "Isolation Cells",
+    "tooltip": "Total number of isolation cells",
+    "color": "none"
+  },
+  "1BitIso": {
+    "group": "Isolation Cells",
+    "tooltip": "Number of single-bit isolation cells",
+    "color": "none"
+  },
+  "1BitEqIso": {
+    "group": "Isolation Cells",
+    "tooltip": "Number of single-bit equivalent isolation cells (if single-bit isolation cells are treated as one cell, 2-bit are treated as two cells, 4-bit are treated as four cells, ...)",
+    "color": "none"
+  },
+  "LSBank%": {
+    "group": "Level Shifters",
+    "tooltip": "Level-shifter cell banking ratio: MBitLS / (1BitLS + MBitLS)",
+    "improves": "larger"
+  },
+  "LSCells": {
+    "group": "Level Shifters",
+    "tooltip": "Total number of level-shifter cells",
+    "color": "none"
+  },
+  "1BitLS": {
+    "group": "Level Shifters",
+    "tooltip": "Number of single-bit level-shifter cells",
+    "color": "none"
+  },
+  "1BitEqLS": {
+    "group": "Level Shifters",
+    "tooltip": "Number of single-bit equivalent level-shifter cells (if single-bit level-shifter cells are treated as one cell, 2-bit are treated as two cells, 4-bit are treated as four cells, ...)",
+    "color": "none"
+  },
+  "ELSBank%": {
+    "group": "Enable LS",
+    "tooltip": "Enable level-shifter cell banking ratio: MBitELS / (1BitELS + MBitELS)",
+    "improves": "larger"
+  },
+  "ELSCells": {
+    "group": "Enable LS",
+    "tooltip": "Total number of enable level-shifter cells",
+    "color": "none"
+  },
+  "1BitELS": {
+    "group": "Enable LS",
+    "tooltip": "Number of single-bit enable level-shifter cells",
+    "color": "none"
+  },
+  "1BitEqELS": {
+    "group": "Enable LS",
+    "tooltip": "Number of single-bit equivalent enable level-shifter cells (if single-bit enable level-shifter cells are treated as one cell, 2-bit are treated as two cells, 4-bit are treated as four cells, ...)",
+    "color": "none"
+  }
+}

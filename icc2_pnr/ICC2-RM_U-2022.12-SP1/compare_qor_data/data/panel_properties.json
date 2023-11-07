@@ -1,0 +1,309 @@
+{
+    "qor_summary": {
+        "title": "QOR Summary",
+        "type": "summary",
+        "keyColumns": [
+            "Stage"
+        ]
+    },
+    "performance": {
+        "title": "Performance",
+        "type": "summary",
+        "keyColumns": [
+            "Stage"
+        ]
+    },
+    "app_option_details": {
+        "title": "App Option Details",
+        "type": "detailed",
+        "keyColumns": [
+            "Name"
+        ],
+        "filters": [
+            {
+                "column": "Name",
+                "type": "regexp"
+            },
+            {
+                "column": "Scope",
+                "type": "enum"
+            },
+            {
+                "column": "Status",
+                "type": "enum"
+            }
+        ]
+    },
+    "timing": {
+        "title": "Timing Summary",
+        "type": "summary",
+        "group": "Timing / LDRC",
+        "keyColumns": [
+            "Stage"
+        ]
+    },
+    "timing_scenario_details": {
+        "title": "Scenario Details",
+        "type": "detailed",
+        "group": "Timing / LDRC",
+        "keyColumns": [
+            "Scenario"
+        ],
+        "detailedTableHierarchySeparator": "/"
+    },
+    "path_group_details": {
+        "title": "Path Group Details",
+        "type": "detailed",
+        "group": "Timing / LDRC",
+        "keyColumns": [
+            "Scenario",
+            "PathGroup"
+        ],
+        "filters": [
+            {
+                "column": "WNS",
+                "type": "<",
+                "value": "0",
+                "label": "Failing Setup",
+                "isActive": false
+            },
+            {
+                "column": "HWNS",
+                "type": "<",
+                "value": "0",
+                "label": "Failing Hold",
+                "isActive": false
+            },
+            {
+                "column": "Scenario",
+                "type": "enum"
+            },
+            {
+                "column": "PathGroup",
+                "type": "enum"
+            }
+        ]
+    },
+    "logical_drc": {
+        "title": "Logical DRCs",
+        "type": "summary",
+        "group": "Timing / LDRC",
+        "keyColumns": [
+            "Stage"
+        ]
+    },
+    "netlist": {
+        "title": "Netlist Summary",
+        "type": "summary",
+        "group": "Netlist",
+        "keyColumns": [
+            "Stage"
+        ]
+    },
+    "lib_cell_details": {
+        "title": "Lib Cell Details",
+        "type": "detailed",
+        "group": "Netlist",
+        "keyColumns": [
+            "LibCell"
+        ],
+        "filters": [
+            {
+                "column": "LibCell",
+                "type": "regexp"
+            },
+            {
+                "column": "Purpose",
+                "type": "regexp"
+            },
+            {
+                "column": "Function",
+                "type": "enum"
+            },
+            {
+                "column": "VtGroup",
+                "type": "enum"
+            },
+            {
+                "column": "VtGroupType",
+                "type": "enum"
+            }
+        ]
+    },
+    "power": {
+        "title": "Power Summary",
+        "type": "summary",
+        "group": "Power",
+        "keyColumns": [
+            "Stage"
+        ]
+    },
+    "power_details": {
+        "title": "Power Details",
+        "type": "detailed",
+        "group": "Power",
+        "keyColumns": [
+            "Scenario",
+            "PowerGroup"
+        ],
+        "filters": [
+            {
+                "column": "Scenario",
+                "type": "enum"
+            },
+            {
+                "column": "PowerGroup",
+                "type": "enum"
+            }
+        ]
+    },
+    "vt_group_details": {
+        "title": "Vt Group Details",
+        "type": "detailed",
+        "group": "Power",
+        "keyColumns": [
+            "VtGroup",
+            "Category"
+        ],
+        "filters": [
+            {
+                "column": "VtGroup",
+                "type": "enum"
+            },
+            {
+                "column": "Category",
+                "type": "enum"
+            },
+            {
+                "column": "VtGroupType",
+                "type": "enum"
+            }
+        ]
+    },
+    "clock_gating": {
+        "title": "Clockgating",
+        "type": "summary",
+        "group": "Power",
+        "keyColumns": [
+            "Stage"
+        ]
+    },
+    "multibit": {
+        "title": "Multibit",
+        "type": "summary",
+        "group": "Power",
+        "keyColumns": [
+            "Stage"
+        ]
+    },
+    "routability": {
+        "title": "Routability",
+        "type": "summary",
+        "group": "Routability",
+        "keyColumns": [
+            "Stage"
+        ]
+    },
+    "congestion": {
+        "title": "Congestion Summary",
+        "type": "summary",
+        "group": "Routability",
+        "keyColumns": [
+            "Stage"
+        ]
+    },
+    "routing_drc_details": {
+        "title": "Routing DRC Details",
+        "type": "detailed",
+        "group": "Routability",
+        "keyColumns": [
+            "Type"
+        ]
+    },
+    "wirelength_details": {
+        "title": "Wirelength Details",
+        "type": "detailed",
+        "group": "Routability",
+        "keyColumns": [
+            "Layer"
+        ]
+    },
+    "via_details": {
+        "title": "Via Details",
+        "type": "detailed",
+        "group": "Routability",
+        "keyColumns": [
+            "ViaName"
+        ]
+    },
+    "redundant_via_details": {
+        "title": "Redundant Via Details",
+        "type": "detailed",
+        "group": "Routability",
+        "keyColumns": [
+            "ViaName"
+        ]
+    },
+    "clock": {
+        "title": "Clock Summary",
+        "type": "summary",
+        "group": "Clock",
+        "keyColumns": [
+            "Stage"
+        ]
+    },
+    "clock_details": {
+        "title": "Clock Details",
+        "type": "detailed",
+        "group": "Clock",
+        "keyColumns": [
+            "Clock"
+        ],
+        "detailedTableHierarchySeparator": "/"
+    },
+    "clock_latency_details": {
+        "title": "Latency Details",
+        "type": "detailed",
+        "group": "Clock",
+        "keyColumns": [
+            "Clock"
+        ],
+        "detailedTableHierarchySeparator": "/"
+    },
+    "clock_ldrc_details": {
+        "title": "LDRC Details",
+        "type": "detailed",
+        "group": "Clock",
+        "keyColumns": [
+            "Clock"
+        ],
+        "detailedTableHierarchySeparator": "/"
+    },
+    "clock_power_details": {
+        "title": "Clock Power Details",
+        "type": "detailed",
+        "group": "Clock",
+        "keyColumns": [
+            "Clock"
+        ],
+        "detailedTableHierarchySeparator": "/"
+    },
+    "clock_area_details": {
+        "title": "Area Details",
+        "type": "detailed",
+        "group": "Clock",
+        "keyColumns": [
+            "Clock"
+        ],
+        "detailedTableHierarchySeparator": "/"
+    },
+    "clock_lib_cell_details": {
+        "title": "Clock Lib Cell Details",
+        "type": "detailed",
+        "group": "Clock",
+        "keyColumns": [
+            "LibCell",
+            "Usage"
+        ]
+    }
+}

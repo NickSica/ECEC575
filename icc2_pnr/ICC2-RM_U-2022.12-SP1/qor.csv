@@ -1,0 +1,6 @@
+Path Group, WNS, TNS, NVP, FREQ, WNS(H), TNS(H), NVP(H)
+**in2reg_default**(default.ss_m40c)  ,     15.097,        0.0,       0,    9709MHz,     -0.120,       -1.2,      10
+
+Summary,     15.097,        0.0,       0,    9709MHz,     -0.120,       -1.2,      10
+CAP, FANOUT, TRAN, TDRC, CELLA, BUFS, LEAFS, TNETS, CTBUF, REGS
+0, 0, 0, 0, 3676, ~K, 0K, ~K, ~, 229

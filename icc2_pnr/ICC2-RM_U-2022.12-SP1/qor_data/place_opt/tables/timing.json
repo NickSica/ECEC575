@@ -1,0 +1,4 @@
+{
+  "columns": ["WNS", "TNS", "NVE", "HWNS", "HTNS", "HNVE", "r2rWNS", "r2rTNS", "r2rNVE", "i2rWNS", "i2rTNS", "i2rNVE", "r2oWNS", "r2oTNS", "r2oNVE", "i2oWNS", "i2oTNS", "i2oNVE", "r2rHWNS", "r2rHTNS", "r2rHNVE", "i2rHWNS", "i2rHTNS", "i2rHNVE", "r2oHWNS", "r2oHTNS", "r2oHNVE", "i2oHWNS", "i2oHTNS", "i2oHNVE"],
+  "values": ["0.000", "0.000", "0", "-0.072", "-2.195", "31", "0.000", "0.000", "0", "0.000", "0.000", "0", "0.000", "0.000", "0", "0.000", "0.000", "0", "0.000", "0.000", "0", "-0.072", "-2.195", "31", "0.000", "0.000", "0", "0.000", "0.000", "0"]
+}

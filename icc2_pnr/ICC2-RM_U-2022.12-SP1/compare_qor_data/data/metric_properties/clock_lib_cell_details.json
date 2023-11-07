@@ -1,0 +1,30 @@
+{
+  "Instances": {
+    "group": "Netlist",
+    "tooltip": "Number of instances of this lib_cell for this clock tree usage"
+  },
+  "UnitArea": {
+    "group": "Netlist",
+    "tooltip": "Area of a single instance of this lib_cell",
+    "color": "different"
+  },
+  "TotalArea": {
+    "group": "Netlist",
+    "tooltip": "Area of all instances of this lib_cell for this clock tree usage"
+  },
+  "VtGroup": {
+    "group": "Vt Group",
+    "tooltip": "The threshold voltage group of this lib_cell",
+    "color": "different"
+  },
+  "VtGroupType": {
+    "group": "Vt Group",
+    "tooltip": "The threshold voltage group type (high, normal, or low) of this lib_cell, as defined by set_threshold_voltage_group_type",
+    "color": "different"
+  },
+  "Function": {
+    "group": "Cell Count",
+    "tooltip": "Number of cells in the clock network (including buffers but excluding sinks)",
+    "color": "different"
+  }
+}

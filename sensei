@@ -1,0 +1,29 @@
+if [ -f ~/.bashrc ]; then
+	. ~/.bashrc
+fi
+alias ls='ls -ltrh --color'
+export snpslmd=27909@license02.coe.drexel.edu
+export LM_LICENSE_FILE=27909@license02.coe.drexel.edu
+export SYNPS_ROOT=/opt/synopsys/2016
+#DC_SHELL
+export DC_HOME=$SYNPS_ROOT/core-synthesis-tools
+#ICC_SHELL
+##export ICC_HOME=$SYNPS_ROOT/icc
+export ICC_HOME=/mnt/class_data/ecec574-w2019/tools/icc/icc/Q-2019.12
+#HSPICE
+export HSPICE_HOME=$SYNPS_ROOT/hspice
+#PrimeTime
+export PT_HOME=$SYNPS_ROOT/primetime
+#STARRC
+export STARRC_HOME=$SYNPS_ROOT/starrc
+#Cadence Innovus
+export INV_HOME=/opt/cadence/INNOVUS181
+export LM_LICENSE_FILE=27909@License02.coe.drexel.edu:1717@license1.ece.drexel.edu:27909@License01.coe.drexel.edu:5228@license04.coe.drexel.edu:7171@license03.coe.drexel.edu
+
+PATH=$PATH:$DC_HOME/bin
+PATH=$PATH:$ICC_HOME/bin
+PATH=$PATH:$HSPICE_HOME/hspice/bin
+PATH=$PATH:$PT_HOME/bin
+PATH=$PATH:$STARRC_HOME/bin
+PATH=$PATH:$INV_HOME/bin
+export PATH

@@ -1,0 +1,44 @@
+****************************************
+ Report : check_design 
+ Options: { pre_route_stage }
+ Design : FIFO
+ Version: U-2022.12-SP1
+ Date   : Mon Feb 13 16:56:40 2023
+****************************************
+
+Running mega-check 'pre_route_stage': 
+    Running atomic-check 'design_mismatch'
+    Running atomic-check 'scan_chain'
+    Running atomic-check 'mv_design'
+    Running atomic-check 'timing'
+    Running atomic-check 'routability'
+    Running atomic-check 'hier_pre_route'
+
+  *** EMS Message summary ***
+  ----------------------------------------------------------------------------------------------------
+  Rule         Type   Count      Message
+  ----------------------------------------------------------------------------------------------------
+  DFT-011      Info   1          The design has no scan chain defined in the scandef.
+  ----------------------------------------------------------------------------------------------------
+  Total 1 EMS messages : 0 errors, 0 warnings, 1 info.
+  ----------------------------------------------------------------------------------------------------
+
+  *** Non-EMS message summary ***
+  ----------------------------------------------------------------------------------------------------
+  Rule         Type   Count      Message
+  ----------------------------------------------------------------------------------------------------
+  ZRT-026      Warn   6          Layer %s pitch %.3f may be too small: wire/via-down %.3f, wire/v...
+  ZRT-027      Warn   1          Ignore %d top cell ports with no pins.
+  ZRT-619      Info   1          Via ladder engine would be activated for pattern must join conne...
+  ZRT-703      Info   1          Option route.detail.force_end_on_preferred_grid will be ignored ...
+  ZRT-706      Info   1          When applicable layer based tapering will taper up to %.2f in di...
+  ZRT-707      Info   1          When applicable Min-max layer allow_pin_connection mode will all...
+  ZRT-718      Info   1          When applicable Min-max layer allow_pin_connection mode will all...
+  ZRT-740      Warn   4          %s is unplaced.  This may impact routing result.
+  ----------------------------------------------------------------------------------------------------
+  Total 16 non-EMS messages : 0 errors, 11 warnings, 5 info.
+  ----------------------------------------------------------------------------------------------------
+
+Information: EMS database is saved to file 'check_design.pre_route_stage.ems'.
+Information: Non-EMS messages are saved into file 'check_design2023Feb13165640.log'.
+1

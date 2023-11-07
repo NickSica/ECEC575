@@ -1,0 +1,7 @@
+[
+  ["Clock", "Attrs", "Sinks", "Levels", "BufCount", "BufArea", "StdCellArea", "MaxLatency", "GlobalSkew", "TranDRCs", "CapDRCs", "WireLength"],
+  ["ss_m40c", "Corner", "229", "2", "5", "26", "26", "0.060", "0.021", "0", "0", "1116"], 
+  ["ss_m40c/default", "Mode", ".", ".", ".", ".", ".", ".", ".", ".", ".", "."], 
+  ["ss_m40c/default/default.ss_m40c", "Scenario", ".", ".", ".", ".", ".", ".", ".", ".", ".", "."], 
+  ["ss_m40c/default/default.ss_m40c/ideal_clock1", "M,D", "229", "2", "5", "26", "26", "0.060", "0.021", "0", "0", "1116"]
+]

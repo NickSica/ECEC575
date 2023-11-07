@@ -1,0 +1,42 @@
+{
+  "Value": {
+    "group": "Value",
+    "tooltip": "The effective value of the app option that will be used by the tool.  This effective value is determined (in order of predecence from high to low) from the UserValue, UserDefault, and SystemDefault settings.",
+    "color": "different_or_missing"
+  },
+  "UserValue": {
+    "group": "Value",
+    "tooltip": "The user's set_app_options value applied to the app option.  For global-scoped app option, the UserValue and UserDefault are always the same.",
+    "color": "different_or_missing"
+  },
+  "UserDefault": {
+    "group": "Value",
+    "tooltip": "The user's set_app_options -as_user_default value applied to the app option.  For global-scoped app option, the UserValue and UserDefault are always the same.",
+    "color": "different_or_missing"
+  },
+  "SystemDefault": {
+    "group": "Value",
+    "tooltip": "The system default value of the app option",
+    "color": "different"
+  },
+  "Datatype": {
+    "group": "Properties",
+    "tooltip": "The datatype of the app option",
+    "color": "different"
+  },
+  "Scope": {
+    "group": "Properties",
+    "tooltip": "The scope of the app option.  Can be 'block' or 'global'.  Only true block-scoped app options are saved to disk with save_block.  Global app options and block-scoped app options set with -as_user_default do not get saved to disk.",
+    "color": "different"
+  },
+  "Status": {
+    "group": "Properties",
+    "tooltip": "App option status, typically either 'normal' for public app options, 'deprecated' for app options that are being deprecated, and 'obsolete' for app options that no longer affect the tool",
+    "color": "different"
+  },
+  "SourceFile": {
+    "group": "Source",
+    "tooltip": "The full path to the source file and line number where this app option was applied",
+    "color": "none"
+  }
+}

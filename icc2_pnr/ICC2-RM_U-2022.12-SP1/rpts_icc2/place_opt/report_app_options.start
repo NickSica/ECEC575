@@ -1,0 +1,37 @@
+****************************************
+Report : app_option
+           -non_default
+Design : FIFO
+Version: U-2022.12-SP1
+Date   : Wed Feb 15 17:00:26 2023
+****************************************
+Name                                           Type       Value          User-value     User-default System-default Scope      Status     Source
+---------------------------------------------- ---------- -------------- -------------- ------------ -------------- ---------- ---------- ---------------------------------------------------------------------------------------------------
+ccd.post_route_buffer_removal                  bool       true           true           --           false          block      normal     /home/sica/asic_design_scripts/icc2_pnr/ICC2-RM_U-2022.12-SP1/rm_icc2_pnr_scripts/place_opt.tcl:91
+clock_opt.flow.enable_clock_power_recovery     string     none           none           --           auto           block      normal     /home/sica/asic_design_scripts/icc2_pnr/ICC2-RM_U-2022.12-SP1/rm_icc2_pnr_scripts/place_opt.tcl:91
+clock_opt.flow.enable_power                    bool       false          false          --           true           block      normal     /home/sica/asic_design_scripts/icc2_pnr/ICC2-RM_U-2022.12-SP1/rm_icc2_pnr_scripts/place_opt.tcl:91
+clock_opt.place.effort                         enum       high           high           --           medium         block      normal     /home/sica/asic_design_scripts/icc2_pnr/ICC2-RM_U-2022.12-SP1/rm_icc2_pnr_scripts/place_opt.tcl:91
+cts.common.user_instance_name_prefix           string     place_opt_cts_ place_opt_cts_ --           --             block      normal     /home/sica/asic_design_scripts/icc2_pnr/ICC2-RM_U-2022.12-SP1/rm_icc2_pnr_scripts/place_opt.tcl:105
+opt.area.effort                                enum       high           high           --           low            block      normal     /home/sica/asic_design_scripts/icc2_pnr/ICC2-RM_U-2022.12-SP1/rm_icc2_pnr_scripts/place_opt.tcl:91
+opt.common.advanced_logic_restructuring_mode   enum       area_timing    area_timing    --           none           block      normal     /home/sica/asic_design_scripts/icc2_pnr/ICC2-RM_U-2022.12-SP1/rm_icc2_pnr_scripts/place_opt.tcl:91
+opt.common.user_instance_name_prefix           string     place_opt_     place_opt_     --           --             block      normal     /home/sica/asic_design_scripts/icc2_pnr/ICC2-RM_U-2022.12-SP1/rm_icc2_pnr_scripts/place_opt.tcl:104
+opt.port.eliminate_verilog_assign              bool       true           true           --           false          block      normal     /home/sica/asic_design_scripts/icc2_pnr/ICC2-RM_U-2022.12-SP1/rm_icc2_pnr_scripts/place_opt.tcl:91
+place.coarse.continue_on_missing_scandef       bool       true           true           --           false          block      normal     /home/sica/asic_design_scripts/icc2_pnr/ICC2-RM_U-2022.12-SP1/rm_icc2_pnr_scripts/place_opt.tcl:97
+place.coarse.enhanced_low_power_effort         enum       none           none           --           low            block      normal     /home/sica/asic_design_scripts/icc2_pnr/ICC2-RM_U-2022.12-SP1/rm_icc2_pnr_scripts/place_opt.tcl:91
+place.common.use_placement_model               bool       true           true           --           false          block      normal     /home/sica/asic_design_scripts/icc2_pnr/ICC2-RM_U-2022.12-SP1/rm_icc2_pnr_scripts/place_opt.tcl:91
+place_opt.final_place.effort                   enum       high           high           --           medium         block      normal     /home/sica/asic_design_scripts/icc2_pnr/ICC2-RM_U-2022.12-SP1/rm_icc2_pnr_scripts/place_opt.tcl:91
+place_opt.flow.enable_power                    bool       false          false          --           true           block      normal     /home/sica/asic_design_scripts/icc2_pnr/ICC2-RM_U-2022.12-SP1/rm_icc2_pnr_scripts/place_opt.tcl:91
+place_opt.place.congestion_effort              enum       high           high           --           medium         block      normal     /home/sica/asic_design_scripts/icc2_pnr/ICC2-RM_U-2022.12-SP1/rm_icc2_pnr_scripts/place_opt.tcl:91
+route.detail.eco_max_number_of_iterations      integer    10             10             --           -1             block      normal     /home/sica/asic_design_scripts/icc2_pnr/ICC2-RM_U-2022.12-SP1/rm_icc2_pnr_scripts/place_opt.tcl:91
+route.detail.timing_driven                     bool       true           true           --           false          block      normal     /home/sica/asic_design_scripts/icc2_pnr/ICC2-RM_U-2022.12-SP1/rm_icc2_pnr_scripts/place_opt.tcl:91
+route.global.timing_driven                     bool       true           true           --           false          block      normal     /home/sica/asic_design_scripts/icc2_pnr/ICC2-RM_U-2022.12-SP1/rm_icc2_pnr_scripts/place_opt.tcl:91
+route.track.crosstalk_driven                   bool       true           true           --           false          block      normal     /home/sica/asic_design_scripts/icc2_pnr/ICC2-RM_U-2022.12-SP1/rm_icc2_pnr_scripts/place_opt.tcl:91
+route.track.timing_driven                      bool       true           true           --           false          block      normal     /home/sica/asic_design_scripts/icc2_pnr/ICC2-RM_U-2022.12-SP1/rm_icc2_pnr_scripts/place_opt.tcl:91
+route_opt.flow.enable_power                    bool       false          false          --           true           block      normal     /home/sica/asic_design_scripts/icc2_pnr/ICC2-RM_U-2022.12-SP1/rm_icc2_pnr_scripts/place_opt.tcl:91
+shell.common.report_default_significant_digits integer    3              3              3            2              global     normal     /home/sica/asic_design_scripts/icc2_pnr/ICC2-RM_U-2022.12-SP1/rm_setup/header_icc2_pnr.tcl:21
+time.enable_clock_to_data_analysis             bool       true           true           --           false          block      normal     /home/sica/asic_design_scripts/icc2_pnr/ICC2-RM_U-2022.12-SP1/rm_icc2_pnr_scripts/place_opt.tcl:91
+time.remove_clock_reconvergence_pessimism      bool       true           true           --           false          block      normal     /home/sica/asic_design_scripts/icc2_pnr/ICC2-RM_U-2022.12-SP1/rm_icc2_pnr_scripts/place_opt.tcl:91
+---------------------------------------------- ---------- -------------- -------------- ------------ -------------- ---------- ---------- ---------------------------------------------------------------------------------------------------
+
+There are additional internal differences.
+1

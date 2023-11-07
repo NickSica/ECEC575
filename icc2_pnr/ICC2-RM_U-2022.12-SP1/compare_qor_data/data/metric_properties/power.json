@@ -1,0 +1,87 @@
+{
+  "Total": {
+    "group": "Design Power",
+    "tooltip": "Total power, summing the leakage power from the leakage scenario and dynamic power from dynamic scenario chosen for summary reporting.  Total power doesn't include glitch power.  These scenarios can be specified using 'set_qor_data_options -leakage_scenario/-dynamic_scenario'.  Otherwise, they are derived automatically from the highest power scenarios.  By default this is the active leakage or dynamic scenario with the highest total power.  These scenarios are printed in the RPT-134 message in the logfile."
+  },
+  "Leakage": {
+    "group": "Design Power",
+    "tooltip": "Leakage power from the leakage scenario chosen for summary reporting.  This scenario can be specified using 'set_qor_data_options -leakage_scenario'.  Otherwise, it is derived automatically from the highest leakage power scenario.  This scenario is printed in the RPT-134 message in the logfile."
+  },
+  "Internal": {
+    "group": "Design Power",
+    "tooltip": "Internal power from the dynamic scenario chosen for summary reporting.  This scenario can be specified using 'set_qor_data_options -dynamic_scenario'.  Otherwise, it is derived automatically from the highest dynamic power scenario.  This scenario is printed in the RPT-134 message in the logfile.  If glitch power is reported, this is the internal power excluding glitch internal power, which is shown in the GlitchInt column."
+  },
+  "Switching": {
+    "group": "Design Power",
+    "tooltip": "Switching power from the dynamic scenario chosen for summary reporting.  This scenario can be specified using 'set_qor_data_options -dynamic_scenario'.  Otherwise, it is derived automatically from the highest dynamic power scenario.  This scenario is printed in the RPT-134 message in the logfile.  If glitch power is reported, this is the switching power excluding glitch switching power, which is shown in the GlitchSw column."
+  },
+  "FlopBank%": {
+    "group": "Multibit",
+    "tooltip": "Banking ratio for flops only: MBitFlops / (1BitFlops + MBitFlops)",
+    "improves": "larger"
+  },
+  "Bits/Flop": {
+    "group": "Multibit",
+    "tooltip": "Average number of bits per flop from banking",
+    "improves": "larger"
+  },
+  "Bits/Seq": {
+    "group": "Multibit",
+    "tooltip": "Average number of bits per sequential cell from banking",
+    "improves": "larger"
+  },
+  "GateCount": {
+    "group": "Clockgating",
+    "tooltip": "Total count of clockgates",
+    "color": "none"
+  },
+  "Gated%": {
+    "group": "Clockgating",
+    "tooltip": "Percentage of total registers that are gated",
+    "improves": "larger"
+  },
+  "LVt%": {
+    "group": "Stdcell Vt %",
+    "tooltip": "Stdcell LVt percentage",
+    "absThreshold": "1.0"
+  },
+  "SVt%": {
+    "group": "Stdcell Vt %",
+    "tooltip": "Stdcell SVt percentage",
+    "color": "none"
+  },
+  "HVt%": {
+    "group": "Stdcell Vt %",
+    "tooltip": "Stdcell HVt percentage",
+    "absThreshold": "1.0",
+    "improves": "larger"
+  },
+  "combinational": {
+    "group": "Total Power (by group)",
+    "tooltip": "Total power of the combinational power group"
+  },
+  "register": {
+    "group": "Total Power (by group)",
+    "tooltip": "Total power of the register power group"
+  },
+  "sequential": {
+    "group": "Total Power (by group)",
+    "tooltip": "Total power of the sequential power group"
+  },
+  "memory": {
+    "group": "Total Power (by group)",
+    "tooltip": "Total power of the memory power group"
+  },
+  "io_pad": {
+    "group": "Total Power (by group)",
+    "tooltip": "Total power of the io_pad power group"
+  },
+  "black_box": {
+    "group": "Total Power (by group)",
+    "tooltip": "Total power of the black_box power group"
+  },
+  "clock_network": {
+    "group": "Total Power (by group)",
+    "tooltip": "Total power of the clock_network power group"
+  }
+}

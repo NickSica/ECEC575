@@ -1,0 +1,296 @@
+****************************************
+Report : timing
+        -path_type full
+        -delay_type max
+        -max_paths 1
+        -report_by group
+        -pba_mode path
+        -nosplit
+        -input_pins
+        -nets
+        -transition_time
+        -capacitance
+        -crosstalk_delta
+        -derate
+        -attributes
+        -physical
+Design : FIFO
+Version: U-2022.12-SP1
+Date   : Mon Feb 13 16:57:47 2023
+****************************************
+Information: Timer using 'PrimeTime Delay Calculation, SI, Timing Window Analysis, AWP, CRPR, PBA Mode Path'. (TIM-050)
+
+  Startpoint: FInN (input port clocked by ideal_clock1)
+  Endpoint: memblk/FIFO_reg[1][7] (rising edge-triggered flip-flop clocked by ideal_clock1)
+  Mode: default
+  Corner: ss_m40c
+  Scenario: default.ss_m40c
+  Path Group: **in2reg_default**
+  Path Type: max
+
+
+Attributes
+    b - black-box (unknown)
+    s - size_only
+    d - dont_touch
+    u - dont_use
+    g - generic
+    h - hierarchical
+    i - ideal
+    n - noncombinational
+    E - extracted timing model
+    Q - Quick timing model
+
+
+  Point                                          Fanout     Cap       Trans     Derate    Delta     Incr       Path           Location       Attributes
+  -----------------------------------------------------------------------------------------------------------------------------------------------------------
+  clock ideal_clock1 (rise edge)                                                                    0.000      0.000
+  clock network delay (propagated)                                                                  0.135      0.135
+  input external delay                                                                              0.100      0.235 f
+  FInN (in)                                                           0.000      1.000              0.000      0.235 f    (80.94,6.60)
+  FInN (net)                                        6      0.013
+  memblk/U190/A1 (NR4D0)                                              0.001      1.000     0.000    0.000      0.235 f    (42.50,11.30)
+  memblk/U190/ZN (NR4D0)                                              0.070      1.000              0.038      0.273 r ~  (42.76,11.20)
+  memblk/n47_CDR1 (net)                             1      0.001
+  memblk/U135/A4 (AN4D0)                                              0.070      1.000     0.005    0.005      0.278 r    (40.47,11.30)
+  memblk/U135/Z (AN4D0)                                               0.041      1.000              0.081      0.359 r ~  (40.89,11.28)
+  memblk/n43_CDR1 (net)                             1      0.002
+  memblk/U134/A4 (AN4D0)                                              0.041      1.000     0.003    0.003      0.362 r    (41.07,20.30)
+  memblk/U134/Z (AN4D0)                                               0.150      1.000              0.141      0.503 r ~  (41.49,20.32)
+  memblk/n37 (net)                                  4      0.013
+  memblk/U189/A1 (ND3D2)                                              0.150      1.000     0.000    0.000      0.503 r    (46.40,34.80)
+  memblk/U189/ZN (ND3D2)                                              0.287      1.000              0.164      0.666 f ~  (46.62,34.80)
+  memblk/n38 (net)                                 33      0.059
+  memblk/route_opt_ropt_mt_inst_571/I (BUFFD1)                        0.288      1.000     0.000    0.001      0.667 f    (45.32,49.10)
+  memblk/route_opt_ropt_mt_inst_571/Z (BUFFD1)                        0.186      1.000              0.157      0.823 f ~  (45.89,49.10)
+  memblk/ropt_net_42 (net)                         32      0.051
+  memblk/U53/B2 (IOA22D0)                                             0.187      1.000     0.000    0.001      0.824 f    (40.46,63.50)
+  memblk/U53/ZN (IOA22D0)                                             0.122      1.000              0.093      0.917 r ~  (40.71,63.51)
+  memblk/n120 (net)                                 1      0.002
+  memblk/FIFO_reg[1][7]/D (DFQD1)                                     0.122      1.000     0.003    0.003      0.920 r    (37.95,61.72)     s, n
+  data arrival time                                                                                            0.920
+
+  clock ideal_clock1 (rise edge)                                                                   15.200     15.200
+  clock network delay (propagated)                                                                  0.040     15.240
+  clock reconvergence pessimism                                                                     0.000     15.240
+  memblk/FIFO_reg[1][7]/CP (DFQD1)                                    0.052      1.000     0.000    0.000     15.240 r    (36.92,61.69)     s, n
+  clock uncertainty                                                                                -0.100     15.140
+  library setup time                                                             1.000             -0.016     15.124
+  data required time                                                                                          15.124
+  -----------------------------------------------------------------------------------------------------------------------------------------------------------
+  data required time                                                                                          15.124
+  data arrival time                                                                                           -0.920
+  -----------------------------------------------------------------------------------------------------------------------------------------------------------
+  slack (MET)                                                                                                 14.204
+
+
+
+  Startpoint: rd_ptr_reg[0] (rising edge-triggered flip-flop clocked by ideal_clock1)
+  Endpoint: F_Data[9] (output port clocked by ideal_clock1)
+  Mode: default
+  Corner: ss_m40c
+  Scenario: default.ss_m40c
+  Path Group: **reg2out_default**
+  Path Type: max
+
+
+Attributes
+    b - black-box (unknown)
+    s - size_only
+    d - dont_touch
+    u - dont_use
+    g - generic
+    h - hierarchical
+    i - ideal
+    n - noncombinational
+    E - extracted timing model
+    Q - Quick timing model
+
+
+  Point                                          Fanout     Cap       Trans     Derate    Delta     Incr       Path           Location       Attributes
+  -----------------------------------------------------------------------------------------------------------------------------------------------------------
+  clock ideal_clock1 (rise edge)                                                                    0.000      0.000
+  clock network delay (propagated)                                                                  0.039      0.039
+
+  rd_ptr_reg[0]/CP (DFCNQD1)                                          0.051      1.000              0.000      0.039 r    (58.52,36.50)     s, n
+  rd_ptr_reg[0]/Q (DFCNQD1)                                           0.058      1.000              0.134      0.173 f ~  (62.69,36.49)     s, n
+  rd_ptr[0] (net)                                   6      0.016
+  memblk/U181/I (CKND0)                                               0.058      1.000     0.000    0.000      0.173 f    (64.28,42.08)
+  memblk/U181/ZN (CKND0)                                              0.137      1.000              0.089      0.262 r ~  (63.95,41.92)
+  memblk/n196 (net)                                 2      0.010
+  memblk/U133/A1 (NR2XD2)                                             0.137      1.000     --       0.000      0.263 r    (60.02,40.00)
+  memblk/U133/ZN (NR2XD2)                                             0.171      1.000              0.119      0.381 f ~  (59.67,39.90)
+  memblk/n4 (net)                                  32      0.073
+  memblk/U237/A2 (AO22D0)                                             0.172      1.000     0.000    0.002      0.383 f    (67.25,59.92)
+  memblk/U237/Z (AO22D0)                                              0.032      1.000              0.093      0.476 f ~  (66.56,59.90)
+  memblk/n30 (net)                                  1      0.002
+  memblk/U140/C (AO221D0)                                             0.032      1.000     0.000    0.000      0.476 f    (70.91,58.11)
+  memblk/U140/Z (AO221D0)                                             0.055      1.000              0.122      0.597 f ~  (70.52,57.99)
+  memblk/data_out[9] (net)                          1      0.005
+  place_opt_HFSBUF_12_0/I (CKBD4)                                     0.055      1.000     --       0.000      0.598 f    (53.60,59.98)
+  place_opt_HFSBUF_12_0/Z (CKBD4)                                     0.230      1.000              0.148      0.746 f ~  (52.65,59.90)
+  F_Data[9] (net)                                   1      0.205
+  F_Data[9] (out)                                                     0.224      1.000     --       0.016      0.762 f    (0.26,63.00)
+  data arrival time                                                                                            0.762
+
+  clock ideal_clock1 (rise edge)                                                                   15.200     15.200
+  clock network delay (propagated)                                                                  0.135     15.335
+  clock reconvergence pessimism                                                                     0.000     15.335
+  clock uncertainty                                                                                -0.100     15.235
+  output external delay                                                                            -0.100     15.135
+  data required time                                                                                          15.135
+  -----------------------------------------------------------------------------------------------------------------------------------------------------------
+  data required time                                                                                          15.135
+  data arrival time                                                                                           -0.762
+  -----------------------------------------------------------------------------------------------------------------------------------------------------------
+  slack (MET)                                                                                                 14.372
+
+
+
+  Startpoint: fcounter_reg[0] (rising edge-triggered flip-flop clocked by ideal_clock1)
+  Endpoint: fcounter_reg[31] (rising edge-triggered flip-flop clocked by ideal_clock1)
+  Mode: default
+  Corner: ss_m40c
+  Scenario: default.ss_m40c
+  Path Group: ideal_clock1
+  Path Type: max
+
+
+Attributes
+    b - black-box (unknown)
+    s - size_only
+    d - dont_touch
+    u - dont_use
+    g - generic
+    h - hierarchical
+    i - ideal
+    n - noncombinational
+    E - extracted timing model
+    Q - Quick timing model
+
+
+  Point                                          Fanout     Cap       Trans     Derate    Delta     Incr       Path           Location       Attributes
+  -----------------------------------------------------------------------------------------------------------------------------------------------------------
+  clock ideal_clock1 (rise edge)                                                                    0.000      0.000
+  clock network delay (propagated)                                                                  0.043      0.043
+
+  fcounter_reg[0]/CP (DFCNQD1)                                        0.061      1.000              0.000      0.043 r    (5.12,13.10)      s, n
+  fcounter_reg[0]/Q (DFCNQD1)                                         0.044      1.000              0.128      0.171 f ~  (9.29,13.11)      s, n
+  fcounter[0] (net)                                 7      0.011
+  sub_94/U1/I (CKND0)                                                 0.044      1.000     0.000    0.000      0.171 f    (6.08,14.72)
+  sub_94/U1/ZN (CKND0)                                                0.043      1.000              0.033      0.204 r ~  (5.75,14.88)
+  sub_94/SUM[0] (net)                               2      0.002
+  sub_94/U64/B1 (IND2D0)                                              0.043      1.000     0.000    0.000      0.204 r    (5.90,16.70)
+  sub_94/U64/ZN (IND2D0)                                              0.081      1.000              0.055      0.259 f ~  (5.92,16.70)
+  sub_94/n14 (net)                                  3      0.005
+  sub_94/U63/A1 (OR2D0)                                               0.081      1.000     0.001    0.001      0.261 f    (6.00,34.89)
+  sub_94/U63/Z (OR2D0)                                                0.039      1.000              0.070      0.331 f ~  (5.13,34.61)
+  sub_94/n11 (net)                                  3      0.004
+  sub_94/U62/A1 (OR2D0)                                               0.039      1.000     0.000    0.000      0.331 f    (5.40,38.49)
+  sub_94/U62/Z (OR2D0)                                                0.036      1.000              0.060      0.391 f ~  (6.27,38.21)
+  sub_94/n10 (net)                                  3      0.004
+  sub_94/U61/A1 (OR2D0)                                               0.036      1.000     0.000    0.000      0.391 f    (11.40,39.91)
+  sub_94/U61/Z (OR2D0)                                                0.037      1.000              0.060      0.451 f ~  (12.27,40.19)
+  sub_94/n9 (net)                                   3      0.004
+  sub_94/U60/A1 (OR2D0)                                               0.037      1.000     0.000    0.000      0.451 f    (15.80,39.91)
+  sub_94/U60/Z (OR2D0)                                                0.036      1.000              0.059      0.510 f ~  (16.67,40.19)
+  sub_94/n8 (net)                                   3      0.004
+  sub_94/U59/A1 (OR2D0)                                               0.036      1.000     0.000    0.000      0.510 f    (15.80,43.51)
+  sub_94/U59/Z (OR2D0)                                                0.035      1.000              0.059      0.569 f ~  (14.93,43.79)
+  sub_94/n7 (net)                                   3      0.004
+  sub_94/U58/A1 (OR2D0)                                               0.035      1.000     0.000    0.000      0.569 f    (14.60,45.69)
+  sub_94/U58/Z (OR2D0)                                                0.038      1.000              0.061      0.630 f ~  (15.47,45.41)
+  sub_94/n6 (net)                                   3      0.004
+  sub_94/U57/A1 (OR2D0)                                               0.038      1.000     0.000    0.000      0.630 f    (16.60,52.89)
+  sub_94/U57/Z (OR2D0)                                                0.037      1.000              0.061      0.691 f ~  (17.47,52.61)
+  sub_94/n4 (net)                                   3      0.004
+  sub_94/U56/A1 (NR2D0)                                               0.037      1.000     0.000    0.000      0.691 f    (16.50,54.52)
+  sub_94/U56/ZN (NR2D0)                                               0.118      1.000              0.072      0.763 r ~  (16.45,54.41)
+  sub_94/n5 (net)                                   3      0.005
+  sub_94/U55/A1 (CKND2D0)                                             0.118      1.000     0.003    0.003      0.767 r    (16.30,61.52)
+  sub_94/U55/ZN (CKND2D0)                                             0.087      1.000              0.064      0.830 f ~  (16.35,61.68)
+  sub_94/n33 (net)                                  3      0.005
+  sub_94/U53/A1 (OR2D0)                                               0.087      1.000     --       0.000      0.830 f    (21.40,65.11)
+  sub_94/U53/Z (OR2D0)                                                0.036      1.000              0.069      0.899 f ~  (20.53,65.39)
+  sub_94/n32 (net)                                  3      0.004
+  sub_94/U51/A1 (OR2D0)                                               0.036      1.000     --       0.000      0.899 f    (18.80,65.11)
+  sub_94/U51/Z (OR2D0)                                                0.045      1.000              0.066      0.965 f ~  (17.93,65.39)
+  sub_94/n31 (net)                                  3      0.005
+  sub_94/U49/A1 (OR2D0)                                               0.045      1.000     0.000    0.000      0.965 f    (6.00,72.31)
+  sub_94/U49/Z (OR2D0)                                                0.036      1.000              0.061      1.026 f ~  (5.13,72.59)
+  sub_94/n30 (net)                                  3      0.004
+  sub_94/U47/A1 (OR2D0)                                               0.036      1.000     0.000    0.000      1.026 f    (5.20,63.69)
+  sub_94/U47/Z (OR2D0)                                                0.035      1.000              0.058      1.084 f ~  (6.07,63.41)
+  sub_94/n29 (net)                                  3      0.003
+  sub_94/U45/A1 (OR2D0)                                               0.035      1.000     0.000    0.000      1.084 f    (6.80,65.11)
+  sub_94/U45/Z (OR2D0)                                                0.035      1.000              0.059      1.143 f ~  (7.67,65.39)
+  sub_94/n28 (net)                                  3      0.004
+  sub_94/U43/A1 (OR2D0)                                               0.035      1.000     0.000    0.000      1.143 f    (8.40,57.91)
+  sub_94/U43/Z (OR2D0)                                                0.035      1.000              0.059      1.202 f ~  (9.27,58.19)
+  sub_94/n27 (net)                                  3      0.004
+  sub_94/U41/A1 (OR2D0)                                               0.035      1.000     0.000    0.000      1.202 f    (9.80,54.31)
+  sub_94/U41/Z (OR2D0)                                                0.037      1.000              0.060      1.261 f ~  (8.93,54.59)
+  sub_94/n26 (net)                                  3      0.004
+  sub_94/U39/A1 (OR2D0)                                               0.037      1.000     0.000    0.000      1.261 f    (6.00,50.71)
+  sub_94/U39/Z (OR2D0)                                                0.036      1.000              0.060      1.321 f ~  (5.13,50.99)
+  sub_94/n25 (net)                                  3      0.004
+  sub_94/U37/A1 (OR2D0)                                               0.036      1.000     0.000    0.000      1.321 f    (6.40,50.71)
+  sub_94/U37/Z (OR2D0)                                                0.035      1.000              0.058      1.379 f ~  (7.27,50.99)
+  sub_94/n24 (net)                                  3      0.003
+  sub_94/U34/A1 (OR2D0)                                               0.035      1.000     0.000    0.000      1.379 f    (6.00,45.69)
+  sub_94/U34/Z (OR2D0)                                                0.044      1.000              0.065      1.444 f ~  (5.13,45.41)
+  sub_94/n23 (net)                                  3      0.005
+  sub_94/U32/A1 (OR2D0)                                               0.044      1.000     0.001    0.001      1.446 f    (6.40,34.89)
+  sub_94/U32/Z (OR2D0)                                                0.036      1.000              0.061      1.507 f ~  (7.27,34.61)
+  sub_94/n22 (net)                                  3      0.004
+  sub_94/U30/A1 (OR2D0)                                               0.036      1.000     0.000    0.000      1.507 f    (6.20,29.11)
+  sub_94/U30/Z (OR2D0)                                                0.035      1.000              0.059      1.566 f ~  (5.33,29.39)
+  sub_94/n21 (net)                                  3      0.004
+  sub_94/U28/A1 (OR2D0)                                               0.035      1.000     0.000    0.000      1.566 f    (8.40,27.69)
+  sub_94/U28/Z (OR2D0)                                                0.034      1.000              0.058      1.624 f ~  (9.27,27.41)
+  sub_94/n20 (net)                                  3      0.003
+  sub_94/U26/A1 (OR2D0)                                               0.034      1.000     0.000    0.000      1.624 f    (10.60,24.09)
+  sub_94/U26/Z (OR2D0)                                                0.033      1.000              0.057      1.681 f ~  (11.47,23.81)
+  sub_94/n19 (net)                                  3      0.003
+  sub_94/U24/A1 (OR2D0)                                               0.033      1.000     --       0.000      1.681 f    (13.20,24.09)
+  sub_94/U24/Z (OR2D0)                                                0.036      1.000              0.059      1.740 f ~  (14.07,23.81)
+  sub_94/n18 (net)                                  3      0.004
+  sub_94/U22/A1 (OR2D0)                                               0.036      1.000     0.000    0.000      1.740 f    (19.20,24.09)
+  sub_94/U22/Z (OR2D0)                                                0.034      1.000              0.058      1.798 f ~  (20.07,23.81)
+  sub_94/n17 (net)                                  3      0.003
+  sub_94/U20/A1 (OR2D0)                                               0.034      1.000     0.000    0.000      1.798 f    (21.60,25.51)
+  sub_94/U20/Z (OR2D0)                                                0.035      1.000              0.059      1.857 f ~  (22.47,25.79)
+  sub_94/n16 (net)                                  3      0.004
+  sub_94/U18/A1 (NR2D0)                                               0.035      1.000     --       0.000      1.857 f    (23.30,27.49)
+  sub_94/U18/ZN (NR2D0)                                               0.110      1.000              0.067      1.924 r ~  (23.25,27.59)
+  sub_94/n15 (net)                                  3      0.004
+  sub_94/U16/A1 (CKND2D0)                                             0.110      1.000     0.003    0.003      1.927 r    (25.30,29.12)
+  sub_94/U16/ZN (CKND2D0)                                             0.100      1.000              0.072      1.999 f ~  (25.25,29.28)
+  sub_94/n13 (net)                                  3      0.006
+  sub_94/U12/A1 (NR2D0)                                               0.100      1.000     0.000    0.000      1.999 f    (23.10,36.52)
+  sub_94/U12/ZN (NR2D0)                                               0.089      1.000              0.064      2.063 r ~  (23.05,36.41)
+  sub_94/n12 (net)                                  2      0.003
+  sub_94/place_opt_ctmTdsLR_1_202/B2 (MAOI22D0)                       0.089      1.000     --       0.000      2.063 r    (22.09,36.69)
+  sub_94/place_opt_ctmTdsLR_1_202/ZN (MAOI22D0)                       0.063      1.000              0.071      2.134 r ~  (21.40,36.39)
+  sub_94/SUM[31] (net)                              1      0.002
+  U56/B1 (AO222D0)                                                    0.063      1.000     0.000    0.000      2.134 r    (19.39,40.10)
+  U56/Z (AO222D0)                                                     0.036      1.000              0.068      2.202 r ~  (20.45,40.00)
+  n74 (net)                                         1      0.002
+  fcounter_reg[31]/D (DFCNQD1)                                        0.036      1.000     --       0.000      2.202 r    (21.95,40.23)     s, n
+  data arrival time                                                                                            2.202
+
+  clock ideal_clock1 (rise edge)                                                                   15.200     15.200
+  clock network delay (propagated)                                                                  0.043     15.243
+  clock reconvergence pessimism                                                                     0.000     15.243
+  fcounter_reg[31]/CP (DFCNQD1)                                       0.060      1.000     0.000    0.000     15.243 r    (20.92,40.10)     s, n
+  clock uncertainty                                                                                -0.100     15.143
+  library setup time                                                             1.000             -0.010     15.132
+  data required time                                                                                          15.132
+  -----------------------------------------------------------------------------------------------------------------------------------------------------------
+  data required time                                                                                          15.132
+  data arrival time                                                                                           -2.202
+  -----------------------------------------------------------------------------------------------------------------------------------------------------------
+  slack (MET)                                                                                                 12.930
+
+
+1

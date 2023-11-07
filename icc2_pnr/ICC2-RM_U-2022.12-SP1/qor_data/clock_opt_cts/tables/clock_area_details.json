@@ -1,0 +1,6 @@
+[
+  ["Clock", "Attrs", "BalancedSinks", "ClockCells", "ClockArea", "BufCount", "BufArea", "PhysicalSinks", "PhysSinkArea", "MacroArea"],
+  ["Total", ".", "229", "5", "26", "5", "26", "229", "1694", "0"], 
+  ["Total/default", "Mode", ".", ".", ".", ".", ".", ".", ".", "."], 
+  ["Total/default/ideal_clock1", "M,D", "229", "5", "26", "5", "26", "229", "1694", "0"]
+]

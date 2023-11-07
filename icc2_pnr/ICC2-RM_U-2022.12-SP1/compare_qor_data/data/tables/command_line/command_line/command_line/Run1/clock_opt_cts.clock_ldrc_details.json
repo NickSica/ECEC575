@@ -1,0 +1,7 @@
+[
+  ["Clock", "Attrs", "Sinks", "TranDRCs", "TranWNS", "TranCost", "CapDRCs", "CapWNS", "CapCost", "FanoutDRCs", "FanoutWNS", "FanoutCost", "LengthDRCs", "LengthWNS", "LengthCost"],
+  ["ss_m40c", "Corner", "229", "0", ".", "0.000", "0", ".", "0", "0", ".", "0", "0", ".", "0"], 
+  ["ss_m40c/default", "Mode", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", "."], 
+  ["ss_m40c/default/default.ss_m40c", "Scenario", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", "."], 
+  ["ss_m40c/default/default.ss_m40c/ideal_clock1", "M", "229", "0", ".", ".", "0", ".", ".", "0", ".", ".", "0", ".", "."]
+]

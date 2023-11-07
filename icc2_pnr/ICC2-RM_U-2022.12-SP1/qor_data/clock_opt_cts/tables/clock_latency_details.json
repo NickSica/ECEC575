@@ -1,0 +1,7 @@
+[
+  ["Clock", "Attrs", "Sinks", "TargetSkew", "GlobalSkew", "TargetLatency", "MaxLatency", "MinLatency", "MedianLatency", "LatencyStdDev", "BoundarySkew"],
+  ["ss_m40c", "Corner", "229", ".", "0.021", ".", "0.060", "0.038", ".", ".", "."], 
+  ["ss_m40c/default", "Mode", ".", ".", ".", ".", ".", ".", ".", ".", "."], 
+  ["ss_m40c/default/default.ss_m40c", "Scenario", ".", ".", ".", ".", ".", ".", ".", ".", "."], 
+  ["ss_m40c/default/default.ss_m40c/ideal_clock1", "M,D", "229", "2", "0.021", ".", "0.060", "0.038", "0.047", "0.007", "."]
+]

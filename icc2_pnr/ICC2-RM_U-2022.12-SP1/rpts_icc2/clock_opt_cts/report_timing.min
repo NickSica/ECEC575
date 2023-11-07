@@ -1,0 +1,167 @@
+SI analysis is not enabled, so delta delays are unavailable.
+****************************************
+Report : timing
+        -path_type full
+        -delay_type min
+        -max_paths 1
+        -report_by group
+        -nosplit
+        -input_pins
+        -nets
+        -transition_time
+        -capacitance
+        -crosstalk_delta
+        -derate
+        -attributes
+        -physical
+Design : FIFO
+Version: U-2022.12-SP1
+Date   : Mon Feb 13 16:55:35 2023
+****************************************
+Information: Timer using 'CRPR'. (TIM-050)
+
+  Startpoint: RstN (input port clocked by ideal_clock1)
+  Endpoint: rd_ptr_reg[2] (removal check against rising-edge clock clocked by ideal_clock1)
+  Mode: default
+  Corner: ss_m40c
+  Scenario: default.ss_m40c
+  Path Group: **in2reg_default**
+  Path Type: min
+
+
+Attributes
+    b - black-box (unknown)
+    s - size_only
+    d - dont_touch
+    u - dont_use
+    g - generic
+    h - hierarchical
+    i - ideal
+    n - noncombinational
+    E - extracted timing model
+    Q - Quick timing model
+
+
+  Point                                          Fanout     Cap       Trans     Derate    Delta     Incr       Path           Location       Attributes
+  -----------------------------------------------------------------------------------------------------------------------------------------------------------
+  clock ideal_clock1 (rise edge)                                                                    0.000      0.000
+  clock network delay (propagated)                                                                  0.135      0.135
+  input external delay                                                                              0.100      0.235 r
+  RstN (in)                                                           0.000      1.000              0.000      0.235 r    (74.00,0.26)
+  RstN (net)                                       34      0.075
+  rd_ptr_reg[2]/CDN (DFCNQD1)                                         0.003      1.000              0.001      0.236 r    (70.48,41.90)     s, n
+  data arrival time                                                                                            0.236
+
+  clock ideal_clock1 (rise edge)                                                                    0.000      0.000
+  clock network delay (propagated)                                                                  0.048      0.048
+  clock reconvergence pessimism                                                                    -0.000      0.048
+  rd_ptr_reg[2]/CP (DFCNQD1)                                          0.057      1.000              0.000      0.048 r    (67.12,41.90)     s, n
+  clock uncertainty                                                                                 0.100      0.148
+  library hold time                                                              1.000              0.086      0.233
+  data required time                                                                                           0.233
+  -----------------------------------------------------------------------------------------------------------------------------------------------------------
+  data required time                                                                                           0.233
+  data arrival time                                                                                           -0.236
+  -----------------------------------------------------------------------------------------------------------------------------------------------------------
+  slack (MET)                                                                                                  0.003
+
+
+
+  Startpoint: F_EmptyN_reg (rising edge-triggered flip-flop clocked by ideal_clock1)
+  Endpoint: F_EmptyN (output port clocked by ideal_clock1)
+  Mode: default
+  Corner: ss_m40c
+  Scenario: default.ss_m40c
+  Path Group: **reg2out_default**
+  Path Type: min
+
+
+Attributes
+    b - black-box (unknown)
+    s - size_only
+    d - dont_touch
+    u - dont_use
+    g - generic
+    h - hierarchical
+    i - ideal
+    n - noncombinational
+    E - extracted timing model
+    Q - Quick timing model
+
+
+  Point                                          Fanout     Cap       Trans     Derate    Delta     Incr       Path           Location       Attributes
+  -----------------------------------------------------------------------------------------------------------------------------------------------------------
+  clock ideal_clock1 (rise edge)                                                                    0.000      0.000
+  clock network delay (propagated)                                                                  0.044      0.044
+
+  F_EmptyN_reg/CP (DFCND4)                                            0.053      1.000              0.000      0.044 r    (11.72,5.92)      s, n
+  F_EmptyN_reg/Q (DFCND4)                                             0.181      1.000              0.191      0.235 f ~  (16.55,6.05)      s, n
+  F_EmptyN (net)                                    2      0.203
+  F_EmptyN (out)                                                      0.172      1.000              0.004      0.239 f    (0.26,2.20)
+  data arrival time                                                                                            0.239
+
+  clock ideal_clock1 (rise edge)                                                                    0.000      0.000
+  clock network delay (propagated)                                                                  0.136      0.136
+  clock reconvergence pessimism                                                                    -0.000      0.136
+  clock uncertainty                                                                                 0.100      0.236
+  output external delay                                                                            -0.100      0.136
+  data required time                                                                                           0.136
+  -----------------------------------------------------------------------------------------------------------------------------------------------------------
+  data required time                                                                                           0.136
+  data arrival time                                                                                           -0.239
+  -----------------------------------------------------------------------------------------------------------------------------------------------------------
+  slack (MET)                                                                                                  0.103
+
+
+
+  Startpoint: memblk/FIFO_reg[2][10] (rising edge-triggered flip-flop clocked by ideal_clock1)
+  Endpoint: memblk/FIFO_reg[2][10] (rising edge-triggered flip-flop clocked by ideal_clock1)
+  Mode: default
+  Corner: ss_m40c
+  Scenario: default.ss_m40c
+  Path Group: ideal_clock1
+  Path Type: min
+
+
+Attributes
+    b - black-box (unknown)
+    s - size_only
+    d - dont_touch
+    u - dont_use
+    g - generic
+    h - hierarchical
+    i - ideal
+    n - noncombinational
+    E - extracted timing model
+    Q - Quick timing model
+
+
+  Point                                          Fanout     Cap       Trans     Derate    Delta     Incr       Path           Location       Attributes
+  -----------------------------------------------------------------------------------------------------------------------------------------------------------
+  clock ideal_clock1 (rise edge)                                                                    0.000      0.000
+  clock network delay (propagated)                                                                  0.047      0.047
+
+  memblk/FIFO_reg[2][10]/CP (DFQD1)                                   0.055      1.000              0.000      0.047 r    (72.32,67.11)     s, n
+  memblk/FIFO_reg[2][10]/Q (DFQD1)                                    0.016      1.000              0.096      0.142 f ~  (75.87,67.11)     s, n
+  memblk/FIFO[2][10] (net)                          2      0.003
+  memblk/U23/B1 (MOAI22D1)                                            0.016      1.000              0.000      0.142 f    (74.09,65.30)
+  memblk/U23/ZN (MOAI22D1)                                            0.015      1.000              0.031      0.174 f ~  (73.00,65.40)
+  memblk/n91 (net)                                  1      0.001
+  memblk/FIFO_reg[2][10]/D (DFQD1)                                    0.015      1.000              0.000      0.174 f    (73.36,67.09)     s, n
+  data arrival time                                                                                            0.174
+
+  clock ideal_clock1 (rise edge)                                                                    0.000      0.000
+  clock network delay (propagated)                                                                  0.048      0.048
+  clock reconvergence pessimism                                                                    -0.001      0.047
+  memblk/FIFO_reg[2][10]/CP (DFQD1)                                   0.058      1.000              0.000      0.047 r    (72.32,67.11)     s, n
+  clock uncertainty                                                                                 0.100      0.147
+  library hold time                                                              1.000              0.024      0.171
+  data required time                                                                                           0.171
+  -----------------------------------------------------------------------------------------------------------------------------------------------------------
+  data required time                                                                                           0.171
+  data arrival time                                                                                           -0.174
+  -----------------------------------------------------------------------------------------------------------------------------------------------------------
+  slack (MET)                                                                                                  0.002
+
+
+1

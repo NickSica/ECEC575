@@ -1,0 +1,31 @@
+##########################################################################################
+# Script: chip_finish.tcl.default
+# Version: U-2022.12
+# Copyright (C) 2014-2022 Synopsys, Inc. All rights reserved.
+##########################################################################################
+
+## Metal filler (decap cells)
+if {$CHIP_FINISH_METAL_FILLER_LIB_CELL_LIST != ""} {
+	set create_stdcell_filler_metal_lib_cell_sorted [get_object_name [sort_collection -descending [get_lib_cells $CHIP_FINISH_METAL_FILLER_LIB_CELL_LIST] area]]
+	set create_stdcell_filler_metal_cmd "create_stdcell_filler -lib_cell [list $create_stdcell_filler_metal_lib_cell_sorted]"
+	if {$CHIP_FINISH_METAL_FILLER_PREFIX != ""} {
+		lappend create_stdcell_filler_metal_cmd -prefix $CHIP_FINISH_METAL_FILLER_PREFIX
+	}
+	puts "RM-info: $create_stdcell_filler_metal_cmd"
+	eval ${create_stdcell_filler_metal_cmd}
+	connect_pg_net
+
+	remove_stdcell_fillers_with_violation
+}
+
+## Non-metal filler
+if {$CHIP_FINISH_NON_METAL_FILLER_LIB_CELL_LIST != ""} {
+	set create_stdcell_filler_non_metal_lib_cell_sorted [get_object_name [sort_collection -descending [get_lib_cells $CHIP_FINISH_NON_METAL_FILLER_LIB_CELL_LIST] area]]
+	set create_stdcell_filler_non_metal_cmd "create_stdcell_filler -lib_cell [list $create_stdcell_filler_non_metal_lib_cell_sorted]"
+	if {$CHIP_FINISH_NON_METAL_FILLER_PREFIX != ""} {
+		lappend create_stdcell_filler_non_metal_cmd -prefix $CHIP_FINISH_NON_METAL_FILLER_PREFIX
+	}
+	puts "RM-info: $create_stdcell_filler_non_metal_cmd"
+	eval ${create_stdcell_filler_non_metal_cmd}
+	connect_pg_net
+}

@@ -1,0 +1,96 @@
+##########################################################################################
+# Script: icv_in_design.tcl.established
+# Version: U-2022.12
+# Copyright (C) 2014-2022 Synopsys, Inc. All rights reserved.
+##########################################################################################
+
+redirect -tee -file ${REPORTS_DIR}/${REPORT_PREFIX}/report_app_options.signoff.check_drc.rpt {report_app_options signoff.check_drc.*} ;# Report signoff.check_drc application options
+
+# Run signoff_check_drc
+set signoff_check_drc_cmd "signoff_check_drc"
+if {$drc_select_rules != ""} {
+	lappend signoff_check_drc_cmd -select_rule $drc_select_rules
+}
+if {$drc_unselect_rules != ""} {
+	lappend signoff_check_drc_cmd -unselect_rule $drc_unselect_rules
+}
+
+if {$ICV_IN_DESIGN_ENABLE_ALL_LAYER_CHECK && ($ICV_IN_DESIGN_DRC_CELL_VIEWS == "layout" || $STREAM_FILES_FOR_MERGE != "")} {
+  	lappend signoff_check_drc_cmd -check_all_runset_layers true		
+}
+
+puts "RM-info: Running $signoff_check_drc_cmd"
+eval ${signoff_check_drc_cmd}
+
+## Note: Ideally results from signoff_check_drc should be reviewed and corrective action
+#  taken on appropriate app.options before invoking signoff_fix_drc.
+#  Note that signoff.fix_drc.max_errors_per_rule defaults at 1000. If more than 1000 DRC violations
+#  are reported of a specific type, this error type will be excluded from fixing. This condition
+#  may indicate that there is some other issue with the design.
+
+if {$ICV_IN_DESIGN_ADR} {
+
+	########################################################################
+	## signoff_fix_drc (controlled by ICV_IN_DESIGN_ADR, default true)
+	########################################################################
+	## Specify valid ICV_IN_DESIGN_ADR_DPT_RULES if you want signoff_fix_drc to be used for DPT rules fixing
+        ## Specify valid ICV_IN_DESIGN_ADR_SELECT_RULES if you want to fix only specific non-DPT rules
+	## Review the signoff_fix_drc/result_summary.rpt for complete details of signoff_fix_drc
+
+	set_app_options -name signoff.fix_drc.user_defined_options -value $ICV_IN_DESIGN_ADR_USER_DEFINED_OPTIONS ;# Specify user defined options
+
+	########################################################################
+	## signoff_fix_drc for non-DPT
+        ## Fix non DPT rules first followed by fixing of DPT rules
+        ## ADR looks into the DRC database to find rules that violate and tries to fix them (router DRCs only)
+	########################################################################
+	set_app_options -name signoff.fix_drc.init_drc_error_db -value $ICV_IN_DESIGN_DRC_CHECK_RUNDIR ;# RM default z_check_drc
+	set_app_options -name signoff.fix_drc.run_dir -value $ICV_IN_DESIGN_ADR_RUNDIR ;# RM default z_adr
+	set_app_options -name signoff.fix_drc.custom_guidance -value off
+
+        #############################################################################
+	## signoff_fix_drc for non DPT DRCs (specify custom guidance to value 'off')
+        #############################################################################
+        if {$ICV_IN_DESIGN_ADR_DPT_RULES != ""} {
+             if {$ICV_IN_DESIGN_ADR_SELECT_RULES != ""} {
+	            signoff_fix_drc -unselect_rules $ICV_IN_DESIGN_ADR_DPT_RULES -select_rules $ICV_IN_DESIGN_ADR_SELECT_RULES
+            } else {
+                    signoff_fix_drc -unselect_rules $ICV_IN_DESIGN_ADR_DPT_RULES 
+            }
+	} else {
+            if {$ICV_IN_DESIGN_ADR_SELECT_RULES != ""} {
+		signoff_fix_drc -select_rules $ICV_IN_DESIGN_ADR_SELECT_RULES
+          } else {
+                signoff_fix_drc
+            }
+	}
+	save_block
+
+        #############################################################
+        ## signoff_check_drc after ADR non DPT rules fix
+        ###################################################################
+	set_app_options -name signoff.check_drc.run_dir -value $ICV_IN_DESIGN_POST_ADR_RUNDIR ;# RM default z_post_adr
+	puts "RM-info: Running $signoff_check_drc_cmd"
+	eval ${signoff_check_drc_cmd}
+
+	########################################################################
+	## signoff_fix_drc for DPT (specify custom guidance to value 'dpt')
+	########################################################################
+	if {$ICV_IN_DESIGN_ADR_DPT_RULES != ""} {
+		set_app_options -name signoff.fix_drc.init_drc_error_db -value $ICV_IN_DESIGN_POST_ADR_RUNDIR ;# RM default z_post_adr
+		set_app_options -name signoff.fix_drc.run_dir -value $ICV_IN_DESIGN_ADR_DPT_RUNDIR ;# RM default z_adr_with_dpt
+		set_app_options -name signoff.fix_drc.custom_guidance -value dpt
+
+		signoff_fix_drc -select_rules $ICV_IN_DESIGN_ADR_DPT_RULES
+		save_block
+
+		###################################################################
+                ## signoff_check_drc after ADR DPT rules fix
+                ###################################################################
+		set_app_options -name signoff.check_drc.run_dir -value $ICV_IN_DESIGN_POST_ADR_DPT_RUNDIR ;# RM default z_post_adr_with_dpt
+		puts "RM-info: Running $signoff_check_drc_cmd"
+		eval ${signoff_check_drc_cmd}
+
+		set_app_options -name signoff.fix_drc.custom_guidance -value off
+	}
+}

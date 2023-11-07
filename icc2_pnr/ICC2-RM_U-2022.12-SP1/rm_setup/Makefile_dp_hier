@@ -1,0 +1,103 @@
+##########################################################################################
+# Tool: IC Compiler II
+# Script: Makefile_dp_hier
+# Version: U-2022.12
+# Copyright (C) 2014-2022 Synopsys, Inc. All rights reserved.
+##########################################################################################
+
+ICC2_EXEC = icc2_shell
+# To use the Clock Trunk Planning capability, change the value of CTP to true
+CTP = false
+OPTIONS = 
+
+## LOGS_DIR value comes from rm_setup/design_setup.tcl; default is logs_icc2
+LOGS_DIR := $(subst $\",,$(shell expand rm_setup/design_setup.tcl | grep "^set LOGS_DIR" | awk '{print $$3}'))
+
+DP_HIGH_CAPACITY_MODE := $(subst $\",,$(shell expand rm_setup/icc2_dp_setup.tcl | grep "^set DP_HIGH_CAPACITY_MODE" | awk '{print $$3}'))
+
+##Optional: Specify design library if you want backup step and clean step to use it
+##CAUTION: if added, the clean step will delete it
+DESIGN_LIB =
+
+console:
+	$(ICC2_EXEC)
+
+setup:
+	test -d $(LOGS_DIR)	|| mkdir $(LOGS_DIR)
+	touch setup
+
+create_fusion_reference_library: setup
+	$(ICC2_EXEC) $(OPTIONS) -f ./rm_icc2_pnr_scripts/create_fusion_reference_library.tcl | tee -i $(LOGS_DIR)/create_fusion_reference_library.log
+
+split_constraints: setup
+	$(ICC2_EXEC) $(OPTIONS) -f ./rm_icc2_dp_hier_scripts/split_constraints.tcl | tee -i $(LOGS_DIR)/split_constraints.log
+
+init_dp: setup
+	$(ICC2_EXEC) $(OPTIONS) -f ./rm_icc2_dp_hier_scripts/init_dp.tcl | tee -i $(LOGS_DIR)/init_dp.log
+
+commit_blocks: setup init_dp
+	$(ICC2_EXEC) $(OPTIONS) -f ./rm_icc2_dp_hier_scripts/commit_blocks.tcl | tee -i $(LOGS_DIR)/commit_blocks.log
+
+ifeq ($(DP_HIGH_CAPACITY_MODE),true)
+expand_outline: setup commit_blocks split_constraints
+	$(ICC2_EXEC) $(OPTIONS) -f ./rm_icc2_dp_hier_scripts/expand_outline.tcl | tee -i $(LOGS_DIR)/expand_outline.log
+else
+expand_outline: setup commit_blocks
+	$(ICC2_EXEC) $(OPTIONS) -f ./rm_icc2_dp_hier_scripts/expand_outline.tcl | tee -i $(LOGS_DIR)/expand_outline.log
+endif
+
+shaping: setup expand_outline
+	$(ICC2_EXEC) $(OPTIONS) -f ./rm_icc2_dp_hier_scripts/shaping.tcl | tee -i $(LOGS_DIR)/shaping.log
+
+placement: setup shaping 
+	$(ICC2_EXEC) $(OPTIONS) -f ./rm_icc2_dp_hier_scripts/placement.tcl | tee -i $(LOGS_DIR)/placement.log
+
+create_power: setup placement
+	$(ICC2_EXEC) $(OPTIONS) -f ./rm_icc2_dp_hier_scripts/create_power.tcl | tee -i $(LOGS_DIR)/create_power.log
+
+ifeq ($(CTP),true)
+clock_trunk_planning: setup create_power
+	$(ICC2_EXEC) $(OPTIONS) -f ./rm_icc2_dp_hier_scripts/clock_trunk_planning.tcl | tee -i $(LOGS_DIR)/clock_trunk_planning.log
+
+place_pins: setup clock_trunk_planning 
+	rm -f place_pins.varfile
+	echo > place_pins.varfile
+	echo 'set PREVIOUS_STEP $${CLOCK_TRUNK_PLANNING_BLOCK_NAME}' >> place_pins.varfile
+	export RM_VARFILE=place_pins.varfile; $(ICC2_EXEC) $(OPTIONS) -f ./rm_icc2_dp_hier_scripts/place_pins.tcl | tee -i $(LOGS_DIR)/place_pins.log
+else
+place_pins: setup create_power
+	$(ICC2_EXEC) $(OPTIONS) -f ./rm_icc2_dp_hier_scripts/place_pins.tcl | tee -i $(LOGS_DIR)/place_pins.log
+endif
+
+timing_budget: setup place_pins
+	$(ICC2_EXEC) $(OPTIONS) -f ./rm_icc2_dp_hier_scripts/timing_budget.tcl | tee -i $(LOGS_DIR)/timing_budget.log
+
+write_data_dp: setup timing_budget
+	rm -f write_data_dp.varfile
+	echo > write_data_dp.varfile
+	echo 'set rm_dp_flow true' >> write_data_dp.varfile
+	echo 'set PREVIOUS_STEP $${BUDGETING_BLOCK_NAME}' >> write_data_dp.varfile
+	export RM_VARFILE=write_data_dp.varfile; $(ICC2_EXEC) $(OPTIONS) -f ./rm_icc2_pnr_scripts/write_data.tcl | tee -i $(LOGS_DIR)/write_data_dp.log
+
+all: setup write_data_dp
+	grep "Diagnostics summary" $(LOGS_DIR)/*
+	date > all
+
+################################################################################################################
+# Utilities Section
+################################################################################################################
+
+##Backup
+BACKUP  = BACKUP.`date "+%m_%d_%H_%M"`
+backup:
+	rm -rf $(BACKUP)
+	mkdir -p $(BACKUP)
+	cp -rf $(DESIGN_LIB) $(LOGS_DIR) $(BACKUP)
+
+clean:
+	rm -rf create_fusion_reference_library init_dp commit_blocks expand_outline shaping placement create_power clock_trunk_planning place_pins timing_budget write_data_dp all
+	rm -rf *.err *.log
+
+clean_all: clean
+	rm -rf setup split_constraints $(LOGS_DIR) ./rpts_icc2 ./outputs_icc2 ./images ./split ./block_budgets
+	rm -rf icc2_output.txt check_design*.ems default*.svf ./block_pg ./pgroute_output ./work ./work_dir compare_qor_data qor_data

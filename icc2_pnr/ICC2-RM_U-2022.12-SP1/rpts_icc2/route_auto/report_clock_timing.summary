@@ -1,0 +1,42 @@
+Information: Timer using 1 threads
+****************************************
+Report : clock timing
+        -type summary
+Design : FIFO
+Version: U-2022.12-SP1
+Date   : Mon Feb 13 16:57:02 2023
+****************************************
+Information: Timer using 'PrimeTime Delay Calculation, SI, Timing Window Analysis, AWP, CRPR'. (TIM-050)
+
+  Mode: default
+  Clock: ideal_clock1
+                                                                                 Corner
+---------------------------------------------------------------------------------------------------
+  Maximum setup launch latency:
+      memblk/FIFO_reg[2][21]/CP                               0.058       rp-+    ss_m40c
+
+  Minimum setup capture latency:
+      rd_ptr_reg[23]/CP                                       0.038       rp-+    ss_m40c
+
+  Minimum hold launch latency:
+      rd_ptr_reg[23]/CP                                       0.038       rp-+    ss_m40c
+
+  Maximum hold capture latency:
+      memblk/FIFO_reg[2][21]/CP                               0.058       rp-+    ss_m40c
+
+  Maximum active transition:
+      memblk/FIFO_reg[2][21]/CP                               0.111       rp-+    ss_m40c
+
+  Minimum active transition:
+      rd_ptr_reg[23]/CP                                       0.049       rp-+    ss_m40c
+
+  Maximum setup skew:
+      rd_ptr_reg[3]/CP                                                    rp-+    ss_m40c
+      rd_ptr_reg[23]/CP                                       0.008       rp-+    ss_m40c
+
+  Maximum hold skew:
+      wr_ptr_reg[5]/CP                                                    rp-+    ss_m40c
+      memblk/FIFO_reg[2][21]/CP                               0.020       rp-+    ss_m40c
+
+
+1

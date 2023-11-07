@@ -1,0 +1,11 @@
+[
+  ["Scenario", "PowerGroup", "Total", "Leakage", "Internal", "Switching", "%PwrGroup"],
+  ["default.ss_m40c", "io_pad", "0", "0", "0", "0", "0.0"], 
+  ["default.ss_m40c", "memory", "0", "0", "0", "0", "0.0"], 
+  ["default.ss_m40c", "black_box", "0", "0", "0", "0", "0.0"], 
+  ["default.ss_m40c", "clock_network", "165200", "0", "165200", "0", "75.8"], 
+  ["default.ss_m40c", "register", "11490", "8069", "1628", "1792", "5.3"], 
+  ["default.ss_m40c", "sequential", "0", "0", "0", "0", "0.0"], 
+  ["default.ss_m40c", "combinational", "41120", "10540", "5828", "24760", "18.9"], 
+  ["default.ss_m40c", "Total", "217800", "18610", "172600", "26550", "18.9"]
+]

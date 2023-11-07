@@ -1,0 +1,792 @@
+****************************************
+Report : design
+        -library
+        -netlist
+        -floorplan
+        -routing
+Design : ibex_top
+Version: U-2022.12-SP1
+Date   : Fri Jun  2 16:37:29 2023
+****************************************
+--------------------------------------------------------------------------------
+                              LIBRARY INFORMATION
+--------------------------------------------------------------------------------
+
+Search path : . ../dc_synth/output/ibex_top_no_sram
+
+Units : 
+    time                : 1.00ns
+    resistance          : 1.00kOhm
+    capacitance         : 1.00pF
+    voltage             : 1.00V
+    current             : 1.00mA
+    power               : 1.00nW
+
+Tech file : /home/tech/TSMC28/APR_Tech/Synopsys/tn28clpr002s1_1_9_1a/PRTF_ICC_28nm_Syn_V19_1a/tsmcn28_9lm6X1Z1UUTRDL.tf
+
+Total number of standard cells 	= 1034
+
+Total number of dont_use lib cells 	= 117
+Total number of dont_touch lib cells 	= 121
+
+Total number of buffers 	= 46
+Total number of inverters 	= 44
+Total number of flip-flops 	= 303
+Total number of latches 	= 52
+Total number of ICGs 		= 23
+
+
+Library : tcbn28hpcplusbwp30p140tt0p9v25c_ccs
+  File path : /home/sica/ECEC575/icc2_pnr/CLIBs/tcbn28hpcplusbwp30p140_c_ccs.ndm
+  Source .db libs :
+    tcbn28hpcplusbwp30p140tt0p9v25c_ccs : /home/tech/TSMC28/TSMCHOME/digital/Front_End/timing_power_noise/CCS/tcbn28hpcplusbwp30p140_180a/tcbn28hpcplusbwp30p140tt0p9v25c_ccs.db
+    tcbn28hpcplusbwp30p140ssg0p9v0c_ccs : /home/tech/TSMC28/TSMCHOME/digital/Front_End/timing_power_noise/CCS/tcbn28hpcplusbwp30p140_180a/tcbn28hpcplusbwp30p140ssg0p9v0c_ccs.db
+    tcbn28hpcplusbwp30p140ffg0p99v0c_ccs : /home/tech/TSMC28/TSMCHOME/digital/Front_End/timing_power_noise/CCS/tcbn28hpcplusbwp30p140_180a/tcbn28hpcplusbwp30p140ffg0p99v0c_ccs.db
+
+Library : tcbn28hpcplusbwp30p140_c_ccs_physical_only
+  File path : /home/sica/ECEC575/icc2_pnr/CLIBs/tcbn28hpcplusbwp30p140_c_ccs_physical_only.ndm
+
+--------------------------------------------------------------------------------
+                              NETLIST INFORMATION
+--------------------------------------------------------------------------------
+
+CELL INSTANCE INFORMATION
+-----------------------------------------------------------------------------
+Cell Instance Type          Count % of         Area  % of siteAreaPerSite
+                                  total             total
+-----------------------------------------------------------------------------
+TOTAL LEAF CELLS           173990  100   192294.522   100 unit:1526147  
+
+  Standard cells           173990  100   192294.522   100 unit:1526147  
+  Filler cells                  0    0        0.000     0 
+  Diode cells                   0    0        0.000     0 
+  Hard macro cells              0    0        0.000     0 
+  Soft macro cells              0    0        0.000     0 
+    Black box cells             0    0        0.000     0 
+  Analog block cells            0    0        0.000     0 
+  Pad cells                     0    0        0.000     0 
+    Flip-chip pad cells         0    0        0.000     0 
+  Cover cells                   0    0        0.000     0 
+  Flip-chip driver cells        0    0        0.000     0 
+  Corner pad cells              0    0        0.000     0 
+  Pad spacer cells              0    0        0.000     0 
+  Others                        0    0        0.000     0 
+
+Special cells                  18    0        4.536     0 unit:36  
+  Level shifter                 0    0        0.000     0 
+  Isolation                     0    0        0.000     0 
+  Switch                        0    0        0.000     0 
+  Always on                     0    0        0.000     0 
+  Retention                     0    0        0.000     0 
+  Tie off                      18    0        4.536     0 unit:36  
+
+LVT                             0    0        0.000     0 
+HVT                             0    0        0.000     0 
+Normal VT                       0    0        0.000     0 
+Others                     173990  100   192294.522   100 unit:1526147  
+
+Netlist cells              173990  100   192294.522   100 unit:1526147  
+Physical only                   0    0        0.000     0 
+
+Fixed cells                     0    0        0.000     0 
+Moveable cells             173990  100   192294.522   100 unit:1526147  
+
+Combinational              117603   67    85239.252    44 unit:676502  
+Sequential                  56387   32   107055.270    55 unit:849645  
+Others                          0    0        0.000     0 
+
+Buffer                       6572    3     2688.966     1 unit:21341  
+Inverter                     3875    2     1297.674     0 unit:10299  
+Buffer/inverter             10447    6     3986.640     2 unit:31640  
+
+Spare cells                     0    0        0.000     0 
+ICG cells                       0    0        0.000     0 
+Flip-flop cells             56386   32   107054.010    55 unit:849635  
+Latch cells                     1    0        1.260     0 unit:10  
+Antenna cells                   0    0        0.000     0 
+
+Mux logic                     637    0      544.572     0 unit:4322  
+Double height                   0    0        0.000     0 
+Triple height                   0    0        0.000     0 
+More than triple height         0    0        0.000     0 
+
+Logic Hierarchies          7
+
+REFERENCE DESIGN INFORMATION
+----------------------------------------------------------------------------------------------
+Number of reference designs used:200  
+----------------------------------------------------------------------------------------------
+Name           Type          Count     Width    Height        Area   PinDens SiteName siteArea
+----------------------------------------------------------------------------------------------
+DFQD1BWP30P140 lib_cell      55142      2.10      0.90       1.890     2.646 unit           15
+IAO22D1BWP30P140
+               lib_cell      49890      0.98      0.90       0.882     7.937 unit            7
+AOI22D0BWP30P140
+               lib_cell      16233      0.70      0.90       0.630    11.111 unit            5
+AOI22D1BWP30P140
+               lib_cell      13291      0.70      0.90       0.630    11.111 unit            5
+ND4D0BWP30P140 lib_cell       7369      0.70      0.90       0.630    11.111 unit            5
+DEL025D1BWP30P140
+               lib_cell       5936      0.42      0.90       0.378    10.582 unit            3
+IAO22D0BWP30P140
+               lib_cell       5360      0.98      0.90       0.882     7.937 unit            7
+INVD0BWP30P140 lib_cell       2256      0.28      0.90       0.252    15.873 unit            2
+NR4D0BWP30P140 lib_cell       1937      0.70      0.90       0.630    11.111 unit            5
+MAOI222D0BWP30P140
+               lib_cell       1525      0.84      0.90       0.756     7.937 unit            6
+NR2D0BWP30P140 lib_cell       1227      0.42      0.90       0.378    13.228 unit            3
+DFCNQD1BWP30P140
+               lib_cell       1178      2.52      0.90       2.268     2.646 unit           18
+AOI221D0BWP30P140
+               lib_cell       1103      0.84      0.90       0.756    10.582 unit            6
+ND2D0BWP30P140 lib_cell        949      0.42      0.90       0.378    13.228 unit            3
+NR2D1BWP30P140 lib_cell        741      0.42      0.90       0.378    13.228 unit            3
+CKND0BWP30P140 lib_cell        614      0.28      0.90       0.252    15.873 unit            2
+OAI22D0BWP30P140
+               lib_cell        607      0.70      0.90       0.630    11.111 unit            5
+NR2D0P7BWP30P140
+               lib_cell        604      0.42      0.90       0.378    13.228 unit            3
+OAI211D0BWP30P140
+               lib_cell        545      0.70      0.90       0.630    11.111 unit            5
+OAI21D0BWP30P140
+               lib_cell        504      0.56      0.90       0.504    11.905 unit            4
+ND2D1BWP30P140 lib_cell        464      0.42      0.90       0.378    13.228 unit            3
+AOI21D0BWP30P140
+               lib_cell        411      0.56      0.90       0.504    11.905 unit            4
+AOI211D0BWP30P140
+               lib_cell        384      0.70      0.90       0.630    11.111 unit            5
+OAI222D0BWP30P140
+               lib_cell        379      1.12      0.90       1.008     8.929 unit            8
+CKND3BWP30P140 lib_cell        311      0.56      0.90       0.504     7.937 unit            4
+MUX2D0BWP30P140
+               lib_cell        278      0.98      0.90       0.882     6.803 unit            7
+CKMUX2D0BWP30P140
+               lib_cell        222      0.98      0.90       0.882     6.803 unit            7
+OAI22D1BWP30P140
+               lib_cell        176      0.70      0.90       0.630    11.111 unit            5
+INVD1BWP30P140 lib_cell        175      0.28      0.90       0.252    15.873 unit            2
+OAI31D0BWP30P140
+               lib_cell        169      0.70      0.90       0.630    11.111 unit            5
+INVD2BWP30P140 lib_cell        157      0.42      0.90       0.378    10.582 unit            3
+ND3D0BWP30P140 lib_cell        154      0.56      0.90       0.504    11.905 unit            4
+OAI21D1BWP30P140
+               lib_cell        145      0.56      0.90       0.504    11.905 unit            4
+MUX2ND0BWP30P140
+               lib_cell        137      0.84      0.90       0.756     7.937 unit            6
+BUFFD3BWP30P140
+               lib_cell        136      0.70      0.90       0.630     6.349 unit            5
+NR3D0BWP30P140 lib_cell        133      0.56      0.90       0.504    11.905 unit            4
+AOI31D0BWP30P140
+               lib_cell        124      0.70      0.90       0.630    11.111 unit            5
+AOI32D0BWP30P140
+               lib_cell        118      0.84      0.90       0.756    10.582 unit            6
+CKBD0BWP30P140 lib_cell        107      0.42      0.90       0.378    10.582 unit            3
+BUFFD0BWP30P140
+               lib_cell        105      0.42      0.90       0.378    10.582 unit            3
+INVD3BWP30P140 lib_cell        103      0.56      0.90       0.504     7.937 unit            4
+AOI21D1BWP30P140
+               lib_cell         96      0.56      0.90       0.504    11.905 unit            4
+INR2D1BWP30P140
+               lib_cell         96      0.56      0.90       0.504     9.921 unit            4
+ND4D1BWP30P140 lib_cell         93      0.70      0.90       0.630    11.111 unit            5
+AN2D0BWP30P140 lib_cell         88      0.56      0.90       0.504     9.921 unit            4
+NR2OPTPAD1BWP30P140
+               lib_cell         86      0.56      0.90       0.504     9.921 unit            4
+BUFFD4BWP30P140
+               lib_cell         80      0.98      0.90       0.882     4.535 unit            7
+AOI211D1BWP30P140
+               lib_cell         74      0.70      0.90       0.630    11.111 unit            5
+ND3D1BWP30P140 lib_cell         68      0.56      0.90       0.504    11.905 unit            4
+AOI222D0BWP30P140
+               lib_cell         67      1.12      0.90       1.008     8.929 unit            8
+AO21D0BWP30P140
+               lib_cell         65      0.70      0.90       0.630     9.524 unit            5
+IOA21D0BWP30P140
+               lib_cell         64      0.70      0.90       0.630     9.524 unit            5
+AO22D0BWP30P140
+               lib_cell         64      0.84      0.90       0.756     9.259 unit            6
+IOA22D0BWP30P140
+               lib_cell         57      0.98      0.90       0.882     7.937 unit            7
+FA1D0BWP30P140 lib_cell         54      2.38      0.90       2.142     3.268 unit           17
+CKND4BWP30P140 lib_cell         54      0.70      0.90       0.630     6.349 unit            5
+CKBD3BWP30P140 lib_cell         54      0.70      0.90       0.630     6.349 unit            5
+DCCKBD4BWP30P140
+               lib_cell         53      1.96      0.90       1.764     2.268 unit           14
+OAI32D0BWP30P140
+               lib_cell         51      0.84      0.90       0.756    10.582 unit            6
+AN2D1BWP30P140 lib_cell         50      0.56      0.90       0.504     9.921 unit            4
+AOI221D1BWP30P140
+               lib_cell         46      0.84      0.90       0.756    10.582 unit            6
+IND2D1BWP30P140
+               lib_cell         43      0.56      0.90       0.504     9.921 unit            4
+BUFFD2BWP30P140
+               lib_cell         39      0.56      0.90       0.504     7.937 unit            4
+AN4D0BWP30P140 lib_cell         37      0.84      0.90       0.756     9.259 unit            6
+OA22D0BWP30P140
+               lib_cell         36      0.98      0.90       0.882     7.937 unit            7
+OA21D0BWP30P140
+               lib_cell         35      0.70      0.90       0.630     9.524 unit            5
+DFCNQD4BWP30P140
+               lib_cell         33      3.22      0.90       2.898     2.070 unit           23
+IAO21D1BWP30P140
+               lib_cell         31      0.70      0.90       0.630     9.524 unit            5
+XOR2UD0BWP30P140
+               lib_cell         29      0.98      0.90       0.882     5.669 unit            7
+AO211D0BWP30P140
+               lib_cell         28      0.84      0.90       0.756     9.259 unit            6
+FA1D1BWP30P140 lib_cell         27      2.38      0.90       2.142     3.268 unit           17
+XNR2UD0BWP30P140
+               lib_cell         26      0.98      0.90       0.882     5.669 unit            7
+INVD0P7BWP30P140
+               lib_cell         25      0.28      0.90       0.252    15.873 unit            2
+XNR4D0BWP30P140
+               lib_cell         24      2.94      0.90       2.646     2.646 unit           21
+INVD1P5BWP30P140
+               lib_cell         24      0.42      0.90       0.378    10.582 unit            3
+INR2D0BWP30P140
+               lib_cell         23      0.56      0.90       0.504     9.921 unit            4
+CKND2BWP30P140 lib_cell         22      0.42      0.90       0.378    10.582 unit            3
+DFQD2BWP30P140 lib_cell         22      2.10      0.90       1.890     2.646 unit           15
+XNR3UD0BWP30P140
+               lib_cell         22      1.96      0.90       1.764     3.401 unit           14
+CKBD2BWP30P140 lib_cell         21      0.56      0.90       0.504     7.937 unit            4
+INVD4BWP30P140 lib_cell         20      0.70      0.90       0.630     6.349 unit            5
+XOR3UD0BWP30P140
+               lib_cell         20      1.96      0.90       1.764     3.401 unit           14
+NR2D2BWP30P140 lib_cell         19      0.70      0.90       0.630     7.937 unit            5
+CKND6BWP30P140 lib_cell         19      0.98      0.90       0.882     4.535 unit            7
+IND2D0BWP30P140
+               lib_cell         19      0.56      0.90       0.504     9.921 unit            4
+INVD18BWP30P140
+               lib_cell         18      2.66      0.90       2.394     1.671 unit           19
+IOA21D1BWP30P140
+               lib_cell         18      0.70      0.90       0.630     9.524 unit            5
+TIELBWP30P140  lib_cell         17      0.28      0.90       0.252    11.905 unit            2
+CKND12BWP30P140
+               lib_cell         17      1.82      0.90       1.638     2.442 unit           13
+INR3D0BWP30P140
+               lib_cell         16      0.70      0.90       0.630     9.524 unit            5
+XOR4D0BWP30P140
+               lib_cell         16      2.94      0.90       2.646     2.646 unit           21
+CKND16BWP30P140
+               lib_cell         16      2.38      0.90       2.142     1.867 unit           17
+INVD16BWP30P140
+               lib_cell         14      2.38      0.90       2.142     1.867 unit           17
+OA211D0BWP30P140
+               lib_cell         14      0.84      0.90       0.756     9.259 unit            6
+NR2OPTIBD1BWP30P140
+               lib_cell         13      0.42      0.90       0.378    13.228 unit            3
+AN3D0BWP30P140 lib_cell         13      0.70      0.90       0.630     9.524 unit            5
+CKND8BWP30P140 lib_cell         13      1.26      0.90       1.134     3.527 unit            9
+OR2D1BWP30P140 lib_cell         13      0.56      0.90       0.504     9.921 unit            4
+AOI222D1BWP30P140
+               lib_cell         12      1.12      0.90       1.008     8.929 unit            8
+INR4D0BWP30P140
+               lib_cell         12      0.84      0.90       0.756     9.259 unit            6
+IAO21D0BWP30P140
+               lib_cell         11      0.70      0.90       0.630     9.524 unit            5
+CKND2D1BWP30P140
+               lib_cell         11      0.42      0.90       0.378    13.228 unit            3
+NR2D1P5BWP30P140
+               lib_cell         11      0.70      0.90       0.630     7.937 unit            5
+OR2D0BWP30P140 lib_cell         11      0.56      0.90       0.504     9.921 unit            4
+IND3D0BWP30P140
+               lib_cell         11      0.70      0.90       0.630     9.524 unit            5
+BUFFD6BWP30P140
+               lib_cell         10      1.26      0.90       1.134     3.527 unit            9
+IND3D1BWP30P140
+               lib_cell         10      0.70      0.90       0.630     9.524 unit            5
+AN2D2BWP30P140 lib_cell          9      0.70      0.90       0.630     7.937 unit            5
+OR4D0BWP30P140 lib_cell          9      0.84      0.90       0.756     9.259 unit            6
+AO21D1BWP30P140
+               lib_cell          8      0.70      0.90       0.630     9.524 unit            5
+AOI32D2BWP30P140
+               lib_cell          8      1.54      0.90       1.386     5.772 unit           11
+IND4D0BWP30P140
+               lib_cell          8      0.84      0.90       0.756     9.259 unit            6
+OAI21OPTREPBD6BWP30P140
+               lib_cell          8      4.34      0.90       3.906     1.536 unit           31
+OAI221D0BWP30P140
+               lib_cell          8      0.98      0.90       0.882     9.070 unit            7
+OAI32D1BWP30P140
+               lib_cell          8      0.84      0.90       0.756    10.582 unit            6
+OA21D1BWP30P140
+               lib_cell          8      0.70      0.90       0.630     9.524 unit            5
+INR3D1BWP30P140
+               lib_cell          8      1.12      0.90       1.008     5.952 unit            8
+OAI222D1BWP30P140
+               lib_cell          8      1.12      0.90       1.008     8.929 unit            8
+NR3OPTPAD1BWP30P140
+               lib_cell          8      1.12      0.90       1.008     5.952 unit            8
+AO211D1BWP30P140
+               lib_cell          7      0.84      0.90       0.756     9.259 unit            6
+AOI22D0P7BWP30P140
+               lib_cell          7      0.70      0.90       0.630    11.111 unit            5
+DFSNQD1BWP30P140
+               lib_cell          6      2.52      0.90       2.268     2.646 unit           18
+AOI211OPTREPBD1BWP30P140
+               lib_cell          6      1.26      0.90       1.134     6.173 unit            9
+ND3D0P7BWP30P140
+               lib_cell          6      0.56      0.90       0.504    11.905 unit            4
+OAI211D1BWP30P140
+               lib_cell          6      0.70      0.90       0.630    11.111 unit            5
+BUFFD1P5BWP30P140
+               lib_cell          6      0.56      0.90       0.504     7.937 unit            4
+CKBD4BWP30P140 lib_cell          6      0.98      0.90       0.882     4.535 unit            7
+AOI32D1BWP30P140
+               lib_cell          5      0.84      0.90       0.756    10.582 unit            6
+XOR4D1BWP30P140
+               lib_cell          5      2.94      0.90       2.646     2.646 unit           21
+CKND2D0BWP30P140
+               lib_cell          5      0.42      0.90       0.378    13.228 unit            3
+INVD9BWP30P140 lib_cell          4      1.40      0.90       1.260     3.175 unit           10
+OR4D1BWP30P140 lib_cell          4      0.84      0.90       0.756     9.259 unit            6
+INVD8BWP30P140 lib_cell          4      1.26      0.90       1.134     3.527 unit            9
+AO211D2BWP30P140
+               lib_cell          4      0.98      0.90       0.882     7.937 unit            7
+MOAI22D0BWP30P140
+               lib_cell          4      0.84      0.90       0.756     9.259 unit            6
+AOI33D0BWP30P140
+               lib_cell          4      0.98      0.90       0.882    10.204 unit            7
+CKBD8BWP30P140 lib_cell          4      1.68      0.90       1.512     2.646 unit           12
+CKBD6BWP30P140 lib_cell          4      1.26      0.90       1.134     3.527 unit            9
+IND4D1BWP30P140
+               lib_cell          3      0.84      0.90       0.756     9.259 unit            6
+OAI21D2BWP30P140
+               lib_cell          3      0.98      0.90       0.882     6.803 unit            7
+NR4D1BWP30P140 lib_cell          3      1.26      0.90       1.134     6.173 unit            9
+BUFFD8BWP30P140
+               lib_cell          3      1.68      0.90       1.512     2.646 unit           12
+OAI33D0BWP30P140
+               lib_cell          3      0.98      0.90       0.882    10.204 unit            7
+AOI21D2BWP30P140
+               lib_cell          3      0.98      0.90       0.882     6.803 unit            7
+AOI221D2BWP30P140
+               lib_cell          3      1.68      0.90       1.512     5.291 unit           12
+DFCNQD2BWP30P140
+               lib_cell          3      2.94      0.90       2.646     2.268 unit           21
+BUFFD24BWP30P140
+               lib_cell          2      4.48      0.90       4.032     0.992 unit           32
+DCCKND12BWP30P140
+               lib_cell          2      3.64      0.90       3.276     1.221 unit           26
+ND2OPTIBD1BWP30P140
+               lib_cell          2      0.42      0.90       0.378    13.228 unit            3
+INVD12BWP30P140
+               lib_cell          2      1.82      0.90       1.638     2.442 unit           13
+DCCKND4BWP30P140
+               lib_cell          2      1.40      0.90       1.260     3.175 unit           10
+XOR4D2BWP30P140
+               lib_cell          2      3.08      0.90       2.772     2.525 unit           22
+NR3D0P7BWP30P140
+               lib_cell          2      0.56      0.90       0.504    11.905 unit            4
+OA21D2BWP30P140
+               lib_cell          2      0.84      0.90       0.756     7.937 unit            6
+NR2OPTPAD2BWP30P140
+               lib_cell          2      0.98      0.90       0.882     5.669 unit            7
+OA22D1BWP30P140
+               lib_cell          2      0.98      0.90       0.882     7.937 unit            7
+ND4D2BWP30P140 lib_cell          2      1.40      0.90       1.260     5.556 unit           10
+AN4D2BWP30P140 lib_cell          2      0.98      0.90       0.882     7.937 unit            7
+AO211D4BWP30P140
+               lib_cell          2      1.82      0.90       1.638     4.274 unit           13
+AOI21OPTREPBD1BWP30P140
+               lib_cell          2      0.84      0.90       0.756     7.937 unit            6
+AO21D2BWP30P140
+               lib_cell          2      0.84      0.90       0.756     7.937 unit            6
+OR3D1BWP30P140 lib_cell          2      0.70      0.90       0.630     9.524 unit            5
+ND2D3BWP30P140 lib_cell          2      0.98      0.90       0.882     5.669 unit            7
+FA1OPTCD1BWP30P140
+               lib_cell          1      2.80      0.90       2.520     2.778 unit           20
+DFSND1BWP30P140
+               lib_cell          1      2.66      0.90       2.394     2.924 unit           19
+MAOI22D0BWP30P140
+               lib_cell          1      0.84      0.90       0.756     9.259 unit            6
+AO21D4BWP30P140
+               lib_cell          1      1.54      0.90       1.386     4.329 unit           11
+LNQD1BWP30P140 lib_cell          1      1.40      0.90       1.260     3.968 unit           10
+NR2D6BWP30P140 lib_cell          1      1.82      0.90       1.638     3.053 unit           13
+OR3D0BWP30P140 lib_cell          1      0.70      0.90       0.630     9.524 unit            5
+CKND1BWP30P140 lib_cell          1      0.28      0.90       0.252    15.873 unit            2
+TIEHBWP30P140  lib_cell          1      0.28      0.90       0.252    11.905 unit            2
+CKND2D2BWP30P140
+               lib_cell          1      0.70      0.90       0.630     7.937 unit            5
+INR2D16BWP30P140
+               lib_cell          1      5.46      0.90       4.914     1.018 unit           39
+DEL075MD1BWP30P140
+               lib_cell          1      1.68      0.90       1.512     2.646 unit           12
+BUFFD20BWP30P140
+               lib_cell          1      3.78      0.90       3.402     1.176 unit           27
+BUFFD0P7BWP30P140
+               lib_cell          1      0.42      0.90       0.378    10.582 unit            3
+BUFFD1BWP30P140
+               lib_cell          1      0.42      0.90       0.378    10.582 unit            3
+AOI31D1BWP30P140
+               lib_cell          1      0.70      0.90       0.630    11.111 unit            5
+AO22D1BWP30P140
+               lib_cell          1      0.98      0.90       0.882     7.937 unit            7
+XNR2D2BWP30P140
+               lib_cell          1      1.26      0.90       1.134     4.409 unit            9
+FA1D2BWP30P140 lib_cell          1      2.66      0.90       2.394     2.924 unit           19
+ND2OPTIBD4BWP30P140
+               lib_cell          1      1.26      0.90       1.134     4.409 unit            9
+AN3D1BWP30P140 lib_cell          1      0.70      0.90       0.630     9.524 unit            5
+NR2OPTIBD2BWP30P140
+               lib_cell          1      0.70      0.90       0.630     7.937 unit            5
+IND4D2BWP30P140
+               lib_cell          1      1.68      0.90       1.512     4.630 unit           12
+XOR2UD1BWP30P140
+               lib_cell          1      0.98      0.90       0.882     5.669 unit            7
+CKXOR2D2BWP30P140
+               lib_cell          1      1.26      0.90       1.134     4.409 unit            9
+NR4D8BWP30P140 lib_cell          1      7.00      0.90       6.300     1.111 unit           50
+EDFD1BWP30P140 lib_cell          1      3.08      0.90       2.772     2.525 unit           22
+CKBD1BWP30P140 lib_cell          1      0.42      0.90       0.378    10.582 unit            3
+AOI21D0P7BWP30P140
+               lib_cell          1      0.56      0.90       0.504    11.905 unit            4
+INVD6BWP30P140 lib_cell          1      0.98      0.90       0.882     4.535 unit            7
+FA1OPTCD2BWP30P140
+               lib_cell          1      3.36      0.90       3.024     2.315 unit           24
+BUFFD12BWP30P140
+               lib_cell          1      2.38      0.90       2.142     1.867 unit           17
+AOI33D1BWP30P140
+               lib_cell          1      0.98      0.90       0.882    10.204 unit            7
+CKAN2D4BWP30P140
+               lib_cell          1      0.98      0.90       0.882     5.669 unit            7
+OR2D4BWP30P140 lib_cell          1      1.26      0.90       1.134     4.409 unit            9
+OAI211OPTREPBD1BWP30P140
+               lib_cell          1      1.26      0.90       1.134     6.173 unit            9
+DCCKND8BWP30P140
+               lib_cell          1      2.52      0.90       2.268     1.764 unit           18
+
+NET INFORMATION
+------------------------------------------------------------------
+NetType                 Count FloatingNets         Vias Nets/Cells
+------------------------------------------------------------------
+Total                  174467          271      1724908      1.003
+Signal                 173538          271      1563373      0.997
+Power                       1            0            4      0.000
+Ground                      1            0            4      0.000
+Analog Signal               0            0            0      0.000
+Analog Ground               0            0            0      0.000
+Analog Power                0            0            0      0.000
+Clock                     927            0       161527      0.005
+Tie Low                     0            0            0      0.000
+Tie High                    0            0            0      0.000
+Others                      0            0            0      0.000
+
+NET FANOUT AND PIN COUNT INFORMATION
+---------------------------------------------------
+Fanout        Netcount     netPinCount     NetCount
+---------------------------------------------------
+<2              102834     <2                   271
+2                57021     2                 102563
+3                 1891     3                  57021
+4                 1218     4                   1891
+5                  663     5                   1218
+6-10              1384     6-10                1978
+11-20             1324     11-20               1104
+21-30             3706     21-30               3507
+31-50             4001     31-50               4446
+51-100             339     51-100               382
+101-500             81     101-500               81
+501-1000             3     501-1000               3
+>1000                2     >1000                  2
+
+PORT AND PIN INFORMATION
+------------------------------------------------------------------------------
+Type         Total     Input    Output     Inout      3-st     Power    Ground
+------------------------------------------------------------------------------
+Total      1064104    890028    174076         0         0    173990    173990
+Macro            0         0         0         0         0         0         0
+Ports          657       381       276         0         0         1         1
+------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+                              FLOORPLAN INFORMATION
+--------------------------------------------------------------------------------
+
+CORE AND CHIP AREA INFORMATION
+---------------------------
+Core Area is :   260548.974
+Chip Area is :   270857.774
+---------------------------
+
+SITE ROW INFORMATION
+-----------------------------------------------------------------------
+Site Name    Width    Height   Total Rows     Total Tiles          Area
+-----------------------------------------------------------------------
+unit          0.14      0.90          567         2067849    260548.974
+-----------------------------------------------------------------------
+
+BLOCKAGE INFORMATION
+------------------------------------------------
+Blockage Type                Count          Area
+------------------------------------------------
+Hard placement                   0         0.000
+Soft placement                   0         0.000
+Hard macro                       0         0.000
+Partial placement                0         0.000
+Register                         0         0.000
+Placement allow Buffer Only      0         0.000
+Placement allow RP Group Only
+                                 0         0.000
+RP Group                         0         0.000
+Category                         0         0.000
+Routing                          0         0.000
+Routing for Top                  0         0.000
+Routing For Design Rule          0         0.000
+Shaping                          0         0.000
+------------------------------------------------
+
+POWER DOMAIN INFORMATION
+--------------------------------------------------------------------
+Power Domain Name    VA Name         Primary Power Net Primary Ground Net
+--------------------------------------------------------------------
+DEFAULT_POWER_DOMAIN DEFAULT_VA      VDD               VSS
+--------------------------------------------------------------------
+
+VOLTAGE AREA INFORMATION
+-------------------------------------------------------------------------------------
+VA Name          Number             Area       Target    bbox    bbox    bbox    bbox
+              of shapes                   Utilization     llx     lly     urx     ury
+-------------------------------------------------------------------------------------
+DEFAULT_VA            1       260548.974         1.00    5.00    5.00  515.58  515.30
+-------------------------------------------------------------------------------------
+
+GROUP BOUND INFORMATION
+----------------------------------------
+No Group Bound exists
+
+EXCLUSIVE MOVEBOUND INFORMATION
+----------------------------------------
+No Exclusive MoveBound exists.
+
+HARD AND SOFT MOVEBOUND INFORMATION
+----------------------------------------
+No Hard Or Soft MoveBound exists.
+
+ROUTE GUIDE INFORMATION
+------------------------------------------------
+Route Guide Type             Count          Area
+------------------------------------------------
+Extra Detour Region              0         0.000
+Over icovl CellLayers            0         0.000
+River Routing                    0         0.000
+Area Double Via                  0         0.000
+Access Preference                0         0.000
+Default                          0         0.000
+Switched Direction Only          0         0.000
+Max Patterns                     0         0.000
+Others                           0         0.000
+------------------------------------------------
+
+MULTIBIT REGISTER INFORMATION
+-----------------------------------------------
+No Multibit cells exist
+
+MULTIBIT LS/ISO CELLS INFORMATION
+-----------------------------------------------
+No Multibit cells exist
+
+RP GROUP INFORMATION
+----------------------------------------
+No RP Group exists
+
+LAYER INFORMATION
+--------------------------------------------------------------------------
+Layer Name Direction Ignored Pitch  default minWidth minSpacing    sameNet
+                                      Width                     MinSpacing
+--------------------------------------------------------------------------
+M1         Ver       NO       0.14     0.05     0.05       0.05       0.00
+M2         Hor       NO       0.10     0.05     0.05       0.05       0.00
+M3         Ver       NO       0.10     0.05     0.05       0.05       0.00
+M4         Hor       NO       0.10     0.05     0.05       0.05       0.00
+M5         Ver       NO       0.10     0.05     0.05       0.05       0.00
+M6         Hor       NO       0.10     0.05     0.05       0.05       0.00
+M7         Ver       NO       0.10     0.05     0.05       0.05       0.00
+M8         Hor       NO       0.80     0.40     0.40       0.40       0.00
+M9         Ver       NO       3.00     2.00     2.00       1.00       0.00
+AP         Hor       NO       4.50     2.00     2.00       2.00       0.00
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+                              ROUTING INFORMATION
+--------------------------------------------------------------------------------
+
+Total wire length = 2340437.41 micron
+Total number of wires = 2182630
+Total number of contacts = 1724908
+
+FINAL WIRING STATISTICS
+
+Signal Wiring Statistics
+
+Metal layer     Num wires  % of total#  Wire length % of total length
+PO                      0        0.00%         0.00             0.00%
+M1                 188677        9.50%     11261.29             0.51%
+M2                 887791       44.72%    411400.41            18.71%
+M3                 751441       37.85%    852321.20            38.76%
+M4                 145983        7.35%    608578.47            27.68%
+M5                  10424        0.53%    237304.16            10.79%
+M6                    933        0.05%     53908.40             2.45%
+M7                    135        0.01%     24042.54             1.09%
+M8                      0        0.00%         0.00             0.00%
+M9                      0        0.00%         0.00             0.00%
+AP                      0        0.00%         0.00             0.00%
+
+Clock Wiring Statistics
+
+Metal layer     Num wires  % of total#  Wire length % of total length
+PO                      0        0.00%         0.00             0.00%
+M1                  14847        7.53%       459.02             0.32%
+M2                  78119       39.60%     34051.00            24.04%
+M3                  78062       39.58%     65766.84            46.44%
+M4                  25962       13.16%     39966.26            28.22%
+M5                    244        0.12%       832.26             0.59%
+M6                     12        0.01%       545.57             0.39%
+M7                      0        0.00%         0.00             0.00%
+M8                      0        0.00%         0.00             0.00%
+M9                      0        0.00%         0.00             0.00%
+AP                      0        0.00%         0.00             0.00%
+
+P/G Wiring Statistics
+
+Metal layer     Num wires  % of total#  Wire length % of total length
+PO                      0        0.00%         0.00             0.00%
+M1                      0        0.00%         0.00             0.00%
+M2                      0        0.00%         0.00             0.00%
+M3                      0        0.00%         0.00             0.00%
+M4                      0        0.00%         0.00             0.00%
+M5                      0        0.00%         0.00             0.00%
+M6                      4       50.00%      2081.20            49.99%
+M7                      4       50.00%      2082.32            50.01%
+M8                      0        0.00%         0.00             0.00%
+M9                      0        0.00%         0.00             0.00%
+AP                      0        0.00%         0.00             0.00%
+
+Shape Pattern Wiring Statistics
+
+Metal layer     Num shapePatterns
+                           % of total#  Wire length % of total length
+PO                      0        0.00%         0.00             0.00%
+M1                      0        0.00%         0.00             0.00%
+M2                      0        0.00%         0.00             0.00%
+M3                      0        0.00%         0.00             0.00%
+M4                      0        0.00%         0.00             0.00%
+M5                      0        0.00%         0.00             0.00%
+M6                      0        0.00%         0.00             0.00%
+M7                      0        0.00%         0.00             0.00%
+M8                      0        0.00%         0.00             0.00%
+M9                      0        0.00%         0.00             0.00%
+AP                      0        0.00%         0.00             0.00%
+
+All the PG shape patterns stand for 0 shapes.
+
+Horizontal/Vertical Wire Distribution
+
+Metal layer  Hor. length  % of hor.    Ver. length  % of ver.
+PO                   0.00        0.00%         0.00        0.00%
+M1                2167.08        0.20%      9094.21        0.80%
+M2              396072.44       37.19%     15327.98        1.35%
+M3                4724.07        0.44%    847597.12       74.76%
+M4              608119.47       57.10%       459.00        0.04%
+M5                  25.03        0.00%    237279.13       20.93%
+M6               53907.19        5.06%         1.21        0.00%
+M7                   0.00        0.00%     24042.54        2.12%
+M8                   0.00        0.00%         0.00        0.00%
+M9                   0.00        0.00%         0.00        0.00%
+AP                   0.00        0.00%         0.00        0.00%
+
+FINAL VIA STATISTICS
+
+Via layer    Via def name                Count        % of layer vias
+VIA1         VIA12_1cut                        344625       69.39%
+VIA1         VIA12_LONG_HH                      71369       14.37%
+VIA1         VIA12_1cut_EN1415(rot)             42793        8.62%
+VIA1         VIA12_1cut_V                        3241        0.65%
+VIA1         VIA12_1cut(rot)                     1398        0.28%
+VIA1         VIA12_1cut_V(rot)                  24830        5.00%
+VIA1         VIA12_1cut_EN1415                   7261        1.46%
+VIA1         VIA12_1cut_AS                        534        0.11%
+VIA1         VIA12_LONG_V(rot)                    215        0.04%
+VIA1         VIA12_LONG_HH(rot)                    63        0.01%
+VIA1         VIA12_LONG_V                          22        0.00%
+VIA1         VIA12_LONG_H(rot)                     23        0.00%
+VIA1         VIA12_LONG_H                         246        0.05%
+VIA1         VIA12_PBDU                             1        0.00%
+VIA1         VIA12_FBD30(rot)                       1        0.00%
+VIA1         VIA12_FBD20(rot)                       1        0.00%
+VIA1         VIA12_PBDB                             3        0.00%
+  Double via conversion rate for layer VIA1 = 0.00% (0 / 496626 vias)
+    Among them, double via conversion rate of detail route vias for layer VIA1 = 0.00% (0 / 496626 vias)
+
+VIA2         VIA23_1cut                        950937       99.78%
+VIA2         VIA23_LONG_HH                         12        0.00%
+VIA2         VIA23_1cut_V                         416        0.04%
+VIA2         VIA23_1cut_V(rot)                     72        0.01%
+VIA2         VIA23_LONG_HH(rot)                    64        0.01%
+VIA2         VIA23_1cut(rot)                      570        0.06%
+VIA2         VIA23_LONG_V                          97        0.01%
+VIA2         VIA23_1cut_EN1415(rot)                60        0.01%
+VIA2         VIA23_1cut_AS                        329        0.03%
+VIA2         VIA23_1cut_EN1415                    164        0.02%
+VIA2         VIA23_LONG_V(rot)                      2        0.00%
+VIA2         VIA23_PBDB(rot)                       99        0.01%
+VIA2         VIA23_PBDU                           232        0.02%
+VIA2         VIA23_PBDU(rot)                        4        0.00%
+VIA2         VIA23_PBDE                            10        0.00%
+VIA2         VIA23_LONG_H(rot)                      1        0.00%
+VIA2         VIA23_LONG_H                           5        0.00%
+VIA2         VIA23_FBD20(rot)                       2        0.00%
+VIA2         PGVIA23_RECT                           1        0.00%
+  Double via conversion rate for layer VIA2 = 0.00% (0 / 953077 vias)
+    Among them, double via conversion rate of detail route vias for layer VIA2 = 0.00% (0 / 953077 vias)
+
+VIA3         VIA34_1cut                        255846      100.00%
+VIA3         VIA34_LONG_HH                          3        0.00%
+VIA3         VIA34_1cut(rot)                        5        0.00%
+VIA3         VIA34_1cut_EN1415(rot)                 1        0.00%
+VIA3         VIA34_LONG_H                           1        0.00%
+VIA3         VIA34_LONG_HH(rot)                     1        0.00%
+VIA3         VIA34_1cut_EN1415                      1        0.00%
+  Double via conversion rate for layer VIA3 = 0.00% (0 / 255858 vias)
+    Among them, double via conversion rate of detail route vias for layer VIA3 = 0.00% (0 / 255858 vias)
+
+VIA4         VIA45_1cut                         17577       99.99%
+VIA4         VIA45_LONG_HH                          1        0.01%
+  Double via conversion rate for layer VIA4 = 0.00% (0 / 17578 vias)
+    Among them, double via conversion rate of detail route vias for layer VIA4 = 0.00% (0 / 17578 vias)
+
+VIA5         VIA56_1cut                          1495      100.00%
+  Double via conversion rate for layer VIA5 = 0.00% (0 / 1495 vias)
+    Among them, double via conversion rate of detail route vias for layer VIA5 = 0.00% (0 / 1495 vias)
+
+VIA6         VIA67_1cut                           266       97.08%
+VIA6         VIA67_1cut(7X7)                        8        2.92%
+  Double via conversion rate for layer VIA6 = 2.92% (8 / 274 vias)
+    Among them, double via conversion rate of detail route vias for layer VIA6 = 0.00% (0 / 266 vias)
+
+
+Custom Via Statistics
+
+No custom vias found in the design.
+Overall double via conversion rate = 0.00%
+  Among them, overall double via conversion rate of detail route vias = 0.00% (0 / 1724900 vias)
+  *Detail route vias are vias whose shape_use is detail_route.
+
+Via Matrix Statistics
+
+No via matrices found in the design.
+
+FINAL DRC STATISTICS
+
+DRC-SUMMARY:
+Total number of nets = 174457, of which 0 are not extracted
+Total number of open nets = 0, of which 0 are frozen
+Total number of excluded ports = 0 ports of 0 unplaced cells connected to 0 nets
+                                 0 ports without pins of 0 cells connected to 0 nets
+                                 0 ports of 0 cover cells connected to 0 non-pg nets
+	Convex metal cut enclosure : 1
+Total number of DRCs = 1
+Total number of antenna violations = no antenna rules defined
+Total number of tie to rail violations = not checked
+1

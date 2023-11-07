@@ -1,0 +1,61 @@
+{
+  "InstCount": {
+    "group": "Instances",
+    "tooltip": "Number of instances of this lib_cell in the design",
+    "absThreshold": "5"
+  },
+  "InstArea": {
+    "group": "Instances",
+    "tooltip": "Total area of all instances of this lib_cell in the design"
+  },
+  "Function": {
+    "group": "Usage",
+    "tooltip": "Function of the lib_cell, either shown as function_id attribute, or a more readable description (buffer, macro, latch, ...)",
+    "color": "different"
+  },
+  "Purpose": {
+    "group": "Usage",
+    "tooltip": "Purpose of the lib_cell, set with the set_lib_cell_purpose command.  Can be zero or more of 'power hold cts optimization'.",
+    "color": "different"
+  },
+  "VtGroup": {
+    "group": "Vt",
+    "tooltip": "The threshold_voltage_group from the library",
+    "color": "different"
+  },
+  "VtGroupType": {
+    "group": "Vt",
+    "tooltip": "The threshold_voltage_group_type set by set_threshold_voltage_group_type (high_vt, normal_vt, or low_vt)",
+    "color": "different"
+  },
+  "Width": {
+    "group": "Physical",
+    "tooltip": "Width of the lib_cell in um",
+    "color": "different"
+  },
+  "Height": {
+    "group": "Physical",
+    "tooltip": "Height of the lib_cell in um",
+    "color": "different"
+  },
+  "Area": {
+    "group": "Physical",
+    "tooltip": "Area of the lib_cell in um2",
+    "color": "different"
+  },
+  "PinDensity": {
+    "group": "Physical",
+    "tooltip": "Pin density of the lib_cell",
+    "color": "different"
+  },
+  "SiteName": {
+    "group": "Site",
+    "tooltip": "Name of placement sites used by this lib_cell",
+    "color": "different"
+  },
+  "SiteArea": {
+    "group": "Site",
+    "tooltip": "Size of this lib_cell, measured in number of sites",
+    "color": "different"
+  }
+}

@@ -1,0 +1,30 @@
+****************************************
+Report : user_units
+Design : FIFO
+Version: U-2022.12-SP1
+Date   : Wed Feb 15 17:00:18 2023
+****************************************
+
+Input Units (set by technology library)
+----------------------------------------------
+time                         : 1.00ns
+resistance                   : 1.00MOhm
+capacitance                  : 1.00fF
+voltage                      : 1.00V
+current                      : 1.00uA
+power                        : 1.00pW
+length                       : 1.00um
+energy                       : 1.00pj/t
+
+Output Units (set by technology library)
+----------------------------------------------
+time                         : 1.00ns
+resistance                   : 1.00MOhm
+capacitance                  : 1.00fF
+voltage                      : 1.00V
+current                      : 1.00uA
+power                        : 1.00pW
+length                       : 1.00um
+energy                       : 1.00pj/t
+
+1

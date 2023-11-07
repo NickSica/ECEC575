@@ -1,0 +1,81 @@
+{
+  "GateCount": {
+    "group": "Clockgates",
+    "tooltip": "Total count of clockgates",
+    "color": "none"
+  },
+  "ToolGates": {
+    "group": "Clockgates",
+    "tooltip": "Clockgates inserted by Power Compiler / Design Compiler / Fusion Compiler",
+    "color": "none"
+  },
+  "RTLGates": {
+    "group": "Clockgates",
+    "tooltip": "Clockgates that are pre-existing in the RTL",
+    "color": "none"
+  },
+  "ToolGates%": {
+    "group": "Clockgates",
+    "tooltip": "Percentage of all clockgates that are tool inserted",
+    "color": "none"
+  },
+  "RTLGates%": {
+    "group": "Clockgates",
+    "tooltip": "Percentage of all clockgates that are pre-instantiated in the RTL",
+    "color": "none"
+  },
+  "CGLevels": {
+    "group": "Clockgates",
+    "tooltip": "Maximum number of levels of clockgating between a clock source and sink",
+    "color": "none"
+  },
+  "MultiLevelCGs": {
+    "group": "Clockgates",
+    "tooltip": "Number of clockgates in branches of the clock tree with more than one level of clockgating between the clock source and the sink",
+    "color": "none"
+  },
+  "Gated%": {
+    "group": "Gating %",
+    "tooltip": "Percentage of total registers that are gated",
+    "improves": "larger"
+  },
+  "ToolGated%": {
+    "group": "Gating %",
+    "tooltip": "Percentage of total registers that are gated by a tool-inserted clockgate",
+    "improves": "larger"
+  },
+  "RTLGated%": {
+    "group": "Gating %",
+    "tooltip": "Percentage of total registers that are gated by an RTL-instantiated clockgate",
+    "improves": "larger"
+  },
+  "Ungated%": {
+    "group": "Gating %",
+    "tooltip": "Percentage of total registers that are ungated"
+  },
+  "Registers": {
+    "group": "Registers",
+    "tooltip": "Total register count",
+    "color": "none"
+  },
+  "Gated": {
+    "group": "Registers",
+    "tooltip": "Number of gated registers",
+    "color": "none"
+  },
+  "ToolGated": {
+    "group": "Registers",
+    "tooltip": "Number of registers gated by a tool-inserted clockgate (a register can be gated by both tool and RTL clockgates)",
+    "color": "none"
+  },
+  "RTLGated": {
+    "group": "Registers",
+    "tooltip": "Number of registers gated by an RTL-instantiated clockgate (a register can be gated by both tool and RTL clockgates)",
+    "color": "none"
+  },
+  "Ungated": {
+    "group": "Registers",
+    "tooltip": "Number of ungated registers",
+    "color": "none"
+  }
+}

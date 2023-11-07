@@ -1,0 +1,77 @@
+{
+  "Overflow": {
+    "group": "Both Dirs",
+    "tooltip": "Sum of the total overflows seen in all GRCs.  Overflows can be fractional and less than one, so it is possible that the Overflow metric (total overflows) is less than GRCs (number of GRCs with overflows).",
+    "absThreshold": "10.0"
+  },
+  "MaxOver": {
+    "group": "Both Dirs",
+    "tooltip": "Maximum global routing overflows in a single GRC",
+    "absThreshold": "2.0"
+  },
+  "GRCs": {
+    "group": "Both Dirs",
+    "tooltip": "Number of GRCs with any amount of global routing overflows",
+    "absThreshold": "10.0"
+  },
+  "GRC%": {
+    "group": "Both Dirs",
+    "tooltip": "Percentage of GRCs that contain any amount of global routing overflows",
+    "absThreshold": "0.03"
+  },
+  "GRCsMax": {
+    "group": "Both Dirs",
+    "tooltip": "Number of GRCs that have the maximum number of global routing overflows shown in the MaxOver metric",
+    "absThreshold": "1.0"
+  },
+  "HOverflow": {
+    "group": "Horizontal",
+    "tooltip": "Total global routing overflows on horizontal layers",
+    "absThreshold": "10.0"
+  },
+  "HMaxOver": {
+    "group": "Horizontal",
+    "tooltip": "Maximum global routing overflows in a single GRC on horizontal layers",
+    "absThreshold": "2.0"
+  },
+  "HGRCsMax": {
+    "group": "Horizontal",
+    "tooltip": "Number of GRCs that have the maximum number of global routing overflows shown in the MaxOver metric, on horizontal layers",
+    "absThreshold": "1.0"
+  },
+  "HGRCs": {
+    "group": "Horizontal",
+    "tooltip": "Number of GRCs with global routing overflows on horizontal layers",
+    "absThreshold": "10.0"
+  },
+  "HGRC%": {
+    "group": "Horizontal",
+    "tooltip": "Percentage of GRCs that contain global routing overflows on horizontal layers",
+    "absThreshold": "0.03"
+  },
+  "VOverflow": {
+    "group": "Vertical",
+    "tooltip": "Total global routing overflows on vertical layers",
+    "absThreshold": "10.0"
+  },
+  "VMaxOver": {
+    "group": "Vertical",
+    "tooltip": "Maximum global routing overflows in a single GRC on vertical layers",
+    "absThreshold": "2.0"
+  },
+  "VGRCsMax": {
+    "group": "Vertical",
+    "tooltip": "Number of GRCs that have the maximum number of global routing overflows shown in the MaxOver metric, on vertical layers",
+    "absThreshold": "1.0"
+  },
+  "VGRCs": {
+    "group": "Vertical",
+    "tooltip": "Number of GRCs with global routing overflows, on vertical layers",
+    "absThreshold": "10.0"
+  },
+  "VGRC%": {
+    "group": "Vertical",
+    "tooltip": "Percentage of GRCs that contain global routing overflows, on vertical layers",
+    "absThreshold": "0.03"
+  }
+}

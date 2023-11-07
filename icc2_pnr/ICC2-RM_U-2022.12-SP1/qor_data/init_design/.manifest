@@ -1,0 +1,22 @@
+{
+  "tables": {
+    "qor_summary": {
+      "file": "tables/qor_summary.json",
+      "keys": [
+      ]
+    },
+    "performance": {
+      "file": "tables/performance.json",
+      "keys": [
+      ]
+    },
+    "app_option_details": {
+      "file": "tables/app_option_details.json",
+      "keys": [
+        "Name"
+      ]
+    }
+  },
+  "imageFiles": {
+  }
+}

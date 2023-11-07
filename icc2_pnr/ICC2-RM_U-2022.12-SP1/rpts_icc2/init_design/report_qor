@@ -1,0 +1,122 @@
+****************************************
+Report : qor
+Design : FIFO
+Version: U-2022.12-SP1
+Date   : Wed Feb 15 17:00:11 2023
+****************************************
+Information: The stitching and editing of coupling caps is turned OFF for design 'FIFO.dlib:FIFO.design'. (TIM-125)
+Information: Design Average RC for design FIFO  (NEX-011)
+Information: r = 1.701124 ohm/um, via_r = 0.526342 ohm/cut, c = 0.072176 ff/um, cc = 0.000000 ff/um (X dir) (NEX-017)
+Information: r = 1.788559 ohm/um, via_r = 0.481297 ohm/cut, c = 0.070387 ff/um, cc = 0.000000 ff/um (Y dir) (NEX-017)
+Information: The RC mode used is VR for design 'FIFO'. (NEX-022)
+Information: Update timing completed net estimation for all the timing graph nets (TIM-111)
+Information: Net estimation statistics: timing graph nets = 959, routed nets = 0, across physical hierarchy nets = 0, parasitics cached nets = 0, delay annotated nets = 0, parasitics annotated nets = 0, multi-voltage nets = 0. (TIM-112)
+************************************************************
+Timer Settings:
+Delay Calculation Style:                   auto
+Signal Integrity Analysis:                 disabled
+Timing Window Analysis:                    disabled
+Advanced Waveform Propagation:             disabled
+Variation Type:                            fixed_derate
+Clock Reconvergence Pessimism Removal:     disabled
+Advanced Receiver Model:                   disabled
+ML Acceleration:                           off
+************************************************************
+
+
+Scenario           'default.ss_m40c'
+Timing Path Group  '**in2reg_default**'
+----------------------------------------
+Levels of Logic:                      0
+Critical Path Length:             0.102
+Critical Path Slack:             15.097
+Critical Path Clk Period:        15.200
+Total Negative Slack:             0.000
+No. of Violating Paths:               0
+Worst Hold Violation:            -0.120
+Total Hold Violation:            -1.197
+No. of Hold Violations:              10
+----------------------------------------
+
+
+Cell Count
+----------------------------------------
+Hierarchical Cell Count:              5
+Hierarchical Port Count:            396
+Leaf Cell Count:                    828
+Buf/Inv Cell Count:                 103
+Buf Cell Count:                       0
+Inv Cell Count:                     103
+CT Buf/Inv Cell Count:                0
+Combinational Cell Count:           599
+   Single-bit Isolation Cell Count:                        0
+   Multi-bit Isolation Cell Count:                         0
+   Isolation Cell Banking Ratio:                           0.00%
+   Single-bit Level Shifter Cell Count:                    0
+   Multi-bit Level Shifter Cell Count:                     0
+   Level Shifter Cell Banking Ratio:                       0.00%
+   Single-bit ELS Cell Count:                              0
+   Multi-bit ELS Cell Count:                               0
+   ELS Cell Banking Ratio:                                 0.00%
+Sequential Cell Count:              229
+   Integrated Clock-Gating Cell Count:                     0
+   Sequential Macro Cell Count:                            0
+   Single-bit Sequential Cell Count:                       229
+   Multi-bit Sequential Cell Count:                        0
+   Sequential Cell Banking Ratio:                          0.00%
+   BitsPerflop:                                            1.00
+Macro Count:                          0
+----------------------------------------
+
+
+Area
+----------------------------------------
+Combinational Area:            1873.448
+Noncombinational Area:         1802.809
+Buf/Inv Area:                   185.993
+Total Buffer Area:                0.000
+Total Inverter Area:            185.993
+Macro/Black Box Area:             0.000
+Net Area:                             0
+Net XLength:                   4405.779
+Net YLength:                   3267.893
+----------------------------------------
+Cell Area (netlist):                          3676.257
+Cell Area (netlist and physical only):        3676.257
+Net Length:                    7673.671
+
+
+Design Rules
+----------------------------------------
+Total Number of Nets:               961
+Nets with Violations:                 0
+Max Trans Violations:                 0
+Max Cap Violations:                   0
+----------------------------------------
+
+1
+****************************************
+Report : qor
+        -summary
+Design : FIFO
+Version: U-2022.12-SP1
+Date   : Wed Feb 15 17:00:11 2023
+****************************************
+
+Timing
+---------------------------------------------------------------------------
+Context                                 WNS            TNS            NVE
+---------------------------------------------------------------------------
+default.ss_m40c    (Setup)           15.097          0.000              0
+Design             (Setup)           15.097          0.000              0
+
+default.ss_m40c    (Hold)            -0.120         -1.197             10
+Design             (Hold)            -0.120         -1.197             10
+---------------------------------------------------------------------------
+
+Miscellaneous
+---------------------------------------------------------------------------
+Cell Area (netlist):                          3676.257
+Cell Area (netlist and physical only):        3676.257
+Nets with DRC Violations:        0
+1

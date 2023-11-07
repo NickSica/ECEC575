@@ -1,0 +1,30 @@
+****************************************
+Report : Power Domain
+Design : FIFO
+Corner : ss_m40c
+Version: U-2022.12-SP1
+Date   : Wed Feb 15 17:00:18 2023
+****************************************
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Power Domain            :  DEFAULT_POWER_DOMAIN
+Current Scope           :  / (top scope)
+Elements                :  FIFO
+Voltage Area            :  DEFAULT_VA
+Available Supply Nets   :  VDD, VSS
+Available Supply Sets   :
+
+Default Supplies           - Power -     - Ground -
+  Primary               :  VDD [0.950]   VSS [0.000]
+  Isolation             :  --            --
+  Retention             :  --            --
+
+Power Switch            :
+Isolation Strategy      :
+Level Shifter Strategy  :
+Repeater Strategy       :
+Retention Strategy      :
+Always on strategy      :  dual_power
+Disallow Forward Biasing : false
+Disallow Reverse Biasing : false
+--------------------------------------------------------------------------------------------------
+1

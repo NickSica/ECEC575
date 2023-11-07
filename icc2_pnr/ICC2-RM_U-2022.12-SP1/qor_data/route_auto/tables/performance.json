@@ -1,0 +1,4 @@
+{
+  "columns": ["Hostname", "CpuInfo", "CPUs", "Threads", "Cores", "Sockets", "TotalMem", "FreeMem", "TotalSwap", "FreeSwap", "StageRun", "PreRun", "RptRun", "PeakMem", "PeakMemAll", "MaxCores", "PostRun"],
+  "values": ["bertha", "AMD Ryzen Threadripper 2950X 16-Core Processor", "32", "2", "16", "1", "126", "25", "18", "17", "0.01", "0.01", "0.00", "1.4", "1.4", "8", "0.00"]
+}

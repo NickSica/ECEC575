@@ -1,0 +1,116 @@
+{
+  "TotArea": {
+    "group": "Area",
+    "tooltip": "Total netlist area (stdcells, macros, excluding physical-only cells)",
+    "lightPct": "0.003",
+    "medPct": "0.01",
+    "darkPct": "0.04"
+  },
+  "StdCellArea": {
+    "group": "Area",
+    "tooltip": "Sum of the 'Combinational area' and 'Noncombinational area' from report_qor",
+    "lightPct": "0.003",
+    "medPct": "0.01",
+    "darkPct": "0.04"
+  },
+  "CombArea": {
+    "group": "Area",
+    "tooltip": "Combinational standard cell area",
+    "lightPct": "0.003",
+    "medPct": "0.01",
+    "darkPct": "0.04"
+  },
+  "SeqArea": {
+    "group": "Area",
+    "tooltip": "Sequential standard cell area",
+    "lightPct": "0.003",
+    "medPct": "0.01",
+    "darkPct": "0.04"
+  },
+  "PhysOnlyArea": {
+    "group": "Area",
+    "tooltip": "Physical-only standard cell area",
+    "lightPct": "0.003",
+    "medPct": "0.01",
+    "darkPct": "0.04"
+  },
+  "MacroBBArea": {
+    "group": "Area",
+    "tooltip": "Macro and blackbox area",
+    "color": "different"
+  },
+  "Util": {
+    "group": "Area",
+    "tooltip": "Overall utilization (all site defs)",
+    "lightPct": "0.003",
+    "medPct": "0.01",
+    "darkPct": "0.04"
+  },
+  "BufInvArea": {
+    "group": "Repeater Area",
+    "tooltip": "Buffer and inverter area",
+    "lightPct": "0.003",
+    "medPct": "0.01",
+    "darkPct": "0.04"
+  },
+  "BufArea": {
+    "group": "Repeater Area",
+    "tooltip": "Buffer area",
+    "lightPct": "0.003",
+    "medPct": "0.01",
+    "darkPct": "0.04"
+  },
+  "InvArea": {
+    "group": "Repeater Area",
+    "tooltip": "Inverter area",
+    "lightPct": "0.003",
+    "medPct": "0.01",
+    "darkPct": "0.04"
+  },
+  "StdCells": {
+    "group": "Count",
+    "tooltip": "Standard cell count (excluding physical-only cells)"
+  },
+  "CombCells": {
+    "group": "Count",
+    "tooltip": "Combinational standard cell count"
+  },
+  "SeqCells": {
+    "group": "Count",
+    "tooltip": "Sequential standard cell count"
+  },
+  "Macros": {
+    "group": "Count",
+    "tooltip": "Macro count",
+    "color": "different"
+  },
+  "BufInvs": {
+    "group": "Repeater Count",
+    "tooltip": "Buffer and inverter count"
+  },
+  "Bufs": {
+    "group": "Repeater Count",
+    "tooltip": "Buffer count"
+  },
+  "Invs": {
+    "group": "Repeater Count",
+    "tooltip": "Inverter count"
+  },
+  "CTBufInvs": {
+    "group": "Repeater Count",
+    "tooltip": "Clock tree buffer and inverter count"
+  },
+  "HBufs": {
+    "group": "Repeater Count",
+    "tooltip": "Hold Buffer Count",
+    "absThreshold": "100.0"
+  },
+  "HierCells": {
+    "group": "Hierarchy",
+    "tooltip": "Hierarchy cell (module) count"
+  },
+  "HierPorts": {
+    "group": "Hierarchy",
+    "tooltip": "Hierarchical port (module pin) count"
+  }
+}

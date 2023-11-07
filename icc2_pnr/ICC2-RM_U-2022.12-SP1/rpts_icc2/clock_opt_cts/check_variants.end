@@ -1,0 +1,13 @@
+Variant group dont_use check
+----------------------------
+
+
+WARNING: 0 cell groups have variant cells with inconsistent dont_use attribute!
+
+Variant group included_purposes check
+-------------------------------------
+
+
+WARNING: 0 cell groups have variant cells with inconsistent included_purposes attribute!
+
+{} {}

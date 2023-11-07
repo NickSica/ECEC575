@@ -1,0 +1,4 @@
+{
+  "columns": ["CritName", "CritScenario", "CritSinks", "CritLtncy", "CritSkew", "AvgLtncy", "AvgSkew", "TotalArea", "CellCount", "BufArea", "BufCount", "TranDRCs", "CapDRCs"],
+  "values": ["ideal_clock1", "default.ss_m40c", "229", "0.060", "0.021", "0.060", "0.021", "25.6", "5", "25.6", "5", "0", "0"]
+}

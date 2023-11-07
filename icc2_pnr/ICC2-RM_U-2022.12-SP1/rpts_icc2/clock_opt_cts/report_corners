@@ -1,0 +1,62 @@
+****************************************
+Report : corner
+Design : FIFO
+Version: U-2022.12-SP1
+Date   : Mon Feb 13 16:55:49 2023
+****************************************
+
+--------------------------------------------------------------------------------
+Corner ss_m40c
+--------------------------------------------------------------------------------
+
+Current: true  Default: false  Empty: false
+
+Scenarios associated with this corner:
+
+                                                         Leakage   Dynamic
+Scenario            Mode            Active  Setup  Hold  Power     Power     Max_tran  Max_cap  Min_cap  Cell_em  Signal_em
+-------------------------------------------------------------------------------------------------------------------------
+default.ss_m40c     default         true    true   true  true      true      true      true     true     false    false
+
+
+Top-Level PVT Settings:
+  early process label             (none)
+  early process number            0.99
+  early voltage                   0.950
+    source                        UPF
+    file/line                     /home/sica/asic_design_scripts/icc2_pnr/constraints/ss_m40c.tcl, line 6
+  early temperature               -40.000
+    source                        hierarchical setting
+    file/line                     /home/sica/asic_design_scripts/icc2_pnr/constraints/ss_m40c.tcl, line 3
+
+  late process label              (none)
+  late process number             0.99
+  late voltage                    0.950
+    source                        UPF
+    file/line                     /home/sica/asic_design_scripts/icc2_pnr/constraints/ss_m40c.tcl, line 6
+  late temperature                -40.000
+    source                        hierarchical setting
+    file/line                     /home/sica/asic_design_scripts/icc2_pnr/constraints/ss_m40c.tcl, line 3
+
+
+
+
+0 objects with explicit PVT settings.
+
+
+Top-level cell timing derates:
+ data_cell derate early:   rise: 1.000   fall: 1.000 
+ clk_cell derate early:   rise: 1.000   fall: 1.000 
+ cell_check derate early:   rise: 1.000   fall: 1.000 
+ data_cell derate  late:   rise: 1.000   fall: 1.000 
+ clk_cell derate  late:   rise: 1.000   fall: 1.000 
+ cell_check derate  late:   rise: 1.000   fall: 1.000 
+
+Global net timing derates:
+ net_data, early:   rise: 1.000   fall: 1.000 
+ net_data, late:   rise: 1.000   fall: 1.000 
+ net_clock, early:   rise: 1.000   fall: 1.000 
+ net_clock, late:   rise: 1.000   fall: 1.000 
+
+
+1

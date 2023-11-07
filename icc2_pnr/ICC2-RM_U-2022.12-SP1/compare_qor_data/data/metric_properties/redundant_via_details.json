@@ -1,0 +1,16 @@
+{
+  "ConvertedVias": {
+    "group": "Vias",
+    "tooltip": "Number of converted vias for this layer",
+    "absThreshold": "5"
+  },
+  "TotalVias": {
+    "group": "Vias",
+    "tooltip": "Total vias for this layer"
+  },
+  "Conversion%": {
+    "group": "Vias",
+    "tooltip": "Via conversion percent for this layer",
+    "absThreshold": "0.5"
+  }
+}

@@ -1,0 +1,13 @@
+****************************************
+Report : Reference Library Report
+Library: FIFO.dlib
+Version: U-2022.12-SP1
+Date   : Wed Feb 15 17:00:10 2023
+****************************************
+
+    Name                       Path                                                                   Location
+    ----------------------------------------------------------------------------------------------------------
+*+  saed32rvt_frame_timing_ccs /home/tech/SAED32nm/lib/stdcell_rvt/ndm/saed32rvt_frame_timing_ccs.ndm /home/tech/SAED32nm/lib/stdcell_rvt/ndm/saed32rvt_frame_timing_ccs.ndm
+    "*" = Library currently open
+    "+" = Library has technology information
+1

@@ -1,0 +1,52 @@
+****************************************
+Report : power
+        -significant_digits 3
+Design : FIFO
+Version: U-2022.12-SP1
+Date   : Mon Feb 13 16:57:09 2023
+****************************************
+Information: Activity for scenario default.ss_m40c was cached, no propagation required. (POW-005)
+Mode: default
+Corner: ss_m40c
+Scenario: default.ss_m40c
+Voltage: 0.950
+Temperature: -40.000
+
+Voltage Unit         : 1V
+Capacitance Unit     : 1pF
+Time Unit            : 1ns
+Temperature Unit     : 1C
+Dynamic Power Unit   : 1nW
+Leakage Power Unit   : 1nW
+
+Switched supply net power scaling:
+scaling for leakage power
+
+Supply nets:
+VDD (power) probability 1.000 (default)
+VSS (ground) probability 1.000 (default)
+
+  Cell Internal Power    = 1.776e+05 nW ( 78.1%)
+  Net Switching Power    = 4.979e+04 nW ( 21.9%)
+Total Dynamic Power      = 2.274e+05 nW (100.0%)
+
+Cell Leakage Power       = 1.920e+04 nW
+
+
+  Attributes
+  ----------
+      u  -  User defined power group
+      i  -  Includes clock pin internal power
+
+Power Group         Internal Power        Switching Power          Leakage Power            Total Power    (   %  )    Attrs
+-----------------------------------------------------------------------------------------------------------------------------
+io_pad                   0.000e+00              0.000e+00              0.000e+00              0.000e+00    (  0.0%)         
+memory                   0.000e+00              0.000e+00              0.000e+00              0.000e+00    (  0.0%)         
+black_box                0.000e+00              0.000e+00              0.000e+00              0.000e+00    (  0.0%)         
+clock_network            1.697e+05              2.245e+04              3.231e+02              1.925e+05    ( 78.1%)        i
+register                 1.653e+03              1.926e+03              8.069e+03              1.165e+04    (  4.7%)         
+sequential               0.000e+00              0.000e+00              0.000e+00              0.000e+00    (  0.0%)         
+combinational            6.233e+03              2.542e+04              1.081e+04              4.246e+04    ( 17.2%)         
+-----------------------------------------------------------------------------------------------------------------------------
+Total                    1.776e+05 nW           4.979e+04 nW           1.920e+04 nW           2.466e+05 nW
+1

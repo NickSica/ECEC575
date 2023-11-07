@@ -1,0 +1,10 @@
+Voltage_area        Description
+--------------------------------------------------------------------------------
+DEFAULT_VA          not_fixed with 1 shape 
+                    power_domains: DEFAULT_POWER_DOMAIN 
+                    power_net: VDD
+                    ground_net: VSS
+                    use_power_domain_cells: true
+                    local_cells: N/A
+
+1

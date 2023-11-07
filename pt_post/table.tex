@@ -1,0 +1,49 @@
+\documentclass{article}
+\usepackage[left=0.75in, right=0.75in, top=0.75in, bottom=0.75in]{geometry}
+\usepackage{multirow}
+
+\title{IC Compiler Assignment}
+\author{Nicholas Sica}
+\date{March 22, 2023}
+
+\begin{document}
+\maketitle
+
+\begin{table}
+\centering
+\caption{Pre-layout and Post-layout simulation results.}
+\begin{tabular}{ |c|c|c|c|c|c|c|c|c|c|c|c|c| }
+    \hline
+    \multirow{2}{*}{Design} & \multicolumn{5}{|c|}{Pre-Layout Results} & \multicolumn{6}{|c|}{Post-Layout Results} \\
+    \cline{2-12}
+    & Area & Power & WNS & TNS & Cell Count & Area & Power & WNS & TNS & Cell Count & DRC \\
+    \hline
+    s386.v & 185.22 & 5.6739 & 0.42 & 0.00 & 64 & 185.22 & 5.8457 & 0.24 & 0.00 & 64 & 0 \\
+    \hline
+    s1238.v & 1007.51 & 29.4925 & -0.03 & -0.06 & 368 & 959.66 & 29.1348 & 0.17 & 0.00 & 342 & 0 \\
+    \hline
+    s9234.v & 1994.45 & 45.0913 & 0.09 & 0.00 & 495 & 1993.57 & 45.9801 & 0.10 & 0.00 & 493 & 0 \\
+    \hline
+    s15850.v & 6878.56 & 157.3402 & -0.06 & -1.26 & 1652 & 6870.20 & 220.3384 & 0.12 & 0.00 & 1666 & 0 \\
+    \hline
+    s35932.v & 24807.70 & 537.0980 & -0.04 & -0.39 & 5002 & 25783.95 & 794.4180 & 0.17 & 0.00 & 4887 & 0 \\
+    \hline
+\end{tabular}
+\end{table}
+
+\begin{table}
+\centering
+\caption{Clock information.}
+\begin{tabular}{ |c|c|c|c| }
+    \hline
+    Design & \# Clock Sinks & \# Clock Buffers & Global Clock Skew \\
+    \hline
+    s386.v & 6 & 0 & 0.0001 \\
+    s1238.v & 18 & 0 & 0.0007 \\
+    s9234.v & 125 & 0 & 0.0072 \\
+    s15850.v & 442 & 75 & 0.0439 \\
+    s35932.v & 1728 & 81 & 0.0347 \\
+\end{tabular}
+\end{table}
+
+\end{document}

@@ -1,0 +1,305 @@
+Warning: Use -per_clock_root option along with -type latency option to split the reporting of a clock to per clock root, so that the clock trees associated with different root pins are reported separately
+ Info: Initializing timer in CLOCK_SYN_REPORT_MODE
+Information: The value of option cts.compile.enable_cell_relocation has been overridden to "leaf_only" to support latency-driven placement. (CTS-973)
+Information: Timer using 1 threads
+Information: Activity for scenario default.ss_m40c was cached, no propagation required. (POW-005)
+Warning: time.si_enable_analysis is on, it could increase the runtime and memory usage. 
+Information: Activity for scenario default.ss_m40c was cached, no propagation required. (POW-005)
+****************************************
+Report : clock qor
+        -type latency
+        -show_paths
+        -nosplit
+Design : FIFO
+Version: U-2022.12-SP1
+Date   : Mon Feb 13 16:57:48 2023
+****************************************
+
+Attributes
+===========
+M Master Clock
+G Generated Clock
+& Internal Generated Clock
+U User Defined Skew Group
+D Default Skew Group
+* Generated Clock Balanced Separately
+
+==============================================
+==== Latency Reporting for Corner ss_m40c ====
+==============================================
+
+=================================================== Summary Table for Corner ss_m40c ===================================================
+Clock /                               Attrs     Sinks    Target    Global    Target       Max       Min    Median   Latency  Boundary
+Skew Group                                                 Skew      Skew   Latency   Latency   Latency   Latency   Std Dev      Skew
+----------------------------------------------------------------------------------------------------------------------------------------
+### Mode: default, Scenario: default.ss_m40c
+ideal_clock1                            M,D       229     2.280     0.020        --     0.058     0.038     0.046     0.007        --
+----------------------------------------------------------------------------------------------------------------------------------------
+All Clocks                                        229        --     0.020        --     0.058     0.038        --        --        --
+
+
+  & = Offset derived from max_clock_tree_path / min_clock_tree_path
+  r = latency reported is for a rising edge triggered event at the sink
+  f = latency reported is for a falling edge triggered event at the sink
+
+
+Showing 5 largest and 5 smallest datapoints per clock / skew group (L=largest, S=smallest)
+========================================== Details Table for Corner ss_m40c ==========================================
+Clock /                                Sink                             Launch     Capture        Late       Early
+Skew Group                             Name                            Latency     Latency      Offset      Offset
+----------------------------------------------------------------------------------------------------------------------
+### Mode: default, Scenario: default.ss_m40c
+ideal_clock1
+                                   L   memblk/FIFO_reg[2][23]/CP         0.058 r     0.058 r        --          --
+                                   L   memblk/FIFO_reg[2][21]/CP         0.058 r     0.058 r        --          --
+                                   L   memblk/FIFO_reg[0][13]/CP         0.058 r     0.058 r        --          --
+                                   L   memblk/FIFO_reg[0][2]/CP          0.058 r     0.058 r        --          --
+                                   L   memblk/FIFO_reg[1][13]/CP         0.058 r     0.058 r        --          --
+                                   S   rd_ptr_reg[23]/CP                 0.038 r     0.038 r        --          --
+                                   S   rd_ptr_reg[24]/CP                 0.038 r     0.038 r        --          --
+                                   S   rd_ptr_reg[27]/CP                 0.038 r     0.038 r        --          --
+                                   S   rd_ptr_reg[22]/CP                 0.038 r     0.038 r        --          --
+                                   S   rd_ptr_reg[21]/CP                 0.038 r     0.038 r        --          --
+
+
+=========================================
+==== Path Reports for Corner ss_m40c ====
+=========================================
+Reporting paths for 5 largest and 5 smallest datapoints per clock / skew group
+
+---------------------------------------------
+Largest Path #1
+Mode                : default
+Corner              : ss_m40c
+Scenario            : default.ss_m40c
+Skew Group          : default_ideal_clock1
+Clock Fanout        : ideal_clock1
+Clock at Sink       : ideal_clock1
+Sink                : memblk/FIFO_reg[2][23]/CP
+Latency             : 0.058
+---------------------------------------------
+
+  Point                                          Fanout    Cap     Trans    Incr      Path  
+  --------------------------------------------------------------------------------------------------
+  source latency                                                             0.000    0.000
+  Clk (in)                                          5      0.029    0.000    0.000    0.000 r
+  memblk/clock_opt_cts_ZCTSNET_3 (FIFO_MEM_BLK)     5      0.029    0.000    0.000    0.000 r
+  memblk/clock_opt_cts_ZCTSBUF_5160_434/I (BUFFD4)                  0.002    0.001    0.001 r
+  memblk/clock_opt_cts_ZCTSBUF_5160_434/Z (BUFFD4)   42    0.071    0.110    0.056    0.058 r ~
+  memblk/FIFO_reg[2][23]/CP (DFQD1)                                 0.111    0.000    0.058 r
+  --------------------------------------------------------------------------------------------------
+  total clock latency                                                                 0.058
+
+
+---------------------------------------------
+Largest Path #2
+Mode                : default
+Corner              : ss_m40c
+Scenario            : default.ss_m40c
+Skew Group          : default_ideal_clock1
+Clock Fanout        : ideal_clock1
+Clock at Sink       : ideal_clock1
+Sink                : memblk/FIFO_reg[2][21]/CP
+Latency             : 0.058
+---------------------------------------------
+
+  Point                                          Fanout    Cap     Trans    Incr      Path  
+  --------------------------------------------------------------------------------------------------
+  source latency                                                             0.000    0.000
+  Clk (in)                                          5      0.029    0.000    0.000    0.000 r
+  memblk/clock_opt_cts_ZCTSNET_3 (FIFO_MEM_BLK)     5      0.029    0.000    0.000    0.000 r
+  memblk/clock_opt_cts_ZCTSBUF_5160_434/I (BUFFD4)                  0.002    0.001    0.001 r
+  memblk/clock_opt_cts_ZCTSBUF_5160_434/Z (BUFFD4)   42    0.071    0.110    0.056    0.058 r ~
+  memblk/FIFO_reg[2][21]/CP (DFQD1)                                 0.111    0.000    0.058 r
+  --------------------------------------------------------------------------------------------------
+  total clock latency                                                                 0.058
+
+
+---------------------------------------------
+Largest Path #3
+Mode                : default
+Corner              : ss_m40c
+Scenario            : default.ss_m40c
+Skew Group          : default_ideal_clock1
+Clock Fanout        : ideal_clock1
+Clock at Sink       : ideal_clock1
+Sink                : memblk/FIFO_reg[0][13]/CP
+Latency             : 0.058
+---------------------------------------------
+
+  Point                                          Fanout    Cap     Trans    Incr      Path  
+  --------------------------------------------------------------------------------------------------
+  source latency                                                             0.000    0.000
+  Clk (in)                                          5      0.029    0.000    0.000    0.000 r
+  memblk/clock_opt_cts_ZCTSNET_3 (FIFO_MEM_BLK)     5      0.029    0.000    0.000    0.000 r
+  memblk/clock_opt_cts_ZCTSBUF_5160_434/I (BUFFD4)                  0.002    0.001    0.001 r
+  memblk/clock_opt_cts_ZCTSBUF_5160_434/Z (BUFFD4)   42    0.071    0.110    0.056    0.058 r ~
+  memblk/FIFO_reg[0][13]/CP (DFQD1)                                 0.111    0.000    0.058 r
+  --------------------------------------------------------------------------------------------------
+  total clock latency                                                                 0.058
+
+
+---------------------------------------------
+Largest Path #4
+Mode                : default
+Corner              : ss_m40c
+Scenario            : default.ss_m40c
+Skew Group          : default_ideal_clock1
+Clock Fanout        : ideal_clock1
+Clock at Sink       : ideal_clock1
+Sink                : memblk/FIFO_reg[0][2]/CP
+Latency             : 0.058
+---------------------------------------------
+
+  Point                                          Fanout    Cap     Trans    Incr      Path  
+  --------------------------------------------------------------------------------------------------
+  source latency                                                             0.000    0.000
+  Clk (in)                                          5      0.029    0.000    0.000    0.000 r
+  memblk/clock_opt_cts_ZCTSNET_3 (FIFO_MEM_BLK)     5      0.029    0.000    0.000    0.000 r
+  memblk/clock_opt_cts_ZCTSBUF_5160_434/I (BUFFD4)                  0.002    0.001    0.001 r
+  memblk/clock_opt_cts_ZCTSBUF_5160_434/Z (BUFFD4)   42    0.071    0.110    0.056    0.058 r ~
+  memblk/FIFO_reg[0][2]/CP (DFQD1)                                  0.111    0.000    0.058 r
+  --------------------------------------------------------------------------------------------------
+  total clock latency                                                                 0.058
+
+
+---------------------------------------------
+Largest Path #5
+Mode                : default
+Corner              : ss_m40c
+Scenario            : default.ss_m40c
+Skew Group          : default_ideal_clock1
+Clock Fanout        : ideal_clock1
+Clock at Sink       : ideal_clock1
+Sink                : memblk/FIFO_reg[1][13]/CP
+Latency             : 0.058
+---------------------------------------------
+
+  Point                                          Fanout    Cap     Trans    Incr      Path  
+  --------------------------------------------------------------------------------------------------
+  source latency                                                             0.000    0.000
+  Clk (in)                                          5      0.029    0.000    0.000    0.000 r
+  memblk/clock_opt_cts_ZCTSNET_3 (FIFO_MEM_BLK)     5      0.029    0.000    0.000    0.000 r
+  memblk/clock_opt_cts_ZCTSBUF_5160_434/I (BUFFD4)                  0.002    0.001    0.001 r
+  memblk/clock_opt_cts_ZCTSBUF_5160_434/Z (BUFFD4)   42    0.071    0.110    0.056    0.058 r ~
+  memblk/FIFO_reg[1][13]/CP (DFQD1)                                 0.111    0.000    0.058 r
+  --------------------------------------------------------------------------------------------------
+  total clock latency                                                                 0.058
+
+
+---------------------------------------------
+Smallest Path #1
+Mode                : default
+Corner              : ss_m40c
+Scenario            : default.ss_m40c
+Skew Group          : default_ideal_clock1
+Clock Fanout        : ideal_clock1
+Clock at Sink       : ideal_clock1
+Sink                : rd_ptr_reg[23]/CP
+Latency             : 0.038
+---------------------------------------------
+
+  Point                                          Fanout    Cap     Trans    Incr      Path  
+  --------------------------------------------------------------------------------------------------
+  source latency                                                             0.000    0.000
+  Clk (in)                                          5      0.029    0.000    0.000    0.000 r
+  clock_opt_cts_ctosc_gls_inst_482/I (BUFFD12)                      0.000   -0.000   -0.000 r
+  clock_opt_cts_ctosc_gls_inst_482/Z (BUFFD12)     58      0.088    0.049    0.037    0.037 r ~
+  rd_ptr_reg[23]/CP (DFCNQD1)                                       0.049    0.000    0.038 r
+  --------------------------------------------------------------------------------------------------
+  total clock latency                                                                 0.038
+
+
+---------------------------------------------
+Smallest Path #2
+Mode                : default
+Corner              : ss_m40c
+Scenario            : default.ss_m40c
+Skew Group          : default_ideal_clock1
+Clock Fanout        : ideal_clock1
+Clock at Sink       : ideal_clock1
+Sink                : rd_ptr_reg[24]/CP
+Latency             : 0.038
+---------------------------------------------
+
+  Point                                          Fanout    Cap     Trans    Incr      Path  
+  --------------------------------------------------------------------------------------------------
+  source latency                                                             0.000    0.000
+  Clk (in)                                          5      0.029    0.000    0.000    0.000 r
+  clock_opt_cts_ctosc_gls_inst_482/I (BUFFD12)                      0.000   -0.000   -0.000 r
+  clock_opt_cts_ctosc_gls_inst_482/Z (BUFFD12)     58      0.088    0.049    0.037    0.037 r ~
+  rd_ptr_reg[24]/CP (DFCNQD1)                                       0.049    0.000    0.038 r
+  --------------------------------------------------------------------------------------------------
+  total clock latency                                                                 0.038
+
+
+---------------------------------------------
+Smallest Path #3
+Mode                : default
+Corner              : ss_m40c
+Scenario            : default.ss_m40c
+Skew Group          : default_ideal_clock1
+Clock Fanout        : ideal_clock1
+Clock at Sink       : ideal_clock1
+Sink                : rd_ptr_reg[27]/CP
+Latency             : 0.038
+---------------------------------------------
+
+  Point                                          Fanout    Cap     Trans    Incr      Path  
+  --------------------------------------------------------------------------------------------------
+  source latency                                                             0.000    0.000
+  Clk (in)                                          5      0.029    0.000    0.000    0.000 r
+  clock_opt_cts_ctosc_gls_inst_482/I (BUFFD12)                      0.000   -0.000   -0.000 r
+  clock_opt_cts_ctosc_gls_inst_482/Z (BUFFD12)     58      0.088    0.049    0.037    0.037 r ~
+  rd_ptr_reg[27]/CP (DFCNQD1)                                       0.049    0.000    0.038 r
+  --------------------------------------------------------------------------------------------------
+  total clock latency                                                                 0.038
+
+
+---------------------------------------------
+Smallest Path #4
+Mode                : default
+Corner              : ss_m40c
+Scenario            : default.ss_m40c
+Skew Group          : default_ideal_clock1
+Clock Fanout        : ideal_clock1
+Clock at Sink       : ideal_clock1
+Sink                : rd_ptr_reg[22]/CP
+Latency             : 0.038
+---------------------------------------------
+
+  Point                                          Fanout    Cap     Trans    Incr      Path  
+  --------------------------------------------------------------------------------------------------
+  source latency                                                             0.000    0.000
+  Clk (in)                                          5      0.029    0.000    0.000    0.000 r
+  clock_opt_cts_ctosc_gls_inst_482/I (BUFFD12)                      0.000   -0.000   -0.000 r
+  clock_opt_cts_ctosc_gls_inst_482/Z (BUFFD12)     58      0.088    0.049    0.037    0.037 r ~
+  rd_ptr_reg[22]/CP (DFCNQD1)                                       0.049    0.000    0.038 r
+  --------------------------------------------------------------------------------------------------
+  total clock latency                                                                 0.038
+
+
+---------------------------------------------
+Smallest Path #5
+Mode                : default
+Corner              : ss_m40c
+Scenario            : default.ss_m40c
+Skew Group          : default_ideal_clock1
+Clock Fanout        : ideal_clock1
+Clock at Sink       : ideal_clock1
+Sink                : rd_ptr_reg[21]/CP
+Latency             : 0.038
+---------------------------------------------
+
+  Point                                          Fanout    Cap     Trans    Incr      Path  
+  --------------------------------------------------------------------------------------------------
+  source latency                                                             0.000    0.000
+  Clk (in)                                          5      0.029    0.000    0.000    0.000 r
+  clock_opt_cts_ctosc_gls_inst_482/I (BUFFD12)                      0.000   -0.000   -0.000 r
+  clock_opt_cts_ctosc_gls_inst_482/Z (BUFFD12)     58      0.088    0.049    0.037    0.037 r ~
+  rd_ptr_reg[21]/CP (DFCNQD1)                                       0.049    0.001    0.038 r
+  --------------------------------------------------------------------------------------------------
+  total clock latency                                                                 0.038
+
+
+1

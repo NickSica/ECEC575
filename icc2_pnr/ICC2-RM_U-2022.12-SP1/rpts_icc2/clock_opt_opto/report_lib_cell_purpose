@@ -1,0 +1,825 @@
+****************************************
+Report : lib_cell
+Version: U-2022.12-SP1
+Date   : Mon Feb 13 16:56:03 2023
+****************************************
+
+full_name            valid_purposes             
+-------------------- ---------------------------
+tsmc65nm/AN2D0       power hold optimization    
+tsmc65nm/AN2D1       power hold optimization    
+tsmc65nm/AN2D2       power hold optimization    
+tsmc65nm/AN2D4       power hold optimization    
+tsmc65nm/AN2D8       power hold optimization    
+tsmc65nm/AN2XD1      power hold optimization    
+tsmc65nm/AN3D0       power hold optimization    
+tsmc65nm/AN3D1       power hold optimization    
+tsmc65nm/AN3D2       power hold optimization    
+tsmc65nm/AN3D4       power hold optimization    
+tsmc65nm/AN3D8       power hold optimization    
+tsmc65nm/AN3XD1      power hold optimization    
+tsmc65nm/AN4D0       power hold optimization    
+tsmc65nm/AN4D1       power hold optimization    
+tsmc65nm/AN4D2       power hold optimization    
+tsmc65nm/AN4D4       power hold optimization    
+tsmc65nm/AN4D8       power hold optimization    
+tsmc65nm/AN4XD1      power hold optimization    
+tsmc65nm/ANTENNA     power hold optimization    
+tsmc65nm/AO211D0     power hold optimization    
+tsmc65nm/AO211D1     power hold optimization    
+tsmc65nm/AO211D2     power hold optimization    
+tsmc65nm/AO211D4     power hold optimization    
+tsmc65nm/AO21D0      power hold optimization    
+tsmc65nm/AO21D1      power hold optimization    
+tsmc65nm/AO21D2      power hold optimization    
+tsmc65nm/AO21D4      power hold optimization    
+tsmc65nm/AO221D0     power hold optimization    
+tsmc65nm/AO221D1     power hold optimization    
+tsmc65nm/AO221D2     power hold optimization    
+tsmc65nm/AO221D4     power hold optimization    
+tsmc65nm/AO222D0     power hold optimization    
+tsmc65nm/AO222D1     power hold optimization    
+tsmc65nm/AO222D2     power hold optimization    
+tsmc65nm/AO222D4     power hold optimization    
+tsmc65nm/AO22D0      power hold optimization    
+tsmc65nm/AO22D1      power hold optimization    
+tsmc65nm/AO22D2      power hold optimization    
+tsmc65nm/AO22D4      power hold optimization    
+tsmc65nm/AO31D0      power hold optimization    
+tsmc65nm/AO31D1      power hold optimization    
+tsmc65nm/AO31D2      power hold optimization    
+tsmc65nm/AO31D4      power hold optimization    
+tsmc65nm/AO32D0      power hold optimization    
+tsmc65nm/AO32D1      power hold optimization    
+tsmc65nm/AO32D2      power hold optimization    
+tsmc65nm/AO32D4      power hold optimization    
+tsmc65nm/AO33D0      power hold optimization    
+tsmc65nm/AO33D1      power hold optimization    
+tsmc65nm/AO33D2      power hold optimization    
+tsmc65nm/AO33D4      power hold optimization    
+tsmc65nm/AOI211D0    power hold cts optimization
+tsmc65nm/AOI211D1    power hold cts optimization
+tsmc65nm/AOI211D2    power hold cts optimization
+tsmc65nm/AOI211D4    power hold cts optimization
+tsmc65nm/AOI211XD0   power hold cts optimization
+tsmc65nm/AOI211XD1   power hold cts optimization
+tsmc65nm/AOI211XD2   power hold cts optimization
+tsmc65nm/AOI211XD4   power hold cts optimization
+tsmc65nm/AOI21D0     power hold cts optimization
+tsmc65nm/AOI21D1     power hold cts optimization
+tsmc65nm/AOI21D2     power hold cts optimization
+tsmc65nm/AOI21D4     power hold cts optimization
+tsmc65nm/AOI221D0    power hold cts optimization
+tsmc65nm/AOI221D1    power hold cts optimization
+tsmc65nm/AOI221D2    power hold cts optimization
+tsmc65nm/AOI221D4    power hold cts optimization
+tsmc65nm/AOI221XD4   power hold cts optimization
+tsmc65nm/AOI222D0    power hold cts optimization
+tsmc65nm/AOI222D1    power hold cts optimization
+tsmc65nm/AOI222D2    power hold cts optimization
+tsmc65nm/AOI222D4    power hold cts optimization
+tsmc65nm/AOI222XD4   power hold cts optimization
+tsmc65nm/AOI22D0     power hold cts optimization
+tsmc65nm/AOI22D1     power hold cts optimization
+tsmc65nm/AOI22D2     power hold cts optimization
+tsmc65nm/AOI22D4     power hold cts optimization
+tsmc65nm/AOI31D0     power hold cts optimization
+tsmc65nm/AOI31D1     power hold cts optimization
+tsmc65nm/AOI31D2     power hold cts optimization
+tsmc65nm/AOI31D4     power hold cts optimization
+tsmc65nm/AOI32D0     power hold cts optimization
+tsmc65nm/AOI32D1     power hold cts optimization
+tsmc65nm/AOI32D2     power hold cts optimization
+tsmc65nm/AOI32D4     power hold cts optimization
+tsmc65nm/AOI32XD4    power hold cts optimization
+tsmc65nm/AOI33D0     power hold cts optimization
+tsmc65nm/AOI33D1     power hold cts optimization
+tsmc65nm/AOI33D2     power hold cts optimization
+tsmc65nm/AOI33D4     power hold cts optimization
+tsmc65nm/AOI33XD4    power hold cts optimization
+tsmc65nm/BENCD1      power hold optimization    
+tsmc65nm/BENCD2      power hold optimization    
+tsmc65nm/BENCD4      power hold optimization    
+tsmc65nm/BHD                                    
+tsmc65nm/BMLD1       power hold optimization    
+tsmc65nm/BMLD2       power hold optimization    
+tsmc65nm/BMLD4       power hold optimization    
+tsmc65nm/BUFFD0      power hold cts optimization
+tsmc65nm/BUFFD1      power hold cts optimization
+tsmc65nm/BUFFD12     power hold cts optimization
+tsmc65nm/BUFFD16     power hold cts optimization
+tsmc65nm/BUFFD2      power hold cts optimization
+tsmc65nm/BUFFD20     cts                        
+tsmc65nm/BUFFD24     cts                        
+tsmc65nm/BUFFD3      power hold cts optimization
+tsmc65nm/BUFFD4      power hold cts optimization
+tsmc65nm/BUFFD6      power hold cts optimization
+tsmc65nm/BUFFD8      power hold cts optimization
+tsmc65nm/BUFTD0      power hold optimization    
+tsmc65nm/BUFTD1      power hold optimization    
+tsmc65nm/BUFTD12     power hold optimization    
+tsmc65nm/BUFTD16     power hold optimization    
+tsmc65nm/BUFTD2      power hold optimization    
+tsmc65nm/BUFTD20                                
+tsmc65nm/BUFTD24                                
+tsmc65nm/BUFTD3      power hold optimization    
+tsmc65nm/BUFTD4      power hold optimization    
+tsmc65nm/BUFTD6      power hold optimization    
+tsmc65nm/BUFTD8      power hold optimization    
+tsmc65nm/CKAN2D0     power hold optimization    
+tsmc65nm/CKAN2D1     power hold optimization    
+tsmc65nm/CKAN2D2     power hold optimization    
+tsmc65nm/CKAN2D4     power hold optimization    
+tsmc65nm/CKAN2D8     power hold optimization    
+tsmc65nm/CKBD0       power hold optimization    
+tsmc65nm/CKBD1       power hold optimization    
+tsmc65nm/CKBD12      power hold optimization    
+tsmc65nm/CKBD16      power hold optimization    
+tsmc65nm/CKBD2       power hold optimization    
+tsmc65nm/CKBD20                                 
+tsmc65nm/CKBD24                                 
+tsmc65nm/CKBD3       power hold optimization    
+tsmc65nm/CKBD4       power hold optimization    
+tsmc65nm/CKBD6       power hold optimization    
+tsmc65nm/CKBD8       power hold optimization    
+tsmc65nm/CKLHQD1     power hold optimization    
+tsmc65nm/CKLHQD12    power hold optimization    
+tsmc65nm/CKLHQD16    power hold optimization    
+tsmc65nm/CKLHQD2     power hold optimization    
+tsmc65nm/CKLHQD20                               
+tsmc65nm/CKLHQD24                               
+tsmc65nm/CKLHQD3     power hold optimization    
+tsmc65nm/CKLHQD4     power hold optimization    
+tsmc65nm/CKLHQD6     power hold optimization    
+tsmc65nm/CKLHQD8     power hold optimization    
+tsmc65nm/CKLNQD1     power hold optimization    
+tsmc65nm/CKLNQD12    power hold optimization    
+tsmc65nm/CKLNQD16    power hold optimization    
+tsmc65nm/CKLNQD2     power hold optimization    
+tsmc65nm/CKLNQD20                               
+tsmc65nm/CKLNQD24                               
+tsmc65nm/CKLNQD3     power hold optimization    
+tsmc65nm/CKLNQD4     power hold optimization    
+tsmc65nm/CKLNQD6     power hold optimization    
+tsmc65nm/CKLNQD8     power hold optimization    
+tsmc65nm/CKMUX2D0    power hold optimization    
+tsmc65nm/CKMUX2D1    power hold optimization    
+tsmc65nm/CKMUX2D2    power hold optimization    
+tsmc65nm/CKMUX2D4    power hold optimization    
+tsmc65nm/CKND0       power hold optimization    
+tsmc65nm/CKND1       power hold optimization    
+tsmc65nm/CKND12      power hold optimization    
+tsmc65nm/CKND16      power hold optimization    
+tsmc65nm/CKND2       power hold optimization    
+tsmc65nm/CKND20                                 
+tsmc65nm/CKND24                                 
+tsmc65nm/CKND2D0     power hold optimization    
+tsmc65nm/CKND2D1     power hold optimization    
+tsmc65nm/CKND2D2     power hold optimization    
+tsmc65nm/CKND2D3     power hold optimization    
+tsmc65nm/CKND2D4     power hold optimization    
+tsmc65nm/CKND2D8     power hold optimization    
+tsmc65nm/CKND3       power hold optimization    
+tsmc65nm/CKND4       power hold optimization    
+tsmc65nm/CKND6       power hold optimization    
+tsmc65nm/CKND8       power hold optimization    
+tsmc65nm/CKXOR2D0    power hold optimization    
+tsmc65nm/CKXOR2D1    power hold optimization    
+tsmc65nm/CKXOR2D2    power hold optimization    
+tsmc65nm/CKXOR2D4    power hold optimization    
+tsmc65nm/CMPE42D1    power hold optimization    
+tsmc65nm/CMPE42D2    power hold optimization    
+tsmc65nm/DCAP        power hold optimization    
+tsmc65nm/DCAP16      power hold optimization    
+tsmc65nm/DCAP32      power hold optimization    
+tsmc65nm/DCAP4       power hold optimization    
+tsmc65nm/DCAP64      power hold optimization    
+tsmc65nm/DCAP8       power hold optimization    
+tsmc65nm/DEL0        power hold optimization    
+tsmc65nm/DEL005      power hold optimization    
+tsmc65nm/DEL01       power hold optimization    
+tsmc65nm/DEL015      power hold optimization    
+tsmc65nm/DEL02       power hold optimization    
+tsmc65nm/DEL1        power hold optimization    
+tsmc65nm/DEL2        power hold optimization    
+tsmc65nm/DEL3        power hold optimization    
+tsmc65nm/DEL4        power hold optimization    
+tsmc65nm/DFCND1      power hold optimization    
+tsmc65nm/DFCND2      power hold optimization    
+tsmc65nm/DFCND4      power hold optimization    
+tsmc65nm/DFCNQD1     power hold optimization    
+tsmc65nm/DFCNQD2     power hold optimization    
+tsmc65nm/DFCNQD4     power hold optimization    
+tsmc65nm/DFCSND1     power hold optimization    
+tsmc65nm/DFCSND2     power hold optimization    
+tsmc65nm/DFCSND4     power hold optimization    
+tsmc65nm/DFCSNQD1    power hold optimization    
+tsmc65nm/DFCSNQD2    power hold optimization    
+tsmc65nm/DFCSNQD4    power hold optimization    
+tsmc65nm/DFD1        power hold optimization    
+tsmc65nm/DFD2        power hold optimization    
+tsmc65nm/DFD4        power hold optimization    
+tsmc65nm/DFKCND1     power hold optimization    
+tsmc65nm/DFKCND2     power hold optimization    
+tsmc65nm/DFKCND4     power hold optimization    
+tsmc65nm/DFKCNQD1    power hold optimization    
+tsmc65nm/DFKCNQD2    power hold optimization    
+tsmc65nm/DFKCNQD4    power hold optimization    
+tsmc65nm/DFKCSND1    power hold optimization    
+tsmc65nm/DFKCSND2    power hold optimization    
+tsmc65nm/DFKCSND4    power hold optimization    
+tsmc65nm/DFKSND1     power hold optimization    
+tsmc65nm/DFKSND2     power hold optimization    
+tsmc65nm/DFKSND4     power hold optimization    
+tsmc65nm/DFNCND1     power hold optimization    
+tsmc65nm/DFNCND2     power hold optimization    
+tsmc65nm/DFNCND4     power hold optimization    
+tsmc65nm/DFNCSND1    power hold optimization    
+tsmc65nm/DFNCSND2    power hold optimization    
+tsmc65nm/DFNCSND4    power hold optimization    
+tsmc65nm/DFND1       power hold optimization    
+tsmc65nm/DFND2       power hold optimization    
+tsmc65nm/DFND4       power hold optimization    
+tsmc65nm/DFNSND1     power hold optimization    
+tsmc65nm/DFNSND2     power hold optimization    
+tsmc65nm/DFNSND4     power hold optimization    
+tsmc65nm/DFQD1       power hold optimization    
+tsmc65nm/DFQD2       power hold optimization    
+tsmc65nm/DFQD4       power hold optimization    
+tsmc65nm/DFSND1      power hold optimization    
+tsmc65nm/DFSND2      power hold optimization    
+tsmc65nm/DFSND4      power hold optimization    
+tsmc65nm/DFSNQD1     power hold optimization    
+tsmc65nm/DFSNQD2     power hold optimization    
+tsmc65nm/DFSNQD4     power hold optimization    
+tsmc65nm/DFXD1       power hold optimization    
+tsmc65nm/DFXD2       power hold optimization    
+tsmc65nm/DFXD4       power hold optimization    
+tsmc65nm/DFXQD1      power hold optimization    
+tsmc65nm/DFXQD2      power hold optimization    
+tsmc65nm/DFXQD4      power hold optimization    
+tsmc65nm/EDFCND1     power hold optimization    
+tsmc65nm/EDFCND2     power hold optimization    
+tsmc65nm/EDFCND4     power hold optimization    
+tsmc65nm/EDFCNQD1    power hold optimization    
+tsmc65nm/EDFCNQD2    power hold optimization    
+tsmc65nm/EDFCNQD4    power hold optimization    
+tsmc65nm/EDFD1       power hold optimization    
+tsmc65nm/EDFD2       power hold optimization    
+tsmc65nm/EDFD4       power hold optimization    
+tsmc65nm/EDFKCND1    power hold optimization    
+tsmc65nm/EDFKCND2    power hold optimization    
+tsmc65nm/EDFKCND4    power hold optimization    
+tsmc65nm/EDFKCNQD1   power hold optimization    
+tsmc65nm/EDFKCNQD2   power hold optimization    
+tsmc65nm/EDFKCNQD4   power hold optimization    
+tsmc65nm/EDFQD1      power hold optimization    
+tsmc65nm/EDFQD2      power hold optimization    
+tsmc65nm/EDFQD4      power hold optimization    
+tsmc65nm/FA1D0       power hold optimization    
+tsmc65nm/FA1D1       power hold optimization    
+tsmc65nm/FA1D2       power hold optimization    
+tsmc65nm/FA1D4       power hold optimization    
+tsmc65nm/FCICIND1    power hold optimization    
+tsmc65nm/FCICIND2    power hold optimization    
+tsmc65nm/FCICOND1    power hold optimization    
+tsmc65nm/FCICOND2    power hold optimization    
+tsmc65nm/FCSICIND1   power hold optimization    
+tsmc65nm/FCSICIND2   power hold optimization    
+tsmc65nm/FCSICOND1   power hold optimization    
+tsmc65nm/FCSICOND2   power hold optimization    
+tsmc65nm/FICIND1     power hold optimization    
+tsmc65nm/FICIND2     power hold optimization    
+tsmc65nm/FICOND1     power hold optimization    
+tsmc65nm/FICOND2     power hold optimization    
+tsmc65nm/FIICOND1    power hold optimization    
+tsmc65nm/FIICOND2    power hold optimization    
+tsmc65nm/GAN2D1                                 
+tsmc65nm/GAN2D2                                 
+tsmc65nm/GAOI21D1                               
+tsmc65nm/GAOI21D2                               
+tsmc65nm/GAOI22D1                               
+tsmc65nm/GBUFFD1                                
+tsmc65nm/GBUFFD2                                
+tsmc65nm/GBUFFD3                                
+tsmc65nm/GBUFFD4                                
+tsmc65nm/GBUFFD8                                
+tsmc65nm/GDCAP                                  
+tsmc65nm/GDCAP10                                
+tsmc65nm/GDCAP2                                 
+tsmc65nm/GDCAP3                                 
+tsmc65nm/GDCAP4                                 
+tsmc65nm/GDFCNQD1                               
+tsmc65nm/GDFQD1                                 
+tsmc65nm/GFILL                                  
+tsmc65nm/GFILL10                                
+tsmc65nm/GFILL2                                 
+tsmc65nm/GFILL3                                 
+tsmc65nm/GFILL4                                 
+tsmc65nm/GINVD1                                 
+tsmc65nm/GINVD2                                 
+tsmc65nm/GINVD3                                 
+tsmc65nm/GINVD4                                 
+tsmc65nm/GINVD8                                 
+tsmc65nm/GMUX2D1                                
+tsmc65nm/GMUX2D2                                
+tsmc65nm/GMUX2ND1                               
+tsmc65nm/GMUX2ND2                               
+tsmc65nm/GND2D1                                 
+tsmc65nm/GND2D2                                 
+tsmc65nm/GND2D3                                 
+tsmc65nm/GND2D4                                 
+tsmc65nm/GND3D1                                 
+tsmc65nm/GND3D2                                 
+tsmc65nm/GNR2D1                                 
+tsmc65nm/GNR2D2                                 
+tsmc65nm/GNR3D1                                 
+tsmc65nm/GNR3D2                                 
+tsmc65nm/GOAI21D1                               
+tsmc65nm/GOAI21D2                               
+tsmc65nm/GOR2D1                                 
+tsmc65nm/GOR2D2                                 
+tsmc65nm/GSDFCNQD1                              
+tsmc65nm/GTIEH                                  
+tsmc65nm/GTIEL                                  
+tsmc65nm/GXNR2D1                                
+tsmc65nm/GXNR2D2                                
+tsmc65nm/GXOR2D1                                
+tsmc65nm/GXOR2D2                                
+tsmc65nm/HA1D0       power hold optimization    
+tsmc65nm/HA1D1       power hold optimization    
+tsmc65nm/HA1D2       power hold optimization    
+tsmc65nm/HA1D4       power hold optimization    
+tsmc65nm/HCOSCIND1   power hold optimization    
+tsmc65nm/HCOSCIND2   power hold optimization    
+tsmc65nm/HCOSCOND1   power hold optimization    
+tsmc65nm/HCOSCOND2   power hold optimization    
+tsmc65nm/HICIND1     power hold optimization    
+tsmc65nm/HICIND2     power hold optimization    
+tsmc65nm/HICOND1     power hold optimization    
+tsmc65nm/HICOND2     power hold optimization    
+tsmc65nm/IAO21D0     power hold optimization    
+tsmc65nm/IAO21D1     power hold optimization    
+tsmc65nm/IAO21D2     power hold optimization    
+tsmc65nm/IAO21D4     power hold optimization    
+tsmc65nm/IAO22D0     power hold optimization    
+tsmc65nm/IAO22D1     power hold optimization    
+tsmc65nm/IAO22D2     power hold optimization    
+tsmc65nm/IAO22D4     power hold optimization    
+tsmc65nm/IIND4D0     power hold optimization    
+tsmc65nm/IIND4D1     power hold optimization    
+tsmc65nm/IIND4D2     power hold optimization    
+tsmc65nm/IIND4D4     power hold optimization    
+tsmc65nm/IINR4D0     power hold optimization    
+tsmc65nm/IINR4D1     power hold optimization    
+tsmc65nm/IINR4D2     power hold optimization    
+tsmc65nm/IINR4D4     power hold optimization    
+tsmc65nm/IND2D0      power hold optimization    
+tsmc65nm/IND2D1      power hold optimization    
+tsmc65nm/IND2D2      power hold optimization    
+tsmc65nm/IND2D4      power hold optimization    
+tsmc65nm/IND3D0      power hold optimization    
+tsmc65nm/IND3D1      power hold optimization    
+tsmc65nm/IND3D2      power hold optimization    
+tsmc65nm/IND3D4      power hold optimization    
+tsmc65nm/IND4D0      power hold optimization    
+tsmc65nm/IND4D1      power hold optimization    
+tsmc65nm/IND4D2      power hold optimization    
+tsmc65nm/IND4D4      power hold optimization    
+tsmc65nm/INR2D0      power hold optimization    
+tsmc65nm/INR2D1      power hold optimization    
+tsmc65nm/INR2D2      power hold optimization    
+tsmc65nm/INR2D4      power hold optimization    
+tsmc65nm/INR2XD0     power hold optimization    
+tsmc65nm/INR2XD1     power hold optimization    
+tsmc65nm/INR2XD2     power hold optimization    
+tsmc65nm/INR2XD4     power hold optimization    
+tsmc65nm/INR3D0      power hold optimization    
+tsmc65nm/INR3D1      power hold optimization    
+tsmc65nm/INR3D2      power hold optimization    
+tsmc65nm/INR3D4      power hold optimization    
+tsmc65nm/INR4D0      power hold optimization    
+tsmc65nm/INR4D1      power hold optimization    
+tsmc65nm/INR4D2      power hold optimization    
+tsmc65nm/INR4D4      power hold optimization    
+tsmc65nm/INVD0       power hold optimization    
+tsmc65nm/INVD1       power hold optimization    
+tsmc65nm/INVD12      power hold optimization    
+tsmc65nm/INVD16      power hold optimization    
+tsmc65nm/INVD2       power hold optimization    
+tsmc65nm/INVD20                                 
+tsmc65nm/INVD24                                 
+tsmc65nm/INVD3       power hold optimization    
+tsmc65nm/INVD4       power hold optimization    
+tsmc65nm/INVD6       power hold optimization    
+tsmc65nm/INVD8       power hold optimization    
+tsmc65nm/IOA21D0     power hold optimization    
+tsmc65nm/IOA21D1     power hold optimization    
+tsmc65nm/IOA21D2     power hold optimization    
+tsmc65nm/IOA21D4     power hold optimization    
+tsmc65nm/IOA22D0     power hold optimization    
+tsmc65nm/IOA22D1     power hold optimization    
+tsmc65nm/IOA22D2     power hold optimization    
+tsmc65nm/IOA22D4     power hold optimization    
+tsmc65nm/LHCND1      power hold optimization    
+tsmc65nm/LHCND2      power hold optimization    
+tsmc65nm/LHCND4      power hold optimization    
+tsmc65nm/LHCNDD1     power hold optimization    
+tsmc65nm/LHCNDD2     power hold optimization    
+tsmc65nm/LHCNDD4     power hold optimization    
+tsmc65nm/LHCNDQD1    power hold optimization    
+tsmc65nm/LHCNDQD2    power hold optimization    
+tsmc65nm/LHCNDQD4    power hold optimization    
+tsmc65nm/LHCNQD1     power hold optimization    
+tsmc65nm/LHCNQD2     power hold optimization    
+tsmc65nm/LHCNQD4     power hold optimization    
+tsmc65nm/LHCSND1     power hold optimization    
+tsmc65nm/LHCSND2     power hold optimization    
+tsmc65nm/LHCSND4     power hold optimization    
+tsmc65nm/LHCSNDD1    power hold optimization    
+tsmc65nm/LHCSNDD2    power hold optimization    
+tsmc65nm/LHCSNDD4    power hold optimization    
+tsmc65nm/LHCSNDQD1   power hold optimization    
+tsmc65nm/LHCSNDQD2   power hold optimization    
+tsmc65nm/LHCSNDQD4   power hold optimization    
+tsmc65nm/LHCSNQD1    power hold optimization    
+tsmc65nm/LHCSNQD2    power hold optimization    
+tsmc65nm/LHCSNQD4    power hold optimization    
+tsmc65nm/LHD1        power hold optimization    
+tsmc65nm/LHD2        power hold optimization    
+tsmc65nm/LHD4        power hold optimization    
+tsmc65nm/LHQD1       power hold optimization    
+tsmc65nm/LHQD2       power hold optimization    
+tsmc65nm/LHQD4       power hold optimization    
+tsmc65nm/LHSND1      power hold optimization    
+tsmc65nm/LHSND2      power hold optimization    
+tsmc65nm/LHSND4      power hold optimization    
+tsmc65nm/LHSNDD1     power hold optimization    
+tsmc65nm/LHSNDD2     power hold optimization    
+tsmc65nm/LHSNDD4     power hold optimization    
+tsmc65nm/LHSNDQD1    power hold optimization    
+tsmc65nm/LHSNDQD2    power hold optimization    
+tsmc65nm/LHSNDQD4    power hold optimization    
+tsmc65nm/LHSNQD1     power hold optimization    
+tsmc65nm/LHSNQD2     power hold optimization    
+tsmc65nm/LHSNQD4     power hold optimization    
+tsmc65nm/LNCND1      power hold optimization    
+tsmc65nm/LNCND2      power hold optimization    
+tsmc65nm/LNCND4      power hold optimization    
+tsmc65nm/LNCNDD1     power hold optimization    
+tsmc65nm/LNCNDD2     power hold optimization    
+tsmc65nm/LNCNDD4     power hold optimization    
+tsmc65nm/LNCNDQD1    power hold optimization    
+tsmc65nm/LNCNDQD2    power hold optimization    
+tsmc65nm/LNCNDQD4    power hold optimization    
+tsmc65nm/LNCNQD1     power hold optimization    
+tsmc65nm/LNCNQD2     power hold optimization    
+tsmc65nm/LNCNQD4     power hold optimization    
+tsmc65nm/LNCSND1     power hold optimization    
+tsmc65nm/LNCSND2     power hold optimization    
+tsmc65nm/LNCSND4     power hold optimization    
+tsmc65nm/LNCSNDD1    power hold optimization    
+tsmc65nm/LNCSNDD2    power hold optimization    
+tsmc65nm/LNCSNDD4    power hold optimization    
+tsmc65nm/LNCSNDQD1   power hold optimization    
+tsmc65nm/LNCSNDQD2   power hold optimization    
+tsmc65nm/LNCSNDQD4   power hold optimization    
+tsmc65nm/LNCSNQD1    power hold optimization    
+tsmc65nm/LNCSNQD2    power hold optimization    
+tsmc65nm/LNCSNQD4    power hold optimization    
+tsmc65nm/LND1        power hold optimization    
+tsmc65nm/LND2        power hold optimization    
+tsmc65nm/LND4        power hold optimization    
+tsmc65nm/LNQD1       power hold optimization    
+tsmc65nm/LNQD2       power hold optimization    
+tsmc65nm/LNQD4       power hold optimization    
+tsmc65nm/LNSND1      power hold optimization    
+tsmc65nm/LNSND2      power hold optimization    
+tsmc65nm/LNSND4      power hold optimization    
+tsmc65nm/LNSNDD1     power hold optimization    
+tsmc65nm/LNSNDD2     power hold optimization    
+tsmc65nm/LNSNDD4     power hold optimization    
+tsmc65nm/LNSNDQD1    power hold optimization    
+tsmc65nm/LNSNDQD2    power hold optimization    
+tsmc65nm/LNSNDQD4    power hold optimization    
+tsmc65nm/LNSNQD1     power hold optimization    
+tsmc65nm/LNSNQD2     power hold optimization    
+tsmc65nm/LNSNQD4     power hold optimization    
+tsmc65nm/MAOI222D0   power hold optimization    
+tsmc65nm/MAOI222D1   power hold optimization    
+tsmc65nm/MAOI222D2   power hold optimization    
+tsmc65nm/MAOI222D4   power hold optimization    
+tsmc65nm/MAOI22D0    power hold optimization    
+tsmc65nm/MAOI22D1    power hold optimization    
+tsmc65nm/MAOI22D2    power hold optimization    
+tsmc65nm/MAOI22D4    power hold optimization    
+tsmc65nm/MOAI22D0    power hold optimization    
+tsmc65nm/MOAI22D1    power hold optimization    
+tsmc65nm/MOAI22D2    power hold optimization    
+tsmc65nm/MOAI22D4    power hold optimization    
+tsmc65nm/MUX2D0      power hold optimization    
+tsmc65nm/MUX2D1      power hold optimization    
+tsmc65nm/MUX2D2      power hold optimization    
+tsmc65nm/MUX2D4      power hold optimization    
+tsmc65nm/MUX2ND0     power hold optimization    
+tsmc65nm/MUX2ND1     power hold optimization    
+tsmc65nm/MUX2ND2     power hold optimization    
+tsmc65nm/MUX2ND4     power hold optimization    
+tsmc65nm/MUX3D0      power hold optimization    
+tsmc65nm/MUX3D1      power hold optimization    
+tsmc65nm/MUX3D2      power hold optimization    
+tsmc65nm/MUX3D4      power hold optimization    
+tsmc65nm/MUX3ND0     power hold optimization    
+tsmc65nm/MUX3ND1     power hold optimization    
+tsmc65nm/MUX3ND2     power hold optimization    
+tsmc65nm/MUX3ND4     power hold optimization    
+tsmc65nm/MUX4D0      power hold optimization    
+tsmc65nm/MUX4D1      power hold optimization    
+tsmc65nm/MUX4D2      power hold optimization    
+tsmc65nm/MUX4D4      power hold optimization    
+tsmc65nm/MUX4ND0     power hold optimization    
+tsmc65nm/MUX4ND1     power hold optimization    
+tsmc65nm/MUX4ND2     power hold optimization    
+tsmc65nm/MUX4ND4     power hold optimization    
+tsmc65nm/ND2D0       power hold optimization    
+tsmc65nm/ND2D1       power hold optimization    
+tsmc65nm/ND2D2       power hold optimization    
+tsmc65nm/ND2D3       power hold optimization    
+tsmc65nm/ND2D4       power hold optimization    
+tsmc65nm/ND2D8       power hold optimization    
+tsmc65nm/ND3D0       power hold optimization    
+tsmc65nm/ND3D1       power hold optimization    
+tsmc65nm/ND3D2       power hold optimization    
+tsmc65nm/ND3D3       power hold optimization    
+tsmc65nm/ND3D4       power hold optimization    
+tsmc65nm/ND3D8       power hold optimization    
+tsmc65nm/ND4D0       power hold optimization    
+tsmc65nm/ND4D1       power hold optimization    
+tsmc65nm/ND4D2       power hold optimization    
+tsmc65nm/ND4D3       power hold optimization    
+tsmc65nm/ND4D4       power hold optimization    
+tsmc65nm/ND4D8       power hold optimization    
+tsmc65nm/NR2D0       power hold optimization    
+tsmc65nm/NR2D1       power hold optimization    
+tsmc65nm/NR2D2       power hold optimization    
+tsmc65nm/NR2D3       power hold optimization    
+tsmc65nm/NR2D4       power hold optimization    
+tsmc65nm/NR2D8       power hold optimization    
+tsmc65nm/NR2XD0      power hold optimization    
+tsmc65nm/NR2XD1      power hold optimization    
+tsmc65nm/NR2XD2      power hold optimization    
+tsmc65nm/NR2XD3      power hold optimization    
+tsmc65nm/NR2XD4      power hold optimization    
+tsmc65nm/NR2XD8      power hold optimization    
+tsmc65nm/NR3D0       power hold optimization    
+tsmc65nm/NR3D1       power hold optimization    
+tsmc65nm/NR3D2       power hold optimization    
+tsmc65nm/NR3D3       power hold optimization    
+tsmc65nm/NR3D4       power hold optimization    
+tsmc65nm/NR3D8       power hold optimization    
+tsmc65nm/NR4D0       power hold optimization    
+tsmc65nm/NR4D1       power hold optimization    
+tsmc65nm/NR4D2       power hold optimization    
+tsmc65nm/NR4D3       power hold optimization    
+tsmc65nm/NR4D4       power hold optimization    
+tsmc65nm/NR4D8       power hold optimization    
+tsmc65nm/OA211D0     power hold optimization    
+tsmc65nm/OA211D1     power hold optimization    
+tsmc65nm/OA211D2     power hold optimization    
+tsmc65nm/OA211D4     power hold optimization    
+tsmc65nm/OA21D0      power hold optimization    
+tsmc65nm/OA21D1      power hold optimization    
+tsmc65nm/OA21D2      power hold optimization    
+tsmc65nm/OA21D4      power hold optimization    
+tsmc65nm/OA221D0     power hold optimization    
+tsmc65nm/OA221D1     power hold optimization    
+tsmc65nm/OA221D2     power hold optimization    
+tsmc65nm/OA221D4     power hold optimization    
+tsmc65nm/OA222D0     power hold optimization    
+tsmc65nm/OA222D1     power hold optimization    
+tsmc65nm/OA222D2     power hold optimization    
+tsmc65nm/OA222D4     power hold optimization    
+tsmc65nm/OA22D0      power hold optimization    
+tsmc65nm/OA22D1      power hold optimization    
+tsmc65nm/OA22D2      power hold optimization    
+tsmc65nm/OA22D4      power hold optimization    
+tsmc65nm/OA31D0      power hold optimization    
+tsmc65nm/OA31D1      power hold optimization    
+tsmc65nm/OA31D2      power hold optimization    
+tsmc65nm/OA31D4      power hold optimization    
+tsmc65nm/OA32D0      power hold optimization    
+tsmc65nm/OA32D1      power hold optimization    
+tsmc65nm/OA32D2      power hold optimization    
+tsmc65nm/OA32D4      power hold optimization    
+tsmc65nm/OA33D0      power hold optimization    
+tsmc65nm/OA33D1      power hold optimization    
+tsmc65nm/OA33D2      power hold optimization    
+tsmc65nm/OA33D4      power hold optimization    
+tsmc65nm/OAI211D0    power hold optimization    
+tsmc65nm/OAI211D1    power hold optimization    
+tsmc65nm/OAI211D2    power hold optimization    
+tsmc65nm/OAI211D4    power hold optimization    
+tsmc65nm/OAI21D0     power hold optimization    
+tsmc65nm/OAI21D1     power hold optimization    
+tsmc65nm/OAI21D2     power hold optimization    
+tsmc65nm/OAI21D4     power hold optimization    
+tsmc65nm/OAI221D0    power hold optimization    
+tsmc65nm/OAI221D1    power hold optimization    
+tsmc65nm/OAI221D2    power hold optimization    
+tsmc65nm/OAI221D4    power hold optimization    
+tsmc65nm/OAI221XD4   power hold optimization    
+tsmc65nm/OAI222D0    power hold optimization    
+tsmc65nm/OAI222D1    power hold optimization    
+tsmc65nm/OAI222D2    power hold optimization    
+tsmc65nm/OAI222D4    power hold optimization    
+tsmc65nm/OAI222XD4   power hold optimization    
+tsmc65nm/OAI22D0     power hold optimization    
+tsmc65nm/OAI22D1     power hold optimization    
+tsmc65nm/OAI22D2     power hold optimization    
+tsmc65nm/OAI22D4     power hold optimization    
+tsmc65nm/OAI31D0     power hold optimization    
+tsmc65nm/OAI31D1     power hold optimization    
+tsmc65nm/OAI31D2     power hold optimization    
+tsmc65nm/OAI31D4     power hold optimization    
+tsmc65nm/OAI32D0     power hold optimization    
+tsmc65nm/OAI32D1     power hold optimization    
+tsmc65nm/OAI32D2     power hold optimization    
+tsmc65nm/OAI32D4     power hold optimization    
+tsmc65nm/OAI32XD4    power hold optimization    
+tsmc65nm/OAI33D0     power hold optimization    
+tsmc65nm/OAI33D1     power hold optimization    
+tsmc65nm/OAI33D2     power hold optimization    
+tsmc65nm/OAI33D4     power hold optimization    
+tsmc65nm/OAI33XD4    power hold optimization    
+tsmc65nm/OD18DCAP16  power hold optimization    
+tsmc65nm/OD18DCAP32  power hold optimization    
+tsmc65nm/OD18DCAP64  power hold optimization    
+tsmc65nm/OR2D0       power hold optimization    
+tsmc65nm/OR2D1       power hold optimization    
+tsmc65nm/OR2D2       power hold optimization    
+tsmc65nm/OR2D4       power hold optimization    
+tsmc65nm/OR2D8       power hold optimization    
+tsmc65nm/OR2XD1      power hold optimization    
+tsmc65nm/OR3D0       power hold optimization    
+tsmc65nm/OR3D1       power hold optimization    
+tsmc65nm/OR3D2       power hold optimization    
+tsmc65nm/OR3D4       power hold optimization    
+tsmc65nm/OR3D8       power hold optimization    
+tsmc65nm/OR3XD1      power hold optimization    
+tsmc65nm/OR4D0       power hold optimization    
+tsmc65nm/OR4D1       power hold optimization    
+tsmc65nm/OR4D2       power hold optimization    
+tsmc65nm/OR4D4       power hold optimization    
+tsmc65nm/OR4D8       power hold optimization    
+tsmc65nm/OR4XD1      power hold optimization    
+tsmc65nm/SDFCND0     power hold optimization    
+tsmc65nm/SDFCND1     power hold optimization    
+tsmc65nm/SDFCND2     power hold optimization    
+tsmc65nm/SDFCND4     power hold optimization    
+tsmc65nm/SDFCNQD0    power hold optimization    
+tsmc65nm/SDFCNQD1    power hold optimization    
+tsmc65nm/SDFCNQD2    power hold optimization    
+tsmc65nm/SDFCNQD4    power hold optimization    
+tsmc65nm/SDFCSND0    power hold optimization    
+tsmc65nm/SDFCSND1    power hold optimization    
+tsmc65nm/SDFCSND2    power hold optimization    
+tsmc65nm/SDFCSND4    power hold optimization    
+tsmc65nm/SDFCSNQD0   power hold optimization    
+tsmc65nm/SDFCSNQD1   power hold optimization    
+tsmc65nm/SDFCSNQD2   power hold optimization    
+tsmc65nm/SDFCSNQD4   power hold optimization    
+tsmc65nm/SDFD0       power hold cts optimization
+tsmc65nm/SDFD1       power hold cts optimization
+tsmc65nm/SDFD2       power hold cts optimization
+tsmc65nm/SDFD4       power hold cts optimization
+tsmc65nm/SDFKCND0    power hold optimization    
+tsmc65nm/SDFKCND1    power hold optimization    
+tsmc65nm/SDFKCND2    power hold optimization    
+tsmc65nm/SDFKCND4    power hold optimization    
+tsmc65nm/SDFKCNQD0   power hold optimization    
+tsmc65nm/SDFKCNQD1   power hold optimization    
+tsmc65nm/SDFKCNQD2   power hold optimization    
+tsmc65nm/SDFKCNQD4   power hold optimization    
+tsmc65nm/SDFKCSND0   power hold optimization    
+tsmc65nm/SDFKCSND1   power hold optimization    
+tsmc65nm/SDFKCSND2   power hold optimization    
+tsmc65nm/SDFKCSND4   power hold optimization    
+tsmc65nm/SDFKCSNQD0  power hold optimization    
+tsmc65nm/SDFKCSNQD1  power hold optimization    
+tsmc65nm/SDFKCSNQD2  power hold optimization    
+tsmc65nm/SDFKCSNQD4  power hold optimization    
+tsmc65nm/SDFKSND0    power hold optimization    
+tsmc65nm/SDFKSND1    power hold optimization    
+tsmc65nm/SDFKSND2    power hold optimization    
+tsmc65nm/SDFKSND4    power hold optimization    
+tsmc65nm/SDFKSNQD0   power hold optimization    
+tsmc65nm/SDFKSNQD1   power hold optimization    
+tsmc65nm/SDFKSNQD2   power hold optimization    
+tsmc65nm/SDFKSNQD4   power hold optimization    
+tsmc65nm/SDFNCND0    power hold optimization    
+tsmc65nm/SDFNCND1    power hold optimization    
+tsmc65nm/SDFNCND2    power hold optimization    
+tsmc65nm/SDFNCND4    power hold optimization    
+tsmc65nm/SDFNCSND0   power hold optimization    
+tsmc65nm/SDFNCSND1   power hold optimization    
+tsmc65nm/SDFNCSND2   power hold optimization    
+tsmc65nm/SDFNCSND4   power hold optimization    
+tsmc65nm/SDFND0      power hold optimization    
+tsmc65nm/SDFND1      power hold optimization    
+tsmc65nm/SDFND2      power hold optimization    
+tsmc65nm/SDFND4      power hold optimization    
+tsmc65nm/SDFNSND0    power hold optimization    
+tsmc65nm/SDFNSND1    power hold optimization    
+tsmc65nm/SDFNSND2    power hold optimization    
+tsmc65nm/SDFNSND4    power hold optimization    
+tsmc65nm/SDFQD0      power hold optimization    
+tsmc65nm/SDFQD1      power hold optimization    
+tsmc65nm/SDFQD2      power hold optimization    
+tsmc65nm/SDFQD4      power hold optimization    
+tsmc65nm/SDFQND0     power hold optimization    
+tsmc65nm/SDFQND1     power hold optimization    
+tsmc65nm/SDFQND2     power hold optimization    
+tsmc65nm/SDFQND4     power hold optimization    
+tsmc65nm/SDFSND0     power hold optimization    
+tsmc65nm/SDFSND1     power hold optimization    
+tsmc65nm/SDFSND2     power hold optimization    
+tsmc65nm/SDFSND4     power hold optimization    
+tsmc65nm/SDFSNQD0    power hold optimization    
+tsmc65nm/SDFSNQD1    power hold optimization    
+tsmc65nm/SDFSNQD2    power hold optimization    
+tsmc65nm/SDFSNQD4    power hold optimization    
+tsmc65nm/SDFXD0      power hold optimization    
+tsmc65nm/SDFXD1      power hold optimization    
+tsmc65nm/SDFXD2      power hold optimization    
+tsmc65nm/SDFXD4      power hold optimization    
+tsmc65nm/SDFXQD0     power hold optimization    
+tsmc65nm/SDFXQD1     power hold optimization    
+tsmc65nm/SDFXQD2     power hold optimization    
+tsmc65nm/SDFXQD4     power hold optimization    
+tsmc65nm/SEDFCND0    power hold optimization    
+tsmc65nm/SEDFCND1    power hold optimization    
+tsmc65nm/SEDFCND2    power hold optimization    
+tsmc65nm/SEDFCND4    power hold optimization    
+tsmc65nm/SEDFCNQD0   power hold optimization    
+tsmc65nm/SEDFCNQD1   power hold optimization    
+tsmc65nm/SEDFCNQD2   power hold optimization    
+tsmc65nm/SEDFCNQD4   power hold optimization    
+tsmc65nm/SEDFD0      power hold optimization    
+tsmc65nm/SEDFD1      power hold optimization    
+tsmc65nm/SEDFD2      power hold optimization    
+tsmc65nm/SEDFD4      power hold optimization    
+tsmc65nm/SEDFKCND0   power hold optimization    
+tsmc65nm/SEDFKCND1   power hold optimization    
+tsmc65nm/SEDFKCND2   power hold optimization    
+tsmc65nm/SEDFKCND4   power hold optimization    
+tsmc65nm/SEDFKCNQD0  power hold optimization    
+tsmc65nm/SEDFKCNQD1  power hold optimization    
+tsmc65nm/SEDFKCNQD2  power hold optimization    
+tsmc65nm/SEDFKCNQD4  power hold optimization    
+tsmc65nm/SEDFQD0     power hold optimization    
+tsmc65nm/SEDFQD1     power hold optimization    
+tsmc65nm/SEDFQD2     power hold optimization    
+tsmc65nm/SEDFQD4     power hold optimization    
+tsmc65nm/SEDFQND0    power hold optimization    
+tsmc65nm/SEDFQND1    power hold optimization    
+tsmc65nm/SEDFQND2    power hold optimization    
+tsmc65nm/SEDFQND4    power hold optimization    
+tsmc65nm/SEDFQNXD0   power hold optimization    
+tsmc65nm/SEDFQNXD1   power hold optimization    
+tsmc65nm/SEDFQNXD2   power hold optimization    
+tsmc65nm/SEDFQNXD4   power hold optimization    
+tsmc65nm/SEDFQXD0    power hold optimization    
+tsmc65nm/SEDFQXD1    power hold optimization    
+tsmc65nm/SEDFQXD2    power hold optimization    
+tsmc65nm/SEDFQXD4    power hold optimization    
+tsmc65nm/SEDFXD0     power hold optimization    
+tsmc65nm/SEDFXD1     power hold optimization    
+tsmc65nm/SEDFXD2     power hold optimization    
+tsmc65nm/SEDFXD4     power hold optimization    
+tsmc65nm/TIEH        power hold optimization    
+tsmc65nm/TIEL        power hold optimization    
+tsmc65nm/XNR2D0      power hold optimization    
+tsmc65nm/XNR2D1      power hold optimization    
+tsmc65nm/XNR2D2      power hold optimization    
+tsmc65nm/XNR2D4      power hold optimization    
+tsmc65nm/XNR3D0      power hold optimization    
+tsmc65nm/XNR3D1      power hold optimization    
+tsmc65nm/XNR3D2      power hold optimization    
+tsmc65nm/XNR3D4      power hold optimization    
+tsmc65nm/XNR4D0      power hold optimization    
+tsmc65nm/XNR4D1      power hold optimization    
+tsmc65nm/XNR4D2      power hold optimization    
+tsmc65nm/XNR4D4      power hold optimization    
+tsmc65nm/XOR2D0      power hold optimization    
+tsmc65nm/XOR2D1      power hold optimization    
+tsmc65nm/XOR2D2      power hold optimization    
+tsmc65nm/XOR2D4      power hold optimization    
+tsmc65nm/XOR3D0      power hold optimization    
+tsmc65nm/XOR3D1      power hold optimization    
+tsmc65nm/XOR3D2      power hold optimization    
+tsmc65nm/XOR3D4      power hold optimization    
+tsmc65nm/XOR4D0      power hold optimization    
+tsmc65nm/XOR4D1      power hold optimization    
+tsmc65nm/XOR4D2      power hold optimization    
+tsmc65nm/XOR4D4      power hold optimization    
+1

@@ -1,0 +1,17 @@
+[
+  ["ViaName", "Count"],
+  ["Via VIA45", "14"], 
+  ["Via VIA34", "380"], 
+  ["Via VIA34(rot)", "3"], 
+  ["Via VIA23", "3364"], 
+  ["Via VIA23(rot)", "3"], 
+  ["Via VIA12", "992"], 
+  ["Via VIA12(rot)", "267"], 
+  ["Via VIA12_VH", "2002"], 
+  ["Via VIA12_VH(rot)", "6"], 
+  ["Via VIA12_OPTI_SQ", "5"], 
+  ["Via VIA12_2x1", "39"], 
+  ["Via VIA12(rot)_2x1", "1"], 
+  ["Via VIA12_1x2", "3"], 
+  ["Total", "7079"]
+]

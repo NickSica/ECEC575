@@ -1,0 +1,94 @@
+Information: The value of option cts.compile.enable_cell_relocation has been overridden to "leaf_only" to support latency-driven placement. (CTS-973)
+Information: Timer using 1 threads
+Information: Activity for scenario default.ss_m40c was cached, no propagation required. (POW-005)
+Warning: time.si_enable_analysis is on, it could increase the runtime and memory usage. 
+****************************************
+Report : report clock qor
+        -type area
+        -nosplit
+Design : FIFO
+Version: U-2022.12-SP1
+Date   : Mon Feb 13 16:57:49 2023
+****************************************
+
+
+==========================
+==== Area (per clock) ====
+==========================
+
+Clock                                 Sinks          Clock          Clock          Clock          Clock          Sinks           Sink
+                                 (balanced)     Cell Count        Stdcell       Repeater       Repeater     (physical)        Stdcell          Macro
+                                                (non sink)           Area          Count           Area                          Area           Area
+------------------------------------------------------------------------------------------------------------------------------------------------------
+ideal_clock1                            229              5         25.560              5         25.560            229       1693.800          0.000
+------------------------------------------------------------------------------------------------------------------------------------------------------
+Total                                   229              5         25.560              5         25.560            229       1693.800          0.000
+
+Type                               Instance           Unit          Total           Cell             Vt             Vt
+                                      Count           Area           Area           Type          Group           Type
+
+
+=================================
+==== Area (per library cell) ====
+=================================
+
+===== Summary =====
+Type                               Instance           Unit          Total           Cell             Vt             Vt
+                                      Count           Area           Area           Type          Group           Type
+------------------------------------------------------------------------------------------------------------------------
+Clock Repeaters                           5              -         25.560              -              -              -
+Other Network Cells                       0              -          0.000              -              -              -
+Standard Cell Sinks                     229              -       1693.800              -              -              -
+Macro Cells                               0              -          0.000              -              -              -
+
+===== Clock Repeaters =====
+Type                               Instance           Unit          Total           Cell             Vt             Vt
+                                      Count           Area           Area           Type          Group           Type
+------------------------------------------------------------------------------------------------------------------------
+BUFFD4                                    1          3.240          3.240         Buffer              -              -
+BUFFD6                                    2          4.320          8.640         Buffer              -              -
+BUFFD8                                    1          5.760          5.760         Buffer              -              -
+BUFFD12                                   1          7.920          7.920         Buffer              -              -
+------------------------------------------------------------------------------------------------------------------------
+Total                                     5              -         25.560              -              -              -
+
+===== Other Network Cells =====
+Type                               Instance           Unit          Total           Cell             Vt             Vt
+                                      Count           Area           Area           Type          Group           Type
+------------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------
+Total                                     0              -          0.000              -              -              -
+
+===== Standard Cell Sinks =====
+Type                               Instance           Unit          Total           Cell             Vt             Vt
+                                      Count           Area           Area           Type          Group           Type
+------------------------------------------------------------------------------------------------------------------------
+DFCND4                                    1         11.880         11.880           Flop              -              -
+DFCNQD1                                  96          7.920        760.320           Flop              -              -
+DFQD1                                   128          6.840        875.520           Flop              -              -
+DFSND4                                    4         11.520         46.080           Flop              -              -
+------------------------------------------------------------------------------------------------------------------------
+Total                                   229              -       1693.800              -              -              -
+
+===== Macro Cells =====
+Type                               Instance           Unit          Total           Cell             Vt             Vt
+                                      Count           Area           Area           Type          Group           Type
+------------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------
+Total                                     0              -          0.000              -              -              -
+
+
+
+==============================
+==== Area (per hierarchy) ====
+==============================
+
+Hierarchy                             Sinks          Clock          Clock          Clock          Clock          Sinks           Sink
+                                 (balanced)     Cell Count        Stdcell       Repeater       Repeater     (physical)        Stdcell          Macro
+                                                (non sink)           Area          Count           Area                          Area           Area
+------------------------------------------------------------------------------------------------------------------------------------------------------
+FIFO                                    229              5         25.560              5         25.560            229       1693.800          0.000
+------------------------------------------------------------------------------------------------------------------------------------------------------
+Total                                   229              5         25.560              5         25.560            229       1693.800          0.000
+
+1
